@@ -38,8 +38,13 @@ var server = http.createServer(function (req, res) {
         var hashedPassword = crypto.createHash('sha256').update(params[1].split('=')[1] + passwordSalt).digest()
         dbConnection.collection('users').findOne({ userName: username, password: hashedPassword }, function (err, doc) {
           if (doc) {
-            res.write('user logged in!')
-            res.end()
+            // res.write('user logged in!')
+            // res.end()
+            fs.readFile('dashboard.html', function (err, data) {
+              res.writeHead(200, { 'Content-Type': 'text/html' });
+              res.write(data)
+              res.end()
+            })
           } else {
             res.write('wrong credentials!')
             res.end()
@@ -62,7 +67,7 @@ var server = http.createServer(function (req, res) {
             res.end()
           } else {
             var hashedPassword = crypto.createHash('sha256').update(params[1].split('=')[1] + passwordSalt).digest()
-            dbConnection.collection('users').insert({ userName: username, password:  hashedPassword})
+            dbConnection.collection('users').insert({ userName: username, password: hashedPassword })
             res.write('Registered Successfully!')
             res.end()
           }
@@ -85,6 +90,6 @@ var server = http.createServer(function (req, res) {
 
 })
 
-server.listen(8085, () => {
+server.listen(80, () => {
   console.log('listening on port 8885')
 })

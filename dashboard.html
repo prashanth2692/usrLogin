@@ -1,0 +1,29 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+  <div id="app"></div>
+
+</body>
+<script type="x-template" id="mainbody">
+      <div>{{hello}}</div>
+      <input type="text" placeholder="enter a task">
+      <button>Add to list</button>
+  </script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+  new Vue('app', {
+    el: '#app',
+    template: '#mainbody',
+    data: function () {
+      return {
+        hello: 'hello'
+      }
+    }
+  })
+</script>
+
+</html>
