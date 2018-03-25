@@ -11,6 +11,10 @@ var url = "mongodb://localhost:27017/"
 var dbConnection = null
 var passwordSalt = 'kjfbgjkhsfbg'
 
+function getHasedPassword(pass) {
+  return crypto.createHash('sha256').update(pass).digest()
+}
+
 MongoClient.connect(url, function (err, db) {
   if (err) throw err;
 
@@ -35,7 +39,7 @@ var server = http.createServer(function (req, res) {
         console.log(chunk.toString());
         var params = chunk.toString().split('&')
         var username = params[0].split('=')[1]
-        var hashedPassword = crypto.createHash('sha256').update(params[1].split('=')[1] + passwordSalt).digest()
+        var hashedPassword = getHasedPassword(params[1].split('=')[1] + passwordSalt)
         dbConnection.collection('users').findOne({ userName: username, password: hashedPassword }, function (err, doc) {
           if (doc) {
             // res.write('user logged in!')
@@ -66,7 +70,7 @@ var server = http.createServer(function (req, res) {
             res.write('user already exists!')
             res.end()
           } else {
-            var hashedPassword = crypto.createHash('sha256').update(params[1].split('=')[1] + passwordSalt).digest()
+            var hashedPassword = getHasedPassword(params[1].split('=')[1] + passwordSalt)
             dbConnection.collection('users').insert({ userName: username, password: hashedPassword })
             res.write('Registered Successfully!')
             res.end()
@@ -90,6 +94,8 @@ var server = http.createServer(function (req, res) {
 
 })
 
-server.listen(80, () => {
-  console.log('listening on port 8885')
+var port = 8085
+
+server.listen(port, () => {
+  console.log('listening on port ', port)
 })
