@@ -1,101 +1,138 @@
-var http = require('http')
-var fs = require('fs');
-var MongoClient = require('mongodb').MongoClient;
+const express = require('express')
+const bodyParser = require('body-parser')
+var dbConnection = require('./dbConnection').dbConnection
+// var http = require('http')
+// var fs = require('fs');
 var crypto = require('crypto')
+// var routes = require('./routes').routes
+var path = require('path')
+var logger = require('morgan') // for loggind
 
 // var hash = crypto.createHash('sha256')
 
-
-// var url = "mongodb://localhost:27017/userLogin"; -> this will create userLogin DB if it doesn't exist
-var url = "mongodb://localhost:27017/"
-var dbConnection = null
+const app = express()
+const router = express.Router()
 var passwordSalt = 'kjfbgjkhsfbg'
+
+const staticMidlleware = express.static(path.join(__dirname, 'www'), {
+  extensions: ['html'] // is required to serve files which are requested without extension
+})
+
+
+app.use(staticMidlleware)
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+
+// router.use(logger());
+router.use(function (req, res, next) {
+  console.log(req.url)
+  next()
+})
 
 function getHasedPassword(pass) {
   return crypto.createHash('sha256').update(pass).digest()
 }
 
-MongoClient.connect(url, function (err, db) {
-  if (err) throw err;
+router.get('/LoginUser', function (req, res) {
+  // if (req.method == 'POST') {
+  console.log("Received body data:");
 
-  var dbo = db.db("mydb");
-  dbConnection = dbo
-  console.log("Database created!");
-  // db.close();
-});
-
-var server = http.createServer(function (req, res) {
-  if (req.url.indexOf('login') != -1) {
-    fs.readFile('index.html', function (err, data) {
-      res.writeHead(200, { 'Content-Type': 'text/html' });
-      res.write(data)
-      res.end()
+  req.on('data', function (chunk) {
+    console.log("Received body data:");
+    console.log(chunk.toString());
+    var params = chunk.toString().split('&')
+    var username = params[0].split('=')[1]
+    var hashedPassword = getHasedPassword(params[1].split('=')[1] + passwordSalt)
+    dbConnection().collection('users').findOne({ userName: username, password: hashedPassword }, function (err, doc) {
+      if (doc) {
+        res.redirect('/dashboard')
+      } else {
+        res.write('wrong credentials!')
+        res.end()
+      }
     })
-  } else if (req.url.indexOf('LoginUser') != -1) {
-    console.log('user login')
-    if (req.method == 'POST') {
-      req.on('data', function (chunk) {
-        console.log("Received body data:");
-        console.log(chunk.toString());
-        var params = chunk.toString().split('&')
-        var username = params[0].split('=')[1]
-        var hashedPassword = getHasedPassword(params[1].split('=')[1] + passwordSalt)
-        dbConnection.collection('users').findOne({ userName: username, password: hashedPassword }, function (err, doc) {
-          if (doc) {
-            // res.write('user logged in!')
-            // res.end()
-            fs.readFile('dashboard.html', function (err, data) {
-              res.writeHead(200, { 'Content-Type': 'text/html' });
-              res.write(data)
-              res.end()
-            })
-          } else {
-            res.write('wrong credentials!')
-            res.end()
-          }
-        })
 
-      });
-    }
-  } else if (req.url.indexOf('RegisterUser') != -1) {
-    console.log('user login')
-    if (req.method == 'POST') {
-      req.on('data', function (chunk) {
-        console.log("Received body data:");
-        console.log(chunk.toString());
-        var params = chunk.toString().split('&')
-        var username = params[0].split('=')[1]
-        dbConnection.collection('users').findOne({ userName: username }, function (err, doc) {
-          if (doc) {
-            res.write('user already exists!')
-            res.end()
-          } else {
-            var hashedPassword = getHasedPassword(params[1].split('=')[1] + passwordSalt)
-            dbConnection.collection('users').insert({ userName: username, password: hashedPassword })
+  });
+  // }
+})
+
+router.post('/RegisterUser', function (req, res) {
+  if (req.method == 'POST') {
+    req.on('data', function (chunk) {
+      console.log("Received body data:");
+      console.log(chunk.toString());
+      var params = chunk.toString().split('&')
+      var username = params[0].split('=')[1]
+      dbConnection().collection('users').findOne({ userName: username }, function (err, doc) {
+        if (doc) {
+          res.write('user already exists!')
+          res.end()
+        } else {
+          var hashedPassword = getHasedPassword(params[1].split('=')[1] + passwordSalt)
+          dbConnection().collection('users').insert({ userName: username, password: hashedPassword }, function (err, doc) {
             res.write('Registered Successfully!')
             res.end()
-          }
-        })
+          })
+        }
+      })
+    });
+  }
+})
 
-      });
-    }
-  } else if (req.url.indexOf('register')) {
-    fs.readFile('register.html', function (err, data) {
-      res.writeHead(200, { 'Content-Type': 'text/html' });
-      res.write(data)
-      res.end()
+router.post('/addItem', function (req, res) {
+  // req.on('data', function (chunk) {
+  var chunk = req.body.item
+  if (chunk) {
+    dbConnection().collection('items').findOne(function (err, doc) {
+      if (err) res.status(500).send(false)
+
+      if (doc) {
+        // doc.items.push(chunk.toString())
+        dbConnection().collection('items').update({}, { $push: { items: chunk } })
+      }
+      else {
+        dbConnection().collection('items').insert({ items: [chunk] })
+      }
+
+      res.status(200).send(true)
     })
   }
-  else {
-    res.writeHead(200, { 'Content-Type': 'text/html' });
-    res.write(req.url);
-    res.end();
-  }
 
+  // })
+
+  //node way of doing it
+  // res.write('true')
+  // res.end()
+
+  // express way
+})
+
+router.get('/getItems', function (req, res) {
+  dbConnection().collection('items').findOne(function (err, doc) {
+    // if (doc) {
+    //   // doc.items.push(chunk.toString())
+    //   dbConnection().collection('items').update({}, {$push: {items: chunk.toString()}})
+    // }
+    // else {
+    //   dbConnection().collection('items').insert({ items: [chunk.toString()] })
+    // }
+    // res.writeHead(200, { 'Content-Type': 'application/json' });
+
+    //node way of doing it
+    // res.write(JSON.stringify({ response: (doc ? doc : { items: [] }) }))
+    // res.end()
+
+    //express way
+    // res.set('Content-Type', 'application/json');
+    res.status(200).json({ response: (doc ? doc : { items: [] }) })
+  })
 })
 
 var port = 8085
 
-server.listen(port, () => {
+app.use(router)
+app.listen(port, () => {
   console.log('listening on port ', port)
 })

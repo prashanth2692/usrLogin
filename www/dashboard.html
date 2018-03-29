@@ -1,0 +1,47 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+</head>
+
+<body>
+  <div id="app">
+    <router-link to="/dashboard">Dashboard</router-link>
+    <router-link to="/fuelRefill">Fuel Refill</router-link>
+    <router-view></router-view>
+
+    <script type="text/x-template" id="dashboard">
+     <div>
+        <form class="form-inline" onsubmit="return false">
+            <input type="text" class="form-control" placeholder="enter a task" v-model="newItem">
+            <button @click="addItem(newItem)" class="btn btn-primary">Add to list</button>
+          </form>
+    
+          <ul class="list-group">
+            <li class="list-group-item" v-for="item in items">{{item}}</li>
+          </ul>
+     </div>
+    </script>
+
+    <script type="text/x-template" id="fuelRefill">
+      <div>
+          <label for="totalAmount">Total amount</label>
+          <input id="totalAmount" type="text" v-model="totalAmount">
+    
+          <label for="kmReading">Odometer reading</label>
+          <input type="text" id="kmReading" v-model="odometerReading">
+    
+          <button @click="saveReading">Save</button>
+      </div>
+    </script>
+  </div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="./dashboard.js"></script>
+
+</html>
