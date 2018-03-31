@@ -4,59 +4,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/styles.css">
 </head>
 
 <body>
   <div id="app">
-
-    <router-link to="/dashboard">Dashboard</router-link>
-    <router-link to="/fuelRefill">Fuel Refill</router-link>
-    <router-view></router-view>
-
-    <script type="text/x-template" id="dashboard">
-     <div>
-        <input type="file" id="fileUpload" class="form-control">
-        <button class="btn btn-primary" @click="uploadFile()">Upload</button>
-        <br />
-        <form class="form-inline" onsubmit="return false">
-            <input type="text" class="form-control" placeholder="enter a task" v-model="newItem">
-            <button @click="addItem(newItem)" class="btn btn-primary">Add to list</button>
-          </form>
-    
-          <ul class="list-group">
-            <li class="list-group-item" v-for="item in items">{{item}}</li>
-          </ul>
-     </div>
-    </script>
-
-    <!-- <script type="text/x-template" id="fuelRefill">
-        <div>
-          <label for="totalAmount">Total amount</label>
-          <input id="totalAmount" type="number" v-model="totalAmount">
-    
-          <label for="kmReading">Odometer reading</label>
-          <input type="number" id="kmReading" v-model="odometerReading">
-    
-          <button @click="saveReading">Save</button>
-      </div>
-    </script> -->
-
-    <template id="fuelRefill" v-if="false">
-      <div>
-        <label for="totalAmount">Total amount</label>
-        <input id="totalAmount" type="number" v-model="totalAmount">
-        <br>
-
-        <label for="kmReading">Odometer reading</label>
-        <input type="number" id="kmReading" v-model="odometerReading">
-        <br>
-
-        <input type="file" ref="billReceipt">
-
-        <button @click="saveReading">Save Reading</button>
-      </div>
-    </template>
+    <app-header></app-header>
+    <div id="appBody">
+      <router-view></router-view>
+    </div>
   </div>
+  <template id="fuelRefill" style="display:none">
+    <div>
+      <label for="totalAmount">Total amount</label>
+      <input id="totalAmount" type="number" v-model="totalAmount">
+      <br>
+
+      <label for="kmReading">Odometer reading</label>
+      <input type="number" id="kmReading" v-model="odometerReading">
+      <br>
+
+      <input type="file" ref="billReceipt">
+
+      <button @click="saveReading">Save Reading</button>
+    </div>
+  </template>
+
+  <template id="appHeader" style="display:none">
+    <div id="appHeader">
+      <ul class="nav">
+        <li class="nav-item">
+          <router-link to="/dashboard" class="nav-link">Dashboard</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/fuelRefill" class="nav-link">Fuel Refill</router-link>
+        </li>
+      </ul>
+    </div>
+
+  </template>
+  <template id="dashboard" style="display:none">
+    <div>
+      <!-- <input type="file" id="fileUpload" class="form-control">
+       <button class="btn btn-primary" @click="uploadFile()">Upload</button> -->
+      <form class="form-inline" onsubmit="return false">
+        <input type="text" class="form-control" placeholder="enter a task" v-model="newItem">
+        <button @click="addItem(newItem)" class="btn btn-primary">Add to list</button>
+      </form>
+
+      <ul class="list-group">
+        <li class="list-group-item" v-for="item in items">{{item}}</li>
+      </ul>
+    </div>
+  </template>
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>

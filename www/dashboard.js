@@ -89,6 +89,15 @@ const router = new VueRouter({
   routes // short for `routes: routes`
 })
 
+Vue.component('app-header', {
+  template: '#appHeader', //'<div id="app-header">{{header}}</div>',
+  data: function () {
+    return {
+      header: 'Header'
+    }
+  }
+})
+
 const app = new Vue({
   router
 }).$mount('#app')
