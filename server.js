@@ -146,16 +146,17 @@ router.post('/fuelRefilling', function (req, res) {
     var oldpath = files.file.path;
     var newpath = path.join(__dirname, 'uploads', files.file.name)  //'C:/Users/Your Name/' + files.filetoupload.name;
 
-    fs.rename(oldpath, newpath, function (err) {
-      if (err) throw err;
-      res.send('files uploaded')
+    fields.file = files.file.name
+    var newFuelRefill = new fuelRefeillingModel(fields)
 
-      // res.write('File uploaded and moved!');
-      // res.end();
-    });
-    // console.log(files)
-    // res.write('File uploaded');
-    // res.end();
+    newFuelRefill.save(function (err, fuelRefill) {
+      if (err) return console.error(err)
+
+      fs.rename(oldpath, newpath, function (err) {
+        if (err) throw err;
+        res.send('files uploaded')
+      });
+    })
   });
 })
 
@@ -168,24 +169,10 @@ router.post('/fileUpload', function (req, res) {
   form.parse(req, function (err, fields, files) {
     var oldpath = files.file.path;
     var newpath = path.join(__dirname, 'uploads', files.file.name)  //'C:/Users/Your Name/' + files.filetoupload.name;
-    fields.file = files.file.name
-    var newFuelRefill = new fuelRefeillingModel(fields)
-
-    newFuelRefill.save(function (err, fuelRefill) {
-      if (err) return console.error(err)
-
-      fs.rename(oldpath, newpath, function (err) {
-        if (err) throw err;
-        res.send('files uploaded')
-
-        // res.write('File uploaded and moved!');
-        // res.end();
-      });
-    })
-
-    // console.log(files)
-    // res.write('File uploaded');
-    // res.end();
+    fs.rename(oldpath, newpath, function (err) {
+      if (err) throw err;
+      res.send('files uploaded')
+    });
   });
 })
 
