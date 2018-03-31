@@ -15,7 +15,7 @@ var mongoose = require('mongoose')
 
 mongoose.connect("mongodb://localhost:27017/mydb")
 var fuelRefillingSchema = require('./schema/fuelRefill')
-var fuelRefeillingModel = mongoose.model('fuelRefilling', fuelRefillingSchema)
+var fuelRefeillingModel = mongoose.model('fuelRefilling', fuelRefillingSchema, 'fuelRefilling')
 
 
 // var hash = crypto.createHash('sha256')
