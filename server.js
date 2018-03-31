@@ -1,12 +1,22 @@
+var fs = require('fs')
 const express = require('express')
 const bodyParser = require('body-parser')
 var dbConnection = require('./dbConnection').dbConnection
+// var upload_files = require('./file_upload')
+var formidable = require('formidable');
 // var http = require('http')
 // var fs = require('fs');
 var crypto = require('crypto')
 // var routes = require('./routes').routes
 var path = require('path')
 var logger = require('morgan') // for loggind
+
+var mongoose = require('mongoose')
+
+mongoose.connect("mongodb://localhost:27017/")
+var fuelRefillingSchema = require('./schema/fuelRefill')
+var fuelRefeillingModel = mongoose.model('fuelRefilling', fuelRefillingSchema)
+
 
 // var hash = crypto.createHash('sha256')
 
@@ -128,6 +138,55 @@ router.get('/getItems', function (req, res) {
     // res.set('Content-Type', 'application/json');
     res.status(200).json({ response: (doc ? doc : { items: [] }) })
   })
+})
+
+router.post('/fuelRefilling', function (req, res) {
+  var form = new formidable.IncomingForm();
+  form.parse(req, function (err, fields, files) {
+    var oldpath = files.file.path;
+    var newpath = path.join(__dirname, 'uploads', files.file.name)  //'C:/Users/Your Name/' + files.filetoupload.name;
+
+    fs.rename(oldpath, newpath, function (err) {
+      if (err) throw err;
+      res.send('files uploaded')
+
+      // res.write('File uploaded and moved!');
+      // res.end();
+    });
+    // console.log(files)
+    // res.write('File uploaded');
+    // res.end();
+  });
+})
+
+router.post('/fileUpload', function (req, res) {
+  console.log(req.files)
+  // upload_files()
+  // res.send('received file!')
+
+  var form = new formidable.IncomingForm();
+  form.parse(req, function (err, fields, files) {
+    var oldpath = files.file.path;
+    var newpath = path.join(__dirname, 'uploads', files.file.name)  //'C:/Users/Your Name/' + files.filetoupload.name;
+    fields.file = files.file.name
+    var newFuelRefill = new fuelRefeillingModel(fields)
+
+    newFuelRefill.save(function (err, fuelRefill) {
+      if (err) return console.error(err)
+
+      fs.rename(oldpath, newpath, function (err) {
+        if (err) throw err;
+        res.send('files uploaded')
+
+        // res.write('File uploaded and moved!');
+        // res.end();
+      });
+    })
+
+    // console.log(files)
+    // res.write('File uploaded');
+    // res.end();
+  });
 })
 
 var port = 8085

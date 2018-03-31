@@ -8,8 +8,17 @@ const fuelRefillComponent = {
   },
   methods: {
     saveReading: function () {
-      const date = new Date()
-      axios.post('/fuelRefilling', { totalAmount: this.totalAmount, odometerReading: odometerReading, dateTIme: date.toString() }).then(function (resp) {
+      var form_data = new FormData()
+      form_data.append('totalAmount', this.totalAmount)
+      form_data.append('odometerReading', this.odometerReading)
+      form_data.append('file', this.$refs.billReceipt.files[0])
+      form_data.append('dateTIme', (new Date()).toString())
+
+      axios.post('/fuelRefilling', form_data, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      }).then(function (resp) {
         console.log(resp)
       }).catch(function (err) {
         console.log(err)
@@ -39,6 +48,20 @@ const dashboardComponent = {
           console.log(err)
         })
       return false
+    },
+    uploadFile: function () {
+      var file = document.getElementById('fileUpload').files[0]
+      var form_data = new FormData()
+      form_data.append('file', file)
+      axios.post('/fileUpload', form_data, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      }).then(function (success) {
+        console.log(success.data)
+      }).catch(function (err) {
+        console.log(err)
+      })
     }
   },
   created: function () {
