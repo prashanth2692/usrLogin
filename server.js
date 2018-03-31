@@ -14,8 +14,24 @@ var logger = require('morgan') // for loggind
 var mongoose = require('mongoose')
 
 mongoose.connect("mongodb://localhost:27017/mydb")
-var fuelRefillingSchema = require('./schema/fuelRefill')
-var fuelRefeillingModel = mongoose.model('fuelRefilling', fuelRefillingSchema, 'fuelRefilling')
+
+var mongooseDB = mongoose.connection
+
+mongooseDB.on('open', function (err) {
+  if (err) throw err
+
+  console.log('mongoose connection successfull !')
+})
+// var fuelRefillingSchema = require('./schema/fuelRefill')
+// fuelRefillingSchema = new mongoose.Schema({
+//   totalAmount: String,
+//   odometerReading: String,
+//   file: String,
+//   dateTime: Date
+// })
+
+require('./schema/fuelRefill')
+fuelRefeillingModel = mongoose.model('fuelRefilling')
 
 
 // var hash = crypto.createHash('sha256')

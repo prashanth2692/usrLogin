@@ -1,11 +1,12 @@
 var mongoose = require('mongoose')
 
 
-var fuelRefillingSchema = mongoose.Schema({
+var fuelRefillingSchema = new mongoose.Schema({
   totalAmount: Number,
   odometerReading: Number,
-  file: String
+  file: String,
+  dateTime: Date
 })
 
 
-exports = fuelRefillingSchema
+module.exports = mongoose.model('fuelRefilling', fuelRefillingSchema, 'fuelRefilling')

@@ -12,7 +12,7 @@ const fuelRefillComponent = {
       form_data.append('totalAmount', this.totalAmount)
       form_data.append('odometerReading', this.odometerReading)
       form_data.append('file', this.$refs.billReceipt.files[0])
-      form_data.append('dateTIme', (new Date()).toString())
+      form_data.append('dateTime', (new Date()).toString())
 
       axios.post('/fuelRefilling', form_data, {
         headers: {
