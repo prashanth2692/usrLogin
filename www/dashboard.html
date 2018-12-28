@@ -30,6 +30,18 @@
     </div>
   </template>
 
+  <!-- money control messages display-->
+  <template id="MCMessages" style="display:none">
+    <div>
+        <ul class="list-group">
+          <li class="list-group-item" v-for="msg in messages" style="list-style:none">
+            <div>By: <span v-text="msg.nick_name"></span> &nbsp; <span>time: {{msg.ent_date}}</span> &nbsp; <span>topicid: {{msg.topicid}}</span></div>
+            <div v-text="msg.full_message"></div>
+          </li>
+        </ul>
+    </div>
+  </template>
+
   <template id="appHeader" style="display:none">
     <div id="appHeader">
       <ul class="nav">
@@ -62,6 +74,7 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="./dashboard.js"></script>
+<script type="module" src="./dashboard.js"></script>
+<script type="module" src="./MoneyControlComponent.js"></script>
 
 </html>
