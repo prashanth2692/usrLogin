@@ -1,4 +1,4 @@
-const {URL} = require('url');
+const {URL, URLSearchParams} = require('url');
 const https = require('https');
 var MongoClient = require('mongodb').MongoClient;
 // const connection = require('./dbConnection.js');

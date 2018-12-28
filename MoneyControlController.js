@@ -1,8 +1,6 @@
 var express = require('express')
 var router = express.Router()
 var dbConnection = require('./dbConnection').dbConnection
-const circularJSON = require('circular-json');
-const inspect = require('util').inspect
 
 
 //constants
