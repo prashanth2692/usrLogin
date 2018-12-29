@@ -33,12 +33,20 @@
   <!-- money control messages display-->
   <template id="MCMessages" style="display:none">
     <div>
+      <div>
         <ul class="list-group">
           <li class="list-group-item" v-for="msg in messages" style="list-style:none">
-            <div>By: <span v-text="msg.nick_name"></span> &nbsp; <span>time: {{msg.ent_date}}</span> &nbsp; <span>topicid: {{msg.topicid}}</span></div>
+            <div>By: <span v-text="msg.nick_name"></span> &nbsp; <span>time: {{msg.ent_date}}</span> &nbsp; <span>topicid:
+                {{msg.topicid}}</span></div>
             <div v-text="msg.full_message"></div>
           </li>
         </ul>
+      </div>
+      <div>
+        <button @click="getMoreMessages">
+          more
+        </button>
+      </div>
     </div>
   </template>
 
@@ -76,5 +84,6 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script type="module" src="./dashboard.js"></script>
 <script type="module" src="./MoneyControlComponent.js"></script>
+<script type="module" src="./MoneyControlComponent_alt.js"></script>
 
 </html>

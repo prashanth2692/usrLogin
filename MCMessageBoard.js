@@ -1,5 +1,6 @@
-const {URL, URLSearchParams} = require('url');
+const { URL, URLSearchParams } = require('url');
 const https = require('https');
+const axios = require('axios');
 var MongoClient = require('mongodb').MongoClient;
 // const connection = require('./dbConnection.js');
 
@@ -20,38 +21,38 @@ MongoClient.connect(url, function (err, db) {
   run(db.db('mydb'))
 });
 
-function run(db){
+function run(db) {
   const dbConnection = db
 
   const messageBoardURL = new URL('https://mmb.moneycontrol.com/index.php')
   const MCMBCollection = 'MoneyControlMessages'
-  
+
   const messageBoardQueryParams = new URLSearchParams({
     q: 'topic/ajax_call',
     section: 'get_messages',
     is_topic_page: 1,
-    offset: 0,
+    offset: 0, // (pgno - 1) * 10
     lmid: null,
-    isp:0,
+    isp: 0, // 1 for pgno > 1
     gmt: 'tp_lm',
     tid: 1642,
     pgno: 1
   })
-  
+
   messageBoardURL.search = messageBoardQueryParams
-  
+
   console.log('request URL: ' + messageBoardURL.href + '\n')
   https.get(messageBoardURL.href, (resp) => {
     response = ''
     resp.on('data', (chunk) => {
       response += chunk
     })
-  
+
     resp.on('end', () => {
       console.log('response: \n')
       let parsedResp = JSON.parse(response)
       // add documents to collection MCMB
-  
+
       // if(!dbConnection.getCollection(MCMBCollection).exists()){
       //   dbConnection.createCollection(MCMBCollection)
       // }
@@ -60,13 +61,13 @@ function run(db){
       mcmb.insert(parsedResp).then(resp => {
         console.log('inserted\n')
         mcmb.find().toArray((err, result) => {
-          if(err){
+          if (err) {
             console.log(err)
           }
           console.log('reading after inserting: \n' + result)
         })
-        
-        
+
+
       })
       // db.close()
       // parsedResp.map((msg, index) => console.log('\n\n\n\n------------' + index + ' : ' + msg.full_message))
@@ -75,3 +76,25 @@ function run(db){
     console.log('error ' + err.message)
   })
 }
+
+
+function getMessagesFromMC(topicId, pageNo, lmid) {
+  const messageBoardURL = new URL('https://mmb.moneycontrol.com/index.php')
+  const messageBoardQueryParams = new URLSearchParams({
+    q: 'topic/ajax_call',
+    section: 'get_messages',
+    is_topic_page: 1,
+    offset: (pageNo - 1) * 10, // (pgno - 1) * 10
+    lmid: lmid,
+    isp: pageNo > 1 ? 1 : 0, // 1 for pgno > 1
+    gmt: 'tp_lm',
+    tid: topicId,
+    pgno: pageNo
+  })
+
+  messageBoardURL.search = messageBoardQueryParams
+
+  return axios.get(messageBoardURL.href)
+}
+
+exports.getMessagesFromMC = getMessagesFromMC

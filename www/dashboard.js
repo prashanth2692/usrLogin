@@ -1,4 +1,5 @@
 import MoneyControlComponent from './MoneyControlComponent.js' 
+import MoneyControlComponent_alt from './MoneyControlComponent_alt.js' 
 
 const fuelRefillComponent = {
   template: '#fuelRefill',
@@ -85,7 +86,8 @@ const routes = [
   { path: '/', component: dashboardComponent },
   { path: '/dashboard', component: dashboardComponent },
   { path: '/fuelRefill', component: fuelRefillComponent },
-  {path: '/messages', component: MoneyControlComponent}
+  {path: '/messages', component: MoneyControlComponent},
+  {path: '/messages_alt', component: MoneyControlComponent_alt}
 ]
 
 const router = new VueRouter({
