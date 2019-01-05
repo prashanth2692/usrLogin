@@ -1,5 +1,5 @@
-import MoneyControlComponent from './MoneyControlComponent.js' 
-import MoneyControlComponent_alt from './MoneyControlComponent_alt.js' 
+import MoneyControlComponent from './MoneyControlComponent.js'
+import MoneyControlComponent_alt from './MoneyControlComponent_alt.js'
 
 const fuelRefillComponent = {
   template: '#fuelRefill',
@@ -86,8 +86,8 @@ const routes = [
   { path: '/', component: dashboardComponent },
   { path: '/dashboard', component: dashboardComponent },
   { path: '/fuelRefill', component: fuelRefillComponent },
-  {path: '/messages', component: MoneyControlComponent},
-  {path: '/messages_alt', component: MoneyControlComponent_alt}
+  { path: '/messages', component: MoneyControlComponent },
+  { path: '/messages_alt', component: MoneyControlComponent_alt }
 ]
 
 const router = new VueRouter({
@@ -98,7 +98,25 @@ Vue.component('app-header', {
   template: '#appHeader', //'<div id="app-header">{{header}}</div>',
   data: function () {
     return {
-      header: 'Header'
+      header: 'Header',
+      links: [
+        {
+          name: 'Dashboard',
+          link: '/dashboard'
+        },
+        {
+          name: 'Fuel Refill',
+          link: '/fuelRefill'
+        },
+        {
+          name: 'Messages',
+          link: '/messages'
+        },
+        {
+          name: 'Direct messages',
+          link: '/messages_alt'
+        }
+      ]
     }
   }
 })
