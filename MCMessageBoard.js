@@ -18,7 +18,8 @@ MongoClient.connect(url, function (err, db) {
   console.log("Database created!");
   // db.close();
 
-  run(db.db('mydb'))
+  // run(db.db('mydb'))
+  db.close()
 });
 
 function run(db) {

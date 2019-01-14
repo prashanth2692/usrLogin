@@ -14,10 +14,12 @@
     "axios": "^0.18.0",
     "body-parser": "^1.18.2",
     "circular-json": "^0.5.9",
+    "csvtojson": "^2.0.8",
     "express": "^4.16.3",
-    "mongodb": "^3.0.5",
+    "mongodb": "^3.1.10",
     "mongoose": "^5.0.12",
-    "morgan": "^1.9.1"
+    "morgan": "^1.9.1",
+    "node-html-parser": "^1.1.11"
   },
   "devDependencies": {
     "formidable": "^1.2.1",

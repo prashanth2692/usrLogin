@@ -113,14 +113,29 @@ print('Total worth:', totalWorth)
 
 # dumping consolidated portfolio to json file
 data =[]
+data_obj = []
 for key in consolidatedHoldings:
   temp = []
+  temp_obj = {}
   temp.append(consolidatedHoldings[key][COMMON_SYMBOL])
   temp.append(consolidatedHoldings[key][COMMON_ALLOCATED_QUANTITY])
   temp.append(consolidatedHoldings[key][COMMON_CURRENT_MARKET_PRICE])
+
+  temp_obj[COMMON_SYMBOL] = consolidatedHoldings[key][COMMON_SYMBOL]
+  temp_obj[COMMON_ALLOCATED_QUANTITY] = consolidatedHoldings[key][COMMON_ALLOCATED_QUANTITY]
+  temp_obj[COMMON_CURRENT_MARKET_PRICE] = consolidatedHoldings[key][COMMON_CURRENT_MARKET_PRICE]
+  
   data.append(temp)
+  data_obj.append(temp_obj)
+
 
 fileName = 'consolidatedFoldings.json'
+fileName_obj = 'consolidatedHoldings_obj.json'
 with open('output\\' + fileName, 'w') as jsonFile1:
   json.dump(data, jsonFile1)
   print('written to file:', fileName)
+
+
+with open('output\\' + fileName_obj, 'w') as jsonFile1:
+  json.dump(data_obj, jsonFile1)
+  print('written to file:', fileName_obj)

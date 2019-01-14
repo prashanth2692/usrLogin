@@ -3,6 +3,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 var dbConnection = require('./dbConnection').dbConnection
 const moneyControlController = require('./MoneyControlController.js')
+const holdingsController = require('./holdingsController.js')
 // var upload_files = require('./file_upload')
 var formidable = require('formidable');
 // var http = require('http')
@@ -196,6 +197,8 @@ router.post('/fileUpload', function (req, res) {
 var port = 8085
 
 app.use('/moneycontrol', moneyControlController)
+app.use('/holdings', holdingsController)
+
 app.use(router)
 app.listen(port, () => {
   console.log('listening on port ', port)

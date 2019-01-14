@@ -9,6 +9,7 @@ var passwordSalt = 'kjfbgjkhsfbg'
 MongoClient.connect(url, function (err, db) {
   if (err) throw err;
 
+  // name of the DB to use is: "mydb"
   dbConnection = db.db("mydb");
   // dbConnection = dbo
   console.log("Database created!");
