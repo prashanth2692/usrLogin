@@ -1,6 +1,7 @@
 import MoneyControlComponent from './MoneyControlComponent.js'
 import MoneyControlComponent_alt from './MoneyControlComponent_alt.js'
 import holdings from './holdingsComponent.js'
+import charts from './chartComponent.js'
 
 const fuelRefillComponent = {
   template: '#fuelRefill',
@@ -89,7 +90,8 @@ const routes = [
   { path: '/fuelRefill', component: fuelRefillComponent },
   { path: '/messages', component: MoneyControlComponent },
   { path: '/messages_alt', component: MoneyControlComponent_alt },
-  { path: '/holdings', component: holdings }
+  { path: '/holdings', component: holdings },
+  { path: '/charts', component: charts }
 ]
 
 const router = new VueRouter({
@@ -121,6 +123,10 @@ Vue.component('app-header', {
         {
           name: 'Holdings',
           link: '/holdings'
+        },
+        {
+          name: 'charts',
+          link: '/charts'
         }
       ]
     }

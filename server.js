@@ -4,6 +4,7 @@ const bodyParser = require('body-parser')
 var dbConnection = require('./dbConnection').dbConnection
 const moneyControlController = require('./MoneyControlController.js')
 const holdingsController = require('./holdingsController.js')
+const chartsController = require("./chartsController")
 // var upload_files = require('./file_upload')
 var formidable = require('formidable');
 // var http = require('http')
@@ -198,6 +199,7 @@ var port = 8085
 
 app.use('/moneycontrol', moneyControlController)
 app.use('/holdings', holdingsController)
+app.use('/charts', chartsController)
 
 app.use(router)
 app.listen(port, () => {
