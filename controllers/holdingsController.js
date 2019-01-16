@@ -3,7 +3,7 @@ var router = express.Router()
 // var mydb = require('./dbConnection').dbConnection
 // const URL = require('url')
 
-const consolidatedJson = require('./ICICIDirect/output/consolidatedHoldings_obj.json')
+const consolidatedJson = require('../ICICIDirect/output/consolidatedHoldings_obj.json')
 
 
 router.use((req, res, next) => {

@@ -1,9 +1,10 @@
 var express = require('express')
 var router = express.Router()
-var dbConnection = require('./dbConnection').dbConnection
+var dbConnection = require('../dbConnection').dbConnection
 const URL = require('url')
+const nseList = require('../helpers/nseStockList')
 
-const MCManager = require('./MCMessageBoard.js')
+const MCManager = require('../MCMessageBoard.js')
 
 
 //constants
@@ -50,8 +51,27 @@ router.get('/messages_alt', (req, res) => {
     res.json(result.data)
   }).catch((err) => {
     console.error(err)
-    res.status(500).json({msg: 'error'})
+    res.status(500).json({ msg: 'error' })
   });
+})
+
+router.get('/getTopicIDForSymbol', (request, res) => {
+  var url_parts = URL.parse(request.url, true);
+  var query = url_parts.query;
+  var symbol = query.symbol;
+
+  let topicIdCollection = dbConnection().collection('message_board_topicids')
+
+  topicIdCollection.findOne({ "symbol": symbol }, (err, data) => {
+    if (err) {
+      res.status(500).json({ message: "failed to connect to db" })
+    }
+    if (data) {
+      res.status(200).json({ symbol: symbol, topicid: data.moneycontrol_messageboard_topicid })
+    } else {
+      res.status(500).json({ message: "failed to fetch money control topicId" })
+    }
+  })
 })
 
 

@@ -53,9 +53,51 @@ const chartComponent = {
           theme: 'fusion',
           dataSource: {
             data: dataStore,
+            // trendlines: [{
+            //   lines: [{
+            //     "startValue": "80",
+            //     "startvalue": "80",
+            //     // "endValue": "80",
+            //     "color": 'red', //"#5D62B5",
+            //     "displayValue": "purchase",
+            //     "showOnTop": "0"
+            //   }]
+            // }]
+            "trendlines": [{
+              "line": [{
+                "startvalue": "100",
+                "color": "#1aaf5d",
+                "valueOnRight": "1",
+                "displayvalue": "Monthly Target"
+              }]
+            }],
+            "vtrendlines": [
+              {
+                "line": [
+                  {
+                    "startvalue": "28",
+                    "color": "#5D62B5",
+                    "displayvalue": "$0.63<br>Dividend",
+                    "showontop": "0"
+                  },
+                  {
+                    "startvalue": "91",
+                    "color": "#5D62B5",
+                    "displayvalue": "$0.73<br>Dividend",
+                    "showontop": "0"
+                  }
+                ]
+              }
+            ],
             chart: {
               // showVolumeChart: 0
-              theme: 'fusion'
+              theme: 'fusion',
+              //Attributes to configure Trend Values
+              "trendValueFont": "Arial",
+              "trendValueFontSize": "12",
+              "trendValueFontBold": "1",
+              "trendValueFontItalic": "1",
+              "trendValueAlpha": "80"
             },
             caption: {
               text: 'Apple Inc. Stock Price'

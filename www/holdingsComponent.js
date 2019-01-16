@@ -16,6 +16,16 @@ const holdingsComponent = {
       })
   },
   methods: {
+    getTopicId: function (symbol) {
+      let that = this
+      axios.get('/moneycontrol/getTopicIDForSymbol?symbol=' + symbol).then((response) => {
+        console.log(response.data)
+        if (response.data && response.data.topicid) {
+          this.$router.push({ path: '/messages', query: response.data })
+          
+        }
+      })
+    }
   }
 }
 

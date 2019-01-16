@@ -88,8 +88,8 @@ const routes = [
   { path: '/', component: dashboardComponent },
   { path: '/dashboard', component: dashboardComponent },
   { path: '/fuelRefill', component: fuelRefillComponent },
-  { path: '/messages', component: MoneyControlComponent },
-  { path: '/messages_alt', component: MoneyControlComponent_alt },
+  { path: '/messages_depricated', component: MoneyControlComponent },
+  { path: '/messages', component: MoneyControlComponent_alt },
   { path: '/holdings', component: holdings },
   { path: '/charts', component: charts }
 ]
@@ -112,13 +112,13 @@ Vue.component('app-header', {
           name: 'Fuel Refill',
           link: '/fuelRefill'
         },
-        {
-          name: 'Messages',
-          link: '/messages'
-        },
+        // {
+        //   name: 'Messages',
+        //   link: '/messages_depricated'
+        // },
         {
           name: 'Direct messages',
-          link: '/messages_alt'
+          link: '/messages'
         },
         {
           name: 'Holdings',
