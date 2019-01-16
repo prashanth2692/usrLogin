@@ -67,11 +67,11 @@
             <th scope="col">CMP</th>
           </thead>
           <tbody>
-            <tr v-for="holding in holdings" @click="getTopicId(holding.symbol)" tabindex="0" style="cursor: pointer">
+            <tr v-for="holding in holdings" @click="getTopicId(holding.symbol)" style="cursor: pointer">
               <td v-text="holding.symbol"></td>
               <td v-text="holding.allocated_quantity"></td>
               <td v-text="holding.current_market_price"></td>
-              <td><button @click="getTopicId(holding.symbol)">msgs</button></td>
+              <!-- <td><button @click="getTopicId(holding.symbol)">msgs</button></td> -->
             </tr>
           </tbody>
         </table>
