@@ -91,7 +91,7 @@ function getTopicIds(db) {
 
   const promises1 = []
   const promises2 = []
-  const promises3 = []
+  // const promises3 = []
   const messageBoardLinks = {}
 
   var timeoutTime = 0
@@ -120,61 +120,65 @@ function getTopicIds(db) {
             if (topicIdQuery && topicIdQuery.attributes.value > 0) {
               // this is sufficient for fetching messagesboard messages through API 
               topicId = topicIdQuery.attributes.value
-              let tempObj = { symbol: nj.symbol, isin: nj.isin_number, moneycontrol_messageboard_topicid: topicId, with_link: false  }
+              let tempObj = { symbol: nj.symbol, isin: nj.isin_number, moneycontrol_messageboard_topicid: topicId, with_link: false }
               topicIdCollection.insertOne(tempObj, (err, record) => {
                 _topicId = tempObj._id
-                console.log('inserted record')
-                logCollection.insertOne({ type: logType.success, msg: "topicId inserted for: " + nj.symbol, referenceId: _topicId })
+                if (err) {
+                  logCollection.insertOne({ type: logType.error, msg: "topicId could not be inserted for: " + nj.symbol, referenceId: _topicId })
+                } else {
+                  console.log(index, nj.symbol, 'inserted record')
+                  logCollection.insertOne({ type: logType.success, msg: "topicId inserted for: " + nj.symbol, referenceId: _topicId })
+                }
               })
             }
 
 
-            let result = parsed.querySelector("#compid_imp")
-            if (result && result.attributes.value) {
-              // console.log(result)
-              // console.log(result.attributes.value) // this will get the html which has the actuial message board link
-              let companyId = result.attributes.value
+            // let result = parsed.querySelector("#compid_imp")
+            // if (result && result.attributes.value) {
+            //   // console.log(result)
+            //   // console.log(result.attributes.value) // this will get the html which has the actuial message board link
+            //   let companyId = result.attributes.value
 
-              console.info(index, "compnayid: ", companyId)
-              let promise3 = axios.post("https://www.moneycontrol.com/stocks/company_info/stock-messages.php", "sc_id=" + companyId).then(resp => {
-                const parsed = HTMLParser.parse(resp.data)
-                let result = parsed.querySelectorAll("a.bl_11")
-                // console.log(result)
-                if (result && result.length > 0) {
+            //   console.info(index, "compnayid: ", companyId)
+            //   let promise3 = axios.post("https://www.moneycontrol.com/stocks/company_info/stock-messages.php", "sc_id=" + companyId).then(resp => {
+            //     const parsed = HTMLParser.parse(resp.data)
+            //     let result = parsed.querySelectorAll("a.bl_11")
+            //     // console.log(result)
+            //     if (result && result.length > 0) {
 
-                  // href example: https://mmb.moneycontrol.com/forum-topics/stocks/tata-motors-1605.html // 1605 is the topicId
-                  let msgBoardLink = result[0].attributes.href
-                  messageBoardLinks[nj.symbol] = msgBoardLink
+            //       // href example: https://mmb.moneycontrol.com/forum-topics/stocks/tata-motors-1605.html // 1605 is the topicId
+            //       let msgBoardLink = result[0].attributes.href
+            //       messageBoardLinks[nj.symbol] = msgBoardLink
 
-                  topicIdCollection.insertOne({ with_link: true, symbol: nj.symbol, isin: nj.isin_number, moneycontrol_messageboard_topicid: topicId, moneycontrol_messageboard_link: msgBoardLink }, (err, record) => {
-                    console.info(index, "updated with href for: ", nj.symbol)
-                  })
-                }
+            //       topicIdCollection.insertOne({ with_link: true, symbol: nj.symbol, isin: nj.isin_number, moneycontrol_messageboard_topicid: topicId, moneycontrol_messageboard_link: msgBoardLink }, (err, record) => {
+            //         console.info(index, "updated with href for: ", nj.symbol)
+            //       })
+            //     }
 
-                // verification
-                // result.forEach(r => {
-                //   if (r.innerHTML == 'More Messages »') {
-                //     console.log(r.innerHTML, r.attributes.href)
-                //     // sample output below. Required first link
-                //     // More Messages » https://mmb.moneycontrol.com/india/messageboard/view_topic_msgs.php?topic_id=1642&que=latest
-                //     // More Messages » https://mmb.moneycontrol.com/india/messageboard/view_topic_msgs.php?topic_id=1642&pgno=1&que=queries
-                //     // More Messages » https://mmb.moneycontrol.com/india/messageboard/view_topic_msgs.php?topic_id=1642&que=active
-                //     // More Messages » https://mmb.moneycontrol.com/india/messageboard/view_topic_msgs.php?topic_id=1642&que=activeborder
-                //   }
-                // })
-                // verification - end
+            //     // verification
+            //     // result.forEach(r => {
+            //     //   if (r.innerHTML == 'More Messages »') {
+            //     //     console.log(r.innerHTML, r.attributes.href)
+            //     //     // sample output below. Required first link
+            //     //     // More Messages » https://mmb.moneycontrol.com/india/messageboard/view_topic_msgs.php?topic_id=1642&que=latest
+            //     //     // More Messages » https://mmb.moneycontrol.com/india/messageboard/view_topic_msgs.php?topic_id=1642&pgno=1&que=queries
+            //     //     // More Messages » https://mmb.moneycontrol.com/india/messageboard/view_topic_msgs.php?topic_id=1642&que=active
+            //     //     // More Messages » https://mmb.moneycontrol.com/india/messageboard/view_topic_msgs.php?topic_id=1642&que=activeborder
+            //     //   }
+            //     // })
+            //     // verification - end
 
-              }).catch(err => {
-                console.error(index, "failed to fetch partical message board html for messageboard link for: ", nj.symbol)
-                logCollection.insertOne({ type: logType.error, msg: "failed to fetch partical message board html for messageboard link for: " + nj.symbol, symbol: nj.symbol })
-              });
+            //   }).catch(err => {
+            //     console.error(index, "failed to fetch partical message board html for messageboard link for: ", nj.symbol)
+            //     logCollection.insertOne({ type: logType.error, msg: "failed to fetch partical message board html for messageboard link for: " + nj.symbol, symbol: nj.symbol })
+            //   });
 
-              promises3.push(promise3)
-            } else {
-              console.error(index, "failed to fetch partical message board html for messageboard link for: ", nj.symbol)
-              logCollection.insertOne({ type: logType.error, msg: "failed to fetch partical message board html for messageboard link for: " + nj.symbol, symbol: nj.symbol })
+            //   promises3.push(promise3)
+            // } else {
+            //   console.error(index, "failed to fetch partical message board html for messageboard link for: ", nj.symbol)
+            //   logCollection.insertOne({ type: logType.error, msg: "failed to fetch partical message board html for messageboard link for: " + nj.symbol, symbol: nj.symbol })
 
-            }
+            // }
           }).catch(err => {
             console.error(index, "no autosuggest results found for symbol: ", nj.symbol)
             logCollection.insertOne({ type: logType.error, msg: "no autosuggest results found for symbol: " + nj.symbol, symbol: nj.symbol })
@@ -200,23 +204,23 @@ function getTopicIds(db) {
   setTimeout(() => {
     axios.all(promises1).then(responses1 => {
       axios.all(promises2).then(responses2 => {
-        axios.all(promises3).then(responses3 => {
-          fs.writeFile('messageBoardLinks.json', JSON.stringify(messageBoardLinks), (err) => {
-            if (err) {
-              console.log(err)
-            } else {
-              console.log('written file!')
-              logCollection.insertOne({ type: logType.info, msg: "finished scraping!" })
+        // axios.all(promises3).then(responses3 => {
+        fs.writeFile('messageBoardLinks.json', JSON.stringify(messageBoardLinks), (err) => {
+          if (err) {
+            console.log(err)
+          } else {
+            console.log('written file!')
+            logCollection.insertOne({ type: logType.info, msg: "finished scraping!" })
 
-            }
+          }
 
-            db.close()
-          })
-        }).catch(err3 => {
-          console.log("err3")
-          logCollection.insertOne({ type: logType.error, msg: "err3" })
           db.close()
         })
+        // }).catch(err3 => {
+        //   console.log("err3")
+        //   logCollection.insertOne({ type: logType.error, msg: "err3" })
+        //   db.close()
+        // })
       }).catch(err2 => {
         logCollection.insertOne({ type: logType.error, msg: "err2" })
         console.log("err2")
