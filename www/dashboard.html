@@ -67,10 +67,11 @@
             <th scope="col">CMP</th>
           </thead>
           <tbody>
-            <tr v-for="holding in holdings" @click="getTopicId(holding.symbol)">
+            <tr v-for="holding in holdings" @click="getTopicId(holding.symbol)" v-touch:tap="getTopicId(holding.symbol)" style="cursor: pointer">
               <td v-text="holding.symbol"></td>
               <td v-text="holding.allocated_quantity"></td>
               <td v-text="holding.current_market_price"></td>
+              <td><button @click="getTopicId(holding.symbol)">msgs</button></td>
             </tr>
           </tbody>
         </table>
@@ -111,6 +112,7 @@
 <script src="./3rdParty/vue.js"></script>
 <!-- <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script> -->
 <script src="./3rdParty/vue-router.js"></script>
+<script src="./3rdParty/vue-touch.min.js"></script>
 <script src="./3rdParty/axios.min.js"></script>
 <!-- <script type="text/javascript" src=" https://unpkg.com/vue-fusioncharts/dist/vue-fusioncharts.min.js"></script> -->
 <script src="./3rdParty/fusioncharts-suite-xt/js"></script>

@@ -3,6 +3,7 @@ import MoneyControlComponent_alt from './MoneyControlComponent_alt.js'
 import holdings from './holdingsComponent.js'
 import charts from './chartComponent.js'
 
+
 const fuelRefillComponent = {
   template: '#fuelRefill',
   data: function () {
@@ -132,7 +133,8 @@ Vue.component('app-header', {
     }
   }
 })
-
+// for touch devices
+Vue.use(VueTouch)
 const app = new Vue({
   router
 }).$mount('#app')
