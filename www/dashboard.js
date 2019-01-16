@@ -133,8 +133,7 @@ Vue.component('app-header', {
     }
   }
 })
-// for touch devices
-Vue.use(VueTouch)
+
 const app = new Vue({
   router
 }).$mount('#app')
