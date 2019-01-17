@@ -62,12 +62,12 @@
       <div>
         <table class="table table-dark table-striped table-bordered table-sm table-responsive">
           <thead>
-            <th scope="col" @click="sortData('symbol')">Symbol</th>
-            <th scope="col" @click="sortData('allocated_quantity')">Quantity</th>
-            <th scope="col" @click="sortData('pricechange')">change</th>
-            <th scope="col" @click="sortData('low52wDiff')">52W Low</th>
-            <th scope="col">CMP</th>
-            <th scope="col" @click="sortData('high52wDiff')">52W High</th>
+            <th scope="col" @click="sortData('symbol')" class="unselectable">Symbol</th>
+            <th scope="col" @click="sortData('allocated_quantity')" class="unselectable">Quantity</th>
+            <th scope="col" @click="sortData('pricechange')" class="unselectable">change</th>
+            <th scope="col" @click="sortData('low52wDiff')" class="unselectable">52W Low</th>
+            <th scope="col" class="unselectable">CMP</th>
+            <th scope="col" @click="sortData('high52wDiff')" class="unselectable">52W High</th>
           </thead>
           <tbody>
             <tr v-for="holding in holdings" @click="getTopicId(holding.symbol)" style="cursor: pointer">

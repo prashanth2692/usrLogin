@@ -21,7 +21,6 @@ const holdingsComponent = {
         }
         let symbols = holdingSymbols.join(',')
         axios.get(`/moneycontrol/getTopicIDForSymbol?symbols=${symbols}`).then((res) => {
-          console.log(res.data)
           let data = res.data
           if (data && data.length > 0) {
             let promises = []
