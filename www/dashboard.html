@@ -64,14 +64,22 @@
           <thead>
             <th scope="col">Symbol</th>
             <th scope="col">Quantity</th>
+            <th scope="col">52W Low</th>
             <th scope="col">CMP</th>
+            <th scope="col">52W High</th>
           </thead>
           <tbody>
             <tr v-for="holding in holdings" @click="getTopicId(holding.symbol)" style="cursor: pointer">
               <td v-text="holding.symbol"></td>
               <td v-text="holding.allocated_quantity"></td>
-              <td v-text="holding.current_market_price"></td>
-              <!-- <td><button @click="getTopicId(holding.symbol)">msgs</button></td> -->
+              <template v-if="cmpObj[holding.symbol]">
+                <td v-text="cmpObj[holding.symbol]['52L']" class="low52w" style="color:red"></td>
+                <td v-text="cmpObj[holding.symbol].pricecurrent"></td>
+                <td v-text="cmpObj[holding.symbol]['52H']" class="high52w" style="color:greenyellow"></td>
+              </template>
+              <template v-else>
+                <td v-for="x in 3">-</td>
+              </template>
             </tr>
           </tbody>
         </table>

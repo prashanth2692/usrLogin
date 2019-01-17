@@ -59,19 +59,37 @@ router.get('/getTopicIDForSymbol', (request, res) => {
   var url_parts = URL.parse(request.url, true);
   var query = url_parts.query;
   var symbol = query.symbol;
+  var symbols = query.symbols;
 
   let topicIdCollection = dbConnection().collection('message_board_topicids')
-
-  topicIdCollection.findOne({ "symbol": symbol }, (err, data) => {
-    if (err) {
-      res.status(500).json({ message: "failed to connect to db" })
-    }
-    if (data) {
-      res.status(200).json({ symbol: symbol, topicid: data.moneycontrol_messageboard_topicid })
+  if (symbols) {
+    let symbolsList = symbols.split(',')
+    if (symbolsList.length > 0) {
+      topicIdCollection.find({ symbol: { $in: symbolsList } }).toArray((err, arr) => {
+        if (err) {
+          res.status(500).json({ message: "Failed to fetch topics for given symbols" })
+        } else {
+          res.status(200).json(arr)
+        }
+      })
     } else {
-      res.status(500).json({ message: "failed to fetch money control topicId" })
+      res.status(400).json({ message: "no symbols mentioned" })
     }
-  })
+  } else {
+
+    topicIdCollection.findOne({ "symbol": symbol }, (err, data) => {
+      if (err) {
+        res.status(500).json({ message: "failed to connect to db" })
+      }
+      if (data) {
+        res.status(200).json({ symbol: symbol, topicid: data.moneycontrol_messageboard_topicid, compid: data.compid_imp })
+      } else {
+        res.status(500).json({ message: "failed to fetch money control topicId" })
+      }
+    })
+  }
+
+
 })
 
 
