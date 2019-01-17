@@ -62,23 +62,25 @@
       <div>
         <table class="table table-dark table-striped table-bordered table-sm table-responsive">
           <thead>
-            <th scope="col">Symbol</th>
-            <th scope="col">Quantity</th>
-            <th scope="col">52W Low</th>
+            <th scope="col" @click="sortData('symbol')">Symbol</th>
+            <th scope="col" @click="sortData('allocated_quantity')">Quantity</th>
+            <th scope="col" @click="sortData('pricechange')">change</th>
+            <th scope="col" @click="sortData('low52wDiff')">52W Low</th>
             <th scope="col">CMP</th>
-            <th scope="col">52W High</th>
+            <th scope="col" @click="sortData('high52wDiff')">52W High</th>
           </thead>
           <tbody>
             <tr v-for="holding in holdings" @click="getTopicId(holding.symbol)" style="cursor: pointer">
               <td v-text="holding.symbol"></td>
               <td v-text="holding.allocated_quantity"></td>
               <template v-if="cmpObj[holding.symbol]">
+                <td v-text="holding.pricechange = Number(cmpObj[holding.symbol].pricechange)" :style="{color: holding.pricechange >= 0 ? 'greenyellow' : 'red'}"></td>
                 <td v-text="cmpObj[holding.symbol]['52L']" class="low52w" style="color:red"></td>
                 <td v-text="cmpObj[holding.symbol].pricecurrent"></td>
                 <td v-text="cmpObj[holding.symbol]['52H']" class="high52w" style="color:greenyellow"></td>
               </template>
               <template v-else>
-                <td v-for="x in 3">-</td>
+                <td v-for="x in 4">-</td>
               </template>
             </tr>
           </tbody>

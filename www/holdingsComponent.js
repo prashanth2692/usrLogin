@@ -4,7 +4,9 @@ const holdingsComponent = {
     return {
       holdings: null,
       holdingSymbols: [],
-      cmpObj: {}
+      cmpObj: {},
+      compareOn: 'symbol',
+      sortAscending: true
     }
   },
   created: function () {
@@ -22,12 +24,23 @@ const holdingsComponent = {
           console.log(res.data)
           let data = res.data
           if (data && data.length > 0) {
+            let promises = []
             data.forEach(d => {
-              axios.get(`https://priceapi-aws.moneycontrol.com/pricefeed/nse/equitycash/${d.compid_imp}`).then(res => {
+              let promise = axios.get(`https://priceapi-aws.moneycontrol.com/pricefeed/nse/equitycash/${d.compid_imp}`).then(res => {
                 // for view update, using $set 
                 this.$set(that.cmpObj, d.symbol, res.data.data)
               })
+              promises.push(promise)
             });
+
+            axios.all(promises).then(resps => {
+              that.holdings.forEach(h => {
+                if (that.cmpObj[h.symbol]) {
+                  h.low52wDiff = that.cmpObj[h.symbol].pricechange - Number(that.cmpObj[h.symbol]['52L'])
+                  h.high52wDiff = that.cmpObj[h.symbol].pricechange - Number(that.cmpObj[h.symbol]['52H'])
+                }
+              })
+            })
           }
         })
 
@@ -46,6 +59,19 @@ const holdingsComponent = {
 
         }
       })
+    },
+    comparator: function (a, b) {
+      if (a[this.compareOn] < b[this.compareOn])
+        return this.sortAscending ? -1 : 1;
+      if (a[this.compareOn] > b[this.compareOn])
+        return this.sortAscending ? 1 : -1;
+      return 0;
+    },
+    sortData: function (compareOn) {
+      this.sortAscending = !this.sortAscending
+      this.compareOn = compareOn
+
+      this.holdings.sort(this.comparator)
     }
   }
 }
