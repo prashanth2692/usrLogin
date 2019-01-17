@@ -60,6 +60,7 @@
   <template id="holdings" style="display:none">
     <div>
       <div>
+        <button @click="refresh">Refresh</button>
         <table class="table table-dark table-striped table-bordered table-sm table-responsive">
           <thead>
             <th scope="col" @click="sortData('symbol')" class="unselectable">Symbol</th>

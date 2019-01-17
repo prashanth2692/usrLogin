@@ -25,7 +25,6 @@ const MoneyControlComponent = {
     getMessages: function (pgno) {
       const that = this
       axios.get(`/moneycontrol/messages_alt?pgno=${pgno}&lmid=&topicid=${this.topicId}`).then((resp) => {
-        console.log(resp)
         that.messages = that.messages.concat(resp.data)
       }).catch(err => {
         console.log(err)
