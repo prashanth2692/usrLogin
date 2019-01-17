@@ -114,13 +114,20 @@ function getTopicIds(db) {
           let promise2 = axios.get(reqLink).then(resp => {
             const parsed = HTMLParser.parse(resp.data)
 
+            // compid_imp used for live price feed
+            let result = parsed.querySelector("#compid_imp")
+            let compid_imp = null
+            if (result && result.attributes.value) {
+              compid_imp = result.attributes.value
+            }
+            
             let topicIdQuery = parsed.querySelector('#f_topicid')
             let topicId = ""
             let _topicId = null
             if (topicIdQuery && topicIdQuery.attributes.value > 0) {
               // this is sufficient for fetching messagesboard messages through API 
               topicId = topicIdQuery.attributes.value
-              let tempObj = { symbol: nj.symbol, isin: nj.isin_number, moneycontrol_messageboard_topicid: topicId, with_link: false }
+              let tempObj = { symbol: nj.symbol, isin: nj.isin_number, moneycontrol_messageboard_topicid: topicId, compid_imp: compid_imp }
               topicIdCollection.insertOne(tempObj, (err, record) => {
                 _topicId = tempObj._id
                 if (err) {
