@@ -8,7 +8,8 @@ const holdingsComponent = {
       compareOn: 'symbol',
       sortAscending: true,
       symbols: [],
-      symbolsData: []
+      symbolsData: [],
+      totalChange: 0
     }
   },
   created: function () {
@@ -89,12 +90,14 @@ const holdingsComponent = {
 
       // update the data with this.holdings object for display
       axios.all(promises).then(resps => {
+        that.totalChange = 0
         that.holdings.forEach(h => {
           if (that.cmpObj[h.symbol]) {
             let l52 = Number(that.cmpObj[h.symbol]['52L'])
             let h52 = Number(that.cmpObj[h.symbol]['52H'])
             h.low52wDiff = (that.cmpObj[h.symbol].pricechange - l52) * 100 / l52
             h.high52wDiff = (that.cmpObj[h.symbol].pricechange - h52) * 100 / h52
+            that.totalChange += that.cmpObj[h.symbol].pricechange * h.allocated_quantity
           }
         })
       })
