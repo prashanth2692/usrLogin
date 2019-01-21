@@ -92,12 +92,14 @@ const holdingsComponent = {
       axios.all(promises).then(resps => {
         that.totalChange = 0
         that.holdings.forEach(h => {
-          if (that.cmpObj[h.symbol]) {
-            let l52 = Number(that.cmpObj[h.symbol]['52L'])
-            let h52 = Number(that.cmpObj[h.symbol]['52H'])
-            h.low52wDiff = (that.cmpObj[h.symbol].pricechange - l52) * 100 / l52
-            h.high52wDiff = (that.cmpObj[h.symbol].pricechange - h52) * 100 / h52
-            that.totalChange += that.cmpObj[h.symbol].pricechange * h.allocated_quantity
+          let symbolData = that.cmpObj[h.symbol]
+          if (symbolData) {
+            let l52 = Number(symbolData['52L'])
+            let h52 = Number(symbolData['52H'])
+            h.low52wDiff = (symbolData.pricechange - l52) * 100 / l52
+            h.high52wDiff = (symbolData.pricechange - h52) * 100 / h52
+            that.totalChange += symbolData.pricechange * h.allocated_quantity
+            h.percentChange = (symbolData.pricechange * 100) / (symbolData.pricecurrent - symbolData.pricechange)
           }
         })
       })
