@@ -33,6 +33,12 @@
   <!-- money control messages display-->
   <template id="MCMessages" style="display:none">
     <div>
+      <div class="cmp">
+        <span v-text="cmp"></span>
+        <span>&nbsp; | &nbsp;</span>
+        <span v-text="priceChange" :style="{color: priceChange >= 0 ? 'greenyellow' : 'red'}"></span>
+        <button @click="refreshCMP">Refresh</button>
+      </div>
       <div>
         <ul class="list-group">
           <li class="list-group-item" v-for="msg in messages" style="list-style:none">

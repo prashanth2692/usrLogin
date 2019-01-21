@@ -6,7 +6,10 @@ const MoneyControlComponent = {
       odometerReading: null,
       messages: [],
       loadedPage: 1,
-      topicId: 1642
+      topicId: 1642,
+      cmp: 0,
+      compid: 'BPL',
+      priceChange: 0
     }
   },
   created: function () {
@@ -14,8 +17,10 @@ const MoneyControlComponent = {
     // console.log(query)
     if (query && query.topicid) {
       this.topicId = query.topicid
+      this.compid = query.compid
     }
     this.getMessages(1)
+    this.getCMP()
   },
   methods: {
     getMoreMessages: function () {
@@ -28,6 +33,17 @@ const MoneyControlComponent = {
         that.messages = that.messages.concat(resp.data)
       }).catch(err => {
         console.log(err)
+      })
+    },
+    refreshCMP: function () {
+      this.getCMP()
+    },
+    getCMP: function () {
+      let that = this
+      axios.get(`https://priceapi-aws.moneycontrol.com/pricefeed/nse/equitycash/${this.compid}`).then(res => {
+        let scripData = res.data.data
+        that.cmp = scripData.pricecurrent
+        that.priceChange = Number(scripData.pricechange).toFixed(2)
       })
     }
   }
