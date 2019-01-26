@@ -2,22 +2,24 @@ const axios = require('axios')
 const HTMLParser = require('node-html-parser');
 const fs = require('fs')
 const MongoClient = require('mongodb').MongoClient
+const path = require('path');
 
-const nseJsonArray = require('../ICICIDirect/output/NSE_EQUITY_L_ARRAY.json')
+// const nseJsonArray = require('../ICICIDirect/output/NSE_EQUITY_L_ARRAY.json')
 
 const csv = require('csvtojson')
 
+console.log(__dirname)
 //sample path: '../../../Stocks/portfolio/ICICI/8504526259_TradeBook_FY 2017-18.csv'
 const pathToICICITransactions = '../../../Stocks/portfolio/ICICI/'
 const requiedFiles = []
-fs.readdir(pathToICICITransactions, function (err, items) {
+fs.readdir(path.join(__dirname, pathToICICITransactions), function (err, items) {
   // console.log(items);
 
-  let tradeBookPattern = new RegExp('8504526259_TradeBook_FY.*csv')
+  let tradeBookPattern = new RegExp('8504526259_TradeBook.*csv')
 
   for (var i = 0; i < items.length; i++) {
     if (items[i].match(tradeBookPattern)) {
-      // console.log(items[i]);
+      console.log(items[i]);
       requiedFiles.push(items[i])
     }
   }
@@ -39,8 +41,8 @@ MongoClient.connect(uri, function (err, db) {
 
 
 // important: this is the column uniquely identifying the row
-const Order_Ref = 'Order_Ref.'
-
+const Order_Ref = 'Order_Ref'
+let insertCount = 0
 function processTransactions(db) {
   if (requiedFiles.length > 0) {
 
@@ -48,31 +50,42 @@ function processTransactions(db) {
     const iciciTrxCollection = mydb.collection('ICICITransactions')
 
     requiedFiles.forEach(fileName => {
-      csv().fromFile(pathToICICITransactions + fileName).then((result) => {
+      csv().fromFile(path.join(__dirname, pathToICICITransactions, fileName)).then((result) => {
         // console.log(result)
         const nameToKeyMap = {}
         for (let key in result[0]) {
           nameToKeyMap[key] = key.replace(' ', '_')
-          console.log(key, key.replace(' ', '_'))
+          // console.log(key, key.replace(' ', '_'))
         }
 
         result.forEach(trx => {
           const tempTrx = {}
           for (let keyName in trx) {
             // console.log(key, key.split(' ').join('_')) or key.replace(' ', '_')
-            tempTrx[nameToKeyMap[keyName]] = trx[[keyName]]
+            if (keyName === 'Order Ref') {
+              tempTrx[nameToKeyMap[keyName]] = trx[keyName]['']
+            } else {
+              tempTrx[nameToKeyMap[keyName]] = trx[keyName]
+            }
           }
+          tempTrx.created_date = (new Date()).toUTCString()
 
           iciciTrxCollection.findOne({ Order_Ref: tempTrx[Order_Ref] }, (err, doc) => {
             if (err) {
               console.log(err)
             } else {
               if (!doc) {
-                iciciTrxCollection.insert(tempTrx, (er, resp) => {
+                // console.log(tempTrx[Order_Ref])
+                iciciTrxCollection.insertOne(tempTrx, (er, resp) => {
                   if (err) {
                     throw err
                   }
+                  insertCount++
+                  console.log(insertCount)
+                  // db.close()
                 })
+              } else {
+                // console.log('already inserted: ' )
               }
             }
           })
@@ -80,6 +93,7 @@ function processTransactions(db) {
         })
       }).catch((err) => {
         console.log(err)
+        db.close()
       });
 
     })
