@@ -17,6 +17,7 @@ for file in os.listdir(pathToTransactions):
 # tx will be array of transactions per file(while is an array)
 tx = []
 
+print(len(relativeFilePaths))
 for filePath in relativeFilePaths:
     # Give the location of the file
     loc = (filePath)

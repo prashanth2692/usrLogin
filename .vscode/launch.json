@@ -9,7 +9,7 @@
             // "type": "python",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}\\Zerodha\\holdingsCalulation.js"
+            "program": "${workspaceFolder}\\portfolio\\holdingsCalulation.js"
         }
     ]
 }
