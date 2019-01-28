@@ -24,6 +24,7 @@ function createDBConnection(url) {
 
 function run(db) {
   let insertCount = 0
+  let noChangeCount = 0
   let mydb = db.db('mydb')
   let zerodhaTransactionsCollection = mydb.collection('ZerodhaTransactions')
   const logsCollection = mydb.collection('logs')
@@ -49,6 +50,9 @@ function run(db) {
             insertCount++
             console.log(insertCount, ' inserted transaction: ', dataToInsert.Trade_ID)
           })
+        } else {
+          noChangeCount++
+          console.log(noChangeCount, ' inserted transaction: ', dataToInsert.Trade_ID)
         }
       })
     })

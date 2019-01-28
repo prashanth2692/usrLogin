@@ -5,7 +5,8 @@ let dbConstants = {
         logs: 'logs',
         nse_icici_symbol_map: 'nse_icici_symbol_map',
         staticIciciHoldings: 'staticIciciHoldings',
-        transactions: 'transactions'
+        transactions: 'transactions',
+        testTransactions: 'test_transactions'
     }
 }
 

@@ -4,6 +4,8 @@
 const fs = require('fs')
 var MongoClient = require('mongodb').MongoClient;
 const _ = require("underscore")
+const dbConstants = require('../helpers/dbConstants')
+
 
 var url = "mongodb://localhost:27017/"
 const JOB_NAME = 'updating_transactions_from_icici_zerodha'
@@ -21,7 +23,10 @@ function createDBConnection(url) {
 
 function run(db) {
     const mydb = db.db('mydb')
-    const transactionsCollection = mydb.collection('transactions')
+    const transactionsCollection = mydb.collection(dbConstants.collections.transactions)
+    //for testing 
+    // const transactionsCollection = mydb.collection(dbConstants.collections.testTransactions)
+
     const iciciTrxCollection = mydb.collection('ICICITransactions')
     const zerodhaTransactionsCollection = mydb.collection('ZerodhaTransactions')
     const logsCollection = mydb.collection('logs')
@@ -120,7 +125,7 @@ function convertZerodha(zTx) {
     this.type = zTx.Trade_Type
     this.segment = zTx.Segment
     this.dateTime = zTx.Time
-    this.date = zTx.Trade_Date
+    this.date = new Date(zTx.Trade_Date)
     // orderId is common ofr both zerodha and icici
     // in zerodha a transaction is uniquely identified by order_id and trade_id combination
     // given given order can be executed in mutiple parts
@@ -179,7 +184,7 @@ function convertICICI(iTx, db) {
     // type: buy/sell
     this.type = iTx.Action.toLowerCase()
     this.quantity = Number(iTx.Qty)
-    this.date = iTx.Date
+    this.date = new Date(iTx.Date)
     this.price = Number(iTx.Price)
     this.order_ref = iTx.Order_Ref
     this.orderId = iTx.Order_Ref

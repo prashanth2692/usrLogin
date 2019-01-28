@@ -1,0 +1,6312 @@
+[
+  {
+    "nse_code": "20MICRONS",
+    "icici_code": "20MICR",
+    "company_name": "20 Microns Ltd"
+  },
+  {
+    "nse_code": "3IINFOTECH",
+    "icici_code": "3IINFO",
+    "company_name": "3i Infotech Ltd"
+  },
+  {
+    "nse_code": "3MINDIA",
+    "icici_code": "BIR3M",
+    "company_name": "3M India Ltd"
+  },
+  {
+    "nse_code": "AARTIDRUGS",
+    "icici_code": "AARDRU",
+    "company_name": "Aarti Drugs Ltd"
+  },
+  {
+    "nse_code": "AARTIIND",
+    "icici_code": "AARIND",
+    "company_name": "Aarti Industries Ltd"
+  },
+  {
+    "nse_code": "AARVEEDEN",
+    "icici_code": "AARDEN",
+    "company_name": "Aarvee Denims &amp; Exports Ltd"
+  },
+  {
+    "nse_code": "ABAN",
+    "icici_code": "ABALLO",
+    "company_name": "Aban Offshore Ltd"
+  },
+  {
+    "nse_code": "ABB",
+    "icici_code": "ABB",
+    "company_name": "ABB Ltd"
+  },
+  {
+    "nse_code": "ABGSHIP",
+    "icici_code": "ABGSHI",
+    "company_name": "ABG Shipyard Ltd"
+  },
+  {
+    "nse_code": "ABHISHEK",
+    "icici_code": "ABHMIL",
+    "company_name": "Abhishek Corporation Ltd"
+  },
+  {
+    "nse_code": "ABIRLANUVO",
+    "icici_code": "INDRAY",
+    "company_name": "Aditya Birla Nuvo Ltd"
+  },
+  {
+    "nse_code": "ABSHEKINDS",
+    "icici_code": "ABHIND",
+    "company_name": "Abhishek Industries Ltd"
+  },
+  {
+    "nse_code": "ACC",
+    "icici_code": "ACC",
+    "company_name": "ACC Ltd"
+  },
+  {
+    "nse_code": "ACE",
+    "icici_code": "ACTCON",
+    "company_name": "Action Construction Equipment Ltd"
+  },
+  {
+    "nse_code": "ADANIENT",
+    "icici_code": "ADAEXP",
+    "company_name": "Adani Enterprises Ltd"
+  },
+  {
+    "nse_code": "ADHUNIK",
+    "icici_code": "ADHMET",
+    "company_name": "Adhunik Metaliks Ltd"
+  },
+  {
+    "nse_code": "ADLABSFILM",
+    "icici_code": "ADLFIL",
+    "company_name": "Adlabs Films Ltd"
+  },
+  {
+    "nse_code": "ADORWELD",
+    "icici_code": "ADVOER",
+    "company_name": "Ador Welding Ltd"
+  },
+  {
+    "nse_code": "ADSL",
+    "icici_code": "ALLDIG",
+    "company_name": "Allied Digital Services Ltd"
+  },
+  {
+    "nse_code": "ADVANIHOTR",
+    "icici_code": "RAMHOT",
+    "company_name": "Advani Hotels &amp; Resorts (India) Ltd"
+  },
+  {
+    "nse_code": "ADVANTA",
+    "icici_code": "ADVIND",
+    "company_name": "Advanta India Ltd"
+  },
+  {
+    "nse_code": "AEGISCHEM",
+    "icici_code": "AEGCHE",
+    "company_name": "Aegis Logistics Ltd"
+  },
+  {
+    "nse_code": "AFL",
+    "icici_code": "AFL",
+    "company_name": "Accel Frontline Ltd"
+  },
+  {
+    "nse_code": "AFTEK",
+    "icici_code": "AFTBUS",
+    "company_name": "Aftek Ltd"
+  },
+  {
+    "nse_code": "AGRODUTCH",
+    "icici_code": "AGRDUT",
+    "company_name": "Agro Dutch Industries Ltd"
+  },
+  {
+    "nse_code": "AHMEDFORGE",
+    "icici_code": "AHMFOR",
+    "company_name": "Ahmednagar Forgings Ltd"
+  },
+  {
+    "nse_code": "AIAENG",
+    "icici_code": "AIAENG",
+    "company_name": "AIA Engineering Ltd"
+  },
+  {
+    "nse_code": "AICHAMP",
+    "icici_code": "CHAIN",
+    "company_name": "AI Champdany Industries Ltd"
+  },
+  {
+    "nse_code": "AJANTPHARM",
+    "icici_code": "AJAPHA",
+    "company_name": "Ajanta Pharma Ltd"
+  },
+  {
+    "nse_code": "AKRUTI",
+    "icici_code": "AKRNIR",
+    "company_name": "Akruti City Ltd"
+  },
+  {
+    "nse_code": "AKSHOPTFBR",
+    "icici_code": "AKSOPT",
+    "company_name": "Aksh Optifibre Ltd"
+  },
+  {
+    "nse_code": "ALBK",
+    "icici_code": "ALLBAN",
+    "company_name": "Allahabad Bank"
+  },
+  {
+    "nse_code": "ALCHEM",
+    "icici_code": "TOUIND",
+    "company_name": "Alchemist Ltd"
+  },
+  {
+    "nse_code": "ALEMBICLTD",
+    "icici_code": "ALECHE",
+    "company_name": "Alembic Ltd"
+  },
+  {
+    "nse_code": "ALFALAVAL",
+    "icici_code": "ALFLAV",
+    "company_name": "Alfa Laval India Ltd"
+  },
+  {
+    "nse_code": "ALKALI",
+    "icici_code": "ALKMET",
+    "company_name": "Alkali Metals Ltd"
+  },
+  {
+    "nse_code": "ALKYLAMINE",
+    "icici_code": "ALKAMI",
+    "company_name": "Alkyl Amines Chemicals Ltd"
+  },
+  {
+    "nse_code": "ALLCARGO",
+    "icici_code": "ALLGLO",
+    "company_name": "Allcargo Global Logistics Ltd"
+  },
+  {
+    "nse_code": "ALLSEC",
+    "icici_code": "ALLTEC",
+    "company_name": "Allsec Technologies Ltd"
+  },
+  {
+    "nse_code": "ALMONDZ",
+    "icici_code": "ALLSEC",
+    "company_name": "Almondz Global Securities Ltd"
+  },
+  {
+    "nse_code": "ALOKTEXT",
+    "icici_code": "ALOTEX",
+    "company_name": "Alok Industries Ltd"
+  },
+  {
+    "nse_code": "ALPA",
+    "icici_code": "ALPALA",
+    "company_name": "Alpa Laboratories Ltd"
+  },
+  {
+    "nse_code": "ALPHAGEO",
+    "icici_code": "ALPHAG",
+    "company_name": "Alphageo (India) Ltd"
+  },
+  {
+    "nse_code": "ALPSINDUS",
+    "icici_code": "ALPLAB",
+    "company_name": "Alps Industries Ltd"
+  },
+  {
+    "nse_code": "AMAR",
+    "icici_code": "AMAREM",
+    "company_name": "Amar Remedies Ltd"
+  },
+  {
+    "nse_code": "AMARAJABAT",
+    "icici_code": "AMARAJ",
+    "company_name": "Amara Raja Batteries Ltd"
+  },
+  {
+    "nse_code": "AMBICAAGAR",
+    "icici_code": "AMBAGA",
+    "company_name": "Ambica Agarbathies &amp; Aroma industries Ltd"
+  },
+  {
+    "nse_code": "AMBIKCO",
+    "icici_code": "AMBCOT",
+    "company_name": "Ambika Cotton Mills Ltd"
+  },
+  {
+    "nse_code": "AMBUJACEM",
+    "icici_code": "GUJAMB",
+    "company_name": "Ambuja Cements Ltd"
+  },
+  {
+    "nse_code": "AMDIND",
+    "icici_code": "AMDMET",
+    "company_name": "AMD Industries Ltd"
+  },
+  {
+    "nse_code": "AMTEKAUTO",
+    "icici_code": "AMTAUT",
+    "company_name": "Amtek Auto Ltd"
+  },
+  {
+    "nse_code": "AMTEKINDIA",
+    "icici_code": "AMTIND",
+    "company_name": "Amtek India Ltd"
+  },
+  {
+    "nse_code": "ANANTRAJ",
+    "icici_code": "ANARAJ",
+    "company_name": "Anant Raj Industries Ltd"
+  },
+  {
+    "nse_code": "ANDHRABANK",
+    "icici_code": "ANDBAN",
+    "company_name": "Andhra Bank"
+  },
+  {
+    "nse_code": "ANDHRSUGAR",
+    "icici_code": "ANDSUG",
+    "company_name": "The Andhra Sugars Ltd"
+  },
+  {
+    "nse_code": "ANGAUTO",
+    "icici_code": "ANGEXP",
+    "company_name": "ANG Auto Ltd"
+  },
+  {
+    "nse_code": "ANIKINDS",
+    "icici_code": "MPGLY",
+    "company_name": "Anik Industries Ltd"
+  },
+  {
+    "nse_code": "ANKURDRUGS",
+    "icici_code": "MRIPHA",
+    "company_name": "Ankur Drugs And Pharma Ltd"
+  },
+  {
+    "nse_code": "ANSALHSG",
+    "icici_code": "ANSHOU",
+    "company_name": "Ansal Housing and Construction Ltd"
+  },
+  {
+    "nse_code": "ANSALINFRA",
+    "icici_code": "ANSPRO",
+    "company_name": "Ansal Properties &amp; Infrastructure Ltd"
+  },
+  {
+    "nse_code": "ANTGRAPHIC",
+    "icici_code": "ANTART",
+    "company_name": "Antarctica Ltd"
+  },
+  {
+    "nse_code": "APARINDS",
+    "icici_code": "APAIND",
+    "company_name": "Apar Industries Ltd"
+  },
+  {
+    "nse_code": "APCOTEXIND",
+    "icici_code": "APCLAT",
+    "company_name": "Apcotex Industries Ltd"
+  },
+  {
+    "nse_code": "APIL",
+    "icici_code": "ABBALS",
+    "company_name": "Alstom Projects India Ltd"
+  },
+  {
+    "nse_code": "APOLLOHOSP",
+    "icici_code": "APOHOS",
+    "company_name": "Apollo Hospitals Enterprise Ltd"
+  },
+  {
+    "nse_code": "APOLLOSIND",
+    "icici_code": "APOSIN",
+    "company_name": "Apollo Sindhoori Capital Investments Ltd"
+  },
+  {
+    "nse_code": "APOLLOTYRE",
+    "icici_code": "APOTYR",
+    "company_name": "Apollo Tyres Ltd"
+  },
+  {
+    "nse_code": "APPAPER",
+    "icici_code": "ANDPRA",
+    "company_name": "The Andhra Pradesh Paper Mills Ltd"
+  },
+  {
+    "nse_code": "APTECHT",
+    "icici_code": "APTECH",
+    "company_name": "Aptech Ltd"
+  },
+  {
+    "nse_code": "ARCHIDPLY",
+    "icici_code": "ARCHIN",
+    "company_name": "Archidply Industries Ltd"
+  },
+  {
+    "nse_code": "ARCHIES",
+    "icici_code": "ARCGRE",
+    "company_name": "Archies Ltd"
+  },
+  {
+    "nse_code": "AREVAT&amp;D",
+    "icici_code": "GECALS",
+    "company_name": "Areva T&amp;D India Ltd"
+  },
+  {
+    "nse_code": "ARIES",
+    "icici_code": "ARIAGR",
+    "company_name": "Aries Agro Ltd"
+  },
+  {
+    "nse_code": "ARIHANT",
+    "icici_code": "ARIFOU",
+    "company_name": "Arihant Foundations &amp; Housing Ltd"
+  },
+  {
+    "nse_code": "ARL",
+    "icici_code": "ARVREM",
+    "company_name": "Arvind Remedies Ltd"
+  },
+  {
+    "nse_code": "AROGRANITE",
+    "icici_code": "AROGRA",
+    "company_name": "Aro Granite Industries Ltd"
+  },
+  {
+    "nse_code": "ARVIND",
+    "icici_code": "Arvind",
+    "company_name": "Ltd"
+  },
+  {
+    "nse_code": "ASAL",
+    "icici_code": "JBMTOO",
+    "company_name": "Automotive Stampings and Assemblies Ltd"
+  },
+  {
+    "nse_code": "ASHAPURMIN",
+    "icici_code": "ASHMIN",
+    "company_name": "Ashapura Minechem Ltd"
+  },
+  {
+    "nse_code": "ASHCO",
+    "icici_code": "DATIND",
+    "company_name": "Ashco Industries Ltd"
+  },
+  {
+    "nse_code": "ASHIMASYN",
+    "icici_code": "ASHSYN",
+    "company_name": "Ashima Ltd"
+  },
+  {
+    "nse_code": "ASHOKLEY",
+    "icici_code": "ASHLEY",
+    "company_name": "Ashok Leyland Ltd"
+  },
+  {
+    "nse_code": "ASIANELEC",
+    "icici_code": "ASIELE",
+    "company_name": "Asian Electronics Ltd"
+  },
+  {
+    "nse_code": "ASIANHOTEL",
+    "icici_code": "ASIHOT",
+    "company_name": "Asian Hotels Ltd"
+  },
+  {
+    "nse_code": "ASIANPAINT",
+    "icici_code": "ASIPAI",
+    "company_name": "Asian Paints Ltd"
+  },
+  {
+    "nse_code": "ASIANTILES",
+    "icici_code": "ASIGRA",
+    "company_name": "Asian Granito India Ltd"
+  },
+  {
+    "nse_code": "ASIL",
+    "icici_code": "AMISPI",
+    "company_name": "Amit Spinning Industries Ltd"
+  },
+  {
+    "nse_code": "ASSAMCO",
+    "icici_code": "ASSCOM",
+    "company_name": "Assam Company Ltd"
+  },
+  {
+    "nse_code": "ASTRAL",
+    "icici_code": "ASTPOL",
+    "company_name": "Astral Poly Technik Ltd"
+  },
+  {
+    "nse_code": "ASTRAMICRO",
+    "icici_code": "ASTMIC",
+    "company_name": "Astra Microwave Products Ltd"
+  },
+  {
+    "nse_code": "ASTRAZEN",
+    "icici_code": "ASTIDL",
+    "company_name": "AstraZeneca Pharma India Ltd"
+  },
+  {
+    "nse_code": "ATFL",
+    "icici_code": "ITCAGR",
+    "company_name": "Agro Tech Foods Ltd"
+  },
+  {
+    "nse_code": "ATLANTA",
+    "icici_code": "ATLLIM",
+    "company_name": "Atlanta Ltd"
+  },
+  {
+    "nse_code": "ATLASCYCLE",
+    "icici_code": "ATLCYC",
+    "company_name": "Atlas Cycles (Haryana) Ltd"
+  },
+  {
+    "nse_code": "ATNINTER",
+    "icici_code": "ATNINT",
+    "company_name": "ATN International Ltd"
+  },
+  {
+    "nse_code": "ATUL",
+    "icici_code": "ATUL",
+    "company_name": "Atul Ltd"
+  },
+  {
+    "nse_code": "AUROPHARMA",
+    "icici_code": "AURPHA",
+    "company_name": "Aurobindo Pharma Ltd"
+  },
+  {
+    "nse_code": "AUSTRAL",
+    "icici_code": "AUSCOK",
+    "company_name": "Austral Coke &amp; Projects Ltd"
+  },
+  {
+    "nse_code": "AUTOAXLES",
+    "icici_code": "AUTAXL",
+    "company_name": "Automotive Axles Ltd"
+  },
+  {
+    "nse_code": "AUTOIND",
+    "icici_code": "AUTOIN",
+    "company_name": "Autoline Industries Ltd"
+  },
+  {
+    "nse_code": "AUTOLITIND",
+    "icici_code": "AUTOLI",
+    "company_name": "Autolite (India) Ltd"
+  },
+  {
+    "nse_code": "AVAYAGCL",
+    "icici_code": "TATTEL",
+    "company_name": "Avaya GlobalConnect Ltd"
+  },
+  {
+    "nse_code": "AVENTIS",
+    "icici_code": "HOEMAR",
+    "company_name": "Aventis Pharma Ltd"
+  },
+  {
+    "nse_code": "AVTNPL",
+    "icici_code": "AVTHOM",
+    "company_name": "AVT Natural Products Ltd"
+  },
+  {
+    "nse_code": "AXISBANK",
+    "icici_code": "UTIBAN",
+    "company_name": "Axis Bank Ltd"
+  },
+  {
+    "nse_code": "AXIS-IT&amp;T",
+    "icici_code": "ITTLTD",
+    "company_name": "Axis-IT&amp;T Ltd"
+  },
+  {
+    "nse_code": "AZTECSOFT",
+    "icici_code": "AZTEC",
+    "company_name": "Aztecsoft Ltd"
+  },
+  {
+    "nse_code": "BAGFILMS",
+    "icici_code": "BAGFIL",
+    "company_name": "B.A.G Films and Media Ltd"
+  },
+  {
+    "nse_code": "BAJAJ-AUTO",
+    "icici_code": "BAAUTO",
+    "company_name": "Bajaj Auto Ltd"
+  },
+  {
+    "nse_code": "BAJAJELEC",
+    "icici_code": "BAJELE",
+    "company_name": "Bajaj Electricals Ltd"
+  },
+  {
+    "nse_code": "BAJAJFINSV",
+    "icici_code": "BAFINS",
+    "company_name": "Bajaj Finserv Ltd"
+  },
+  {
+    "nse_code": "BAJAJHIND",
+    "icici_code": "BAJHIN",
+    "company_name": "Bajaj Hindusthan Ltd"
+  },
+  {
+    "nse_code": "BAJAJHLDNG",
+    "icici_code": "BAJAUT",
+    "company_name": "Bajaj Holdings &amp; Investment Ltd"
+  },
+  {
+    "nse_code": "BAJAUTOFIN",
+    "icici_code": "BAJAF",
+    "company_name": "Bajaj Auto Finance Ltd"
+  },
+  {
+    "nse_code": "BALAJITELE",
+    "icici_code": "BALTEL",
+    "company_name": "Balaji Telefilms Ltd"
+  },
+  {
+    "nse_code": "BALAMINES",
+    "icici_code": "BALAMI",
+    "company_name": "Balaji Amines Ltd"
+  },
+  {
+    "nse_code": "BALKRISIND",
+    "icici_code": "BALIND",
+    "company_name": "Balkrishna Industries Ltd"
+  },
+  {
+    "nse_code": "BALLARPUR",
+    "icici_code": "BALIN",
+    "company_name": "Ballarpur Industries Ltd"
+  },
+  {
+    "nse_code": "BALMLAWRIE",
+    "icici_code": "BALLAW",
+    "company_name": "Balmer Lawrie &amp; Co. Ltd"
+  },
+  {
+    "nse_code": "BALPHARMA",
+    "icici_code": "BALPHA",
+    "company_name": "Bal Pharma Ltd"
+  },
+  {
+    "nse_code": "BALRAMCHIN",
+    "icici_code": "BALCHI",
+    "company_name": "Balrampur Chini Mills Ltd"
+  },
+  {
+    "nse_code": "BANARISUG",
+    "icici_code": "BANAMA",
+    "company_name": "Bannari Amman Sugars Ltd"
+  },
+  {
+    "nse_code": "BANCOINDIA",
+    "icici_code": "BANPRO",
+    "company_name": "Banco Products (I) Ltd"
+  },
+  {
+    "nse_code": "BANG",
+    "icici_code": "BANOVE",
+    "company_name": "Bang Overseas Ltd"
+  },
+  {
+    "nse_code": "BANKBARODA",
+    "icici_code": "BANBAR",
+    "company_name": "Bank of Baroda"
+  },
+  {
+    "nse_code": "BANKBEES",
+    "icici_code": "BENMUT",
+    "company_name": "Benchmark Asset Management Company Pvt. Ltd"
+  },
+  {
+    "nse_code": "BANKINDIA",
+    "icici_code": "BANIND",
+    "company_name": "Bank of India"
+  },
+  {
+    "nse_code": "BANKRAJAS",
+    "icici_code": "BANRAJ",
+    "company_name": "The Bank of Rajasthan Ltd"
+  },
+  {
+    "nse_code": "BANSWRAS",
+    "icici_code": "BANSYN",
+    "company_name": "Banswara Syntex Ltd"
+  },
+  {
+    "nse_code": "BARTRONICS",
+    "icici_code": "BARLTD",
+    "company_name": "Bartronics India Ltd"
+  },
+  {
+    "nse_code": "BASF",
+    "icici_code": "BASF",
+    "company_name": "BASF India Ltd"
+  },
+  {
+    "nse_code": "BASML",
+    "icici_code": "BANSPI",
+    "company_name": "Bannari Amman Spinning Mills Ltd"
+  },
+  {
+    "nse_code": "BATAINDIA",
+    "icici_code": "BATIND",
+    "company_name": "Bata India Ltd"
+  },
+  {
+    "nse_code": "BATLIBOI",
+    "icici_code": "BATLIB",
+    "company_name": "Batliboi Ltd"
+  },
+  {
+    "nse_code": "BBL",
+    "icici_code": "BHABIJ",
+    "company_name": "Bharat Bijlee Ltd"
+  },
+  {
+    "nse_code": "BBTC",
+    "icici_code": "BOMBUR",
+    "company_name": "Bombay Burmah Trading Corp. Ltd"
+  },
+  {
+    "nse_code": "BCCL",
+    "icici_code": "BIHCAU",
+    "company_name": "Bihar Caustics and Chemicals Ltd"
+  },
+  {
+    "nse_code": "BEL",
+    "icici_code": "BHAELE",
+    "company_name": "Bharat Electronics Ltd"
+  },
+  {
+    "nse_code": "BELCERAMIC",
+    "icici_code": "BELCER",
+    "company_name": "Bell Ceramics Ltd"
+  },
+  {
+    "nse_code": "BEML",
+    "icici_code": "BEML",
+    "company_name": "BEML Ltd"
+  },
+  {
+    "nse_code": "BEPL",
+    "icici_code": "BHAENG",
+    "company_name": "Bhansali Engineering Polymers Ltd"
+  },
+  {
+    "nse_code": "BERGEPAINT",
+    "icici_code": "BERPAI",
+    "company_name": "Berger Paints (I) Ltd"
+  },
+  {
+    "nse_code": "BFUTILITIE",
+    "icici_code": "BFUTI",
+    "company_name": "BF Utilities Ltd"
+  },
+  {
+    "nse_code": "BGRENERGY",
+    "icici_code": "BGRENE",
+    "company_name": "BGR Energy Systems Ltd"
+  },
+  {
+    "nse_code": "BHAGWATIHO",
+    "icici_code": "BHABAN",
+    "company_name": "Bhagwati Banquets and Hotels Ltd"
+  },
+  {
+    "nse_code": "BHAGYNAGAR",
+    "icici_code": "BHAMET",
+    "company_name": "Bhagyanagar India Ltd"
+  },
+  {
+    "nse_code": "BHARATFORG",
+    "icici_code": "BHAFOR",
+    "company_name": "Bharat Forge Ltd"
+  },
+  {
+    "nse_code": "BHARATGEAR",
+    "icici_code": "BHAGEA",
+    "company_name": "Bharat Gears Ltd"
+  },
+  {
+    "nse_code": "BHARATRAS",
+    "icici_code": "BHARAS",
+    "company_name": "Bharat Rasayan Ltd"
+  },
+  {
+    "nse_code": "BHARTIARTL",
+    "icici_code": "BHATE",
+    "company_name": "Bharti Airtel Ltd"
+  },
+  {
+    "nse_code": "BHARTISHIP",
+    "icici_code": "BHASHI",
+    "company_name": "Bharati Shipyard Ltd"
+  },
+  {
+    "nse_code": "BHEL",
+    "icici_code": "BHEL",
+    "company_name": "Bharat Heavy Electricals Ltd"
+  },
+  {
+    "nse_code": "BHUSANSTL",
+    "icici_code": "BHUST",
+    "company_name": "Bhushan Steel Ltd"
+  },
+  {
+    "nse_code": "BIL",
+    "icici_code": "BHAINT",
+    "company_name": "Bhartiya International Ltd"
+  },
+  {
+    "nse_code": "BILPOWER",
+    "icici_code": "BRAISP",
+    "company_name": "Bilpower Ltd"
+  },
+  {
+    "nse_code": "BINANICEM",
+    "icici_code": "BINCEM",
+    "company_name": "Binani Cement Ltd"
+  },
+  {
+    "nse_code": "BINANIIND",
+    "icici_code": "BININD",
+    "company_name": "Binani Industries Ltd"
+  },
+  {
+    "nse_code": "BINDALAGRO",
+    "icici_code": "OSWCHE",
+    "company_name": "Oswal Chemicals &amp; Fertilizers Ltd"
+  },
+  {
+    "nse_code": "BIOCON",
+    "icici_code": "BIOCON",
+    "company_name": "Biocon Ltd"
+  },
+  {
+    "nse_code": "BIRLACORPN",
+    "icici_code": "BIRCOR",
+    "company_name": "Birla Corporation Ltd"
+  },
+  {
+    "nse_code": "BIRLACOT",
+    "icici_code": "BIRCOT",
+    "company_name": "Birla Cotsyn (India) Ltd"
+  },
+  {
+    "nse_code": "BIRLAERIC",
+    "icici_code": "BIRERI",
+    "company_name": "Birla Ericsson Optical Ltd"
+  },
+  {
+    "nse_code": "BIRLAPOWER",
+    "icici_code": "BIRYAM",
+    "company_name": "Birla Power Solutions Ltd"
+  },
+  {
+    "nse_code": "BLBLtd",
+    "icici_code": "BLBLTD",
+    "company_name": "BLB Ltd"
+  },
+  {
+    "nse_code": "BLKASHYAP",
+    "icici_code": "BLKASH",
+    "company_name": "B. L. Kashyap and Sons Ltd"
+  },
+  {
+    "nse_code": "BLUEBIRD",
+    "icici_code": "BLUBIR",
+    "company_name": "Blue Bird (India) Ltd"
+  },
+  {
+    "nse_code": "BLUECHIP",
+    "icici_code": "BLUC",
+    "company_name": "Blue Chip India Ltd"
+  },
+  {
+    "nse_code": "BLUECOAST",
+    "icici_code": "MORHOT",
+    "company_name": "Blue Coast Hotels and Resorts Ltd"
+  },
+  {
+    "nse_code": "BLUEDART",
+    "icici_code": "BLUDAR",
+    "company_name": "Blue Dart Express Ltd"
+  },
+  {
+    "nse_code": "BLUESTARCO",
+    "icici_code": "BLUSTA",
+    "company_name": "Blue Star Ltd"
+  },
+  {
+    "nse_code": "BLUESTINFO",
+    "icici_code": "BLUSTA",
+    "company_name": "Blue Star Infotech Ltd"
+  },
+  {
+    "nse_code": "BOC",
+    "icici_code": "BOC",
+    "company_name": "BOC India Ltd"
+  },
+  {
+    "nse_code": "BOMDYEING",
+    "icici_code": "BOMDYE",
+    "company_name": "Bombay Dyeing &amp; Mfg Co. Ltd"
+  },
+  {
+    "nse_code": "BONGAIREFN",
+    "icici_code": "BONREF",
+    "company_name": "Bongaigaon Refinery &amp; Petrochemicals Ltd"
+  },
+  {
+    "nse_code": "BOSCHLTD",
+    "icici_code": "MICO",
+    "company_name": "Bosch Ltd"
+  },
+  {
+    "nse_code": "BPCL",
+    "icici_code": "BHAPET",
+    "company_name": "Bharat Petroleum Corpn. Ltd"
+  },
+  {
+    "nse_code": "BPL",
+    "icici_code": "BPL",
+    "company_name": "BPL Ltd"
+  },
+  {
+    "nse_code": "BRABOURNE",
+    "icici_code": "SEARLE",
+    "company_name": "Brabourne Enterprises Ltd"
+  },
+  {
+    "nse_code": "BRFL",
+    "icici_code": "BOMRAY",
+    "company_name": "Bombay Rayon Fashions Ltd"
+  },
+  {
+    "nse_code": "BRIGADE",
+    "icici_code": "BRIENT",
+    "company_name": "Brigade Enterprises Ltd"
+  },
+  {
+    "nse_code": "BRITANNIA",
+    "icici_code": "BRIIND",
+    "company_name": "Britannia Industries Ltd"
+  },
+  {
+    "nse_code": "BROADCAST",
+    "icici_code": "BROINI",
+    "company_name": "Broadcast Initiatives Ltd"
+  },
+  {
+    "nse_code": "BSELINFRA",
+    "icici_code": "BSEINF",
+    "company_name": "BSEL Infrastructure Realty Ltd"
+  },
+  {
+    "nse_code": "BSL",
+    "icici_code": "BSL",
+    "company_name": "BSL Ltd"
+  },
+  {
+    "nse_code": "BURNPUR",
+    "icici_code": "BURCEM",
+    "company_name": "Burnpur Cement Ltd"
+  },
+  {
+    "nse_code": "BVCL",
+    "icici_code": "BARVAL",
+    "company_name": "Barak Valley Cements Ltd"
+  },
+  {
+    "nse_code": "CADILAHC",
+    "icici_code": "CADHEA",
+    "company_name": "Cadila Healthcare Ltd"
+  },
+  {
+    "nse_code": "CAIRN",
+    "icici_code": "CAIIND",
+    "company_name": "Cairn India Ltd"
+  },
+  {
+    "nse_code": "CALSOFT",
+    "icici_code": "CALSOF",
+    "company_name": "California Software Company Ltd"
+  },
+  {
+    "nse_code": "CAMBRIDGE",
+    "icici_code": "SCASOL",
+    "company_name": "Cambridge Solutions Ltd"
+  },
+  {
+    "nse_code": "CAMLIN",
+    "icici_code": "CAMLIN",
+    "company_name": "Camlin Ltd"
+  },
+  {
+    "nse_code": "CANBK",
+    "icici_code": "CANBAN",
+    "company_name": "CANARA BANK"
+  },
+  {
+    "nse_code": "CANDC",
+    "icici_code": "CCCONS",
+    "company_name": "C &amp; C Constructions Ltd"
+  },
+  {
+    "nse_code": "CANFINHOME",
+    "icici_code": "CANHOM",
+    "company_name": "Can Fin Homes Ltd"
+  },
+  {
+    "nse_code": "CARBORUNIV",
+    "icici_code": "CARUNI",
+    "company_name": "Carborundum Universal Ltd"
+  },
+  {
+    "nse_code": "CAROLINFO",
+    "icici_code": "WOCLIF",
+    "company_name": "Carol Info Services Ltd"
+  },
+  {
+    "nse_code": "CASTROL",
+    "icici_code": "CASIND",
+    "company_name": "Castrol India Ltd"
+  },
+  {
+    "nse_code": "CCCL",
+    "icici_code": "CONCO",
+    "company_name": "Consolidated Construction Consortium Ltd"
+  },
+  {
+    "nse_code": "CCL",
+    "icici_code": "CONCF",
+    "company_name": "CCL Products (India) Ltd"
+  },
+  {
+    "nse_code": "CEATLTD",
+    "icici_code": "CEAT",
+    "company_name": "CEAT Ltd"
+  },
+  {
+    "nse_code": "CELEBRITY",
+    "icici_code": "CELFAS",
+    "company_name": "Celebrity Fashions Ltd"
+  },
+  {
+    "nse_code": "CELESTIAL",
+    "icici_code": "CELLAB",
+    "company_name": "Celestial Labs Ltd"
+  },
+  {
+    "nse_code": "CENTENKA",
+    "icici_code": "CENENK",
+    "company_name": "Century Enka Ltd"
+  },
+  {
+    "nse_code": "CENTEXT",
+    "icici_code": "CENEXT",
+    "company_name": "Century Extrusions Ltd"
+  },
+  {
+    "nse_code": "CENTRALBK",
+    "icici_code": "CENBAN",
+    "company_name": "Central Bank of India"
+  },
+  {
+    "nse_code": "CENTUM",
+    "icici_code": "CENELE",
+    "company_name": "Centum Electronics Ltd"
+  },
+  {
+    "nse_code": "CENTURYPLY",
+    "icici_code": "CENPLY",
+    "company_name": "Century Plyboards (India) Ltd"
+  },
+  {
+    "nse_code": "CENTURYTEX",
+    "icici_code": "CENTEX",
+    "company_name": "Century Textiles &amp; Industries Ltd"
+  },
+  {
+    "nse_code": "CERA",
+    "icici_code": "CERSAN",
+    "company_name": "Cera Sanitaryware Ltd"
+  },
+  {
+    "nse_code": "CESC",
+    "icici_code": "CESC",
+    "company_name": "CESC Ltd"
+  },
+  {
+    "nse_code": "CHAMBLFERT",
+    "icici_code": "CHAFER",
+    "company_name": "Chambal Fertilizers &amp; Chemicals Ltd"
+  },
+  {
+    "nse_code": "CHEMFALKAL",
+    "icici_code": "CHEALK",
+    "company_name": "CHEMFAB ALKALIS Ltd"
+  },
+  {
+    "nse_code": "CHEMPLAST",
+    "icici_code": "CHESAN",
+    "company_name": "Chemplast Sanmar Ltd"
+  },
+  {
+    "nse_code": "CHENNPETRO",
+    "icici_code": "MADREF",
+    "company_name": "Chennai Petroleum Corporation Ltd"
+  },
+  {
+    "nse_code": "CHESLINTEX",
+    "icici_code": "CHETEX",
+    "company_name": "Cheslind Textiles Ltd"
+  },
+  {
+    "nse_code": "CHETTINAD",
+    "icici_code": "CHECEM",
+    "company_name": "Chettinad Cement Corporation Ltd"
+  },
+  {
+    "nse_code": "CHI",
+    "icici_code": "CHIINV",
+    "company_name": "CHI Investments Ltd"
+  },
+  {
+    "nse_code": "CHOLADBS",
+    "icici_code": "CHOINV",
+    "company_name": "Cholamandalam DBS Finance Ltd"
+  },
+  {
+    "nse_code": "CIMCOBIRLA",
+    "icici_code": "CIMBIR",
+    "company_name": "Cimmco Birla Ltd"
+  },
+  {
+    "nse_code": "CINEMAX",
+    "icici_code": "CININD",
+    "company_name": "Cinemax India Ltd"
+  },
+  {
+    "nse_code": "CINEVISTA",
+    "icici_code": "CINEVI",
+    "company_name": "Cinevistaas Ltd"
+  },
+  {
+    "nse_code": "CIPLA",
+    "icici_code": "CIPLA",
+    "company_name": "Cipla Ltd"
+  },
+  {
+    "nse_code": "CLASSIC",
+    "icici_code": "CLADIA",
+    "company_name": "Classic Diamonds (India) Ltd"
+  },
+  {
+    "nse_code": "CLNINDIA",
+    "icici_code": "COLCHE",
+    "company_name": "Clariant Chemicals (India) Ltd"
+  },
+  {
+    "nse_code": "CLUTCHAUTO",
+    "icici_code": "CLUAUT",
+    "company_name": "Clutch Auto Ltd"
+  },
+  {
+    "nse_code": "CMC",
+    "icici_code": "CMC",
+    "company_name": "CMC Ltd"
+  },
+  {
+    "nse_code": "COLPAL",
+    "icici_code": "COLPAL",
+    "company_name": "Colgate Palmolive (India) Ltd"
+  },
+  {
+    "nse_code": "COMPUTECH",
+    "icici_code": "COMINT",
+    "company_name": "Computech International Ltd"
+  },
+  {
+    "nse_code": "COMSYS",
+    "icici_code": "COMSYS",
+    "company_name": "Compulink Systems Ltd"
+  },
+  {
+    "nse_code": "CONCOR",
+    "icici_code": "CONCOR",
+    "company_name": "Container Corporation of India Ltd"
+  },
+  {
+    "nse_code": "CONSOFINVT",
+    "icici_code": "JINPHO",
+    "company_name": "Consolidated Finvest &amp; Holdings Ltd"
+  },
+  {
+    "nse_code": "CORDSCABLE",
+    "icici_code": "CORCAB",
+    "company_name": "Cords Cable Industries Ltd"
+  },
+  {
+    "nse_code": "COREEMBLG",
+    "icici_code": "COREMB",
+    "company_name": "Core Emballage Ltd"
+  },
+  {
+    "nse_code": "COREPROTEC",
+    "icici_code": "AKHTEX",
+    "company_name": "Core Projects and Technologies Ltd"
+  },
+  {
+    "nse_code": "COROMNFERT",
+    "icici_code": "CORFER",
+    "company_name": "Coromandel Fertilisers Ltd"
+  },
+  {
+    "nse_code": "CORPBANK",
+    "icici_code": "CORBAN",
+    "company_name": "Corporation Bank"
+  },
+  {
+    "nse_code": "COSMOFILMS",
+    "icici_code": "COSFIL",
+    "company_name": "Cosmo Films Ltd"
+  },
+  {
+    "nse_code": "CRANESSOFT",
+    "icici_code": "EIDCOM",
+    "company_name": "Cranes Software International Ltd"
+  },
+  {
+    "nse_code": "CREATIVEYE",
+    "icici_code": "CREEYE",
+    "company_name": "Creative Eye Ltd"
+  },
+  {
+    "nse_code": "CRESTANI",
+    "icici_code": "CRECOM",
+    "company_name": "Crest Animation Studios Ltd"
+  },
+  {
+    "nse_code": "CREWBOS",
+    "icici_code": "CREBOS",
+    "company_name": "Crew B.O.S. Products Ltd"
+  },
+  {
+    "nse_code": "CRISIL",
+    "icici_code": "CRISIL",
+    "company_name": "CRISIL Ltd"
+  },
+  {
+    "nse_code": "CROMPGREAV",
+    "icici_code": "CROGRE",
+    "company_name": "Crompton Greaves Ltd"
+  },
+  {
+    "nse_code": "CTE",
+    "icici_code": "CAMTEC",
+    "company_name": "Cambridge Technology Enterprises Ltd"
+  },
+  {
+    "nse_code": "CUB",
+    "icici_code": "CITUNI",
+    "company_name": "City Union Bank Ltd"
+  },
+  {
+    "nse_code": "CUBEXTUB",
+    "icici_code": "CUBTUB",
+    "company_name": "Cubex Tubings Ltd"
+  },
+  {
+    "nse_code": "CUMMINSIND",
+    "icici_code": "CUMIND",
+    "company_name": "Cummins India Ltd"
+  },
+  {
+    "nse_code": "CYBERMEDIA",
+    "icici_code": "CYBMED",
+    "company_name": "Cyber Media (India) Ltd"
+  },
+  {
+    "nse_code": "CYBERTECH",
+    "icici_code": "CYBTEC",
+    "company_name": "Cybertech Systems And Software Ltd"
+  },
+  {
+    "nse_code": "DAAWAT",
+    "icici_code": "LTOVER",
+    "company_name": "LT Foods Ltd"
+  },
+  {
+    "nse_code": "DABUR",
+    "icici_code": "DABIND",
+    "company_name": "Dabur India Ltd"
+  },
+  {
+    "nse_code": "DABURPHARM",
+    "icici_code": "DABPHA",
+    "company_name": "Dabur Pharma Ltd"
+  },
+  {
+    "nse_code": "DALMIACEM",
+    "icici_code": "DALCEM",
+    "company_name": "Dalmia Cement (Bharat) Ltd"
+  },
+  {
+    "nse_code": "DATATECH",
+    "icici_code": "DATTEC",
+    "company_name": "Datamatics Technologies Ltd"
+  },
+  {
+    "nse_code": "DCB",
+    "icici_code": "DCB",
+    "company_name": "Development Credit Bank Ltd"
+  },
+  {
+    "nse_code": "DCHL",
+    "icici_code": "DECCHR",
+    "company_name": "Deccan Chronicle Holdings Ltd"
+  },
+  {
+    "nse_code": "DCM",
+    "icici_code": "DCM",
+    "company_name": "DCM Ltd"
+  },
+  {
+    "nse_code": "DCMFINSERV",
+    "icici_code": "DCMFIN",
+    "company_name": "DCM Financial Services Ltd"
+  },
+  {
+    "nse_code": "DCMSRMCONS",
+    "icici_code": "DCMSHR",
+    "company_name": "DCM Shriram Consolidated Ltd"
+  },
+  {
+    "nse_code": "DCW",
+    "icici_code": "DCW",
+    "company_name": "DCW Ltd"
+  },
+  {
+    "nse_code": "DECCANCE",
+    "icici_code": "DECCEM",
+    "company_name": "Deccan Cements Ltd"
+  },
+  {
+    "nse_code": "DECOLIGHT",
+    "icici_code": "DECCER",
+    "company_name": "Decolight Ceramics Ltd"
+  },
+  {
+    "nse_code": "DEEPAKFERT",
+    "icici_code": "DEEFER",
+    "company_name": "Deepak Fertilizers and Petrochemicals Corporation Ltd"
+  },
+  {
+    "nse_code": "DELTACORP",
+    "icici_code": "ARRWEB",
+    "company_name": "Delta Corp Ltd"
+  },
+  {
+    "nse_code": "DENABANK",
+    "icici_code": "DENBAN",
+    "company_name": "Dena Bank"
+  },
+  {
+    "nse_code": "DENORA",
+    "icici_code": "TITCOM",
+    "company_name": "De Nora India Ltd"
+  },
+  {
+    "nse_code": "DEWANHOUS",
+    "icici_code": "DEWHOU",
+    "company_name": "Dewan Housing Finance Corporation Ltd"
+  },
+  {
+    "nse_code": "DHAMPURSUG",
+    "icici_code": "DHASUG",
+    "company_name": "The Dhampur Sugar Mills Ltd"
+  },
+  {
+    "nse_code": "DHANBANK",
+    "icici_code": "DHABAN",
+    "company_name": "The Dhanalakshmi Bank Ltd"
+  },
+  {
+    "nse_code": "DHANUS",
+    "icici_code": "DHATEC",
+    "company_name": "Dhanus Technologies Ltd"
+  },
+  {
+    "nse_code": "DHARSUGAR",
+    "icici_code": "DHARSU",
+    "company_name": "Dharani Sugars &amp; Chemicals Ltd"
+  },
+  {
+    "nse_code": "DICIND",
+    "icici_code": "COAIND",
+    "company_name": "DIC India Ltd"
+  },
+  {
+    "nse_code": "DIGJAM",
+    "icici_code": "BIRVXL",
+    "company_name": "Digjam Ltd"
+  },
+  {
+    "nse_code": "DISHMAN",
+    "icici_code": "DISPHA",
+    "company_name": "Dishman Pharmaceuticals and Chemicals Ltd"
+  },
+  {
+    "nse_code": "DISHTV",
+    "icici_code": "DISHTV",
+    "company_name": "Dish TV India Ltd"
+  },
+  {
+    "nse_code": "DIVISLAB",
+    "icici_code": "DIVLAB",
+    "company_name": "Divi's Laboratories Ltd"
+  },
+  {
+    "nse_code": "DLF",
+    "icici_code": "DLFLIM",
+    "company_name": "DLF Ltd"
+  },
+  {
+    "nse_code": "D-LINK",
+    "icici_code": "DLINK",
+    "company_name": "D-Link (India) Ltd"
+  },
+  {
+    "nse_code": "DOLPHINOFF",
+    "icici_code": "DOLOFF",
+    "company_name": "Dolphin Offshore Enterprises (India) Ltd"
+  },
+  {
+    "nse_code": "DONEAR",
+    "icici_code": "DONIND",
+    "company_name": "Donear Industries Ltd"
+  },
+  {
+    "nse_code": "DPSCLTD",
+    "icici_code": "DPSLIM",
+    "company_name": "DPSC Ltd"
+  },
+  {
+    "nse_code": "DREDGECORP",
+    "icici_code": "DRECOR",
+    "company_name": "Dredging Corporation of India Ltd"
+  },
+  {
+    "nse_code": "DRREDDY",
+    "icici_code": "DRREDD",
+    "company_name": "Dr. Reddy's Laboratories Ltd"
+  },
+  {
+    "nse_code": "DSKULKARNI",
+    "icici_code": "DSKULK",
+    "company_name": "DS Kulkarni Developers Ltd"
+  },
+  {
+    "nse_code": "DTIL",
+    "icici_code": "DHUTEA",
+    "company_name": "Dhunseri Tea &amp; Industries Ltd"
+  },
+  {
+    "nse_code": "DUNCANSIND",
+    "icici_code": "DUNCAN",
+    "company_name": "Duncans Industries Ltd"
+  },
+  {
+    "nse_code": "DWARKESH",
+    "icici_code": "DWASUG",
+    "company_name": "Dwarikesh Sugar Industries Ltd"
+  },
+  {
+    "nse_code": "DYNACONS",
+    "icici_code": "DYNSYS",
+    "company_name": "Dynacons Systems &amp; Solutions Ltd"
+  },
+  {
+    "nse_code": "DYNAMATECH",
+    "icici_code": "DYNTEC",
+    "company_name": "Dynamatic Technologies Ltd"
+  },
+  {
+    "nse_code": "EASTSILK",
+    "icici_code": "EASSIL",
+    "company_name": "Eastern Silk Industries Ltd"
+  },
+  {
+    "nse_code": "EASUNREYRL",
+    "icici_code": "EASUN",
+    "company_name": "Easun Reyrolle Ltd"
+  },
+  {
+    "nse_code": "ECEIND",
+    "icici_code": "ECEIND",
+    "company_name": "ECE Industries Ltd"
+  },
+  {
+    "nse_code": "EDELWEISS",
+    "icici_code": "EDECAP",
+    "company_name": "Edelweiss Capital Ltd"
+  },
+  {
+    "nse_code": "EDL",
+    "icici_code": "EMPDIS",
+    "company_name": "Empee Distilleries Ltd"
+  },
+  {
+    "nse_code": "EDUCOMP",
+    "icici_code": "EDUSOL",
+    "company_name": "Educomp Solutions Ltd"
+  },
+  {
+    "nse_code": "EICHERMOT",
+    "icici_code": "EICMOT",
+    "company_name": "Eicher Motors Ltd"
+  },
+  {
+    "nse_code": "EIDPARRY",
+    "icici_code": "EIDPAR",
+    "company_name": "EID Parry India Ltd"
+  },
+  {
+    "nse_code": "EIHAHOTELS",
+    "icici_code": "EIHASS",
+    "company_name": "EIH Associated Hotels Ltd"
+  },
+  {
+    "nse_code": "EIHOTEL",
+    "icici_code": "EIH",
+    "company_name": "EIH Ltd"
+  },
+  {
+    "nse_code": "EIMCOELECO",
+    "icici_code": "EIMELE",
+    "company_name": "Eimco Elecon (India) Ltd"
+  },
+  {
+    "nse_code": "EKC",
+    "icici_code": "EVEKAN",
+    "company_name": "Everest Kanto Cylinder Ltd"
+  },
+  {
+    "nse_code": "ELDERPHARM",
+    "icici_code": "ELDPHA",
+    "company_name": "Elder Pharmaceuticals Ltd"
+  },
+  {
+    "nse_code": "ELECON",
+    "icici_code": "ELEENG",
+    "company_name": "Elecon Engineering Co Ltd"
+  },
+  {
+    "nse_code": "ELECTCAST",
+    "icici_code": "ELECAS",
+    "company_name": "Electrosteel Castings Ltd"
+  },
+  {
+    "nse_code": "ELECTHERM",
+    "icici_code": "ELEIN",
+    "company_name": "Electrotherm (India) Ltd"
+  },
+  {
+    "nse_code": "ELGIEQUIP",
+    "icici_code": "ELGEQU",
+    "company_name": "Elgi Equipments Ltd"
+  },
+  {
+    "nse_code": "ELGITYRE",
+    "icici_code": "ELGTYR",
+    "company_name": "Elgitread (India) Ltd"
+  },
+  {
+    "nse_code": "EMAMILTD",
+    "icici_code": "HIMANI",
+    "company_name": "Emami Ltd"
+  },
+  {
+    "nse_code": "EMCO",
+    "icici_code": "EMCTRA",
+    "company_name": "Emco Ltd"
+  },
+  {
+    "nse_code": "EMKAY",
+    "icici_code": "EMKSHA",
+    "company_name": "Emkay Global Financial Services Ltd"
+  },
+  {
+    "nse_code": "ENERGYDEV",
+    "icici_code": "ENEDEV",
+    "company_name": "Energy Development Company Ltd"
+  },
+  {
+    "nse_code": "ENGINERSIN",
+    "icici_code": "ENGIND",
+    "company_name": "Engineers India Ltd"
+  },
+  {
+    "nse_code": "ENIL",
+    "icici_code": "ENTNET",
+    "company_name": "Entertainment Network (India) Ltd"
+  },
+  {
+    "nse_code": "ENKEI",
+    "icici_code": "PEGCAS",
+    "company_name": "Enkei Castalloy Ltd"
+  },
+  {
+    "nse_code": "ENTEGRA",
+    "icici_code": "SKPOW",
+    "company_name": "Entegra Ltd"
+  },
+  {
+    "nse_code": "ERAINFRA",
+    "icici_code": "ERACON",
+    "company_name": "Era Infra Engineering Ltd"
+  },
+  {
+    "nse_code": "ESABINDIA",
+    "icici_code": "ESAIND",
+    "company_name": "Esab India Ltd"
+  },
+  {
+    "nse_code": "ESCORTS",
+    "icici_code": "ESCORT",
+    "company_name": "Escorts Ltd"
+  },
+  {
+    "nse_code": "ESSAROIL",
+    "icici_code": "ESSOIL",
+    "company_name": "Essar Oil Ltd"
+  },
+  {
+    "nse_code": "ESSARSHIP",
+    "icici_code": "ESSSHI",
+    "company_name": "Essar Shipping Ltd"
+  },
+  {
+    "nse_code": "ESSDEE",
+    "icici_code": "ESSDEE",
+    "company_name": "Ess Dee Aluminium Ltd"
+  },
+  {
+    "nse_code": "ESSELPACK",
+    "icici_code": "ESSPAC",
+    "company_name": "Essel Propack Ltd"
+  },
+  {
+    "nse_code": "ETC",
+    "icici_code": "ETCNET",
+    "company_name": "ETC Networks Ltd"
+  },
+  {
+    "nse_code": "EUROCERA",
+    "icici_code": "EURCER",
+    "company_name": "Euro Ceramics Ltd"
+  },
+  {
+    "nse_code": "EUROTEXIND",
+    "icici_code": "EURIND",
+    "company_name": "Eurotex Industries and Exports Ltd"
+  },
+  {
+    "nse_code": "EVEREADY",
+    "icici_code": "EVEIND",
+    "company_name": "Eveready Industries India Ltd"
+  },
+  {
+    "nse_code": "EVERESTIND",
+    "icici_code": "ETEEVE",
+    "company_name": "Everest Industries Ltd"
+  },
+  {
+    "nse_code": "EVERONN",
+    "icici_code": "EVESYS",
+    "company_name": "Everonn Systems India Ltd"
+  },
+  {
+    "nse_code": "EVINIX",
+    "icici_code": "EVIACC",
+    "company_name": "Evinix Accessories Ltd"
+  },
+  {
+    "nse_code": "EXCELCROP",
+    "icici_code": "EXCCRO",
+    "company_name": "Excel Crop Care Ltd"
+  },
+  {
+    "nse_code": "EXCELINDUS",
+    "icici_code": "EXCIND",
+    "company_name": "Excel Industries Ltd"
+  },
+  {
+    "nse_code": "EXIDEIND",
+    "icici_code": "EXIIND",
+    "company_name": "Exide Industries Ltd"
+  },
+  {
+    "nse_code": "FACT",
+    "icici_code": "FACT",
+    "company_name": "Fertilizers and Chemicals Travancore Ltd"
+  },
+  {
+    "nse_code": "FAGBEARING",
+    "icici_code": "FAGPRE",
+    "company_name": "FAG Bearings India Ltd"
+  },
+  {
+    "nse_code": "FAME",
+    "icici_code": "SHRCIN",
+    "company_name": "Fame India Ltd"
+  },
+  {
+    "nse_code": "FCH",
+    "icici_code": "FUTCAP",
+    "company_name": "Future Capital Holdings Ltd"
+  },
+  {
+    "nse_code": "FCSSOFT",
+    "icici_code": "FCSSOF",
+    "company_name": "FCS Software Solutions Ltd"
+  },
+  {
+    "nse_code": "FDC",
+    "icici_code": "FDC",
+    "company_name": "FDC Ltd"
+  },
+  {
+    "nse_code": "FEDDERLOYD",
+    "icici_code": "FEDLLO",
+    "company_name": "Fedders Lloyd Corporation Ltd"
+  },
+  {
+    "nse_code": "FEDERALBNK",
+    "icici_code": "FEDBAN",
+    "company_name": "The Federal Bank Ltd"
+  },
+  {
+    "nse_code": "FIEMIND",
+    "icici_code": "FIEIND",
+    "company_name": "Fiem Industries Ltd"
+  },
+  {
+    "nse_code": "FINANTECH",
+    "icici_code": "FINTEC",
+    "company_name": "Financial Technologies (India) Ltd"
+  },
+  {
+    "nse_code": "FINCABLES",
+    "icici_code": "FINCAB",
+    "company_name": "Finolex Cables Ltd"
+  },
+  {
+    "nse_code": "FINPIPE",
+    "icici_code": "FININD",
+    "company_name": "Finolex Industries Ltd"
+  },
+  {
+    "nse_code": "FIRSTLEASE",
+    "icici_code": "FIRLEA",
+    "company_name": "First Leasing Company of India Ltd"
+  },
+  {
+    "nse_code": "FIRSTWIN",
+    "icici_code": "FIRWIN",
+    "company_name": "First Winner Industries Ltd"
+  },
+  {
+    "nse_code": "FMGOETZE",
+    "icici_code": "GOEIND",
+    "company_name": "Federal-Mogul Goetze (India) Ltd."
+  },
+  {
+    "nse_code": "FORTIS",
+    "icici_code": "FORHEA",
+    "company_name": "Fortis Healthcare Ltd"
+  },
+  {
+    "nse_code": "FOSECOIND",
+    "icici_code": "FOSIND",
+    "company_name": "Foseco India Ltd"
+  },
+  {
+    "nse_code": "FOURSOFT",
+    "icici_code": "FOUSOF",
+    "company_name": "Four Soft Ltd"
+  },
+  {
+    "nse_code": "FSL",
+    "icici_code": "FIRSOU",
+    "company_name": "Firstsource Solutions Ltd"
+  },
+  {
+    "nse_code": "FTCPOF3YDV",
+    "icici_code": "Franklin",
+    "company_name": "Templeton Capital Protection Oriented Fund 3YDV"
+  },
+  {
+    "nse_code": "FTCPOF3YGR",
+    "icici_code": "Franklin",
+    "company_name": "Templeton Capital Protection Oriented Fund 3YGR"
+  },
+  {
+    "nse_code": "FTCPOF5YDV",
+    "icici_code": "Franklin",
+    "company_name": "Templeton Capital Protection Oriented Fund 5YDV"
+  },
+  {
+    "nse_code": "FTCPOF5YGR",
+    "icici_code": "Franklin",
+    "company_name": "Templeton Capital Protection Oriented Fund 5YGR"
+  },
+  {
+    "nse_code": "FTCSF3YDIV",
+    "icici_code": "Franklin",
+    "company_name": "Templeton Mutual Fund-Capital Safety Fund-3Y(Divdend Option)"
+  },
+  {
+    "nse_code": "FTCSF3YGRO",
+    "icici_code": "Franklin",
+    "company_name": "Templeton Mutual Fund-Capital Saftey Fund 3Y (Growth Option)"
+  },
+  {
+    "nse_code": "FTCSF5YDIV",
+    "icici_code": "Franklin",
+    "company_name": "Templeton Mutual Fund-Capital Safety Fund-5Y Dividend Option"
+  },
+  {
+    "nse_code": "FTCSF5YGRO",
+    "icici_code": "Franklin",
+    "company_name": "Templeton Mutual Fund-Capital Safety Fund-5Y (Growth Option)"
+  },
+  {
+    "nse_code": "GABRIEL",
+    "icici_code": "GABIND",
+    "company_name": "Gabriel India Ltd"
+  },
+  {
+    "nse_code": "GAEL",
+    "icici_code": "GUJAE",
+    "company_name": "Gujarat Ambuja Exports Ltd"
+  },
+  {
+    "nse_code": "GAIL",
+    "icici_code": "GAIL",
+    "company_name": "GAIL (India) Ltd"
+  },
+  {
+    "nse_code": "GALLANTT",
+    "icici_code": "GALMET",
+    "company_name": "Gallantt Metal Ltd"
+  },
+  {
+    "nse_code": "GAMMNINFRA",
+    "icici_code": "GAMINF",
+    "company_name": "Gammon Infrastructure Projects Ltd"
+  },
+  {
+    "nse_code": "GAMMONIND",
+    "icici_code": "GAMIND",
+    "company_name": "Gammon India Ltd"
+  },
+  {
+    "nse_code": "GANDHITUBE",
+    "icici_code": "GANSPE",
+    "company_name": "Gandhi Special Tubes Ltd"
+  },
+  {
+    "nse_code": "GANESHHOUC",
+    "icici_code": "GANHOU",
+    "company_name": "GANESH HOUSING CORPORATION Ltd"
+  },
+  {
+    "nse_code": "GANGOTRI",
+    "icici_code": "GANTEX",
+    "company_name": "Gangotri Textiles Ltd"
+  },
+  {
+    "nse_code": "GARDENSILK",
+    "icici_code": "GARSIL",
+    "company_name": "Garden Silk Mills Ltd"
+  },
+  {
+    "nse_code": "GARWALLROP",
+    "icici_code": "GARWAL",
+    "company_name": "Garware Wall Ropes Ltd"
+  },
+  {
+    "nse_code": "GARWOFFS",
+    "icici_code": "GARSHI",
+    "company_name": "Garware Offshore Services Ltd"
+  },
+  {
+    "nse_code": "GATI",
+    "icici_code": "GATCOR",
+    "company_name": "GATI Ltd"
+  },
+  {
+    "nse_code": "GDL",
+    "icici_code": "GATDIS",
+    "company_name": "Gateway Distriparks Ltd"
+  },
+  {
+    "nse_code": "GEMINI",
+    "icici_code": "GEMCOM",
+    "company_name": "Gemini Communication Ltd"
+  },
+  {
+    "nse_code": "GENESYS",
+    "icici_code": "AEKTRA",
+    "company_name": "Genesys International Corporation Ltd"
+  },
+  {
+    "nse_code": "GENUSPOWER",
+    "icici_code": "GENOVE",
+    "company_name": "Genus Power Infrastructures Ltd"
+  },
+  {
+    "nse_code": "GEODESIC",
+    "icici_code": "BVHOLD",
+    "company_name": "Geodesic Ltd"
+  },
+  {
+    "nse_code": "GEOJIT",
+    "icici_code": "GEOSEC",
+    "company_name": "Geojit Financial Services Ltd"
+  },
+  {
+    "nse_code": "GEOMETRIC",
+    "icici_code": "GEOSOF",
+    "company_name": "Geometric Ltd"
+  },
+  {
+    "nse_code": "GESHIP",
+    "icici_code": "GESHIP",
+    "company_name": "The Great Eastern Shipping Co. Ltd"
+  },
+  {
+    "nse_code": "GHCL",
+    "icici_code": "GUJHEA",
+    "company_name": "GHCL Ltd"
+  },
+  {
+    "nse_code": "GICHSGFIN",
+    "icici_code": "GICHOU",
+    "company_name": "GIC Housing Finance Ltd"
+  },
+  {
+    "nse_code": "GILLETTE",
+    "icici_code": "INDSHA",
+    "company_name": "Gillette India Ltd"
+  },
+  {
+    "nse_code": "GINNIFILA",
+    "icici_code": "GINFIL",
+    "company_name": "Ginni Filaments Ltd"
+  },
+  {
+    "nse_code": "GIPCL",
+    "icici_code": "GUJIP",
+    "company_name": "Gujarat Industries Power Co. Ltd"
+  },
+  {
+    "nse_code": "GITANJALI",
+    "icici_code": "GITGEM",
+    "company_name": "Gitanjali Gems Ltd"
+  },
+  {
+    "nse_code": "GKW",
+    "icici_code": "GKW",
+    "company_name": "GKW Ltd"
+  },
+  {
+    "nse_code": "GLAXO",
+    "icici_code": "GLAIND",
+    "company_name": "GlaxoSmithKline Pharmaceuticals Ltd"
+  },
+  {
+    "nse_code": "GLENMARK",
+    "icici_code": "GLEPHA",
+    "company_name": "Glenmark Pharmaceuticals Ltd"
+  },
+  {
+    "nse_code": "GLFL",
+    "icici_code": "GUJLEA",
+    "company_name": "Gujarat Lease Financing Ltd"
+  },
+  {
+    "nse_code": "GLOBALVECT",
+    "icici_code": "GLOVEC",
+    "company_name": "Global Vectra Helicorp Ltd"
+  },
+  {
+    "nse_code": "GLODYNE",
+    "icici_code": "PARINF",
+    "company_name": "Glodyne Technoserve Ltd"
+  },
+  {
+    "nse_code": "GLORY",
+    "icici_code": "GLOPOL",
+    "company_name": "Glory Polyfilms Ltd"
+  },
+  {
+    "nse_code": "GMBREW",
+    "icici_code": "GMBREW",
+    "company_name": "GM Breweries Ltd"
+  },
+  {
+    "nse_code": "GMDCLTD",
+    "icici_code": "GUJMI",
+    "company_name": "Gujarat Mineral Development Corporation Ltd"
+  },
+  {
+    "nse_code": "GMRFER",
+    "icici_code": "GMRFER",
+    "company_name": "GMR Ferro Alloys &amp; Industries Ltd"
+  },
+  {
+    "nse_code": "GMRINDS",
+    "icici_code": "GMRVAS",
+    "company_name": "GMR Industries Ltd"
+  },
+  {
+    "nse_code": "GMRINFRA",
+    "icici_code": "GMRINF",
+    "company_name": "GMR Infrastructure Ltd"
+  },
+  {
+    "nse_code": "GNFC",
+    "icici_code": "GNFC",
+    "company_name": "Gujarat Narmada Valley Fertilizer Co. Ltd"
+  },
+  {
+    "nse_code": "GOACARBON",
+    "icici_code": "GOACAR",
+    "company_name": "Goa Carbon Ltd"
+  },
+  {
+    "nse_code": "GODFRYPHLP",
+    "icici_code": "GODPHI",
+    "company_name": "Godfrey Phillips India Ltd"
+  },
+  {
+    "nse_code": "GODREJCP",
+    "icici_code": "GODCON",
+    "company_name": "Godrej Consumer Products Ltd"
+  },
+  {
+    "nse_code": "GODREJIND",
+    "icici_code": "GODSOA",
+    "company_name": "Godrej Industries Ltd"
+  },
+  {
+    "nse_code": "GOKEX",
+    "icici_code": "GOKEXP",
+    "company_name": "Gokaldas Exports Ltd"
+  },
+  {
+    "nse_code": "GOKUL",
+    "icici_code": "GOKREF",
+    "company_name": "Gokul Refoils and Solvent Ltd"
+  },
+  {
+    "nse_code": "GOLDBEES",
+    "icici_code": "Benchmark",
+    "company_name": "Mutual Fund - Gold Benchmark Exchange Traded Scheme"
+  },
+  {
+    "nse_code": "GOLDENTOBC",
+    "icici_code": "GTCIND",
+    "company_name": "Golden Tobacco Ltd"
+  },
+  {
+    "nse_code": "GOLDIAM",
+    "icici_code": "GOLINT",
+    "company_name": "Goldiam International Ltd"
+  },
+  {
+    "nse_code": "GOLDINFRA",
+    "icici_code": "GOPLEA",
+    "company_name": "Goldstone Infratech Ltd"
+  },
+  {
+    "nse_code": "GOLDSHARE",
+    "icici_code": "UTGOLD",
+    "company_name": "UTI Mutual Fund - UTI Gold Exchange Traded Fund"
+  },
+  {
+    "nse_code": "GOLDTECH",
+    "icici_code": "GOLTEC",
+    "company_name": "Goldstone Technologies Ltd"
+  },
+  {
+    "nse_code": "GPELECT",
+    "icici_code": "GPELEC",
+    "company_name": "GP Electronics Ltd"
+  },
+  {
+    "nse_code": "GPIL",
+    "icici_code": "GODPOW",
+    "company_name": "Godawari Power And Ispat Ltd"
+  },
+  {
+    "nse_code": "GRANULES",
+    "icici_code": "GRANUL",
+    "company_name": "Granules India Ltd"
+  },
+  {
+    "nse_code": "GRAPHITE",
+    "icici_code": "CAREVE",
+    "company_name": "Graphite India Ltd"
+  },
+  {
+    "nse_code": "GRASIM",
+    "icici_code": "GRASIM",
+    "company_name": "Grasim Industries Ltd"
+  },
+  {
+    "nse_code": "GREAVESCOT",
+    "icici_code": "GREAVE",
+    "company_name": "Greaves Cotton Ltd"
+  },
+  {
+    "nse_code": "GREENPLY",
+    "icici_code": "GREIN",
+    "company_name": "Greenply Industries Ltd"
+  },
+  {
+    "nse_code": "GRINDWELL",
+    "icici_code": "GRINOR",
+    "company_name": "Grindwell Norton Ltd"
+  },
+  {
+    "nse_code": "GRUH",
+    "icici_code": "GRUFIN",
+    "company_name": "Gruh Finance Ltd"
+  },
+  {
+    "nse_code": "GSFC",
+    "icici_code": "GSFC",
+    "company_name": "Gujarat State Fertilizers &amp; Chemicals Ltd"
+  },
+  {
+    "nse_code": "GSKCONS",
+    "icici_code": "SMIBC",
+    "company_name": "GlaxoSmithKline Consumer Healthcare Ltd"
+  },
+  {
+    "nse_code": "GSPL",
+    "icici_code": "GSPL",
+    "company_name": "Gujarat State Petronet Ltd"
+  },
+  {
+    "nse_code": "GSSAMERICA",
+    "icici_code": "GSSAME",
+    "company_name": "GSS America Infotech Ltd"
+  },
+  {
+    "nse_code": "GTL",
+    "icici_code": "GLOTEL",
+    "company_name": "GTL Ltd"
+  },
+  {
+    "nse_code": "GTLINFRA",
+    "icici_code": "GTLINF",
+    "company_name": "GTL Infrastructure Ltd"
+  },
+  {
+    "nse_code": "GTNIND",
+    "icici_code": "GTNTEX",
+    "company_name": "GTN Industries Ltd"
+  },
+  {
+    "nse_code": "GTNTEX",
+    "icici_code": "GTNTE",
+    "company_name": "GTN Textiles Ltd"
+  },
+  {
+    "nse_code": "GTOFFSHORE",
+    "icici_code": "GREOFF",
+    "company_name": "Great Offshore Ltd"
+  },
+  {
+    "nse_code": "GUFICBIO",
+    "icici_code": "CENFIN",
+    "company_name": "Gufic Biosciences Ltd"
+  },
+  {
+    "nse_code": "GUJALKALI",
+    "icici_code": "GUJALK",
+    "company_name": "Gujarat Alkalies and Chemicals Ltd"
+  },
+  {
+    "nse_code": "GUJAPOLLO",
+    "icici_code": "GUJAPO",
+    "company_name": "Gujarat Apollo Industries Ltd"
+  },
+  {
+    "nse_code": "GUJFLUORO",
+    "icici_code": "GUJFLO",
+    "company_name": "Gujarat Fluorochemicals Ltd"
+  },
+  {
+    "nse_code": "GUJNRECOKE",
+    "icici_code": "GUJNRE",
+    "company_name": "Gujarat NRE Coke Ltd"
+  },
+  {
+    "nse_code": "GUJRATGAS",
+    "icici_code": "GUJGAS",
+    "company_name": "Gujarat Gas Co. Ltd"
+  },
+  {
+    "nse_code": "GUJSIDHCEM",
+    "icici_code": "GUJSID",
+    "company_name": "Gujarat Sidhee Cements Ltd"
+  },
+  {
+    "nse_code": "GULFOILCOR",
+    "icici_code": "IDLIND",
+    "company_name": "Gulf Oil Corporation Ltd"
+  },
+  {
+    "nse_code": "GVKPIL",
+    "icici_code": "GVKPOW",
+    "company_name": "GVK Power &amp; Infrastructure Ltd"
+  },
+  {
+    "nse_code": "GWALCHEM",
+    "icici_code": "GWAPRO",
+    "company_name": "Gwalior Chemical Industries Ltd"
+  },
+  {
+    "nse_code": "HANUNG",
+    "icici_code": "HANTOY",
+    "company_name": "Hanung Toys and Textiles Ltd"
+  },
+  {
+    "nse_code": "HARRMALAYA",
+    "icici_code": "HARMAL",
+    "company_name": "Harrisons Malayalam Ltd"
+  },
+  {
+    "nse_code": "HAVELLS",
+    "icici_code": "HAVIND",
+    "company_name": "Havells India Ltd"
+  },
+  {
+    "nse_code": "HBLPOWER",
+    "icici_code": "SABNIF",
+    "company_name": "HBL Power Systems Ltd"
+  },
+  {
+    "nse_code": "HBSTOCK",
+    "icici_code": "HBSTO0",
+    "company_name": "HB Stockholdings Ltd"
+  },
+  {
+    "nse_code": "HCC",
+    "icici_code": "HINCON",
+    "company_name": "Hindustan Construction Co. Ltd"
+  },
+  {
+    "nse_code": "HCIL",
+    "icici_code": "HIMCHE",
+    "company_name": "Himadri Chemicals and Industries Ltd"
+  },
+  {
+    "nse_code": "HCL-INSYS",
+    "icici_code": "HCLINF",
+    "company_name": "HCL Infosystems Ltd"
+  },
+  {
+    "nse_code": "HCLTECH",
+    "icici_code": "HCLTEC",
+    "company_name": "HCL Technologies Ltd"
+  },
+  {
+    "nse_code": "HDFC",
+    "icici_code": "HDFC",
+    "company_name": "Housing Development Finance Corporation Ltd"
+  },
+  {
+    "nse_code": "HDFCBANK",
+    "icici_code": "HDFBAN",
+    "company_name": "HDFC Bank Ltd"
+  },
+  {
+    "nse_code": "HDIL",
+    "icici_code": "HDIL",
+    "company_name": "Housing Development and Infrastructure Ltd"
+  },
+  {
+    "nse_code": "HEG",
+    "icici_code": "HEG",
+    "company_name": "HEG Ltd"
+  },
+  {
+    "nse_code": "HELIOSMATH",
+    "icici_code": "HELMAT",
+    "company_name": "Helios And Matheson Information Technology Ltd"
+  },
+  {
+    "nse_code": "HERCULES",
+    "icici_code": "HERHOI",
+    "company_name": "Hercules Hoists Ltd"
+  },
+  {
+    "nse_code": "HEROHONDA",
+    "icici_code": "HERHON",
+    "company_name": "Hero Honda Motors Ltd"
+  },
+  {
+    "nse_code": "HEXAWARE",
+    "icici_code": "APTECH",
+    "company_name": "Hexaware Technologies Ltd"
+  },
+  {
+    "nse_code": "HIKAL",
+    "icici_code": "HIKCHE",
+    "company_name": "Hikal Ltd"
+  },
+  {
+    "nse_code": "HILTON",
+    "icici_code": "HILMET",
+    "company_name": "Hilton Metal Forging Ltd"
+  },
+  {
+    "nse_code": "HIMACHLFUT",
+    "icici_code": "HIMFUT",
+    "company_name": "Himachal Futuristic Communications Ltd"
+  },
+  {
+    "nse_code": "HIMATSEIDE",
+    "icici_code": "HIMSEI",
+    "company_name": "Himatsingka Seide Ltd"
+  },
+  {
+    "nse_code": "HINDALCO",
+    "icici_code": "HINDAL",
+    "company_name": "Hindalco Industries Ltd"
+  },
+  {
+    "nse_code": "HINDCOMPOS",
+    "icici_code": "HINCOM",
+    "company_name": "Hindustan Composites Ltd"
+  },
+  {
+    "nse_code": "HINDDORROL",
+    "icici_code": "HINDOR",
+    "company_name": "Hindustan Dorr-Oliver Ltd"
+  },
+  {
+    "nse_code": "HINDMOTOR",
+    "icici_code": "HINMOT",
+    "company_name": "Hindustan Motors Ltd"
+  },
+  {
+    "nse_code": "HINDOILEXP",
+    "icici_code": "HINOIL",
+    "company_name": "Hindustan Oil Exploration Co. Ltd"
+  },
+  {
+    "nse_code": "HINDPETRO",
+    "icici_code": "HINPET",
+    "company_name": "Hindustan Petroleum Corporation Ltd"
+  },
+  {
+    "nse_code": "HINDSANIT",
+    "icici_code": "HINSAN",
+    "company_name": "Hindustan Sanitaryware And Industries Ltd"
+  },
+  {
+    "nse_code": "HINDSYNTEX",
+    "icici_code": "HINSYN",
+    "company_name": "Hind Syntex Ltd"
+  },
+  {
+    "nse_code": "HINDUJAFO",
+    "icici_code": "ENNFOU",
+    "company_name": "Hinduja Foundries Ltd"
+  },
+  {
+    "nse_code": "HINDUJAVEN",
+    "icici_code": "HINFC",
+    "company_name": "Hinduja Ventures Ltd"
+  },
+  {
+    "nse_code": "HINDUNILVR",
+    "icici_code": "HINLEV",
+    "company_name": "Hindustan Unilever Ltd"
+  },
+  {
+    "nse_code": "HINDZINC",
+    "icici_code": "HINZIN",
+    "company_name": "Hindustan Zinc Ltd"
+  },
+  {
+    "nse_code": "HIRECT",
+    "icici_code": "HINREC",
+    "company_name": "Hind Rectifiers Ltd"
+  },
+  {
+    "nse_code": "HITACHIHOM",
+    "icici_code": "AMTAPP",
+    "company_name": "Hitachi Home and Life Solutions (India) Ltd"
+  },
+  {
+    "nse_code": "HITECHGEAR",
+    "icici_code": "HITGEA",
+    "company_name": "Hi-Tech Gears Ltd"
+  },
+  {
+    "nse_code": "HITECHPLAS",
+    "icici_code": "HITPLA",
+    "company_name": "Hitech Plast Ltd"
+  },
+  {
+    "nse_code": "HMT",
+    "icici_code": "HMT",
+    "company_name": "HMT Ltd"
+  },
+  {
+    "nse_code": "HOCL",
+    "icici_code": "HINORG",
+    "company_name": "Hindustan Organic Chemicals Ltd"
+  },
+  {
+    "nse_code": "HONAUT",
+    "icici_code": "TATHON",
+    "company_name": "HONEYWELL AUTOMATION INDIA Ltd"
+  },
+  {
+    "nse_code": "HONDAPOWER",
+    "icici_code": "SHRHON",
+    "company_name": "Honda Siel Power Products Ltd"
+  },
+  {
+    "nse_code": "HOPFL",
+    "icici_code": "HOUPEA",
+    "company_name": "House of Pearl Fashions Ltd"
+  },
+  {
+    "nse_code": "HORIZONINF",
+    "icici_code": "HORBAT",
+    "company_name": "Horizon Infrastructure Ltd"
+  },
+  {
+    "nse_code": "HOTELEELA",
+    "icici_code": "HOTLEE",
+    "company_name": "Hotel Leela Venture Ltd"
+  },
+  {
+    "nse_code": "HOTELRUGBY",
+    "icici_code": "HOTRUG",
+    "company_name": "Hotel Rugby Ltd"
+  },
+  {
+    "nse_code": "HOVS",
+    "icici_code": "HOVSER",
+    "company_name": "HOV Services Ltd"
+  },
+  {
+    "nse_code": "HTMEDIA",
+    "icici_code": "HTMED",
+    "company_name": "HT Media Ltd"
+  },
+  {
+    "nse_code": "HTMTGLOBAL",
+    "icici_code": "HTMGLO",
+    "company_name": "HTMT Global Solutions Ltd"
+  },
+  {
+    "nse_code": "HYDRBADIND",
+    "icici_code": "HYDIND",
+    "company_name": "Hyderabad Industries Ltd"
+  },
+  {
+    "nse_code": "IBN18",
+    "icici_code": "GLOBRO",
+    "company_name": "ibn18 Broadcast Ltd"
+  },
+  {
+    "nse_code": "IBREALEST",
+    "icici_code": "INDREL",
+    "company_name": "Indiabulls Real Estate Ltd"
+  },
+  {
+    "nse_code": "IBRETAILS",
+    "icici_code": "PIRRET",
+    "company_name": "Indiabulls Retail Services Ltd"
+  },
+  {
+    "nse_code": "IBSEC",
+    "icici_code": "IBSECU",
+    "company_name": "Indiabulls Securities Ltd"
+  },
+  {
+    "nse_code": "ICI",
+    "icici_code": "ICIIND",
+    "company_name": "ICI India Ltd"
+  },
+  {
+    "nse_code": "ICICIBANK",
+    "icici_code": "ICIBAN",
+    "company_name": "ICICI Bank Ltd"
+  },
+  {
+    "nse_code": "ICIL",
+    "icici_code": "INDCOU",
+    "company_name": "Indo Count Industries Ltd"
+  },
+  {
+    "nse_code": "ICRA",
+    "icici_code": "ICRLIM",
+    "company_name": "ICRA Ltd"
+  },
+  {
+    "nse_code": "ICSA",
+    "icici_code": "INNCOM",
+    "company_name": "ICSA (India) Ltd"
+  },
+  {
+    "nse_code": "IDBI",
+    "icici_code": "IDBI",
+    "company_name": "IDBI Bank Ltd"
+  },
+  {
+    "nse_code": "IDEA",
+    "icici_code": "IDECEL",
+    "company_name": "Idea Cellular Ltd"
+  },
+  {
+    "nse_code": "IDFC",
+    "icici_code": "IDFC",
+    "company_name": "Infrastructure Development Finance Company Ltd"
+  },
+  {
+    "nse_code": "IFBAGRO",
+    "icici_code": "IFBAGR",
+    "company_name": "IFB Agro Industries Ltd"
+  },
+  {
+    "nse_code": "IFBIND",
+    "icici_code": "IFBIND",
+    "company_name": "IFB Industries Ltd"
+  },
+  {
+    "nse_code": "IFCI",
+    "icici_code": "IFCI",
+    "company_name": "IFCI Ltd"
+  },
+  {
+    "nse_code": "IFGLREFRAC",
+    "icici_code": "IFGREF",
+    "company_name": "IFGL Refractories Ltd"
+  },
+  {
+    "nse_code": "IGARASHI",
+    "icici_code": "CGIGA",
+    "company_name": "Igarashi Motors India Ltd"
+  },
+  {
+    "nse_code": "IGL",
+    "icici_code": "INDGAS",
+    "company_name": "Indraprastha Gas Ltd"
+  },
+  {
+    "nse_code": "IGPL",
+    "icici_code": "IGPETR",
+    "company_name": "IG Petrochemicals Ltd"
+  },
+  {
+    "nse_code": "IILTD",
+    "icici_code": "INSEC",
+    "company_name": "Insecticides (India) Ltd"
+  },
+  {
+    "nse_code": "IMPAL",
+    "icici_code": "INDMO",
+    "company_name": "India Motor Parts and Accessories Ltd"
+  },
+  {
+    "nse_code": "IMPEXFERRO",
+    "icici_code": "IMPFER",
+    "company_name": "Impex Ferro Tech Ltd"
+  },
+  {
+    "nse_code": "INDBANK",
+    "icici_code": "INDMER",
+    "company_name": "Indbank Merchant Banking Services Ltd"
+  },
+  {
+    "nse_code": "INDHOTEL",
+    "icici_code": "INDHOT",
+    "company_name": "The Indian Hotels Company Ltd"
+  },
+  {
+    "nse_code": "INDIABULLS",
+    "icici_code": "INDBUL",
+    "company_name": "Indiabulls Financial Services Ltd"
+  },
+  {
+    "nse_code": "INDIACEM",
+    "icici_code": "INDCEM",
+    "company_name": "The India Cements Ltd"
+  },
+  {
+    "nse_code": "INDIAGLYCO",
+    "icici_code": "INDGLY",
+    "company_name": "India Glycols Ltd"
+  },
+  {
+    "nse_code": "INDIAINFO",
+    "icici_code": "INDINF",
+    "company_name": "India Infoline Ltd"
+  },
+  {
+    "nse_code": "INDIANB",
+    "icici_code": "INDIBA",
+    "company_name": "Indian Bank"
+  },
+  {
+    "nse_code": "INDIANCARD",
+    "icici_code": "INDCAR",
+    "company_name": "Indian Card Clothing Co. Ltd"
+  },
+  {
+    "nse_code": "INDIANHUME",
+    "icici_code": "INDHUM",
+    "company_name": "Indian Hume Pipe Co. Ltd"
+  },
+  {
+    "nse_code": "INDLMETER",
+    "icici_code": "IMPPOW",
+    "company_name": "IMP Powers Ltd"
+  },
+  {
+    "nse_code": "INDNIPPON",
+    "icici_code": "INDNIP",
+    "company_name": "India Nippon Electricals Ltd"
+  },
+  {
+    "nse_code": "INDOASIFU",
+    "icici_code": "INDASI",
+    "company_name": "Indo Asian Fusegear Ltd"
+  },
+  {
+    "nse_code": "INDOCO",
+    "icici_code": "INDREM",
+    "company_name": "Indoco Remedies Ltd"
+  },
+  {
+    "nse_code": "INDORAMA",
+    "icici_code": "INDRAM",
+    "company_name": "Indo Rama Synthetics (India) Ltd"
+  },
+  {
+    "nse_code": "INDOTECH",
+    "icici_code": "INDTEC",
+    "company_name": "Indo Tech Transformers Ltd"
+  },
+  {
+    "nse_code": "INDOWIND",
+    "icici_code": "INDWIN",
+    "company_name": "Indowind Energy Ltd"
+  },
+  {
+    "nse_code": "INDRAMEDCO",
+    "icici_code": "INDMED",
+    "company_name": "Indraprastha Medical Corporation Ltd"
+  },
+  {
+    "nse_code": "INDSWFTLAB",
+    "icici_code": "INDLAB",
+    "company_name": "Ind-Swift Laboratories Ltd"
+  },
+  {
+    "nse_code": "INDSWFTLTD",
+    "icici_code": "INDSW",
+    "company_name": "Ind-Swift Ltd"
+  },
+  {
+    "nse_code": "INDUSFILA",
+    "icici_code": "INDFIL",
+    "company_name": "Indus Fila Ltd"
+  },
+  {
+    "nse_code": "INDUSINDBK",
+    "icici_code": "INDBA",
+    "company_name": "IndusInd Bank Ltd"
+  },
+  {
+    "nse_code": "INEABS",
+    "icici_code": "BAYABS",
+    "company_name": "INEOS ABS (India) Ltd"
+  },
+  {
+    "nse_code": "INFOMEDIA",
+    "icici_code": "TATDON",
+    "company_name": "Infomedia India Ltd"
+  },
+  {
+    "nse_code": "INFOSYSTCH",
+    "icici_code": "INFTEC",
+    "company_name": "Infosys Technologies Ltd"
+  },
+  {
+    "nse_code": "INFOTECENT",
+    "icici_code": "INFENT",
+    "company_name": "Infotech Enterprises Ltd"
+  },
+  {
+    "nse_code": "INGERRAND",
+    "icici_code": "INGRAN",
+    "company_name": "Ingersoll Rand (India) Ltd"
+  },
+  {
+    "nse_code": "INGVYSYABK",
+    "icici_code": "VYSBAN",
+    "company_name": "ING Vysya Bank Ltd"
+  },
+  {
+    "nse_code": "INOXLEISUR",
+    "icici_code": "INOX",
+    "company_name": "INOX Leisure Ltd"
+  },
+  {
+    "nse_code": "INVSTSMART",
+    "icici_code": "ILFINV",
+    "company_name": "IL&amp;FS Investsmart Ltd"
+  },
+  {
+    "nse_code": "IOB",
+    "icici_code": "INDOVE",
+    "company_name": "Indian Overseas Bank"
+  },
+  {
+    "nse_code": "IOC",
+    "icici_code": "INDOIL",
+    "company_name": "Indian Oil Corporation Ltd"
+  },
+  {
+    "nse_code": "IOLN",
+    "icici_code": "NATSYN",
+    "company_name": "IOL Netcom Ltd"
+  },
+  {
+    "nse_code": "IPCALAB",
+    "icici_code": "IPCLAB",
+    "company_name": "IPCA Laboratories Ltd"
+  },
+  {
+    "nse_code": "IRB",
+    "icici_code": "IRBINF",
+    "company_name": "IRB Infrastructure Developers Ltd"
+  },
+  {
+    "nse_code": "ISMTLTD",
+    "icici_code": "INSEAM",
+    "company_name": "ISMT Ltd"
+  },
+  {
+    "nse_code": "ISPATIND",
+    "icici_code": "ISPIND",
+    "company_name": "Ispat Industries Ltd"
+  },
+  {
+    "nse_code": "ITC",
+    "icici_code": "ITC",
+    "company_name": "ITC Ltd"
+  },
+  {
+    "nse_code": "ITDCEM",
+    "icici_code": "KVACEM",
+    "company_name": "ITD Cementation India Ltd"
+  },
+  {
+    "nse_code": "ITI",
+    "icici_code": "ITI",
+    "company_name": "ITI Ltd"
+  },
+  {
+    "nse_code": "IVC",
+    "icici_code": "ILFVEN",
+    "company_name": "IL&amp;FS Investment Managers Ltd"
+  },
+  {
+    "nse_code": "IVP",
+    "icici_code": "IVP",
+    "company_name": "IVP Ltd"
+  },
+  {
+    "nse_code": "IVRCLINFRA",
+    "icici_code": "IVRINF",
+    "company_name": "IVRCL Infrastructures &amp; Projects Ltd"
+  },
+  {
+    "nse_code": "IVRPRIME",
+    "icici_code": "IVRPRI",
+    "company_name": "IVR Prime Urban Developers Ltd"
+  },
+  {
+    "nse_code": "J&amp;KBANK",
+    "icici_code": "JAMKAS",
+    "company_name": "The Jammu &amp; Kashmir Bank Ltd"
+  },
+  {
+    "nse_code": "JAGRAN",
+    "icici_code": "JAGPRA",
+    "company_name": "Jagran Prakashan Ltd"
+  },
+  {
+    "nse_code": "JAGSNPHARM",
+    "icici_code": "JAGPHA",
+    "company_name": "Jagsonpal Pharmaceuticals Ltd"
+  },
+  {
+    "nse_code": "JAIBALAJI",
+    "icici_code": "JAIBAL",
+    "company_name": "Jai Balaji Industries Ltd"
+  },
+  {
+    "nse_code": "JAICORPLTD",
+    "icici_code": "JAICOR",
+    "company_name": "Jai Corp Ltd"
+  },
+  {
+    "nse_code": "JAINSTUDIO",
+    "icici_code": "JAISTU",
+    "company_name": "Jain Studios Ltd"
+  },
+  {
+    "nse_code": "JAYAGROGN",
+    "icici_code": "JAYAGR",
+    "company_name": "Jayant Agro Organics Ltd"
+  },
+  {
+    "nse_code": "JAYBARMARU",
+    "icici_code": "JAYMAR",
+    "company_name": "Jay Bharat Maruti Ltd"
+  },
+  {
+    "nse_code": "JAYNECOIND",
+    "icici_code": "NAGEND",
+    "company_name": "Jayaswal Neco Industries Ltd"
+  },
+  {
+    "nse_code": "JAYPEEHOT",
+    "icici_code": "JAYHOT",
+    "company_name": "Jaypee Hotels Ltd"
+  },
+  {
+    "nse_code": "JAYSREETEA",
+    "icici_code": "JAYTEA",
+    "company_name": "Jayshree Tea &amp; Industries Ltd"
+  },
+  {
+    "nse_code": "JBCHEPHARM",
+    "icici_code": "JBCHEM",
+    "company_name": "JB Chemicals &amp; Pharmaceuticals Ltd"
+  },
+  {
+    "nse_code": "JBFIND",
+    "icici_code": "JBFIND",
+    "company_name": "JBF Industries Ltd"
+  },
+  {
+    "nse_code": "JBMA",
+    "icici_code": "JBMAUT",
+    "company_name": "JBM Auto Ltd"
+  },
+  {
+    "nse_code": "JCTEL",
+    "icici_code": "JCTELE",
+    "company_name": "JCT Electronics Ltd"
+  },
+  {
+    "nse_code": "JDORGOCHEM",
+    "icici_code": "JAYDY",
+    "company_name": "JD Orgochem Ltd"
+  },
+  {
+    "nse_code": "JENSONICOL",
+    "icici_code": "JENNIC",
+    "company_name": "Jenson &amp; Nicholson (India) Ltd"
+  },
+  {
+    "nse_code": "JETAIRWAYS",
+    "icici_code": "JETAIR",
+    "company_name": "Jet Airways (India) Ltd"
+  },
+  {
+    "nse_code": "JHS",
+    "icici_code": "JHSSVE",
+    "company_name": "JHS Svendgaard Laboratories Ltd"
+  },
+  {
+    "nse_code": "JIKIND",
+    "icici_code": "JIKIND",
+    "company_name": "JIK Industries Ltd"
+  },
+  {
+    "nse_code": "JINDALPHOT",
+    "icici_code": "JINPH",
+    "company_name": "Jindal Photo Ltd"
+  },
+  {
+    "nse_code": "JINDALPOLY",
+    "icici_code": "JINPOL",
+    "company_name": "Jindal Poly Films Ltd"
+  },
+  {
+    "nse_code": "JINDALSAW",
+    "icici_code": "SAWPIP",
+    "company_name": "Jindal Saw Ltd"
+  },
+  {
+    "nse_code": "JINDALSTEL",
+    "icici_code": "JINSP",
+    "company_name": "Jindal Steel &amp; Power Ltd"
+  },
+  {
+    "nse_code": "JINDALSWHL",
+    "icici_code": "JINSOU",
+    "company_name": "Jindal South West Holdings Ltd"
+  },
+  {
+    "nse_code": "JINDRILL",
+    "icici_code": "JINDAD",
+    "company_name": "Jindal Drilling And Industries Ltd"
+  },
+  {
+    "nse_code": "JISLJALEQS",
+    "icici_code": "JAIIRR",
+    "company_name": "Jain Irrigation Systems Ltd"
+  },
+  {
+    "nse_code": "JKCEMENT",
+    "icici_code": "JKCEME",
+    "company_name": "JK Cement Ltd"
+  },
+  {
+    "nse_code": "JKIL",
+    "icici_code": "JKUMAR",
+    "company_name": "J.Kumar Infraprojects Ltd"
+  },
+  {
+    "nse_code": "JKLAKSHMI",
+    "icici_code": "JKCORP",
+    "company_name": "JK Lakshmi Cement Ltd"
+  },
+  {
+    "nse_code": "JKPAPER",
+    "icici_code": "CENPUL",
+    "company_name": "JK Paper Ltd"
+  },
+  {
+    "nse_code": "JKTYRE",
+    "icici_code": "JKIND",
+    "company_name": "JK Tyre &amp; Industries Ltd"
+  },
+  {
+    "nse_code": "JMCPROJECT",
+    "icici_code": "JMCPRO",
+    "company_name": "JMC Projects (India) Ltd"
+  },
+  {
+    "nse_code": "JMFINANCIL",
+    "icici_code": "JMSHAR",
+    "company_name": "JM Financial Ltd"
+  },
+  {
+    "nse_code": "JMTAUTOLTD",
+    "icici_code": "JMTAUT",
+    "company_name": "JMT Auto Ltd"
+  },
+  {
+    "nse_code": "JOCIL",
+    "icici_code": "JOCLIM",
+    "company_name": "Jocil Ltd"
+  },
+  {
+    "nse_code": "JPASSOCIAT",
+    "icici_code": "JAIASS",
+    "company_name": "Jaiprakash Associates Ltd"
+  },
+  {
+    "nse_code": "JPHYDRO",
+    "icici_code": "JAIHYD",
+    "company_name": "Jaiprakash Hydro-Power Ltd"
+  },
+  {
+    "nse_code": "JSL",
+    "icici_code": "JINSTA",
+    "company_name": "JSL Ltd"
+  },
+  {
+    "nse_code": "JSWSTEEL",
+    "icici_code": "JINVIJ",
+    "company_name": "JSW Steel Ltd"
+  },
+  {
+    "nse_code": "JUBILANT",
+    "icici_code": "VAMORG",
+    "company_name": "Jubilant Organosys Ltd"
+  },
+  {
+    "nse_code": "JUNIORBEES",
+    "icici_code": "Benchmark",
+    "company_name": "Mutual Fund-Nifty Junior Benchmark ETF"
+  },
+  {
+    "nse_code": "JYOTHYLAB",
+    "icici_code": "JYOLAB",
+    "company_name": "Jyothy Laboratories Ltd"
+  },
+  {
+    "nse_code": "JYOTISTRUC",
+    "icici_code": "JYOSTR",
+    "company_name": "Jyoti Structures Ltd"
+  },
+  {
+    "nse_code": "KABRAEXTRU",
+    "icici_code": "KABEXT",
+    "company_name": "Kabra Extrusion Technik Ltd"
+  },
+  {
+    "nse_code": "KAJARIACER",
+    "icici_code": "KAJCER",
+    "company_name": "Kajaria Ceramics Ltd"
+  },
+  {
+    "nse_code": "KAKATCEM",
+    "icici_code": "KAKCEM",
+    "company_name": "Kakatiya Cement Sugar &amp; Industries Ltd"
+  },
+  {
+    "nse_code": "KALECONSUL",
+    "icici_code": "KALCON",
+    "company_name": "Kale Consultants Ltd"
+  },
+  {
+    "nse_code": "KALINDEE",
+    "icici_code": "KALRAI",
+    "company_name": "Kalindee Rail Nirman (Engineers) Ltd"
+  },
+  {
+    "nse_code": "KALPATPOWR",
+    "icici_code": "KALPOW",
+    "company_name": "Kalpataru Power Transmission Ltd"
+  },
+  {
+    "nse_code": "KALSTEELS",
+    "icici_code": "KALSTE",
+    "company_name": "Kalyani Steels Ltd"
+  },
+  {
+    "nse_code": "KALYANIFRG",
+    "icici_code": "KALFOR",
+    "company_name": "Kalyani Forge Ltd"
+  },
+  {
+    "nse_code": "KAMATHOTEL",
+    "icici_code": "KAMHOT",
+    "company_name": "Kamat Hotels (I) Ltd"
+  },
+  {
+    "nse_code": "KANORICHEM",
+    "icici_code": "KANCH",
+    "company_name": "Kanoria Chemicals &amp; Industries Ltd"
+  },
+  {
+    "nse_code": "KANSAINER",
+    "icici_code": "GOONER",
+    "company_name": "Kansai Nerolac Paints Ltd"
+  },
+  {
+    "nse_code": "KARURVYSYA",
+    "icici_code": "KARVYS",
+    "company_name": "Karur Vysya Bank Ltd"
+  },
+  {
+    "nse_code": "KAUSHALYA",
+    "icici_code": "KAUINF",
+    "company_name": "Kaushalya Infrastructure Development Corporation Ltd"
+  },
+  {
+    "nse_code": "KAVVERITEL",
+    "icici_code": "KAVTEL",
+    "company_name": "Kavveri Telecom Products Ltd"
+  },
+  {
+    "nse_code": "KBL",
+    "icici_code": "KIRBRO",
+    "company_name": "Kirloskar Brothers Ltd"
+  },
+  {
+    "nse_code": "KCP",
+    "icici_code": "KCPLTD",
+    "company_name": "KCP Ltd"
+  },
+  {
+    "nse_code": "KCPSUGIND",
+    "icici_code": "KCPSUG",
+    "company_name": "KCP Sugar and Industries Corporation Ltd"
+  },
+  {
+    "nse_code": "KEC",
+    "icici_code": "KECIN",
+    "company_name": "KEC International Ltd"
+  },
+  {
+    "nse_code": "KEI",
+    "icici_code": "KEIIND",
+    "company_name": "KEI Industries Ltd"
+  },
+  {
+    "nse_code": "KERNEX",
+    "icici_code": "KERMIC",
+    "company_name": "Kernex Microsystems (India) Ltd"
+  },
+  {
+    "nse_code": "KESARENT",
+    "icici_code": "KESENT",
+    "company_name": "Kesar Enterprises Ltd"
+  },
+  {
+    "nse_code": "KESORAMIND",
+    "icici_code": "KESIND",
+    "company_name": "Kesoram Industries Ltd"
+  },
+  {
+    "nse_code": "KEYCORPSER",
+    "icici_code": "KEYCOR",
+    "company_name": "Keynote Corp. Serv. Ltd"
+  },
+  {
+    "nse_code": "KFA",
+    "icici_code": "DECAVI",
+    "company_name": "Kingfisher Airlines Ltd"
+  },
+  {
+    "nse_code": "KGL",
+    "icici_code": "KARFL",
+    "company_name": "Karuturi Global Ltd"
+  },
+  {
+    "nse_code": "KHAITANELE",
+    "icici_code": "KHATIB",
+    "company_name": "Khaitan Electricals Ltd"
+  },
+  {
+    "nse_code": "KHAITANLTD",
+    "icici_code": "KHAFAN",
+    "company_name": "Khaitan (India) Ltd"
+  },
+  {
+    "nse_code": "KHANDSE",
+    "icici_code": "KHASEC",
+    "company_name": "Khandwala Securities Ltd"
+  },
+  {
+    "nse_code": "KIL",
+    "icici_code": "KAMIS",
+    "company_name": "Kamdhenu Ispat Ltd"
+  },
+  {
+    "nse_code": "KINETICMOT",
+    "icici_code": "KINHON",
+    "company_name": "Kinetic Motor Company Ltd"
+  },
+  {
+    "nse_code": "KIRIDYES",
+    "icici_code": "KIRIDY",
+    "company_name": "Kiri Dyes and Chemicals Ltd"
+  },
+  {
+    "nse_code": "KIRLOSOIL",
+    "icici_code": "KIROIL",
+    "company_name": "Kirloskar Oil Engines Ltd"
+  },
+  {
+    "nse_code": "KITPLYIND",
+    "icici_code": "KITIND",
+    "company_name": "Kitply Industries Ltd"
+  },
+  {
+    "nse_code": "KKCL",
+    "icici_code": "KEWKIR",
+    "company_name": "Kewal Kiran Clothing Ltd"
+  },
+  {
+    "nse_code": "KLGSYSTEL",
+    "icici_code": "KLGSYS",
+    "company_name": "KLG Systel Ltd"
+  },
+  {
+    "nse_code": "KMSUGAR",
+    "icici_code": "KMSUG",
+    "company_name": "K.M.Sugar Mills Ltd"
+  },
+  {
+    "nse_code": "KNRCON",
+    "icici_code": "KNRCON",
+    "company_name": "KNR Constructions Ltd"
+  },
+  {
+    "nse_code": "KOHINOOR",
+    "icici_code": "SATOVE",
+    "company_name": "Kohinoor Foods Ltd"
+  },
+  {
+    "nse_code": "KOLTEPATIL",
+    "icici_code": "KOLPAT",
+    "company_name": "Kolte - Patil Developers Ltd"
+  },
+  {
+    "nse_code": "KOPDRUGS",
+    "icici_code": "KOPDRU",
+    "company_name": "KDL Biotech Ltd"
+  },
+  {
+    "nse_code": "KOPRAN",
+    "icici_code": "KOPRAN",
+    "company_name": "Kopran Ltd"
+  },
+  {
+    "nse_code": "KOTAKBANK",
+    "icici_code": "KOTMAH",
+    "company_name": "Kotak Mahindra Bank Ltd"
+  },
+  {
+    "nse_code": "KOTAKGOLD",
+    "icici_code": "KOTGOL",
+    "company_name": "Kotak Mutual Fund - Gold Exchange Traded Fund"
+  },
+  {
+    "nse_code": "KOTAKPSUBK",
+    "icici_code": "Kotak",
+    "company_name": "Mahindra Mutual Fund"
+  },
+  {
+    "nse_code": "KOTARISUG",
+    "icici_code": "KOTSUG",
+    "company_name": "Kothari Sugars And Chemicals Ltd"
+  },
+  {
+    "nse_code": "KOTHARIPET",
+    "icici_code": "KOTPET",
+    "company_name": "Kothari Petrochemicals Ltd"
+  },
+  {
+    "nse_code": "KOTHARIPRO",
+    "icici_code": "KOTPRO",
+    "company_name": "Kothari Products Ltd"
+  },
+  {
+    "nse_code": "KOUTONS",
+    "icici_code": "KOURET",
+    "company_name": "Koutons Retail India Ltd"
+  },
+  {
+    "nse_code": "KPIT",
+    "icici_code": "KPISYS",
+    "company_name": "KPIT Cummins Infosystems Ltd"
+  },
+  {
+    "nse_code": "KPRMILL",
+    "icici_code": "KPRMIL",
+    "company_name": "K.P.R. Mill Ltd"
+  },
+  {
+    "nse_code": "KRBL",
+    "icici_code": "KRBL",
+    "company_name": "KRBL Ltd"
+  },
+  {
+    "nse_code": "KRISHNAENG",
+    "icici_code": "KRIENG",
+    "company_name": "Krishna Engineering Works Ltd"
+  },
+  {
+    "nse_code": "KSBPUMPS",
+    "icici_code": "KSBPUM",
+    "company_name": "KSB Pumps Ltd"
+  },
+  {
+    "nse_code": "KSCL",
+    "icici_code": "KAVSEE",
+    "company_name": "Kaveri Seed Company Ltd"
+  },
+  {
+    "nse_code": "KSERAPRO",
+    "icici_code": "GARPAP",
+    "company_name": "K Sera Sera Productions Ltd"
+  },
+  {
+    "nse_code": "KSK",
+    "icici_code": "KSKENE",
+    "company_name": "KSK Energy Ventures Ltd"
+  },
+  {
+    "nse_code": "KSOILS",
+    "icici_code": "KSOIL",
+    "company_name": "K S Oils Ltd"
+  },
+  {
+    "nse_code": "KTKBANK",
+    "icici_code": "KARBAN",
+    "company_name": "The Karnataka Bank Ltd"
+  },
+  {
+    "nse_code": "LAKPRE",
+    "icici_code": "LAKPRE",
+    "company_name": "Lakshmi Precision Screws Ltd"
+  },
+  {
+    "nse_code": "LAKSHMIEFL",
+    "icici_code": "LAKOVE",
+    "company_name": "Lakshmi Energy and Foods Ltd"
+  },
+  {
+    "nse_code": "LAKSHVILAS",
+    "icici_code": "LAKVIL",
+    "company_name": "Lakshmi Vilas Bank Ltd"
+  },
+  {
+    "nse_code": "LANCOIN",
+    "icici_code": "LANIND",
+    "company_name": "Lanco Industries Ltd"
+  },
+  {
+    "nse_code": "LAOPALA",
+    "icici_code": "LAOPA",
+    "company_name": "La Opala RG Ltd"
+  },
+  {
+    "nse_code": "LAXMIMACH",
+    "icici_code": "LAKMAC",
+    "company_name": "Lakshmi Machine Works Ltd"
+  },
+  {
+    "nse_code": "LCCINFOTEC",
+    "icici_code": "LCCINF",
+    "company_name": "LCC Infotech Ltd"
+  },
+  {
+    "nse_code": "LGBFORGE",
+    "icici_code": "LBGFOR",
+    "company_name": "LGB Forge Ltd"
+  },
+  {
+    "nse_code": "LGBROS",
+    "icici_code": "LGBALA",
+    "company_name": "LG Balakrishnan &amp; Bros Ltd"
+  },
+  {
+    "nse_code": "LIBERTSHOE",
+    "icici_code": "LIBSHO",
+    "company_name": "Liberty Shoes Ltd"
+  },
+  {
+    "nse_code": "LICHSGFIN",
+    "icici_code": "LICHF",
+    "company_name": "LIC Housing Finance Ltd"
+  },
+  {
+    "nse_code": "LIQUIDBEES",
+    "icici_code": "BENMUT",
+    "company_name": "Benchmark Asset Management Company Private Ltd"
+  },
+  {
+    "nse_code": "LITL",
+    "icici_code": "LANINF",
+    "company_name": "Lanco Infratech Ltd"
+  },
+  {
+    "nse_code": "LLOYDELENG",
+    "icici_code": "LLOELE",
+    "company_name": "Lloyd Electric &amp; Engineering Ltd"
+  },
+  {
+    "nse_code": "LLOYDFIN",
+    "icici_code": "LLOFIN",
+    "company_name": "Lloyds Finance Ltd"
+  },
+  {
+    "nse_code": "LLOYDSTEEL",
+    "icici_code": "LLOSTE",
+    "company_name": "Lloyds Steel Industries Ltd"
+  },
+  {
+    "nse_code": "LML",
+    "icici_code": "LML",
+    "company_name": "LML Ltd"
+  },
+  {
+    "nse_code": "LOGIXMICRO",
+    "icici_code": "LOGMIC",
+    "company_name": "Logix Microsystems Ltd"
+  },
+  {
+    "nse_code": "LOKESHMACH",
+    "icici_code": "LOKMAC",
+    "company_name": "LOKESH MACHINES Ltd"
+  },
+  {
+    "nse_code": "LOTTEINDIA",
+    "icici_code": "PARCON",
+    "company_name": "Lotte India Corporation Ltd"
+  },
+  {
+    "nse_code": "LPDC",
+    "icici_code": "LANPRO",
+    "company_name": "Landmark Property Development Company Ltd"
+  },
+  {
+    "nse_code": "LT",
+    "icici_code": "LARTOU",
+    "company_name": "Larsen &amp; Toubro Ltd"
+  },
+  {
+    "nse_code": "LUMAXAUTO",
+    "icici_code": "LUMAUT",
+    "company_name": "Lumax Automotive Systems Ltd"
+  },
+  {
+    "nse_code": "LUMAXIND",
+    "icici_code": "LUMIND",
+    "company_name": "Lumax Industries Ltd"
+  },
+  {
+    "nse_code": "LUMAXTECH",
+    "icici_code": "LUMAAU",
+    "company_name": "Lumax Auto Technologies Ltd"
+  },
+  {
+    "nse_code": "LUPIN",
+    "icici_code": "LUPIN",
+    "company_name": "Lupin Ltd"
+  },
+  {
+    "nse_code": "LYKALABS",
+    "icici_code": "LYKLAB",
+    "company_name": "Lyka Labs Ltd"
+  },
+  {
+    "nse_code": "M&amp;M",
+    "icici_code": "Mahindra",
+    "company_name": "&amp; Mahindra Ltd"
+  },
+  {
+    "nse_code": "M&amp;MFIN",
+    "icici_code": "MANFIN",
+    "company_name": "Mahindra &amp; Mahindra Financial Services Ltd"
+  },
+  {
+    "nse_code": "MAARSOFTW",
+    "icici_code": "MAASOF",
+    "company_name": "Maars Software International Ltd"
+  },
+  {
+    "nse_code": "MACMILLAN",
+    "icici_code": "MACIN",
+    "company_name": "Macmillan India Ltd"
+  },
+  {
+    "nse_code": "MADHAV",
+    "icici_code": "MADMAR",
+    "company_name": "Madhav Marbles and Granites Ltd"
+  },
+  {
+    "nse_code": "MADHUCON",
+    "icici_code": "MADPRO",
+    "company_name": "Madhucon Projects Ltd"
+  },
+  {
+    "nse_code": "MADRASCEM",
+    "icici_code": "MADCEM",
+    "company_name": "Madras Cements Ltd"
+  },
+  {
+    "nse_code": "MADRASFERT",
+    "icici_code": "MADFER",
+    "company_name": "Madras Fertilizers Ltd"
+  },
+  {
+    "nse_code": "MAGMA",
+    "icici_code": "MAGLEA",
+    "company_name": "Magma Fincorp Ltd"
+  },
+  {
+    "nse_code": "MAGNUM",
+    "icici_code": "MAGVEN",
+    "company_name": "Magnum Ventures Ltd"
+  },
+  {
+    "nse_code": "MAHABANK",
+    "icici_code": "BANMAH",
+    "company_name": "Bank of Maharashtra"
+  },
+  {
+    "nse_code": "MAHINDFORG",
+    "icici_code": "MAHAUT",
+    "company_name": "Mahindra Forgings Ltd"
+  },
+  {
+    "nse_code": "MAHINDUGIN",
+    "icici_code": "MAHUGI",
+    "company_name": "Mahindra Ugine Steel Co. Ltd"
+  },
+  {
+    "nse_code": "MAHLIFE",
+    "icici_code": "GESCOR",
+    "company_name": "Mahindra Lifespace Developers Ltd"
+  },
+  {
+    "nse_code": "MAHSCOOTER",
+    "icici_code": "MAHSCO",
+    "company_name": "Maharashtra Scooters Ltd"
+  },
+  {
+    "nse_code": "MAHSEAMLES",
+    "icici_code": "MAHSEA",
+    "company_name": "Maharashtra Seamless Ltd"
+  },
+  {
+    "nse_code": "MALCO",
+    "icici_code": "MADALU",
+    "company_name": "The Madras Aluminium Co Ltd"
+  },
+  {
+    "nse_code": "MALUPAPER",
+    "icici_code": "MALPAP",
+    "company_name": "Malu Paper Mills Ltd"
+  },
+  {
+    "nse_code": "MALWACOTT",
+    "icici_code": "MALCOT",
+    "company_name": "Malwa Cotton Spg. Mills Ltd"
+  },
+  {
+    "nse_code": "MANAKSIA",
+    "icici_code": "MANLIM",
+    "company_name": "Manaksia Ltd"
+  },
+  {
+    "nse_code": "MANALIPETC",
+    "icici_code": "MANPET",
+    "company_name": "Manali Petrochemical Ltd"
+  },
+  {
+    "nse_code": "MANALU",
+    "icici_code": "MANALU",
+    "company_name": "Man Aluminium Ltd"
+  },
+  {
+    "nse_code": "MANGALAM",
+    "icici_code": "MANDRU",
+    "company_name": "Mangalam Drugs And Organics Ltd"
+  },
+  {
+    "nse_code": "MANGCHEFER",
+    "icici_code": "MANCHE",
+    "company_name": "Mangalore Chemicals &amp; Fertilizers Ltd"
+  },
+  {
+    "nse_code": "MANGLMCEM",
+    "icici_code": "MANCEM",
+    "company_name": "Mangalam Cement Ltd"
+  },
+  {
+    "nse_code": "MANGTIMBER",
+    "icici_code": "MANTIM",
+    "company_name": "Mangalam Timber Products Ltd"
+  },
+  {
+    "nse_code": "MANINDS",
+    "icici_code": "MANIN",
+    "company_name": "Man Industries (India) Ltd"
+  },
+  {
+    "nse_code": "MANUGRAPH",
+    "icici_code": "MANIND",
+    "company_name": "Manugraph India Ltd"
+  },
+  {
+    "nse_code": "MARALOVER",
+    "icici_code": "MAROVE",
+    "company_name": "Maral Overseas Ltd"
+  },
+  {
+    "nse_code": "MARICO",
+    "icici_code": "MARIN",
+    "company_name": "Marico Ltd"
+  },
+  {
+    "nse_code": "MARKSANS",
+    "icici_code": "TASPHA",
+    "company_name": "Marksans Pharma Ltd"
+  },
+  {
+    "nse_code": "MARUTI",
+    "icici_code": "MARUTI",
+    "company_name": "Maruti Suzuki India Ltd"
+  },
+  {
+    "nse_code": "MASTEK",
+    "icici_code": "MASTEK",
+    "company_name": "Mastek Ltd"
+  },
+  {
+    "nse_code": "MATRIXLABS",
+    "icici_code": "HERDRU",
+    "company_name": "Matrix Laboratories Ltd"
+  },
+  {
+    "nse_code": "MAX",
+    "icici_code": "MAXIND",
+    "company_name": "Max India Ltd"
+  },
+  {
+    "nse_code": "MAXWELL",
+    "icici_code": "MAXWEL",
+    "company_name": "Maxwell Industries Ltd"
+  },
+  {
+    "nse_code": "MAYTASINFR",
+    "icici_code": "MAYINF",
+    "company_name": "Maytas Infra Ltd"
+  },
+  {
+    "nse_code": "MBECL",
+    "icici_code": "MCNBHA",
+    "company_name": "Mcnally Bharat Engineering Company Ltd"
+  },
+  {
+    "nse_code": "MCDHOLDING",
+    "icici_code": "MCHOLD",
+    "company_name": "McDowell Holdings Ltd"
+  },
+  {
+    "nse_code": "MCDOWELL-N",
+    "icici_code": "MCDOWE",
+    "company_name": "United Spirits Ltd"
+  },
+  {
+    "nse_code": "MCLEODRUSS",
+    "icici_code": "MCLRUS",
+    "company_name": "Mcleod Russel India Ltd"
+  },
+  {
+    "nse_code": "MEDIA",
+    "icici_code": "MEDVID",
+    "company_name": "Media Video Ltd"
+  },
+  {
+    "nse_code": "MEGASOFT",
+    "icici_code": "MEGLTD",
+    "company_name": "Megasoft Ltd"
+  },
+  {
+    "nse_code": "MEGH",
+    "icici_code": "MEGORG",
+    "company_name": "Meghmani Organics Ltd"
+  },
+  {
+    "nse_code": "MELSTAR",
+    "icici_code": "MELINF",
+    "company_name": "Melstar Information Technologies Ltd"
+  },
+  {
+    "nse_code": "MERCK",
+    "icici_code": "EMERCK",
+    "company_name": "Merck Ltd"
+  },
+  {
+    "nse_code": "MIC",
+    "icici_code": "MICELE",
+    "company_name": "MIC Electronics Ltd"
+  },
+  {
+    "nse_code": "MICRO",
+    "icici_code": "HININK",
+    "company_name": "Micro Inks Ltd"
+  },
+  {
+    "nse_code": "MICROTECH",
+    "icici_code": "MICTEC",
+    "company_name": "Micro Technologies (India) Ltd"
+  },
+  {
+    "nse_code": "MID-DAY",
+    "icici_code": "MIDMUL",
+    "company_name": "Mid-Day Multimedia Ltd"
+  },
+  {
+    "nse_code": "MINDAIND",
+    "icici_code": "MININD",
+    "company_name": "Minda Industries Ltd"
+  },
+  {
+    "nse_code": "MINDTREE",
+    "icici_code": "MINCON",
+    "company_name": "MindTree Ltd"
+  },
+  {
+    "nse_code": "MIRCELECTR",
+    "icici_code": "MIRELE",
+    "company_name": "MIRC Electronics Ltd"
+  },
+  {
+    "nse_code": "MIRZAINT",
+    "icici_code": "MIRTAN",
+    "company_name": "Mirza International Ltd"
+  },
+  {
+    "nse_code": "MLL",
+    "icici_code": "MERLIN",
+    "company_name": "Mercator Lines Ltd"
+  },
+  {
+    "nse_code": "MMFL",
+    "icici_code": "MMFORG",
+    "company_name": "MM Forgings Ltd"
+  },
+  {
+    "nse_code": "MONNETISPA",
+    "icici_code": "MONISP",
+    "company_name": "Monnet Ispat Ltd"
+  },
+  {
+    "nse_code": "MONSANTO",
+    "icici_code": "MONCHE",
+    "company_name": "Monsanto India Ltd"
+  },
+  {
+    "nse_code": "MORARJETEX",
+    "icici_code": "MORTEX",
+    "company_name": "Morarjee Textiles Ltd"
+  },
+  {
+    "nse_code": "MOREPENLAB",
+    "icici_code": "MORLAB",
+    "company_name": "Morepen Laboratories Ltd"
+  },
+  {
+    "nse_code": "MOSERBAER",
+    "icici_code": "MOSBAE",
+    "company_name": "Moser-Baer (I) Ltd"
+  },
+  {
+    "nse_code": "MOTHERSUMI",
+    "icici_code": "MOTSUM",
+    "company_name": "Motherson Sumi Systems Ltd"
+  },
+  {
+    "nse_code": "MOTILALOFS",
+    "icici_code": "MOTOSW",
+    "company_name": "Motilal Oswal Financial Services Ltd"
+  },
+  {
+    "nse_code": "MOTOGENFIN",
+    "icici_code": "MOTGEN",
+    "company_name": "The Motor &amp; General Finance Ltd"
+  },
+  {
+    "nse_code": "MPHASIS",
+    "icici_code": "BFLSOF",
+    "company_name": "MphasiS Ltd"
+  },
+  {
+    "nse_code": "MRF",
+    "icici_code": "MRFTYR",
+    "company_name": "MRF Ltd"
+  },
+  {
+    "nse_code": "MRO-TEK",
+    "icici_code": "MROTEK",
+    "company_name": "MRO-TEK Ltd"
+  },
+  {
+    "nse_code": "MRPL",
+    "icici_code": "MRPL",
+    "company_name": "Mangalore Refinery and Petrochemicals Ltd"
+  },
+  {
+    "nse_code": "MSKPROJ",
+    "icici_code": "MSKPRO",
+    "company_name": "MSK Projects (India) Ltd"
+  },
+  {
+    "nse_code": "MSPL",
+    "icici_code": "MSPSTE",
+    "company_name": "MSP Steel &amp; Power Ltd"
+  },
+  {
+    "nse_code": "MTNL",
+    "icici_code": "MTNL",
+    "company_name": "Mahanagar Telephone Nigam Ltd"
+  },
+  {
+    "nse_code": "MUDRA",
+    "icici_code": "MUDLIF",
+    "company_name": "Mudra Lifestyle Ltd"
+  },
+  {
+    "nse_code": "MUKANDENGG",
+    "icici_code": "MUKENG",
+    "company_name": "Mukand Engineers Ltd"
+  },
+  {
+    "nse_code": "MUKANDLTD",
+    "icici_code": "MUKAND",
+    "company_name": "Mukand Ltd"
+  },
+  {
+    "nse_code": "MUKTAARTS",
+    "icici_code": "MUKART",
+    "company_name": "Mukta Arts Ltd"
+  },
+  {
+    "nse_code": "MUNDRAPORT",
+    "icici_code": "MUNPRO",
+    "company_name": "Mundra Port and Special Economic Zone Ltd"
+  },
+  {
+    "nse_code": "MUNJALAU",
+    "icici_code": "GUJCYC",
+    "company_name": "Munjal Auto Industries Ltd"
+  },
+  {
+    "nse_code": "MUNJALSHOW",
+    "icici_code": "MUNSHO",
+    "company_name": "Munjal Showa Ltd"
+  },
+  {
+    "nse_code": "MURLIIND",
+    "icici_code": "MURAGR",
+    "company_name": "Murli Industries Ltd"
+  },
+  {
+    "nse_code": "MURUDCERA",
+    "icici_code": "MURCER",
+    "company_name": "Murudeshwar Ceramics Ltd"
+  },
+  {
+    "nse_code": "MVL",
+    "icici_code": "MVLLIM",
+    "company_name": "MVL Ltd"
+  },
+  {
+    "nse_code": "MYSORECEM",
+    "icici_code": "MYSCEM",
+    "company_name": "Mysore Cements Ltd"
+  },
+  {
+    "nse_code": "NAGARCONST",
+    "icici_code": "NAGCON",
+    "company_name": "Nagarjuna Construction Co. Ltd"
+  },
+  {
+    "nse_code": "NAGARFERT",
+    "icici_code": "NAGFER",
+    "company_name": "Nagarjuna Fertilizer &amp; Chemicals Ltd"
+  },
+  {
+    "nse_code": "NAGREEKCAP",
+    "icici_code": "NAGCAP",
+    "company_name": "Nagreeka Capital &amp; Infrastructure Ltd"
+  },
+  {
+    "nse_code": "NAGREEKEXP",
+    "icici_code": "NAGEXP",
+    "company_name": "Nagreeka Exports Ltd"
+  },
+  {
+    "nse_code": "NAHARCAP",
+    "icici_code": "NAHCAP",
+    "company_name": "Nahar Capital and Financial Services Ltd"
+  },
+  {
+    "nse_code": "NAHARINDUS",
+    "icici_code": "NAHIND",
+    "company_name": "Nahar Industrial Enterprises Ltd"
+  },
+  {
+    "nse_code": "NAHARINVST",
+    "icici_code": "NAHEXP",
+    "company_name": "Nahar Investments and Holding Ltd"
+  },
+  {
+    "nse_code": "NAHARSPING",
+    "icici_code": "NAHSPI",
+    "company_name": "Nahar Spinning Mills Ltd"
+  },
+  {
+    "nse_code": "NANDAN",
+    "icici_code": "NANEXI",
+    "company_name": "Nandan Exim Ltd"
+  },
+  {
+    "nse_code": "NATCOPHARM",
+    "icici_code": "NATPHA",
+    "company_name": "Natco Pharma Ltd"
+  },
+  {
+    "nse_code": "NATIONALUM",
+    "icici_code": "NATALU",
+    "company_name": "National Aluminium Company Ltd"
+  },
+  {
+    "nse_code": "NATNLSTEEL",
+    "icici_code": "NATSTE",
+    "company_name": "NATIONAL STEEL AND AGRO INDUSTRIES Ltd"
+  },
+  {
+    "nse_code": "NAUKRI",
+    "icici_code": "INFEDG",
+    "company_name": "Info Edge (India) Ltd"
+  },
+  {
+    "nse_code": "NAVINFLUOR",
+    "icici_code": "POLRUB",
+    "company_name": "Navin Fluorine International Ltd"
+  },
+  {
+    "nse_code": "NAVNETPUBL",
+    "icici_code": "NAVPUB",
+    "company_name": "Navneet Publications India Ltd"
+  },
+  {
+    "nse_code": "NBVENTURES",
+    "icici_code": "NAVBHA",
+    "company_name": "Nava Bharat Ventures Ltd"
+  },
+  {
+    "nse_code": "NCLIND",
+    "icici_code": "NCLIND",
+    "company_name": "NCL Industries Ltd"
+  },
+  {
+    "nse_code": "NDTV",
+    "icici_code": "NDTV",
+    "company_name": "New Delhi Television Ltd"
+  },
+  {
+    "nse_code": "NECLIFE",
+    "icici_code": "NECLIF",
+    "company_name": "Nectar Lifesciences Ltd"
+  },
+  {
+    "nse_code": "NELCAST",
+    "icici_code": "NELLIM",
+    "company_name": "Nelcast Ltd"
+  },
+  {
+    "nse_code": "NELCO",
+    "icici_code": "NATRAD",
+    "company_name": "NELCO Ltd"
+  },
+  {
+    "nse_code": "NEPCMICON",
+    "icici_code": "NEPIND",
+    "company_name": "NEPC India Ltd"
+  },
+  {
+    "nse_code": "NESCO",
+    "icici_code": "NEWSTA",
+    "company_name": "Nesco Ltd"
+  },
+  {
+    "nse_code": "NETWORK18",
+    "icici_code": "NETW18",
+    "company_name": "Network 18 Fincap Ltd"
+  },
+  {
+    "nse_code": "NEULANDLAB",
+    "icici_code": "NEULAB",
+    "company_name": "Neuland Laboratories Ltd"
+  },
+  {
+    "nse_code": "NEYVELILIG",
+    "icici_code": "NEYLIG",
+    "company_name": "Neyveli Lignite Corporation Ltd"
+  },
+  {
+    "nse_code": "NFL",
+    "icici_code": "NATFER",
+    "company_name": "National Fertilizers Ltd"
+  },
+  {
+    "nse_code": "NICCO",
+    "icici_code": "NICCOR",
+    "company_name": "Nicco Corporation Ltd"
+  },
+  {
+    "nse_code": "NIFTYBEES",
+    "icici_code": "PSUBAN",
+    "company_name": "Benchmark Mutual Fund"
+  },
+  {
+    "nse_code": "NIITLTD",
+    "icici_code": "NIIT",
+    "company_name": "NIIT Ltd"
+  },
+  {
+    "nse_code": "NIITTECH",
+    "icici_code": "NIITEC",
+    "company_name": "NIIT Technologies Ltd"
+  },
+  {
+    "nse_code": "NILKAMAL",
+    "icici_code": "NILPLA",
+    "company_name": "Nilkamal Ltd"
+  },
+  {
+    "nse_code": "NIPPOBATRY",
+    "icici_code": "INDNAT",
+    "company_name": "Nippo Batteries Co. Ltd"
+  },
+  {
+    "nse_code": "NIRMA",
+    "icici_code": "NIRMA",
+    "company_name": "Nirma Ltd"
+  },
+  {
+    "nse_code": "NITCO",
+    "icici_code": "NITTIL",
+    "company_name": "Nitco Ltd"
+  },
+  {
+    "nse_code": "NITINFIRE",
+    "icici_code": "NITFIR",
+    "company_name": "Nitin Fire Protection Industries Ltd"
+  },
+  {
+    "nse_code": "NITINSPIN",
+    "icici_code": "NITSPI",
+    "company_name": "Nitin Spinners Ltd"
+  },
+  {
+    "nse_code": "NMDC",
+    "icici_code": "NATMIN",
+    "company_name": "NMDC Ltd"
+  },
+  {
+    "nse_code": "NOCIL",
+    "icici_code": "NOCIL",
+    "company_name": "NOCIL Ltd"
+  },
+  {
+    "nse_code": "NOIDATOLL",
+    "icici_code": "NOITOL",
+    "company_name": "Noida Toll Bridge Company Ltd"
+  },
+  {
+    "nse_code": "NORBTEAEXP",
+    "icici_code": "NORTEA",
+    "company_name": "Norben Tea &amp; Exports Ltd"
+  },
+  {
+    "nse_code": "NORTHGATE",
+    "icici_code": "NORTEC",
+    "company_name": "Northgate Technologies Ltd"
+  },
+  {
+    "nse_code": "NOVAPETRO",
+    "icici_code": "NOVPET",
+    "company_name": "Nova Petrochemicals Ltd"
+  },
+  {
+    "nse_code": "NOVOPANIND",
+    "icici_code": "NOVIND",
+    "company_name": "Novopan Industries Ltd"
+  },
+  {
+    "nse_code": "NRBBEARING",
+    "icici_code": "NRBBEA",
+    "company_name": "NRB Bearing Ltd"
+  },
+  {
+    "nse_code": "NRC",
+    "icici_code": "NRC",
+    "company_name": "NRC Ltd"
+  },
+  {
+    "nse_code": "NSIL",
+    "icici_code": "JINSTR",
+    "company_name": "Nalwa Sons Investments Ltd"
+  },
+  {
+    "nse_code": "NTPC",
+    "icici_code": "NTPC",
+    "company_name": "NTPC Ltd"
+  },
+  {
+    "nse_code": "NUCENT",
+    "icici_code": "NUCENT",
+    "company_name": "Nucent Finance Ltd"
+  },
+  {
+    "nse_code": "NUCHEM",
+    "icici_code": "NUCHEM",
+    "company_name": "Nuchem Ltd"
+  },
+  {
+    "nse_code": "NUCLEUS",
+    "icici_code": "NUCSOF",
+    "company_name": "Nucleus Software Exports Ltd"
+  },
+  {
+    "nse_code": "NUMERICPW",
+    "icici_code": "NUMPOW",
+    "company_name": "Numeric Power Systems Ltd"
+  },
+  {
+    "nse_code": "NUTEK",
+    "icici_code": "NUTIND",
+    "company_name": "Nu Tek India Ltd"
+  },
+  {
+    "nse_code": "OCL",
+    "icici_code": "OCLIND",
+    "company_name": "OCL India Ltd"
+  },
+  {
+    "nse_code": "OCTAV",
+    "icici_code": "OCTINV",
+    "company_name": "Octav Investments Ltd"
+  },
+  {
+    "nse_code": "OFSS",
+    "icici_code": "IFLEX",
+    "company_name": "Oracle Financial Services Software Ltd"
+  },
+  {
+    "nse_code": "OILCOUNTUB",
+    "icici_code": "OILCOU",
+    "company_name": "Oil Country Tubular Ltd"
+  },
+  {
+    "nse_code": "OISL",
+    "icici_code": "OCLIRO",
+    "company_name": "OCL Iron and Steel Ltd"
+  },
+  {
+    "nse_code": "OMAXAUTO",
+    "icici_code": "OMAAUT",
+    "company_name": "OMAX AUTOS Ltd"
+  },
+  {
+    "nse_code": "OMAXE",
+    "icici_code": "OMALIM",
+    "company_name": "Omaxe Ltd"
+  },
+  {
+    "nse_code": "OMNITECH",
+    "icici_code": "OMNINF",
+    "company_name": "Omnitech Infosolutions Ltd"
+  },
+  {
+    "nse_code": "ONGC",
+    "icici_code": "ONGC",
+    "company_name": "Oil &amp; Natural Gas Corpn Ltd"
+  },
+  {
+    "nse_code": "ONMOBILE",
+    "icici_code": "ONMGLO",
+    "company_name": "OnMobile Global Ltd"
+  },
+  {
+    "nse_code": "ONWARDTEC",
+    "icici_code": "ONWTEC",
+    "company_name": "Onward Technologies Ltd"
+  },
+  {
+    "nse_code": "OPTOCIRCUI",
+    "icici_code": "OPTCIR",
+    "company_name": "Opto Circuits (India) Ltd"
+  },
+  {
+    "nse_code": "ORBITCORP",
+    "icici_code": "ORBCOR",
+    "company_name": "Orbit Corporation Ltd"
+  },
+  {
+    "nse_code": "ORCHIDCHEM",
+    "icici_code": "ORCCHE",
+    "company_name": "Orchid Chemicals &amp; Pharmaceuticals Ltd"
+  },
+  {
+    "nse_code": "ORGINFO",
+    "icici_code": "SARELE",
+    "company_name": "ORG Informatics Ltd"
+  },
+  {
+    "nse_code": "ORIENTABRA",
+    "icici_code": "ORIABR",
+    "company_name": "Orient Abrasives Ltd"
+  },
+  {
+    "nse_code": "ORIENTBANK",
+    "icici_code": "ORIBAN",
+    "company_name": "Oriental Bank of Commerce"
+  },
+  {
+    "nse_code": "ORIENTCERA",
+    "icici_code": "ORICE",
+    "company_name": "Orient Ceramics and Industries Ltd"
+  },
+  {
+    "nse_code": "ORIENTHOT",
+    "icici_code": "ORIHOT",
+    "company_name": "Oriental Hotels Ltd"
+  },
+  {
+    "nse_code": "ORIENTINFO",
+    "icici_code": "ORIINF",
+    "company_name": "Orient Information Technology Ltd"
+  },
+  {
+    "nse_code": "ORIENTPPR",
+    "icici_code": "ORIPAP",
+    "company_name": "Orient Paper &amp; Industries Ltd"
+  },
+  {
+    "nse_code": "ORIENTPRES",
+    "icici_code": "ORIPRE",
+    "company_name": "Orient Press Ltd"
+  },
+  {
+    "nse_code": "OTL",
+    "icici_code": "ORITRI",
+    "company_name": "Oriental Trimex Ltd"
+  },
+  {
+    "nse_code": "OUDHSUG",
+    "icici_code": "OUDSUG",
+    "company_name": "The Oudh Sugar Mills Ltd"
+  },
+  {
+    "nse_code": "PAEL",
+    "icici_code": "PREAUT",
+    "company_name": "PAE Ltd"
+  },
+  {
+    "nse_code": "PAGEIND",
+    "icici_code": "PAGIND",
+    "company_name": "Page Industries Ltd"
+  },
+  {
+    "nse_code": "PANACEABIO",
+    "icici_code": "PANBIO",
+    "company_name": "Panacea Biotec Ltd"
+  },
+  {
+    "nse_code": "PANORAMUNI",
+    "icici_code": "ITMIC",
+    "company_name": "Panoramic Universal Ltd"
+  },
+  {
+    "nse_code": "PANTALOONR",
+    "icici_code": "PANFAS",
+    "company_name": "Pantaloon Retail (India) Ltd"
+  },
+  {
+    "nse_code": "PAPERPROD",
+    "icici_code": "PAPPRO",
+    "company_name": "The Paper Products Ltd"
+  },
+  {
+    "nse_code": "PARACABLES",
+    "icici_code": "PARCOM",
+    "company_name": "Paramount Communications Ltd"
+  },
+  {
+    "nse_code": "PARAL",
+    "icici_code": "PARALU",
+    "company_name": "Parekh Aluminex Ltd"
+  },
+  {
+    "nse_code": "PAREKHPLAT",
+    "icici_code": "PARPLA",
+    "company_name": "Parekh Platinum Ltd"
+  },
+  {
+    "nse_code": "PARSVNATH",
+    "icici_code": "PARDE",
+    "company_name": "Parsvnath Developers Ltd"
+  },
+  {
+    "nse_code": "PATELENG",
+    "icici_code": "PATEN",
+    "company_name": "Patel Engineering Ltd"
+  },
+  {
+    "nse_code": "PATINTLOG",
+    "icici_code": "PATROA",
+    "company_name": "Patel Integrated Logistics Ltd"
+  },
+  {
+    "nse_code": "PATNI",
+    "icici_code": "PATCOM",
+    "company_name": "Patni Computer Systems Ltd"
+  },
+  {
+    "nse_code": "PATSPINLTD",
+    "icici_code": "PATIND",
+    "company_name": "Patspin India Ltd"
+  },
+  {
+    "nse_code": "PBAINFRA",
+    "icici_code": "PBAINF",
+    "company_name": "PBA Infrastructure Ltd"
+  },
+  {
+    "nse_code": "PDUMJEIND",
+    "icici_code": "PUDAGR",
+    "company_name": "Pudumjee Industries Ltd"
+  },
+  {
+    "nse_code": "PDUMJEPULP",
+    "icici_code": "PUDPUL",
+    "company_name": "Pudumjee Pulp &amp; Paper Mills Ltd"
+  },
+  {
+    "nse_code": "PEACOCKIND",
+    "icici_code": "PEAIND",
+    "company_name": "Peacock Industries Ltd"
+  },
+  {
+    "nse_code": "PEARLGLOBL",
+    "icici_code": "PEAGLO",
+    "company_name": "Pearl Global Ltd"
+  },
+  {
+    "nse_code": "PEARLPOLY",
+    "icici_code": "PEAPOL",
+    "company_name": "Pearl Polymers Ltd"
+  },
+  {
+    "nse_code": "PENINLAND",
+    "icici_code": "MORGOK",
+    "company_name": "Peninsula Land Ltd"
+  },
+  {
+    "nse_code": "PEPL",
+    "icici_code": "PEAENG",
+    "company_name": "Pearl Engineering Polymers Ltd"
+  },
+  {
+    "nse_code": "PETRONENGG",
+    "icici_code": "PETENG",
+    "company_name": "Petron Engineering Construction Ltd"
+  },
+  {
+    "nse_code": "PETRONET",
+    "icici_code": "PETLNG",
+    "company_name": "Petronet LNG Ltd"
+  },
+  {
+    "nse_code": "PFC",
+    "icici_code": "POWFIN",
+    "company_name": "Power Finance Corporation Ltd"
+  },
+  {
+    "nse_code": "PFIZER",
+    "icici_code": "PFIZER",
+    "company_name": "Pfizer Ltd"
+  },
+  {
+    "nse_code": "PFOCUS",
+    "icici_code": "PRIFOC",
+    "company_name": "Prime Focus Ltd"
+  },
+  {
+    "nse_code": "PGHH",
+    "icici_code": "PROGAM",
+    "company_name": "Procter &amp; Gamble Hygiene and Health Care Ltd"
+  },
+  {
+    "nse_code": "PHILIPCARB",
+    "icici_code": "PHICAR",
+    "company_name": "Phillips Carbon Black Ltd"
+  },
+  {
+    "nse_code": "PHOENIXLMP",
+    "icici_code": "PHOLAM",
+    "company_name": "Phoenix Lamps Ltd"
+  },
+  {
+    "nse_code": "PHOENIXLTD",
+    "icici_code": "PHOMIL",
+    "company_name": "The Phoenix Mills Ltd"
+  },
+  {
+    "nse_code": "PIDILITIND",
+    "icici_code": "PIDIND",
+    "company_name": "Pidilite Industries Ltd"
+  },
+  {
+    "nse_code": "PIONEEREMB",
+    "icici_code": "PIOEMB",
+    "company_name": "Pioneer Embroideries Ltd"
+  },
+  {
+    "nse_code": "PIRGLASS",
+    "icici_code": "GUJGLA",
+    "company_name": "Piramal Glass Ltd"
+  },
+  {
+    "nse_code": "PIRHEALTH",
+    "icici_code": "NICPIR",
+    "company_name": "Piramal Healthcare Ltd"
+  },
+  {
+    "nse_code": "PIRLIFE",
+    "icici_code": "PIRLIF",
+    "company_name": "Piramal Life Sciences Ltd"
+  },
+  {
+    "nse_code": "PITTILAM",
+    "icici_code": "PITLAM",
+    "company_name": "Pitti Laminations Ltd"
+  },
+  {
+    "nse_code": "PLASTIBLEN",
+    "icici_code": "PLASTI",
+    "company_name": "Plastiblends India Ltd"
+  },
+  {
+    "nse_code": "PLETHICO",
+    "icici_code": "PLEPHA",
+    "company_name": "Plethico Pharmaceuticals Ltd"
+  },
+  {
+    "nse_code": "PNB",
+    "icici_code": "PUNBAN",
+    "company_name": "Punjab National Bank"
+  },
+  {
+    "nse_code": "PNBGILTS",
+    "icici_code": "PNBGIL",
+    "company_name": "PNB Gilts Ltd"
+  },
+  {
+    "nse_code": "PNC",
+    "icici_code": "PRINAN",
+    "company_name": "Pritish Nandy Communications Ltd"
+  },
+  {
+    "nse_code": "POCHIRAJU",
+    "icici_code": "POCIND",
+    "company_name": "Pochiraju Industries Ltd"
+  },
+  {
+    "nse_code": "POLARIND",
+    "icici_code": "POLIND",
+    "company_name": "Polar Industries Ltd"
+  },
+  {
+    "nse_code": "POLARIS",
+    "icici_code": "POLSOF",
+    "company_name": "Polaris Software Lab Ltd"
+  },
+  {
+    "nse_code": "POLYPLEX",
+    "icici_code": "POLCOR",
+    "company_name": "Polyplex Corporation Ltd"
+  },
+  {
+    "nse_code": "PONNIERODE",
+    "icici_code": "PONSUG",
+    "company_name": "Ponni Sugars (Erode) Ltd"
+  },
+  {
+    "nse_code": "POWERGRID",
+    "icici_code": "POWGRI",
+    "company_name": "Power Grid Corporation of India Ltd"
+  },
+  {
+    "nse_code": "PPAP",
+    "icici_code": "PREPIP",
+    "company_name": "Precision Pipes And Profiles Company Ltd"
+  },
+  {
+    "nse_code": "PRAENG",
+    "icici_code": "PRAENG",
+    "company_name": "Prajay Engineers Syndicate Ltd"
+  },
+  {
+    "nse_code": "PRAJIND",
+    "icici_code": "PRAIN",
+    "company_name": "Praj Industries Ltd"
+  },
+  {
+    "nse_code": "PRAKASH",
+    "icici_code": "PRAIND",
+    "company_name": "Prakash Industries Ltd"
+  },
+  {
+    "nse_code": "PRATIBHA",
+    "icici_code": "PIL",
+    "company_name": "Pratibha Industries Ltd"
+  },
+  {
+    "nse_code": "PRECOT",
+    "icici_code": "PREMIL",
+    "company_name": "Precot Meridian Ltd"
+  },
+  {
+    "nse_code": "PRECWIRE",
+    "icici_code": "PREWIR",
+    "company_name": "Precision Wires India Ltd"
+  },
+  {
+    "nse_code": "PREMIER",
+    "icici_code": "PREAU",
+    "company_name": "Premier Ltd"
+  },
+  {
+    "nse_code": "PRICOL",
+    "icici_code": "PREINS",
+    "company_name": "Pricol Ltd"
+  },
+  {
+    "nse_code": "PRIMESECU",
+    "icici_code": "PRISEC",
+    "company_name": "Prime Securities Ltd"
+  },
+  {
+    "nse_code": "PRISMCEM",
+    "icici_code": "PRICE",
+    "company_name": "Prism Cement Ltd"
+  },
+  {
+    "nse_code": "PRITHVI",
+    "icici_code": "PRIINF",
+    "company_name": "Prithvi Information Solutions Ltd"
+  },
+  {
+    "nse_code": "PROVOGUE",
+    "icici_code": "PROVOG",
+    "company_name": "Provogue (India) Ltd"
+  },
+  {
+    "nse_code": "PSL",
+    "icici_code": "PSLHOL",
+    "company_name": "PSL Ltd"
+  },
+  {
+    "nse_code": "PSTL",
+    "icici_code": "PYRSAI",
+    "company_name": "Pyramid Saimira Theatre Ltd"
+  },
+  {
+    "nse_code": "PSUBNKBEES",
+    "icici_code": "Benchmark",
+    "company_name": "Mutual Fund - PSU Bank Benchmark Exchange Traded Scheme"
+  },
+  {
+    "nse_code": "PTC",
+    "icici_code": "POWTRA",
+    "company_name": "PTC India Ltd"
+  },
+  {
+    "nse_code": "PTL",
+    "icici_code": "PRETYR",
+    "company_name": "PTL Enterprises Ltd"
+  },
+  {
+    "nse_code": "PUNJABCHEM",
+    "icici_code": "PUNCHE",
+    "company_name": "Punjab Chemicals &amp; Crop Protection Ltd"
+  },
+  {
+    "nse_code": "PUNJABTRAC",
+    "icici_code": "PUNTRA",
+    "company_name": "Punjab Tractors Ltd"
+  },
+  {
+    "nse_code": "PUNJLLOYD",
+    "icici_code": "PUNLLO",
+    "company_name": "Punj Lloyd Ltd"
+  },
+  {
+    "nse_code": "PURVA",
+    "icici_code": "PURPRO",
+    "company_name": "Puravankara Projects Ltd"
+  },
+  {
+    "nse_code": "PVP",
+    "icici_code": "SOFSOL",
+    "company_name": "PVP Ventures Ltd"
+  },
+  {
+    "nse_code": "PVR",
+    "icici_code": "PVRLIM",
+    "company_name": "PVR Ltd"
+  },
+  {
+    "nse_code": "QGOLDHALF",
+    "icici_code": "QUGOLD",
+    "company_name": "Quantum Gold Fund -Exchange Traded Fund (ETF)"
+  },
+  {
+    "nse_code": "QNIFTY",
+    "icici_code": "QINDEX",
+    "company_name": "Quantum Index Fund -Exchange Traded Fund (ETF)"
+  },
+  {
+    "nse_code": "QUINTEGRA",
+    "icici_code": "SOFSOF",
+    "company_name": "Quintegra Solutions Ltd"
+  },
+  {
+    "nse_code": "RADAAN",
+    "icici_code": "RADMED",
+    "company_name": "Radaan Mediaworks India Ltd"
+  },
+  {
+    "nse_code": "RADICO",
+    "icici_code": "RADKF",
+    "company_name": "Radico Khaitan Ltd"
+  },
+  {
+    "nse_code": "RAINCOM",
+    "icici_code": "PRICEM",
+    "company_name": "Rain Commodities Ltd"
+  },
+  {
+    "nse_code": "RAJESHEXPO",
+    "icici_code": "RAJEXP",
+    "company_name": "Rajesh Exports Ltd"
+  },
+  {
+    "nse_code": "RAJRAYON",
+    "icici_code": "RAJRAY",
+    "company_name": "Raj Rayon Ltd"
+  },
+  {
+    "nse_code": "RAJSREESUG",
+    "icici_code": "RAJSUG",
+    "company_name": "Rajshree Sugars &amp; Chemicals Ltd"
+  },
+  {
+    "nse_code": "RAJTV",
+    "icici_code": "RATELE",
+    "company_name": "Raj Television Network Ltd"
+  },
+  {
+    "nse_code": "RAJVIR",
+    "icici_code": "RAJVIR",
+    "company_name": "Rajvir Industries Ltd"
+  },
+  {
+    "nse_code": "RALLIS",
+    "icici_code": "RALIND",
+    "company_name": "Rallis India Ltd"
+  },
+  {
+    "nse_code": "RAMANEWS",
+    "icici_code": "RAMNEW",
+    "company_name": "Rama Newsprint and Papers Ltd"
+  },
+  {
+    "nse_code": "RAMCOIND",
+    "icici_code": "RAMIND",
+    "company_name": "Ramco Industries Ltd"
+  },
+  {
+    "nse_code": "RAMCOSYS",
+    "icici_code": "RAMSYS",
+    "company_name": "Ramco Systems Ltd"
+  },
+  {
+    "nse_code": "RAMSARUP",
+    "icici_code": "RAMIN",
+    "company_name": "Ramsarup Industries Ltd"
+  },
+  {
+    "nse_code": "RANASUG",
+    "icici_code": "RANSUG",
+    "company_name": "Rana Sugars Ltd"
+  },
+  {
+    "nse_code": "RANBAXY",
+    "icici_code": "RANLAB",
+    "company_name": "Ranbaxy Laboratories Ltd"
+  },
+  {
+    "nse_code": "RANEENGINE",
+    "icici_code": "RANENG",
+    "company_name": "Rane Engine Valve Ltd"
+  },
+  {
+    "nse_code": "RANEHOLDIN",
+    "icici_code": "RANMAD",
+    "company_name": "Rane Holdings Ltd"
+  },
+  {
+    "nse_code": "RATNAMANI",
+    "icici_code": "RATMET",
+    "company_name": "Ratnamani Metals &amp; Tubes Ltd"
+  },
+  {
+    "nse_code": "RAYMOND",
+    "icici_code": "RAYMON",
+    "company_name": "Raymond Ltd"
+  },
+  {
+    "nse_code": "RBL",
+    "icici_code": "RANBRA",
+    "company_name": "Rane Brake Lining Ltd"
+  },
+  {
+    "nse_code": "RCF",
+    "icici_code": "RCF",
+    "company_name": "Rashtriya Chemicals and Fertilizers Ltd"
+  },
+  {
+    "nse_code": "RCOM",
+    "icici_code": "RELCOM",
+    "company_name": "Reliance Communications Ltd"
+  },
+  {
+    "nse_code": "RECLTD",
+    "icici_code": "RURELE",
+    "company_name": "Rural Electrification Corporation Ltd"
+  },
+  {
+    "nse_code": "REDINGTON",
+    "icici_code": "REDING",
+    "company_name": "Redington (India) Ltd"
+  },
+  {
+    "nse_code": "REGENCERAM",
+    "icici_code": "REGCER",
+    "company_name": "Regency Ceramics Ltd"
+  },
+  {
+    "nse_code": "REIAGROLTD",
+    "icici_code": "REIAGR",
+    "company_name": "Rei Agro Ltd"
+  },
+  {
+    "nse_code": "RELBANK",
+    "icici_code": "RBETF",
+    "company_name": "Reliance Mutual Fund -Banking Exchange Traded Fund (ETF)"
+  },
+  {
+    "nse_code": "RELCAPITAL",
+    "icici_code": "RELCAP",
+    "company_name": "Reliance Capital Ltd"
+  },
+  {
+    "nse_code": "RELGOLD",
+    "icici_code": "RELGOL",
+    "company_name": "Reliance Mutual Fund - Gold Exchange Traded Fund"
+  },
+  {
+    "nse_code": "RELIANCE",
+    "icici_code": "RELIND",
+    "company_name": "Reliance Industries Ltd"
+  },
+  {
+    "nse_code": "RELIGARE",
+    "icici_code": "RELENT",
+    "company_name": "Religare Enterprises Ltd"
+  },
+  {
+    "nse_code": "RELINFRA",
+    "icici_code": "BSES",
+    "company_name": "Reliance Infrastructure Ltd"
+  },
+  {
+    "nse_code": "REMSONSIND",
+    "icici_code": "REMIND",
+    "company_name": "Remsons Industries Ltd"
+  },
+  {
+    "nse_code": "RENUKA",
+    "icici_code": "RENSUG",
+    "company_name": "Shree Renuka Sugars Ltd"
+  },
+  {
+    "nse_code": "REPRO",
+    "icici_code": "REPIND",
+    "company_name": "Repro India Ltd"
+  },
+  {
+    "nse_code": "RESURGERE",
+    "icici_code": "RESMIN",
+    "company_name": "Resurgere Mines &amp; Minerals India Ltd"
+  },
+  {
+    "nse_code": "REVATHI",
+    "icici_code": "REVCP",
+    "company_name": "Revathi Equipment Ltd"
+  },
+  {
+    "nse_code": "RICOAUTO",
+    "icici_code": "RICAUT",
+    "company_name": "Rico Auto Industries Ltd"
+  },
+  {
+    "nse_code": "RIIL",
+    "icici_code": "RELII",
+    "company_name": "Reliance Industrial Infrastructure Ltd"
+  },
+  {
+    "nse_code": "RJL",
+    "icici_code": "RENJEL",
+    "company_name": "Renaissance Jewellery Ltd"
+  },
+  {
+    "nse_code": "RKFORGE",
+    "icici_code": "RAMFOR",
+    "company_name": "Ramkrishna Forgings Ltd"
+  },
+  {
+    "nse_code": "RMCL",
+    "icici_code": "RADMAD",
+    "company_name": "Radha Madhav Corporation Ltd"
+  },
+  {
+    "nse_code": "RML",
+    "icici_code": "RANMA",
+    "company_name": "Rane (Madras) Ltd"
+  },
+  {
+    "nse_code": "RNRL",
+    "icici_code": "RELNAT",
+    "company_name": "Reliance Natural Resources Ltd"
+  },
+  {
+    "nse_code": "ROHITFERRO",
+    "icici_code": "ROHFER",
+    "company_name": "Rohit Ferro-Tech Ltd"
+  },
+  {
+    "nse_code": "ROHLTD",
+    "icici_code": "ROYORC",
+    "company_name": "Royal Orchid Hotels Ltd"
+  },
+  {
+    "nse_code": "ROLTA",
+    "icici_code": "ROLIND",
+    "company_name": "Rolta India Ltd"
+  },
+  {
+    "nse_code": "ROMAN",
+    "icici_code": "ROMTAR",
+    "company_name": "Roman Tarmat Ltd"
+  },
+  {
+    "nse_code": "RPGCABLES",
+    "icici_code": "RPGCAB",
+    "company_name": "RPG Cables Ltd"
+  },
+  {
+    "nse_code": "RPGLIFE",
+    "icici_code": "RPGLIF",
+    "company_name": "RPG Life Sciences Ltd"
+  },
+  {
+    "nse_code": "RPL",
+    "icici_code": "RELPET",
+    "company_name": "Reliance Petroleum Ltd"
+  },
+  {
+    "nse_code": "RPOWER",
+    "icici_code": "RELPOW",
+    "company_name": "Reliance Power Ltd"
+  },
+  {
+    "nse_code": "RSSOFTWARE",
+    "icici_code": "RSSOFT",
+    "company_name": "R. S. Software (India) Ltd"
+  },
+  {
+    "nse_code": "RSWM",
+    "icici_code": "RAJSPI",
+    "company_name": "RSWM Ltd"
+  },
+  {
+    "nse_code": "RSYSTEMS",
+    "icici_code": "RSYSTE",
+    "company_name": "R Systems International Ltd"
+  },
+  {
+    "nse_code": "RUBYMILLS",
+    "icici_code": "RUBMIL",
+    "company_name": "The Ruby Mills Ltd"
+  },
+  {
+    "nse_code": "RUCHINFRA",
+    "icici_code": "RUCINF",
+    "company_name": "Ruchi Infrastructure Ltd"
+  },
+  {
+    "nse_code": "RUCHIRA",
+    "icici_code": "RUCPAP",
+    "company_name": "Ruchira Papers Ltd"
+  },
+  {
+    "nse_code": "RUCHISOYA",
+    "icici_code": "RUCSOY",
+    "company_name": "Ruchi Soya Industries Ltd"
+  },
+  {
+    "nse_code": "SABERORGAN",
+    "icici_code": "SABORG",
+    "company_name": "Sabero Organics Gujarat Ltd"
+  },
+  {
+    "nse_code": "SABTN",
+    "icici_code": "SRIADH",
+    "company_name": "Sri Adhikari Brothers Television Network Ltd"
+  },
+  {
+    "nse_code": "SADBHAV",
+    "icici_code": "SADENG",
+    "company_name": "Sadbhav Engineering Ltd"
+  },
+  {
+    "nse_code": "SAGCEM",
+    "icici_code": "SAGCEM",
+    "company_name": "Sagar Cements Ltd"
+  },
+  {
+    "nse_code": "SAIL",
+    "icici_code": "SAIL",
+    "company_name": "Steel Authority of India Ltd"
+  },
+  {
+    "nse_code": "SAKHTISUG",
+    "icici_code": "SAKSUG",
+    "company_name": "Sakthi Sugars Ltd"
+  },
+  {
+    "nse_code": "SAKSOFT",
+    "icici_code": "SEKSOF",
+    "company_name": "Saksoft Ltd"
+  },
+  {
+    "nse_code": "SAKUMA",
+    "icici_code": "SAKEXP",
+    "company_name": "Sakuma Exports Ltd"
+  },
+  {
+    "nse_code": "SALORAINTL",
+    "icici_code": "SALINT",
+    "company_name": "Salora International Ltd"
+  },
+  {
+    "nse_code": "SALSTEEL",
+    "icici_code": "SALSTE",
+    "company_name": "S.A.L. Steel Ltd"
+  },
+  {
+    "nse_code": "SAMBHAAV",
+    "icici_code": "PEAENE",
+    "company_name": "Sambhaav Media Ltd"
+  },
+  {
+    "nse_code": "SAMTEL",
+    "icici_code": "SAMCOL",
+    "company_name": "Samtel Color Ltd"
+  },
+  {
+    "nse_code": "SANDESH",
+    "icici_code": "SANDES",
+    "company_name": "The Sandesh Ltd"
+  },
+  {
+    "nse_code": "SANGAMIND",
+    "icici_code": "SANIND",
+    "company_name": "Sangam (India) Ltd"
+  },
+  {
+    "nse_code": "SANGHIIND",
+    "icici_code": "SANGHI",
+    "company_name": "Sanghi Industries Ltd"
+  },
+  {
+    "nse_code": "SANGHIPOLY",
+    "icici_code": "SANPOL",
+    "company_name": "Sanghi Polyesters Ltd"
+  },
+  {
+    "nse_code": "SANGHVIMOV",
+    "icici_code": "SANMOV",
+    "company_name": "Sanghvi Movers Ltd"
+  },
+  {
+    "nse_code": "SANWARIA",
+    "icici_code": "SANAGR",
+    "company_name": "Sanwaria Agro Oils Ltd"
+  },
+  {
+    "nse_code": "SAPL",
+    "icici_code": "SOUAS",
+    "company_name": "South Asian Petrochem Ltd"
+  },
+  {
+    "nse_code": "SAREGAMA",
+    "icici_code": "GRACOM",
+    "company_name": "Saregama India Ltd"
+  },
+  {
+    "nse_code": "SARLAPOLY",
+    "icici_code": "SARPOL",
+    "company_name": "Sarla Performance Fibers Ltd"
+  },
+  {
+    "nse_code": "SASKEN",
+    "icici_code": "SASCOM",
+    "company_name": "Sasken Communication Technologies Ltd"
+  },
+  {
+    "nse_code": "SATHAISPAT",
+    "icici_code": "SATISP",
+    "company_name": "Sathavahana Ispat Ltd"
+  },
+  {
+    "nse_code": "SATYAMCOMP",
+    "icici_code": "SATCOM",
+    "company_name": "Satyam Computer Services Ltd"
+  },
+  {
+    "nse_code": "SAVITACHEM",
+    "icici_code": "SAVCHE",
+    "company_name": "Savita Chemicals Ltd"
+  },
+  {
+    "nse_code": "SB&amp;TINTL",
+    "icici_code": "SBTINT",
+    "company_name": "SB&amp;T International Ltd"
+  },
+  {
+    "nse_code": "SBIN",
+    "icici_code": "STABAN",
+    "company_name": "State Bank of India"
+  },
+  {
+    "nse_code": "SCI",
+    "icici_code": "SCI",
+    "company_name": "Shipping Corporation Of India Ltd"
+  },
+  {
+    "nse_code": "SEAMECLTD",
+    "icici_code": "PEESHI",
+    "company_name": "SEAMEC Ltd"
+  },
+  {
+    "nse_code": "SEJALGLASS",
+    "icici_code": "SEJARC",
+    "company_name": "Sejal Architectural Glass Ltd"
+  },
+  {
+    "nse_code": "SELAN",
+    "icici_code": "SELEXP",
+    "company_name": "Selan Exploration Technology Ltd"
+  },
+  {
+    "nse_code": "SELMCL",
+    "icici_code": "SELMAN",
+    "company_name": "SEL Manufacturing Company Ltd"
+  },
+  {
+    "nse_code": "SESAGOA",
+    "icici_code": "SESGOA",
+    "company_name": "Sesa Goa Ltd"
+  },
+  {
+    "nse_code": "SESHAPAPER",
+    "icici_code": "SESPAP",
+    "company_name": "Seshasayee Paper and Boards Ltd"
+  },
+  {
+    "nse_code": "SGFL",
+    "icici_code": "GANFOR",
+    "company_name": "Shree Ganesh Forgings Ltd"
+  },
+  {
+    "nse_code": "SGL",
+    "icici_code": "SHIGLO",
+    "company_name": "STL Global Ltd"
+  },
+  {
+    "nse_code": "SHAHALLOYS",
+    "icici_code": "SHAALL",
+    "company_name": "Shah Alloys Ltd"
+  },
+  {
+    "nse_code": "SHALPAINTS",
+    "icici_code": "SHAPAI",
+    "company_name": "Shalimar Paints Ltd"
+  },
+  {
+    "nse_code": "SHANTIGEAR",
+    "icici_code": "SHAGEA",
+    "company_name": "Shanthi Gears Ltd"
+  },
+  {
+    "nse_code": "SHARRESLTD",
+    "icici_code": "SHARE",
+    "company_name": "Sharyans Resources Ltd"
+  },
+  {
+    "nse_code": "SHASUNCHEM",
+    "icici_code": "SHADRU",
+    "company_name": "Shasun Chemicals and Drugs Ltd"
+  },
+  {
+    "nse_code": "SHIVAMAUTO",
+    "icici_code": "SHIAUT",
+    "company_name": "Shivam Autotech Ltd"
+  },
+  {
+    "nse_code": "SHIVTEX",
+    "icici_code": "ANNFIN",
+    "company_name": "Shiva Texyarn Ltd"
+  },
+  {
+    "nse_code": "SHIV-VANI",
+    "icici_code": "SHIVAN",
+    "company_name": "Shiv-Vani Oil &amp; Gas Exploration Services Ltd"
+  },
+  {
+    "nse_code": "SHLAKSHMI",
+    "icici_code": "GALIND",
+    "company_name": "Shri Lakshmi Cotsyn Ltd"
+  },
+  {
+    "nse_code": "SHOPERSTOP",
+    "icici_code": "SHOSTO",
+    "company_name": "Shopper’s Stop Ltd"
+  },
+  {
+    "nse_code": "SHREEASHTA",
+    "icici_code": "SHRASH",
+    "company_name": "Shree Ashtavinayak Cine Vision Ltd"
+  },
+  {
+    "nse_code": "SHREECEM",
+    "icici_code": "SHRCEM",
+    "company_name": "Shree Cements Ltd"
+  },
+  {
+    "nse_code": "SHREERAMA",
+    "icici_code": "SRMT",
+    "company_name": "Shree Rama Multi-Tech Ltd"
+  },
+  {
+    "nse_code": "SHRENUJ",
+    "icici_code": "SHRENU",
+    "company_name": "Shrenuj &amp; Co Ltd"
+  },
+  {
+    "nse_code": "SHREYAS",
+    "icici_code": "SHRSHI",
+    "company_name": "Shreyas Shipping &amp; Logistics Ltd"
+  },
+  {
+    "nse_code": "SHRIRAMCIT",
+    "icici_code": "SHRCIT",
+    "company_name": "Shriram City Union Finance Ltd"
+  },
+  {
+    "nse_code": "SHRIRAMEPC",
+    "icici_code": "SHREPC",
+    "company_name": "Shriram EPC Ltd"
+  },
+  {
+    "nse_code": "SHYAMTEL",
+    "icici_code": "SHYTEL",
+    "company_name": "Shyam Telecom Ltd"
+  },
+  {
+    "nse_code": "SICAGEN",
+    "icici_code": "SICIND",
+    "company_name": "Sicagen India Ltd"
+  },
+  {
+    "nse_code": "SIEMENS",
+    "icici_code": "SIEMEN",
+    "company_name": "Siemens Ltd"
+  },
+  {
+    "nse_code": "SIGROUPIND",
+    "icici_code": "HERCHE",
+    "company_name": "SI Group - India Ltd"
+  },
+  {
+    "nse_code": "SIL",
+    "icici_code": "STAIN",
+    "company_name": "Standard Industries Ltd"
+  },
+  {
+    "nse_code": "SILINV",
+    "icici_code": "SUTIND",
+    "company_name": "SIL Investments Ltd"
+  },
+  {
+    "nse_code": "SIMBHSUGAR",
+    "icici_code": "SIMSUG",
+    "company_name": "Simbhaoli Sugars Ltd"
+  },
+  {
+    "nse_code": "SIMPLEX",
+    "icici_code": "SIMPRO",
+    "company_name": "Simplex Projects Ltd"
+  },
+  {
+    "nse_code": "SIMPLEXINF",
+    "icici_code": "SIMCON",
+    "company_name": "Simplex Infrastructures Ltd"
+  },
+  {
+    "nse_code": "SINTEX",
+    "icici_code": "SININD",
+    "company_name": "Sintex Industries Ltd"
+  },
+  {
+    "nse_code": "SIRPAPER",
+    "icici_code": "SIRPAP",
+    "company_name": "The Sirpur Paper Mills Ltd"
+  },
+  {
+    "nse_code": "SITASHREE",
+    "icici_code": "SITSHR",
+    "company_name": "Sita Shree Food Products Ltd"
+  },
+  {
+    "nse_code": "SIYSIL",
+    "icici_code": "SIYSIL",
+    "company_name": "Siyaram Silk Mills Ltd"
+  },
+  {
+    "nse_code": "SKFINDIA",
+    "icici_code": "SKFBEA",
+    "company_name": "SKF India Ltd"
+  },
+  {
+    "nse_code": "SKMEGGPROD",
+    "icici_code": "SKMEGG",
+    "company_name": "SKM Egg Products Export (India) Ltd"
+  },
+  {
+    "nse_code": "SKUMARSYNF",
+    "icici_code": "SKUMAR",
+    "company_name": "S. Kumars Nationwide Ltd"
+  },
+  {
+    "nse_code": "SMSPHARMA",
+    "icici_code": "SMSPHA",
+    "company_name": "SMS Pharmaceuticals Ltd"
+  },
+  {
+    "nse_code": "SOBHA",
+    "icici_code": "SOBDEV",
+    "company_name": "Sobha Developers Ltd"
+  },
+  {
+    "nse_code": "SOFTPRO",
+    "icici_code": "SOFSYS",
+    "company_name": "Softpro Systems Ltd"
+  },
+  {
+    "nse_code": "SOFTTECHGR",
+    "icici_code": "SOFTE",
+    "company_name": "Software Technology Group International Ltd"
+  },
+  {
+    "nse_code": "SOLAREX",
+    "icici_code": "SOLEXP",
+    "company_name": "Solar Explosives Ltd"
+  },
+  {
+    "nse_code": "SOLEMS",
+    "icici_code": "SOLEMS",
+    "company_name": "Solectron EMS India Ltd"
+  },
+  {
+    "nse_code": "SOMANYCERA",
+    "icici_code": "SPLIND",
+    "company_name": "Somany Ceramics Ltd"
+  },
+  {
+    "nse_code": "SOMATEX",
+    "icici_code": "SOMTEX",
+    "company_name": "Soma Textiles &amp; Industries Ltd"
+  },
+  {
+    "nse_code": "SONASTEER",
+    "icici_code": "SONSTE",
+    "company_name": "Sona Koyo Steering Systems Ltd"
+  },
+  {
+    "nse_code": "SONATSOFTW",
+    "icici_code": "SONSOF",
+    "company_name": "Sonata Software Ltd"
+  },
+  {
+    "nse_code": "SOUTHBANK",
+    "icici_code": "SOUIN0",
+    "company_name": "The South Indian Bank Ltd"
+  },
+  {
+    "nse_code": "SPARC",
+    "icici_code": "SUNADV",
+    "company_name": "Sun Pharma Advanced Research Company Ltd"
+  },
+  {
+    "nse_code": "SPENTEX",
+    "icici_code": "SPEIND",
+    "company_name": "Spentex Industries Ltd"
+  },
+  {
+    "nse_code": "SPIC",
+    "icici_code": "SPIC",
+    "company_name": "Southern Petrochemicals Industries Corporation Ltd"
+  },
+  {
+    "nse_code": "SPICEMOBIL",
+    "icici_code": "MODOLI",
+    "company_name": "Spice Mobiles Ltd"
+  },
+  {
+    "nse_code": "SPICETELE",
+    "icici_code": "SPICOM",
+    "company_name": "Spice Communications Ltd"
+  },
+  {
+    "nse_code": "SPLIL",
+    "icici_code": "SPLIN",
+    "company_name": "SPL Industries Ltd"
+  },
+  {
+    "nse_code": "SPSL",
+    "icici_code": "SHRPRE",
+    "company_name": "Shree Precoated Steels Ltd"
+  },
+  {
+    "nse_code": "SREINTFIN",
+    "icici_code": "SREINT",
+    "company_name": "SREI Infrastructure Finance Ltd"
+  },
+  {
+    "nse_code": "SRF",
+    "icici_code": "SRF",
+    "company_name": "SRF Ltd"
+  },
+  {
+    "nse_code": "SRGINFOTEC",
+    "icici_code": "SRGINF",
+    "company_name": "SRG Infotec (India) Ltd"
+  },
+  {
+    "nse_code": "SRHHLINDST",
+    "icici_code": "SRERH",
+    "company_name": "SRHHL Industries Ltd"
+  },
+  {
+    "nse_code": "SRHHYPOLTD",
+    "icici_code": "SRERA",
+    "company_name": "Sree Rayalaseema Hi-Strength Hypo Ltd"
+  },
+  {
+    "nse_code": "SRTRANSFIN",
+    "icici_code": "SHRTRA",
+    "company_name": "Shriram Transport Finance Co. Ltd"
+  },
+  {
+    "nse_code": "SSWL",
+    "icici_code": "STESW",
+    "company_name": "Steel Strips Wheels Ltd"
+  },
+  {
+    "nse_code": "STAR",
+    "icici_code": "STRARC",
+    "company_name": "Strides Arcolab Ltd"
+  },
+  {
+    "nse_code": "STARPAPER",
+    "icici_code": "STAPAP",
+    "company_name": "Star Paper Mills Ltd"
+  },
+  {
+    "nse_code": "STCINDIA",
+    "icici_code": "STC",
+    "company_name": "The State Trading Corporation of India Ltd"
+  },
+  {
+    "nse_code": "STEELTUBES",
+    "icici_code": "STETUB",
+    "company_name": "Steel Tubes of India Ltd"
+  },
+  {
+    "nse_code": "STER",
+    "icici_code": "STEIND",
+    "company_name": "Sterlite Industries ( India ) Ltd"
+  },
+  {
+    "nse_code": "STERLINBIO",
+    "icici_code": "STETEA",
+    "company_name": "Sterling Biotech Ltd"
+  },
+  {
+    "nse_code": "STERTOOLS",
+    "icici_code": "STETOO",
+    "company_name": "Sterling Tools Ltd"
+  },
+  {
+    "nse_code": "STINDIA",
+    "icici_code": "STI",
+    "company_name": "STI India Ltd"
+  },
+  {
+    "nse_code": "STRTECH",
+    "icici_code": "STEOPT",
+    "company_name": "Sterlite Technologies Ltd"
+  },
+  {
+    "nse_code": "SUBEX",
+    "icici_code": "SUBSYS",
+    "company_name": "Subex Ltd"
+  },
+  {
+    "nse_code": "SUBHASPROJ",
+    "icici_code": "SUBPRO",
+    "company_name": "Subhash Projects &amp; Marketing Ltd"
+  },
+  {
+    "nse_code": "SUBROS",
+    "icici_code": "SUBROS",
+    "company_name": "Subros Ltd"
+  },
+  {
+    "nse_code": "SUDARSCHEM",
+    "icici_code": "SUDCHE",
+    "company_name": "Sudarshan Chemical Industries Ltd"
+  },
+  {
+    "nse_code": "SUJANATOW",
+    "icici_code": "SUJTOW",
+    "company_name": "Sujana Tower Ltd"
+  },
+  {
+    "nse_code": "SUJANAUNI",
+    "icici_code": "SUJIND",
+    "company_name": "Sujana Universal Industries Ltd"
+  },
+  {
+    "nse_code": "SUMMIT",
+    "icici_code": "KECINT",
+    "company_name": "Summit Securities Ltd"
+  },
+  {
+    "nse_code": "SUNCLAYTON",
+    "icici_code": "SUNCLA",
+    "company_name": "Sundaram Clayton Ltd"
+  },
+  {
+    "nse_code": "SUNDARMFIN",
+    "icici_code": "SUNFIN",
+    "company_name": "Sundaram Finance Ltd"
+  },
+  {
+    "nse_code": "SUNDRMBRAK",
+    "icici_code": "SUMBRA",
+    "company_name": "Sundaram Brake Linings Ltd"
+  },
+  {
+    "nse_code": "SUNDRMFAST",
+    "icici_code": "SUNFAS",
+    "company_name": "Sundram Fasteners Ltd"
+  },
+  {
+    "nse_code": "SUNFLAG",
+    "icici_code": "SUNIRO",
+    "company_name": "Sunflag Iron And Steel Company Ltd"
+  },
+  {
+    "nse_code": "SUNILHITEC",
+    "icici_code": "SUNHIT",
+    "company_name": "SUNIL HITECH ENGR. LTD"
+  },
+  {
+    "nse_code": "SUNPHARMA",
+    "icici_code": "SUNPHA",
+    "company_name": "Sun Pharmaceuticals Industries Ltd"
+  },
+  {
+    "nse_code": "SUNTV",
+    "icici_code": "SUNTV",
+    "company_name": "Sun TV Network Ltd"
+  },
+  {
+    "nse_code": "SUPERSPIN",
+    "icici_code": "SUPSPI",
+    "company_name": "Super Spinning Mills Ltd"
+  },
+  {
+    "nse_code": "SUPPETRO",
+    "icici_code": "SUPPET",
+    "company_name": "Supreme Petrochem Ltd"
+  },
+  {
+    "nse_code": "SUPRAJIT",
+    "icici_code": "SUPENG",
+    "company_name": "Suprajit Engineering Ltd"
+  },
+  {
+    "nse_code": "SUPREMEIND",
+    "icici_code": "SUPIND",
+    "company_name": "Supreme Industries Ltd"
+  },
+  {
+    "nse_code": "SUPREMEINF",
+    "icici_code": "SUPINF",
+    "company_name": "Supreme Infrastructure India Ltd"
+  },
+  {
+    "nse_code": "SUPREMETEX",
+    "icici_code": "SUPWOO",
+    "company_name": "Supreme Tex Mart Ltd"
+  },
+  {
+    "nse_code": "SURAJDIAMN",
+    "icici_code": "SURDIA",
+    "company_name": "Su-Raj Diamonds and Jewellery Ltd"
+  },
+  {
+    "nse_code": "SURANACORP",
+    "icici_code": "SURFC",
+    "company_name": "Surana Corporation Ltd"
+  },
+  {
+    "nse_code": "SURANAIND",
+    "icici_code": "SURMET",
+    "company_name": "Surana Industries Ltd"
+  },
+  {
+    "nse_code": "SURANATELE",
+    "icici_code": "SURTEL",
+    "company_name": "Surana Telecom Ltd"
+  },
+  {
+    "nse_code": "SURYAJYOTI",
+    "icici_code": "SURS",
+    "company_name": "Suryajyoti Spinning Mills Ltd"
+  },
+  {
+    "nse_code": "SURYALAXMI",
+    "icici_code": "SURCOT",
+    "company_name": "Suryalakshmi Cotton Mills Ltd"
+  },
+  {
+    "nse_code": "SURYAPHARM",
+    "icici_code": "SURPHA",
+    "company_name": "Surya Pharmaceutical Ltd"
+  },
+  {
+    "nse_code": "SURYAROSNI",
+    "icici_code": "SURROS",
+    "company_name": "Surya Roshni Ltd"
+  },
+  {
+    "nse_code": "SUVEN",
+    "icici_code": "SUVPHA",
+    "company_name": "Suven Life Sciences Ltd"
+  },
+  {
+    "nse_code": "SUZLON",
+    "icici_code": "SUZENE",
+    "company_name": "Suzlon Energy Ltd"
+  },
+  {
+    "nse_code": "SWARAJENG",
+    "icici_code": "SWAENG",
+    "company_name": "Swaraj Engines Ltd"
+  },
+  {
+    "nse_code": "SWARAJMAZD",
+    "icici_code": "SWAMAZ",
+    "company_name": "Swaraj Mazda Ltd"
+  },
+  {
+    "nse_code": "SYNDIBANK",
+    "icici_code": "SYNBN",
+    "company_name": "Syndicate Bank"
+  },
+  {
+    "nse_code": "TAINWALCHM",
+    "icici_code": "TAICHE",
+    "company_name": "Tainwala Chemical and Plastic (I) Ltd"
+  },
+  {
+    "nse_code": "TAJGVK",
+    "icici_code": "TAJGVK",
+    "company_name": "Taj GVK Hotels &amp; Resorts Ltd"
+  },
+  {
+    "nse_code": "TAKE",
+    "icici_code": "TAKSOL",
+    "company_name": "Take Solutions Ltd"
+  },
+  {
+    "nse_code": "TALBROAUTO",
+    "icici_code": "TALAUT",
+    "company_name": "Talbros Automotive Components Ltd"
+  },
+  {
+    "nse_code": "TANLA",
+    "icici_code": "TANSOL",
+    "company_name": "Tanla Solutions Ltd"
+  },
+  {
+    "nse_code": "TANTIACONS",
+    "icici_code": "TANCON",
+    "company_name": "Tantia Constructions Ltd"
+  },
+  {
+    "nse_code": "TATACHEM",
+    "icici_code": "TATCHE",
+    "company_name": "Tata Chemicals Ltd"
+  },
+  {
+    "nse_code": "TATACOFFEE",
+    "icici_code": "CONCOF",
+    "company_name": "Tata Coffee Ltd"
+  },
+  {
+    "nse_code": "TATACOMM",
+    "icici_code": "VIDSAN",
+    "company_name": "Tata Communications Ltd"
+  },
+  {
+    "nse_code": "TATAELXSI",
+    "icici_code": "TATELX",
+    "company_name": "Tata Elxsi (India) Ltd"
+  },
+  {
+    "nse_code": "TATAINVEST",
+    "icici_code": "TATINV",
+    "company_name": "Tata Investment Corporation Ltd"
+  },
+  {
+    "nse_code": "TATAMETALI",
+    "icici_code": "TATME",
+    "company_name": "Tata Metaliks Ltd"
+  },
+  {
+    "nse_code": "TATAMOTORS",
+    "icici_code": "TELCO",
+    "company_name": "Tata Motors Ltd"
+  },
+  {
+    "nse_code": "TATAMTRDVR",
+    "icici_code": "TELCO",
+    "company_name": "Tata Motors DVR Ltd"
+  },
+  {
+    "nse_code": "TATAPOWER",
+    "icici_code": "TATPOW",
+    "company_name": "Tata Power Co. Ltd"
+  },
+  {
+    "nse_code": "TATASPONGE",
+    "icici_code": "TATSPO",
+    "company_name": "Tata Sponge Iron Ltd"
+  },
+  {
+    "nse_code": "TATASTEEL",
+    "icici_code": "TISCO",
+    "company_name": "Tata Steel Ltd"
+  },
+  {
+    "nse_code": "TATATEA",
+    "icici_code": "TATTEA",
+    "company_name": "Tata Tea Ltd"
+  },
+  {
+    "nse_code": "TCI",
+    "icici_code": "TRACOR",
+    "company_name": "Transport Corporation of India Ltd"
+  },
+  {
+    "nse_code": "TCS",
+    "icici_code": "TCS",
+    "company_name": "Tata Consultancy Services Ltd"
+  },
+  {
+    "nse_code": "TECHM",
+    "icici_code": "TECMAH",
+    "company_name": "Tech Mahindra Ltd"
+  },
+  {
+    "nse_code": "TECHNOELEC",
+    "icici_code": "TECELE",
+    "company_name": "Techno Electric and Engineering Co Ltd"
+  },
+  {
+    "nse_code": "TELEDATAGL",
+    "icici_code": "TELDAT",
+    "company_name": "Teledata Informatics Ltd"
+  },
+  {
+    "nse_code": "TEXMACOLTD",
+    "icici_code": "TEXMAC",
+    "company_name": "Texmaco Ltd"
+  },
+  {
+    "nse_code": "TFCILTD",
+    "icici_code": "TOUFIN",
+    "company_name": "Tourism Finance Corpn of India Ltd"
+  },
+  {
+    "nse_code": "TFL",
+    "icici_code": "TRANFI",
+    "company_name": "Transwarranty Finance Ltd"
+  },
+  {
+    "nse_code": "THEMISMED",
+    "icici_code": "THECHE",
+    "company_name": "Themis Medicare Ltd"
+  },
+  {
+    "nse_code": "THERMAX",
+    "icici_code": "THERMA",
+    "company_name": "Thermax Ltd"
+  },
+  {
+    "nse_code": "THIRUSUGAR",
+    "icici_code": "THIARO",
+    "company_name": "Thiru Arooran Sugars Ltd"
+  },
+  {
+    "nse_code": "THOMASCOOK",
+    "icici_code": "THOCOO",
+    "company_name": "Thomas Cook (India) Ltd"
+  },
+  {
+    "nse_code": "TIDEWATER",
+    "icici_code": "TIDWAT",
+    "company_name": "Tide Water Oil Co. (India) Ltd"
+  },
+  {
+    "nse_code": "TIIL",
+    "icici_code": "TECIND",
+    "company_name": "Technocraft Industries (India) Ltd"
+  },
+  {
+    "nse_code": "TIL",
+    "icici_code": "TIL",
+    "company_name": "TIL Ltd"
+  },
+  {
+    "nse_code": "TIMESGTY",
+    "icici_code": "TIMGUA",
+    "company_name": "TIMES GUARANTY Ltd"
+  },
+  {
+    "nse_code": "TIMETECHNO",
+    "icici_code": "TIMTEC",
+    "company_name": "Time Technoplast Ltd"
+  },
+  {
+    "nse_code": "TIMKEN",
+    "icici_code": "TATTIM",
+    "company_name": "Timken India Ltd"
+  },
+  {
+    "nse_code": "TINPLATE",
+    "icici_code": "TINCO",
+    "company_name": "The Tinplate Company of India Ltd"
+  },
+  {
+    "nse_code": "TIPSINDLTD",
+    "icici_code": "TIPIND",
+    "company_name": "TIPS Industries Ltd"
+  },
+  {
+    "nse_code": "TIRUMALCHM",
+    "icici_code": "THICHE",
+    "company_name": "Thirumalai Chemicals Ltd"
+  },
+  {
+    "nse_code": "TITAN",
+    "icici_code": "TITIND",
+    "company_name": "Titan Industries Ltd"
+  },
+  {
+    "nse_code": "TNPETRO",
+    "icici_code": "TAMPET",
+    "company_name": "Tamilnadu PetroProducts Ltd"
+  },
+  {
+    "nse_code": "TNPL",
+    "icici_code": "TAMNEW",
+    "company_name": "Tamil Nadu Newsprint &amp; Papers Ltd"
+  },
+  {
+    "nse_code": "TNTELE",
+    "icici_code": "TAMTEL",
+    "company_name": "Tamilnadu Telecommunication Ltd"
+  },
+  {
+    "nse_code": "TODAYS",
+    "icici_code": "TODWRI",
+    "company_name": "Todays Writing Products Ltd"
+  },
+  {
+    "nse_code": "TOKYOPLAST",
+    "icici_code": "TOKPLA",
+    "company_name": "Tokyo Plast International Ltd"
+  },
+  {
+    "nse_code": "TORNTPHARM",
+    "icici_code": "TORPHA",
+    "company_name": "Torrent Pharmaceuticals Ltd"
+  },
+  {
+    "nse_code": "TORNTPOWER",
+    "icici_code": "AHMELE",
+    "company_name": "Torrent Power Ltd"
+  },
+  {
+    "nse_code": "TRENT",
+    "icici_code": "TRENT",
+    "company_name": "Trent Ltd"
+  },
+  {
+    "nse_code": "TRICOM",
+    "icici_code": "TRIFI",
+    "company_name": "Tricom India Ltd"
+  },
+  {
+    "nse_code": "TRIGYN",
+    "icici_code": "LEAEDG",
+    "company_name": "Trigyn Technologies Ltd"
+  },
+  {
+    "nse_code": "TRIL",
+    "icici_code": "TRAREC",
+    "company_name": "Transformers And Rectifiers (India) Ltd"
+  },
+  {
+    "nse_code": "TRIVENI",
+    "icici_code": "TRIENG",
+    "company_name": "Triveni Engineering &amp; Industries Ltd"
+  },
+  {
+    "nse_code": "TTKPRESTIG",
+    "icici_code": "TTKPRE",
+    "company_name": "TTK Prestige Ltd"
+  },
+  {
+    "nse_code": "TTL",
+    "icici_code": "TT",
+    "company_name": "T T Ltd"
+  },
+  {
+    "nse_code": "TTML",
+    "icici_code": "HUGTEL",
+    "company_name": "Tata Teleservices (Maharashtra) Ltd"
+  },
+  {
+    "nse_code": "TUBEINVEST",
+    "icici_code": "TUBINV",
+    "company_name": "Tube Investments of India Ltd"
+  },
+  {
+    "nse_code": "TULIP",
+    "icici_code": "TULITS",
+    "company_name": "Tulip Telecom Ltd"
+  },
+  {
+    "nse_code": "TULSI",
+    "icici_code": "TULEXT",
+    "company_name": "Tulsi Extrusions Ltd"
+  },
+  {
+    "nse_code": "TV-18",
+    "icici_code": "TV18",
+    "company_name": "Television Eighteen India Ltd"
+  },
+  {
+    "nse_code": "TVSELECT",
+    "icici_code": "TVSELE",
+    "company_name": "TVS Electronics Ltd"
+  },
+  {
+    "nse_code": "TVSMOTOR",
+    "icici_code": "TVSSUZ",
+    "company_name": "TVS Motor Company Ltd"
+  },
+  {
+    "nse_code": "TVSSRICHAK",
+    "icici_code": "TVSSRI",
+    "company_name": "TVS Srichakra Ltd"
+  },
+  {
+    "nse_code": "TVTODAY",
+    "icici_code": "TVTNET",
+    "company_name": "TV Today Network Ltd"
+  },
+  {
+    "nse_code": "TWL",
+    "icici_code": "TITWAG",
+    "company_name": "Titagarh Wagons Ltd"
+  },
+  {
+    "nse_code": "UBHOLDINGS",
+    "icici_code": "UNIBRE",
+    "company_name": "United Breweries (Holdings) Ltd"
+  },
+  {
+    "nse_code": "UBL",
+    "icici_code": "UNIBR",
+    "company_name": "United Breweries Ltd"
+  },
+  {
+    "nse_code": "UCALFUEL",
+    "icici_code": "UCAFUE",
+    "company_name": "Ucal Fuel Systems Ltd"
+  },
+  {
+    "nse_code": "UCOBANK",
+    "icici_code": "UCOBAN",
+    "company_name": "UCO Bank"
+  },
+  {
+    "nse_code": "UFLEX",
+    "icici_code": "FLEIND",
+    "company_name": "UFLEX Ltd"
+  },
+  {
+    "nse_code": "ULTRACEMCO",
+    "icici_code": "ULTCEM",
+    "company_name": "UltraTech Cement Ltd"
+  },
+  {
+    "nse_code": "UMITL",
+    "icici_code": "USHMAR",
+    "company_name": "Usha Martin Infotech Ltd"
+  },
+  {
+    "nse_code": "UNICHEMLAB",
+    "icici_code": "UNILAB",
+    "company_name": "Unichem Laboratories Ltd"
+  },
+  {
+    "nse_code": "UNIENTER",
+    "icici_code": "UNIPHO",
+    "company_name": "Uniphos Enterprises Ltd"
+  },
+  {
+    "nse_code": "UNIONBANK",
+    "icici_code": "UNIBAN",
+    "company_name": "Union Bank of India"
+  },
+  {
+    "nse_code": "UNIPHOS",
+    "icici_code": "SEACH",
+    "company_name": "United Phosphorous Ltd"
+  },
+  {
+    "nse_code": "UNIPLY",
+    "icici_code": "UNIPLY",
+    "company_name": "Uniply Industries Ltd"
+  },
+  {
+    "nse_code": "UNITECH",
+    "icici_code": "UNITEC",
+    "company_name": "Unitech Ltd"
+  },
+  {
+    "nse_code": "UNITY",
+    "icici_code": "UNIINF",
+    "company_name": "Unity Infraprojects Ltd"
+  },
+  {
+    "nse_code": "UPERGANGES",
+    "icici_code": "UPPGAN",
+    "company_name": "Upper Ganges Sugar &amp; Industries Ltd"
+  },
+  {
+    "nse_code": "USHAMART",
+    "icici_code": "USHBEL",
+    "company_name": "Usha Martin Ltd"
+  },
+  {
+    "nse_code": "UTISUNDER",
+    "icici_code": "UTI",
+    "company_name": "Mutual Fund"
+  },
+  {
+    "nse_code": "UTTAMSTL",
+    "icici_code": "UTTSTE",
+    "company_name": "Uttam Galva Steels Ltd"
+  },
+  {
+    "nse_code": "UTTAMSUGAR",
+    "icici_code": "UTTSUG",
+    "company_name": "Uttam Sugar Mills Ltd"
+  },
+  {
+    "nse_code": "UTVSOF",
+    "icici_code": "UTVSOF",
+    "company_name": "UTV Software Communications Ltd"
+  },
+  {
+    "nse_code": "VAIBHAVGEM",
+    "icici_code": "VAIGEM",
+    "company_name": "Vaibhav Gems Ltd"
+  },
+  {
+    "nse_code": "VAKRANSOFT",
+    "icici_code": "VAKRAN",
+    "company_name": "Vakrangee Softwares Ltd"
+  },
+  {
+    "nse_code": "VALECHAENG",
+    "icici_code": "VALENG",
+    "company_name": "Valecha Engineering Ltd"
+  },
+  {
+    "nse_code": "VALUEIND",
+    "icici_code": "VIDAPP",
+    "company_name": "Value Industries Ltd"
+  },
+  {
+    "nse_code": "VARDHACRLC",
+    "icici_code": "VARACR",
+    "company_name": "Vardhman Acrylics Ltd"
+  },
+  {
+    "nse_code": "VARDMNPOLY",
+    "icici_code": "VARPO",
+    "company_name": "Vardhman Polytex Ltd"
+  },
+  {
+    "nse_code": "VARUN",
+    "icici_code": "VARIN",
+    "company_name": "Varun Industries Ltd"
+  },
+  {
+    "nse_code": "VARUNSHIP",
+    "icici_code": "VARSHI",
+    "company_name": "Varun Shipping Co. Ltd"
+  },
+  {
+    "nse_code": "VENKEYS",
+    "icici_code": "WESHAT",
+    "company_name": "Venky's (India) Ltd"
+  },
+  {
+    "nse_code": "VENUSREM",
+    "icici_code": "VENREM",
+    "company_name": "Venus Remedies Ltd"
+  },
+  {
+    "nse_code": "VESUVIUS",
+    "icici_code": "VESIND",
+    "company_name": "Vesuvius India Ltd"
+  },
+  {
+    "nse_code": "VGUARD",
+    "icici_code": "VGUARD",
+    "company_name": "V-Guard Industries Ltd"
+  },
+  {
+    "nse_code": "VIDEOIND",
+    "icici_code": "VIDLEA",
+    "company_name": "Videocon Industries Ltd"
+  },
+  {
+    "nse_code": "VIJAYABANK",
+    "icici_code": "VIJBAN",
+    "company_name": "Vijaya Bank"
+  },
+  {
+    "nse_code": "VIJSHAN",
+    "icici_code": "VIJSHA",
+    "company_name": "Vijay Shanthi Builders Ltd"
+  },
+  {
+    "nse_code": "VIKASHMET",
+    "icici_code": "VIKMET",
+    "company_name": "Vikash Metal &amp; Power Ltd"
+  },
+  {
+    "nse_code": "VIMTALABS",
+    "icici_code": "VIMLAB",
+    "company_name": "Vimta Labs Ltd"
+  },
+  {
+    "nse_code": "VINCARDS",
+    "icici_code": "VINCAR",
+    "company_name": "Vintage Cards &amp; Creations Ltd"
+  },
+  {
+    "nse_code": "VINDHYATEL",
+    "icici_code": "VINTEL",
+    "company_name": "Vindhya Telelinks Ltd"
+  },
+  {
+    "nse_code": "VINYLINDIA",
+    "icici_code": "VINCHE",
+    "company_name": "Vinyl Chemicals (India) Ltd"
+  },
+  {
+    "nse_code": "VIPIND",
+    "icici_code": "VIPIND",
+    "company_name": "VIP Industries Ltd"
+  },
+  {
+    "nse_code": "VISAKAIND",
+    "icici_code": "VISIND",
+    "company_name": "Visaka Industries Ltd"
+  },
+  {
+    "nse_code": "VISASTEEL",
+    "icici_code": "VISST",
+    "company_name": "Visa Steel Ltd"
+  },
+  {
+    "nse_code": "VISESHINFO",
+    "icici_code": "VISINF",
+    "company_name": "Visesh Infotecnics Ltd"
+  },
+  {
+    "nse_code": "VISHALEXPO",
+    "icici_code": "VISEXP",
+    "company_name": "Vishal Exports Overseas Ltd"
+  },
+  {
+    "nse_code": "VISHALRET",
+    "icici_code": "VISRET",
+    "company_name": "Vishal Retail Ltd"
+  },
+  {
+    "nse_code": "VISUINTL",
+    "icici_code": "VISINT",
+    "company_name": "Visu International Ltd"
+  },
+  {
+    "nse_code": "VITLINFO",
+    "icici_code": "VIIINFO",
+    "company_name": "Vishal Information Technologies Ltd"
+  },
+  {
+    "nse_code": "VIVIMEDLAB",
+    "icici_code": "VIVMED",
+    "company_name": "Vivimed Labs Ltd"
+  },
+  {
+    "nse_code": "VLSFINANCE",
+    "icici_code": "VLSFIN",
+    "company_name": "VLS Finance Ltd"
+  },
+  {
+    "nse_code": "VOLTAMP",
+    "icici_code": "VOLTRA",
+    "company_name": "Voltamp Transformers Ltd"
+  },
+  {
+    "nse_code": "VOLTAS",
+    "icici_code": "VOLTAS",
+    "company_name": "Voltas Ltd"
+  },
+  {
+    "nse_code": "VSTIND",
+    "icici_code": "VSTIND",
+    "company_name": "VST Industries Ltd"
+  },
+  {
+    "nse_code": "VTL",
+    "icici_code": "MAHSPI",
+    "company_name": "Vardhman Textiles Ltd"
+  },
+  {
+    "nse_code": "WABCO-TVS",
+    "icici_code": "WABTVS",
+    "company_name": "WABCO-TVS (INDIA) Ltd"
+  },
+  {
+    "nse_code": "WALCHANNAG",
+    "icici_code": "WALIND",
+    "company_name": "Walchandnagar Industries Ltd"
+  },
+  {
+    "nse_code": "WANBURY",
+    "icici_code": "PEAORG",
+    "company_name": "Wanbury Ltd"
+  },
+  {
+    "nse_code": "WEBELSOLAR",
+    "icici_code": "WEBENE",
+    "company_name": "Webel-SL Energy Systems Ltd"
+  },
+  {
+    "nse_code": "WELGUJ",
+    "icici_code": "WELGUJ",
+    "company_name": "Welspun Gujarat Stahl Rohren Ltd"
+  },
+  {
+    "nse_code": "WELSPUNIND",
+    "icici_code": "WELIND",
+    "company_name": "Welspun India Ltd"
+  },
+  {
+    "nse_code": "WENDT",
+    "icici_code": "WENDT",
+    "company_name": "Wendt (India) Ltd"
+  },
+  {
+    "nse_code": "WHEELS",
+    "icici_code": "WHEIND",
+    "company_name": "Wheels India Ltd"
+  },
+  {
+    "nse_code": "WILLAMAGOR",
+    "icici_code": "WILMAG",
+    "company_name": "Williamson Magor &amp; Co Ltd"
+  },
+  {
+    "nse_code": "WINDSOR",
+    "icici_code": "DGPWIN",
+    "company_name": "Windsor Machines Ltd"
+  },
+  {
+    "nse_code": "WINSOMYARN",
+    "icici_code": "WINYAR",
+    "company_name": "Winsome Yarns Ltd"
+  },
+  {
+    "nse_code": "WIPRO",
+    "icici_code": "WIPRO",
+    "company_name": "Wipro Ltd"
+  },
+  {
+    "nse_code": "WOCKPHARMA",
+    "icici_code": "WOCKHA",
+    "company_name": "Wockhardt Ltd"
+  },
+  {
+    "nse_code": "WSI",
+    "icici_code": "WSINDU",
+    "company_name": "W S Industries (I) Ltd"
+  },
+  {
+    "nse_code": "WSTCSTPAPR",
+    "icici_code": "WESCOA",
+    "company_name": "West Coast Paper Mills Ltd"
+  },
+  {
+    "nse_code": "WWIL",
+    "icici_code": "WIRWIR",
+    "company_name": "Wire and Wireless (India) Ltd"
+  },
+  {
+    "nse_code": "WYETH",
+    "icici_code": "WYELED",
+    "company_name": "Wyeth Ltd"
+  },
+  {
+    "nse_code": "XLTL",
+    "icici_code": "XLTELE",
+    "company_name": "XL Telecom Ltd"
+  },
+  {
+    "nse_code": "XPROINDIA",
+    "icici_code": "XPRIND",
+    "company_name": "Xpro India Ltd"
+  },
+  {
+    "nse_code": "YESBANK",
+    "icici_code": "YESBAN",
+    "company_name": "Yes Bank Ltd"
+  },
+  {
+    "nse_code": "ZANDUPHARM",
+    "icici_code": "ZANPHA",
+    "company_name": "Zandu Pharmaceutical works Ltd"
+  },
+  {
+    "nse_code": "ZEEL",
+    "icici_code": "ZEETEL",
+    "company_name": "Zee Entertainment Enterprises Ltd"
+  },
+  {
+    "nse_code": "ZEENEWS",
+    "icici_code": "ZEENEW",
+    "company_name": "Zee News Ltd"
+  },
+  {
+    "nse_code": "ZENITHBIR",
+    "icici_code": "ZENITH",
+    "company_name": "Zenith Birla (India) Ltd"
+  },
+  {
+    "nse_code": "ZENITHCOMP",
+    "icici_code": "ZENCOM",
+    "company_name": "Zenith Computers Ltd"
+  },
+  {
+    "nse_code": "ZENITHEXPO",
+    "icici_code": "ZENEXP",
+    "company_name": "Zenith Exports Ltd"
+  },
+  {
+    "nse_code": "ZENITHINFO",
+    "icici_code": "ZENINF",
+    "company_name": "Zenith Infotech Ltd"
+  },
+  {
+    "nse_code": "ZICOM",
+    "icici_code": "ZICELE",
+    "company_name": "Zicom Electronic Security Systems Ltd"
+  },
+  {
+    "nse_code": "ZODIACLOTH",
+    "icici_code": "ZODCLO",
+    "company_name": "Zodiac Clothing Company Ltd"
+  },
+  {
+    "nse_code": "ZODJRDMKJ",
+    "icici_code": "ZODJRD",
+    "company_name": "Zodiac JRD- MKJ Ltd"
+  },
+  {
+    "nse_code": "ZUARIAGRO",
+    "icici_code": "ZUAIND",
+    "company_name": "Zuari Industries Ltd"
+  },
+  {
+    "nse_code": "ZYLOG",
+    "icici_code": "ZYLSYS",
+    "company_name": "Zylog Systems Ltd"
+  }
+]

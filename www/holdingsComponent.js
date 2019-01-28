@@ -10,12 +10,14 @@ const holdingsComponent = {
       symbols: [],
       symbolsData: [],
       totalChange: 0,
-      totalPercentChange: 0
+      totalPercentChange: 0,
+      showDynamic: true
     }
   },
   created: function () {
     var that = this
-    axios.get('/holdings/holdings')
+    let url = this.showDynamic ? '/holdings/dynamic-holdings' : '/holdings/holdings'
+    axios.get(url)
       .then((res) => {
         that.holdings = res.data
 
@@ -109,6 +111,10 @@ const holdingsComponent = {
 
             that.totalChange += symbolData.pricechange * h.allocated_quantity
             h.percentChange = (symbolData.pricechange * 100) / (symbolData.pricecurrent - symbolData.pricechange)
+
+            //convert string to number
+            h.avgPrice = Number(h.avgPrice)
+            h.overallPercentChange = (symbolData.pricecurrent - h.avgPrice) * 100 / h.avgPrice
 
             yesterdaysValue += (symbolData.pricecurrent - symbolData.pricechange) * h.allocated_quantity
             todaysValue += (symbolData.pricecurrent) * h.allocated_quantity

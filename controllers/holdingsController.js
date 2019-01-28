@@ -1,5 +1,8 @@
 var express = require('express')
 var router = express.Router()
+var MongoClient = require('mongodb').MongoClient;
+
+const getDynamicHoldings = require('../portfolio/holdingsCalulation.js')
 // var mydb = require('./dbConnection').dbConnection
 // const URL = require('url')
 
@@ -13,6 +16,22 @@ router.use((req, res, next) => {
 
 router.get('/holdings', (req, res) => {
   res.status(200).send(consolidatedJson)
+})
+
+router.get('/dynamic-holdings', (req, res) => {
+  var url = "mongodb://localhost:27017/"
+
+  MongoClient.connect(url, function (err, db) {
+    if (err) throw err;
+
+    console.log("Database created!");
+    let promise = getDynamicHoldings(db, true)
+    promise.then((holdings) => {
+      res.status(200).send(holdings)
+    }).catch(err => {
+      res.status(500).send(err)
+    })
+  });
 })
 
 
