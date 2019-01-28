@@ -62,7 +62,7 @@ function run(db, isAsync) {
 
                         } else {
                             if (transactions.length > 0) {
-                                console.log(doc.symbol)
+                                // console.log(doc.symbol)
                                 sellStock(transactions, doc)
                             }
                         }
