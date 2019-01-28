@@ -41,7 +41,8 @@ function run(db, isAsync) {
         transactionsCollection.find({}, {
             sort: [
                 ['symbol', 'asc'],
-                ['date', 'asc']
+                ['date', 'asc'],
+                ['dateTime', 'asc']
             ]
         }).toArray((err, docs) => {
             if (err) {
