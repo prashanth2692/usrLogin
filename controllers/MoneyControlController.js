@@ -49,6 +49,8 @@ router.get('/messages_alt', (req, res) => {
   MCManager.getMessagesFromMC(topicid, pgno, lmid).then((result) => {
     // console.log(result)
     res.json(result.data)
+
+    // update 
   }).catch((err) => {
     console.error(err)
     res.status(500).json({ msg: 'error' })
