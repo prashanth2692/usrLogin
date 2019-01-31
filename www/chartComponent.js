@@ -50,9 +50,10 @@ const chartComponent = {
           renderAt: 'container',
           width: '95%',
           height: 450,
-          theme: 'fusion',
+          // theme: 'fusion',
           dataSource: {
             data: dataStore,
+
             // trendlines: [{
             //   lines: [{
             //     "startValue": "80",
@@ -64,7 +65,7 @@ const chartComponent = {
             //   }]
             // }]
             "trendlines": [{
-              "line": [{
+              "lines": [{
                 "startvalue": "100",
                 "color": "#1aaf5d",
                 "valueOnRight": "1",
@@ -110,7 +111,14 @@ const chartComponent = {
                 close: 'Close',
                 type: 'candlestick'
               },
-              title: 'Value'
+              title: 'Value',
+              referenceLine: [{
+                label: 'Controlled Temperature',
+                value: '10',
+                style: {
+                  fill: '#142FC8'
+                }
+              }],
             }],
           }
         }).render('chartcontainer');

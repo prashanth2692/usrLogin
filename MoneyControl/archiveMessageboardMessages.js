@@ -1,5 +1,5 @@
 // This script is used to fetch money control messages and save to mongodb
-
+// note: only last 3 months of date is available
 const axios = require('axios');
 var MongoClient = require('mongodb').MongoClient;
 const { URL, URLSearchParams } = require('url');
@@ -73,6 +73,7 @@ function archiveMessages(topicId, db) {
   const msgsCollecion = mydb.collection(dbConstants.collections.moneyControlMessages)
   const logsCollection = mydb.collection(dbConstants.collections.logs)
   const archiveStatusCollection = mydb.collection(dbConstants.collections.messagesArchiveStatus)
+  let first_msg_id_in_db = 0
 
   function getMessages(pageNo, lmid) {
     logsCollection.insertOne(new logObject(logType.info, `fetching msgs for topic ${topicId}, page ${pageNo}`, { topicId, pageNo }))
@@ -83,10 +84,13 @@ function archiveMessages(topicId, db) {
       let msgs = response.data
 
       if (msgs && msgs.length > 0) {
+        if (!first_msg_id_in_db) {
+          archiveStatusCollection.updateOne({ topicid: topicId }, { $set: { fst_lmid: Number(msgs[0].msg_id), updatedDate: new Date() } })
+        }
         let msgsCount = msgs.length
         let insertCount = 0
         msgs.forEach(msgObj => {
-          let insertPromise = msgsCollecion.updateOne({ msg_id: msgObj.msg_id }, { $set: msgObj }, { upsert: true })
+          let insertPromise = msgsCollecion.updateOne({ _id: Number(msgObj.msg_id) }, { $set: msgObj }, { upsert: true })
 
           // insert each message into 'money_control_messages' collection
           insertPromise
@@ -94,7 +98,7 @@ function archiveMessages(topicId, db) {
               insertCount++
               if (insertCount == msgsCount) {
                 let currDate = new Date()
-                archiveStatusCollection.updateOne({ topicid: topicId }, { $set: { page: pageNo + 1, lst_lmid: msgObj.msg_id, updatedDate: currDate } })
+                archiveStatusCollection.updateOne({ topicid: topicId }, { $set: { page: pageNo + 1, lst_lmid: Number(msgObj.msg_id), updatedDate: currDate } })
               }
               console.log(`inserted topic: ${topicId} msgId: ${msgObj.msg_id}`)
               logsCollection.insertOne(new logObject(logType.success, `inserted message ${msgObj.msg_id}`, { topicId, msg_id: msgObj.msg_id }))
@@ -121,6 +125,7 @@ function archiveMessages(topicId, db) {
 
   archiveStatusCollection.findOne({ topicid: topicId }).then(doc => {
     if (doc) {
+      first_msg_id_in_db = doc.fst_lmid
       // archiving has started.
       getMessages(doc.page, doc.lst_lmid)
     } else {

@@ -1,0 +1,824 @@
+[
+  {
+    "id": 2142161,
+    "name": "1",
+    "items": [
+      {
+        "id": 335946892,
+        "weight": 1,
+        "tradingsymbol": "NIFTY 50",
+        "instrument_token": 256265,
+        "last_price": 0,
+        "segment": "INDICES",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 0
+      },
+      {
+        "id": 133780658,
+        "weight": 2,
+        "tradingsymbol": "SENSEX",
+        "instrument_token": 265,
+        "last_price": 0,
+        "segment": "INDICES",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 0
+      },
+      {
+        "id": 118033662,
+        "weight": 3,
+        "tradingsymbol": "BPL",
+        "instrument_token": 135681,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 118914639,
+        "weight": 4,
+        "tradingsymbol": "RPOWER",
+        "instrument_token": 3906305,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 124021227,
+        "weight": 5,
+        "tradingsymbol": "HDFCLIFE",
+        "instrument_token": 119553,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 135567955,
+        "weight": 6,
+        "tradingsymbol": "AUROPHARMA",
+        "instrument_token": 70401,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 287885871,
+        "weight": 7,
+        "tradingsymbol": "NCC",
+        "instrument_token": 593665,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 140366162,
+        "weight": 8,
+        "tradingsymbol": "SHALBY",
+        "instrument_token": 182785,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 422854253,
+        "weight": 9,
+        "tradingsymbol": "JINDALSTEL",
+        "instrument_token": 1723649,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 143791528,
+        "weight": 10,
+        "tradingsymbol": "GRANULES",
+        "instrument_token": 3039233,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 150586375,
+        "weight": 11,
+        "tradingsymbol": "RCOM",
+        "instrument_token": 3375873,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 118049175,
+        "weight": 12,
+        "tradingsymbol": "WIPRO",
+        "instrument_token": 969473,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 155377599,
+        "weight": 13,
+        "tradingsymbol": "RNAVAL",
+        "instrument_token": 4465665,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 116328907,
+        "weight": 14,
+        "tradingsymbol": "NTPC",
+        "instrument_token": 2977281,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 185020928,
+        "weight": 15,
+        "tradingsymbol": "PNB",
+        "instrument_token": 2730497,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 201333315,
+        "weight": 16,
+        "tradingsymbol": "FCONSUMER",
+        "instrument_token": 7689729,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 210782090,
+        "weight": 17,
+        "tradingsymbol": "BHARTIARTL",
+        "instrument_token": 2714625,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 211226350,
+        "weight": 18,
+        "tradingsymbol": "IDEA",
+        "instrument_token": 3677697,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 212470204,
+        "weight": 19,
+        "tradingsymbol": "ICICIPRULI",
+        "instrument_token": 4774913,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 293862332,
+        "weight": 20,
+        "tradingsymbol": "EXIDEIND",
+        "instrument_token": 173057,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 294583533,
+        "weight": 21,
+        "tradingsymbol": "RAIN",
+        "instrument_token": 128086788,
+        "last_price": 0,
+        "segment": "BSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 320062776,
+        "weight": 22,
+        "tradingsymbol": "ITC",
+        "instrument_token": 424961,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 328515522,
+        "weight": 23,
+        "tradingsymbol": "SPTL",
+        "instrument_token": 5494273,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 400449613,
+        "weight": 25,
+        "tradingsymbol": "INFIBEAM",
+        "instrument_token": 4159745,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 436464289,
+        "weight": 26,
+        "tradingsymbol": "ASALCBR",
+        "instrument_token": 129926660,
+        "last_price": 0,
+        "segment": "BSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      }
+    ]
+  },
+  {
+    "id": 2142163,
+    "name": "2",
+    "items": [
+      {
+        "id": 427623862,
+        "weight": 1,
+        "tradingsymbol": "BEPL",
+        "instrument_token": 107265,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 179338519,
+        "weight": 2,
+        "tradingsymbol": "IDEA",
+        "instrument_token": 3677697,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 179353087,
+        "weight": 3,
+        "tradingsymbol": "WIPRO",
+        "instrument_token": 969473,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 179346973,
+        "weight": 4,
+        "tradingsymbol": "HINDALCO",
+        "instrument_token": 348929,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 185967985,
+        "weight": 5,
+        "tradingsymbol": "PFOCUS",
+        "instrument_token": 3454977,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 186645558,
+        "weight": 6,
+        "tradingsymbol": "BHARATFIN",
+        "instrument_token": 4995329,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 186655573,
+        "weight": 7,
+        "tradingsymbol": "AUROPHARMA",
+        "instrument_token": 134349828,
+        "last_price": 0,
+        "segment": "BSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 190096170,
+        "weight": 8,
+        "tradingsymbol": "ASTERDM",
+        "instrument_token": 386049,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 193053790,
+        "weight": 9,
+        "tradingsymbol": "ESCORTS",
+        "instrument_token": 245249,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 196126368,
+        "weight": 10,
+        "tradingsymbol": "UFO",
+        "instrument_token": 2313985,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 196528396,
+        "weight": 11,
+        "tradingsymbol": "GREENPOWER",
+        "instrument_token": 5148161,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 211466581,
+        "weight": 12,
+        "tradingsymbol": "YESBANK",
+        "instrument_token": 3050241,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 212593430,
+        "weight": 13,
+        "tradingsymbol": "ICICIGI",
+        "instrument_token": 5573121,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 212593736,
+        "weight": 14,
+        "tradingsymbol": "ICICIPRULI",
+        "instrument_token": 4774913,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 212595919,
+        "weight": 15,
+        "tradingsymbol": "ISEC",
+        "instrument_token": 637185,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 287494485,
+        "weight": 16,
+        "tradingsymbol": "TCS",
+        "instrument_token": 2953217,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 288227438,
+        "weight": 17,
+        "tradingsymbol": "BHEL",
+        "instrument_token": 112129,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 288227474,
+        "weight": 18,
+        "tradingsymbol": "NBCC",
+        "instrument_token": 8042241,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      }
+    ]
+  },
+  {
+    "id": 2142162,
+    "name": "3",
+    "items": [
+      {
+        "id": 180654176,
+        "weight": 0,
+        "tradingsymbol": "ESCORTS",
+        "instrument_token": 245249,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 212223024,
+        "weight": 1,
+        "tradingsymbol": "JSWSTEEL",
+        "instrument_token": 3001089,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 212223979,
+        "weight": 2,
+        "tradingsymbol": "TATAMOTORS",
+        "instrument_token": 884737,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 215863747,
+        "weight": 3,
+        "tradingsymbol": "ASHOKLEY",
+        "instrument_token": 54273,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 215877387,
+        "weight": 4,
+        "tradingsymbol": "NCC",
+        "instrument_token": 593665,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 237067772,
+        "weight": 7,
+        "tradingsymbol": "BEPL",
+        "instrument_token": 107265,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 257098045,
+        "weight": 8,
+        "tradingsymbol": "NTPC",
+        "instrument_token": 2977281,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 258291627,
+        "weight": 9,
+        "tradingsymbol": "VEDL",
+        "instrument_token": 784129,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 288296954,
+        "weight": 10,
+        "tradingsymbol": "INFY",
+        "instrument_token": 408065,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 323760861,
+        "weight": 11,
+        "tradingsymbol": "ICICIBANK",
+        "instrument_token": 1270529,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 337827563,
+        "weight": 12,
+        "tradingsymbol": "PIDILITIND",
+        "instrument_token": 681985,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 337828487,
+        "weight": 13,
+        "tradingsymbol": "NESTLEIND",
+        "instrument_token": 4598529,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 337829134,
+        "weight": 14,
+        "tradingsymbol": "HDFCAMC",
+        "instrument_token": 1086465,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      }
+    ]
+  },
+  {
+    "id": 2142165,
+    "name": "4",
+    "items": [
+      {
+        "id": 214731993,
+        "weight": 2,
+        "tradingsymbol": "ICICIBANK",
+        "instrument_token": 1270529,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 214732235,
+        "weight": 3,
+        "tradingsymbol": "HDFCBANK",
+        "instrument_token": 341249,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 214732286,
+        "weight": 4,
+        "tradingsymbol": "YESBANK",
+        "instrument_token": 3050241,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 214940529,
+        "weight": 5,
+        "tradingsymbol": "PNB",
+        "instrument_token": 2730497,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 215036090,
+        "weight": 6,
+        "tradingsymbol": "SBIN",
+        "instrument_token": 779521,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 217474210,
+        "weight": 7,
+        "tradingsymbol": "IFCI",
+        "instrument_token": 381697,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 220400239,
+        "weight": 8,
+        "tradingsymbol": "ISEC",
+        "instrument_token": 637185,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 323805857,
+        "weight": 10,
+        "tradingsymbol": "HDFC",
+        "instrument_token": 340481,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 323806326,
+        "weight": 11,
+        "tradingsymbol": "HDFCAMC",
+        "instrument_token": 1086465,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 325658954,
+        "weight": 12,
+        "tradingsymbol": "SUNPHARMA",
+        "instrument_token": 857857,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 329827736,
+        "weight": 13,
+        "tradingsymbol": "LT",
+        "instrument_token": 2939649,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 334770467,
+        "weight": 14,
+        "tradingsymbol": "HEG",
+        "instrument_token": 342017,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 334771057,
+        "weight": 15,
+        "tradingsymbol": "GRAPHITE",
+        "instrument_token": 151553,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 459480637,
+        "weight": 16,
+        "tradingsymbol": "BANDHANBNK",
+        "instrument_token": 579329,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      }
+    ]
+  },
+  {
+    "id": 2142164,
+    "name": "5",
+    "items": [
+      {
+        "id": 225780677,
+        "weight": 9,
+        "tradingsymbol": "LEMONTREE",
+        "instrument_token": 667137,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      },
+      {
+        "id": 438915025,
+        "weight": 10,
+        "tradingsymbol": "MANAPPURAM",
+        "instrument_token": 4879617,
+        "last_price": 0,
+        "segment": "NSE",
+        "expiry": "",
+        "strike": 0,
+        "lot_size": 1
+      }
+    ]
+  }
+]

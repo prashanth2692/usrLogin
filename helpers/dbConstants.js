@@ -8,8 +8,10 @@ let dbConstants = {
         transactions: 'transactions',
         testTransactions: 'test_transactions',
         moneyControlMessages: 'money_control_messages',
+        moneyControlMessages_test: 'money_control_messages_test',
         messageBoardTopicids: 'message_board_topicids',
-        messagesArchiveStatus: 'messages_archive_status'
+        messagesArchiveStatus: 'messages_archive_status',
+        messagesArchiveStatus_test: 'messages_archive_status_test'
     }
 }
 

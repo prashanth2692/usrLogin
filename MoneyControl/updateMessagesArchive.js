@@ -89,7 +89,7 @@ function updateArchiveMessages(topicId, db) {
   archiveStatusCollection.findOne({ topicid: topicId }).then(doc => {
     if (doc) {
       // archiving has started.
-      latest_available_lmid = doc.fst_lmid
+      to_be_updated_msg_id = latest_available_lmid = Number(doc.fst_lmid)
       // getMessages(doc.page, doc.lst_lmid)
     } else {
       archiveStatusCollection.insertOne(new archiveStatus(topicId, 1, null, null))
@@ -97,6 +97,7 @@ function updateArchiveMessages(topicId, db) {
   })
 
   getMessages(pageNo, lmid)
+
 
   function getMessages(pageNo, lmid) {
     logsCollection.insertOne(new logObject(logType.info, `fetching msgs for topic ${topicId}, page ${pageNo}`, { topicId, pageNo }))
@@ -111,29 +112,22 @@ function updateArchiveMessages(topicId, db) {
       if (msgs && msgs.length > 0) {
         let msgsCount = msgs.length
         let insertCount = 0
-        let tmp_last_msg_id = Number(msgs[msgs.length - 1].msg_id)
-        let firstMsg = msgs[0]
+        // let tmp_last_msg_id = Number(msgs[msgs.length - 1].msg_id)
+        // let firstMsg = msgs[0]
 
         current_first_msg_id = Number(msgs[0].msg_id)
         current_last_msg_id = Number(msgs[msgs.length - 1].msg_id)
         to_be_updated_msg_id = to_be_updated_msg_id > current_first_msg_id ? to_be_updated_msg_id : current_first_msg_id
+        if (to_be_updated_msg_id != latest_available_lmid) {
+          archiveStatusCollection.updateOne({ topicid: topicId }, { $set: { fst_lmid: to_be_updated_msg_id } })
+        }
 
-        // archiveStatusCollection.findOne({ topicid: topicId }).then(doc => {
-        //   if (!doc.fst_lmid) {
-        //     archiveStatusCollection.updateOne({ topicid: topicId }, { $set: { fst_lmid: firstMsg.msg_id } })
-        //   } else {
-        //     doc.fst_lmid = Number(doc.fst_lmid)
-        //     if (latest_available_lmid < Number(firstMsg.msg_id)) {
-        //       // latest msgs are available insert
-        //     }
-        //   }
-        // })
-
-        if (current_first_msg_id > latest_available_lmid) {
+        if (current_first_msg_id >= latest_available_lmid) {
           // new msgs found
+          console.log(`new msgs found for topic ${topicId}`)
           msgs.forEach(msgObj => {
 
-            let insertPromise = msgsCollecion.updateOne({ msg_id: msgObj.msg_id }, { $set: msgObj }, { upsert: true })
+            let insertPromise = msgsCollecion.updateOne({ _id: Number(msgObj.msg_id) }, { $set: msgObj }, { upsert: true })
 
             // insert each message into 'money_control_messages' collection
             insertPromise
@@ -141,9 +135,9 @@ function updateArchiveMessages(topicId, db) {
                 insertCount++
                 if (insertCount == msgsCount) {
                   let currDate = new Date()
-                  archiveStatusCollection.updateOne({ topicid: topicId }, { $set: { page: pageNo + 1, lst_lmid: msgObj.msg_id, updatedDate: currDate } })
+                  // archiveStatusCollection.updateOne({ topicid: topicId }, { $set: { page: pageNo + 1, lst_lmid: msgObj.msg_id, updatedDate: currDate } })
                 }
-                console.log(`inserted topic: ${topicId} msgId: ${msgObj.msg_id}`)
+                // console.log(`inserted topic: ${topicId} msgId: ${msgObj.msg_id}`)
                 logsCollection.insertOne(new logObject(logType.success, `inserted message ${msgObj.msg_id}`, { topicId, msg_id: msgObj.msg_id }))
               })
               .catch(e => {
@@ -154,9 +148,10 @@ function updateArchiveMessages(topicId, db) {
           let new_lmid = msgs[msgs.length - 1].msg_id
 
           getMessages(pageNo + 1, new_lmid)
-        } else {
-          archiveStatusCollection.updateOne({ topicid: topicId }, { $set: { fst_lmid: to_be_updated_msg_id } })
         }
+        // else {
+        //   archiveStatusCollection.updateOne({ topicid: topicId }, { $set: { fst_lmid: Number(to_be_updated_msg_id) } })
+        // }
 
       } else {
         console.log(`no msgs for topic: ${topicId}, page: ${pageNo}`)
