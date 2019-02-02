@@ -39,6 +39,30 @@
         <span v-text="priceChange" :style="{color: priceChange >= 0 ? 'greenyellow' : 'red'}"></span>
         <button @click="refreshCMP">Refresh</button>
       </div>
+      <div id="transactionsContainer">
+        <button class="btn btn-info btn-sm" type="button" data-toggle="collapse" data-target="#collapseExample"
+          aria-expanded="false" aria-controls="collapseExample" @click="getTransactions">
+          Transactions
+        </button>
+        <div class="collapse" id="collapseExample">
+          <table class="table table-dark table-striped table-bordered table-responsive">
+            <thead>
+              <th>Date</th>
+              <th>Type</th>
+              <th>Quantity</th>
+              <th>Price</th>
+            </thead>
+            <tbody>
+              <tr v-for="tx in transactions">
+                <td v-text="tx.date_edited"></td>
+                <td v-text="tx.type"></td>
+                <td v-text="tx.quantity"></td>
+                <td v-text="tx.price"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
       <div>
         <ul class="list-group">
           <li class="list-group-item" v-for="msg in messages" style="list-style:none">
@@ -140,6 +164,12 @@
 
 <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
 <!-- <script src="./3rdParty/hammer.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js?v=2" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js?v=1" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+  crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js?v=1" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+  crossorigin="anonymous"></script>
 <script src="./3rdParty/vue.js"></script>
 <!-- <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script> -->
 <script src="./3rdParty/vue-router.js"></script>

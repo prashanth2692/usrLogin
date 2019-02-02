@@ -38,13 +38,15 @@ function log(status, message, url, params) {
   this.params = params
 }
 
-function run(instrumentToken, db) {
+let collectionName = ''
+function run(instrumentToken, db, clxName) {
+  collectionName = clxName
   const mydb = db.db('mydb')
   // const messagesCollection = mydb.collection(dbConstants.collections.moneyControlMessages)
   // const transactionsCollection = mydb.collection(dbConstants.collections.transactions)
   const logsCollection = mydb.collection(dbConstants.collections.logs)
 
-  const historicalCollection = mydb.collection('bepl_historical_day')
+  const historicalCollection = mydb.collection(collectionName)
 
   logsCollection.insertOne(new log('info', 'starting job'))
   let stockName = 'BEPL'
@@ -66,101 +68,113 @@ function run(instrumentToken, db) {
         close: d[4],
         volume: d[5]
       }
-      historicalCollection.updateOne({ date: d[0] }, { $set: temp }, { upsert: 1 })
+      historicalCollection.updateOne({ _id: temp.date }, { $set: temp }, { upsert: 1 }).then(doc => {
+        //
+      }).catch(err => {
+        console.log(err.msg)
+      })
     })
 
     fs.writeFile("output/bepl_day_" + result.from + '-' + to + ".json", JSON.stringify(result.historicalDate), function (err) {
       if (err) throw err;
       console.log('complete');
       logsCollection.insertOne(new log('info', 'wrote data to file'))
-      db.close()
+      // db.close()
     }
     )
 
   }).catch(err => {
-    db.close()
+    console.log(err.message)
+    // db.close()
   })
 }
 
 
 function getHistorical(instrumentToken, from, to, mydb) {
   // const archiveStatusCollection = mydb.collection('zerosha_archive_status')
-  const historicalCollection = mydb.collection('bepl_historical_day')
-  const logsCollection = mydb.collection(dbConstants.collections.logs)
+  const historicalCollection = mydb.collection(collectionName)
+    const logsCollection = mydb.collection(dbConstants.collections.logs)
+    
+    let fetchedFrom = null
+    let fetchedTo = null
 
-  let fetchedFrom = null
-  let fetchedTo = null
-
-  let historicalData = []
-
+    let historicalData = []
+    
   function getData(from, to, resolve, reject) {
-    historicalCollection.find().sort({ date: -1 }).limit(1).then(doc => {
-      if (doc) {
-        fetchedFrom = doc.fetchedFrom
+      function getHistoricalData() {
+      let url = `https://kitecharts-aws.zerodha.com/api/chart/${instrumentToken}/day`
+    console.log(instrumentToken, `fetching from ${from} to ${to}`)
+      logsCollection.insertOne(new log('info', `fetching from ${from} to ${to}`, url, { from, to, instrumentToken }))
 
-        historicalCollection.find().sort({ date: 1 }).limit(1).then(doc => {
-          if (doc) {
-            fetchedTo = doc.fetchedTo
+      // getData(from, to, resolve, reject)
+      // console.log(`getting data from ${from} to ${to}`)
+      const messageBoardURL = new URL(url)
+      const messageBoardQueryParams = new URLSearchParams({
+        public_token: 'YQOnLd4GqdUT548pBaHp9raifn0WGGFv',
+        user_id: 'YE1705',
+        api_key: 'kitefront',
+        access_token: 'd6vogWx6c9LR1Fh6Y9sowGBbska7zta1',
+        from: from,
+        to: to,
+        ciqrandom: (new Date()).getTime()
+      })
+
+      messageBoardURL.search = messageBoardQueryParams
+
+      let promise = axios.get(messageBoardURL.href)
+
+      promise.then(resp => {
+        logsCollection.insertOne(new log('success', `fetched from ${from} to ${to}`, url, { from, to, instrumentToken }))
+
+        if (resp && resp.data && resp.data.data) {
+          let data = resp.data.data
+          let candles = data.candles
+
+          if (candles && candles.length > 0) {
+            historicalData = historicalData.concat(candles)
+            let temp_from = new Date(from)
+            // let temp_to = new Date(to)
+            let month = temp_from.getMonth() < 9 ? '0' + (temp_from.getMonth() + 1) : temp_from.getMonth() + 1
+            let newFrom = temp_from.getFullYear() - 4 + '-' + month + '-' + temp_from.getDate()
+            let newTo = from //temp_from.getFullYear() - 4 + '-' + month + '-' + temp_from.getDate()
+            getData(newFrom, newTo, resolve, reject)
+          } else {
+            resolve({ historicalData, from: to })
+          }
+        }
+
+      }).catch(err => {
+        console.log(err.data)
+        logsCollection.insertOne(new log('failed', `failed to fetch from ${from} to ${to}`, url, { from, to, instrumentToken }))
+        reject({ msg: 'failed to retrieve historical reccords' })
+      })
+    }
+
+
+    historicalCollection.find({}).sort({ date: -1 }).limit(1).toArray((err, doc) => {
+      if (doc && doc.length > 0) {
+        fetchedTo = doc[0].date
+
+        historicalCollection.find().sort({ date: 1 }).limit(1).toArray((err, doc) => {
+          if (doc && doc.length > 0) {
+            fetchedFrom = doc[0].date
             console.log(`fetched from ${fetchedFrom} to ${fetchedTo}`)
 
-            if (from <= fetchedFrom) {
-              if (to >= fetchedTo) {
-                //do nothing, already fetched records between from and to
-              } else {
-                from = fetchedTo
-              }
-            } else {
-              if (to < fetchedFrom) {
-                to = fetchedFrom
-              }
-            }
-            if (from < to) {
-              let url = `https://kitecharts-aws.zerodha.com/api/chart/${instrumentToken}/day`
-              console.log(`fetching from ${from} to ${to}`)
-              logsCollection.insertOne(new log('info', `fetching from ${from} to ${to}`, url, { from, to, instrumentToken }))
+            // if (to <= fetchedTo) {
+            //   if (from >= fetchedFrom) {
+            //     //do nothing, already fetched records between from and to
+            //   } else {
+            //     to = fetchedFrom.slice(0, 10)
+            //   }
+            // }
+            // else {
+            //   if (from < fetchedTo) {
+            //     from = fetchedTo.slice(0, 10)
+            //   }
+            // }
 
-              // getData(from, to, resolve, reject)
-              // console.log(`getting data from ${from} to ${to}`)
-              const messageBoardURL = new URL(url)
-              const messageBoardQueryParams = new URLSearchParams({
-                public_token: 'YQOnLd4GqdUT548pBaHp9raifn0WGGFv',
-                user_id: 'YE1705',
-                api_key: 'kitefront',
-                access_token: 'd6vogWx6c9LR1Fh6Y9sowGBbska7zta1',
-                from: from,
-                to: to,
-                ciqrandom: (new Date()).getTime()
-              })
-
-              messageBoardURL.search = messageBoardQueryParams
-
-              let promise = axios.get(messageBoardURL.href)
-
-              promise.then(resp => {
-                logsCollection.insertOne(new log('success', `fetched from ${from} to ${to}`, url, { from, to, instrumentToken }))
-
-                if (resp && resp.data && resp.data.data) {
-                  let data = resp.data.data
-                  let candles = data.candles
-
-                  if (candles && candles.length > 0) {
-                    historicalData = historicalData.concat(candles)
-                    let temp_from = new Date(from)
-                    // let temp_to = new Date(to)
-                    let month = temp_from.getMonth() < 9 ? '0' + (temp_from.getMonth() + 1) : temp_from.getMonth() + 1
-                    let newFrom = temp_from.getFullYear() - 4 + '-' + month + '-' + temp_from.getDate()
-                    let newTo = from //temp_from.getFullYear() - 4 + '-' + month + '-' + temp_from.getDate()
-                    getData(newFrom, newTo, resolve, reject)
-                  } else {
-                    resolve({ historicalData, from: to })
-                  }
-                }
-
-              }).catch(err => {
-                console.log(err)
-                logsCollection.insertOne(new log('failed', `failed to fetch from ${from} to ${to}`, url, { from, to, instrumentToken }))
-                reject({ msg: 'failed to retrieve historical reccords' })
-              })
+            if (from < to && !(from >= fetchedFrom && to <= fetchedTo)) {
+              getHistoricalData()
             } else {
               reject({ msg: 'records already fetched for the given date range' })
             }
@@ -168,11 +182,10 @@ function getHistorical(instrumentToken, from, to, mydb) {
         })
       } else {
         // not processed, continue
+        getHistoricalData()
       }
     })
-
   }
-
   let retPromise = new Promise((resolve, reject) => {
     if (from > to) {
       reject({ msg: 'invalid date range' })
@@ -181,9 +194,10 @@ function getHistorical(instrumentToken, from, to, mydb) {
     getData(from, to, resolve, reject)
   })
 
-  return retPromise
-}
 
+  return retPromise
+
+}
 
 module.exports = run
 

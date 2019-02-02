@@ -9,7 +9,9 @@ const MoneyControlComponent = {
       topicId: 1642,
       cmp: 0,
       compid: 'BPL',
-      priceChange: 0
+      priceChange: 0,
+      symbol: null,
+      transactions: null
     }
   },
   created: function () {
@@ -18,11 +20,25 @@ const MoneyControlComponent = {
     if (query && query.topicid) {
       this.topicId = query.topicid
       this.compid = query.compid
+      this.symbol = query.symbol
     }
     this.getMessages(1)
     this.getCMP()
   },
   methods: {
+    getTransactions: function () {
+      let that = this
+      if (!this.transactions) {
+        axios.get(`/portfolio/transactionsBySymbol?symbol=${this.symbol}`).then(res => {
+          that.transactions = res.data
+          that.transactions.forEach(tx => {
+            tx.date_edited = tx.date.slice(0, 10)
+          })
+        }).catch(err => {
+          console.log(err)
+        })
+      }
+    },
     getMoreMessages: function () {
       this.loadedPage++
       this.getMessages(this.loadedPage)

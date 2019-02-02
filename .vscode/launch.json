@@ -9,7 +9,7 @@
             // "type": "python",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}\\portfolio\\holdingsCalulation.js"
+            "program": "${workspaceFolder}\\zerodha\\stock_historical_data\\test.js"
         }
     ]
 }

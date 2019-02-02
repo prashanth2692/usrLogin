@@ -5,6 +5,7 @@ var dbConnection = require('./dbConnection').dbConnection
 const moneyControlController = require('./controllers/MoneyControlController')
 const holdingsController = require('./controllers/holdingsController')
 const chartsController = require("./controllers/chartsController")
+const portfolioController = require("./controllers/portfolioController")
 // var upload_files = require('./file_upload')
 var formidable = require('formidable');
 // var http = require('http')
@@ -200,7 +201,7 @@ var port = 8085
 app.use('/moneycontrol', moneyControlController)
 app.use('/holdings', holdingsController)
 app.use('/charts', chartsController)
-
+app.use('/portfolio', portfolioController)
 app.use(router)
 app.listen(port, () => {
   console.log('listening on port ', port)
