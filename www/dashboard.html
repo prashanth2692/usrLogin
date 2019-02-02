@@ -34,6 +34,8 @@
   <template id="MCMessages" style="display:none">
     <div>
       <div class="cmp">
+        <span v-text="symbol"></span>
+        <span>&nbsp; | &nbsp;</span>
         <span v-text="cmp"></span>
         <span>&nbsp; | &nbsp;</span>
         <span v-text="priceChange" :style="{color: priceChange >= 0 ? 'greenyellow' : 'red'}"></span>
