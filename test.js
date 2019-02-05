@@ -55,7 +55,7 @@ MongoClient.connect(url, function (err, db) {
         // console.log(data.pricecurrent, data.VOL)
 
         let dateTime = todayDate + ' ' + data[0]
-        clx.updateOne({ _id: dateTime }, { $set: { data } }, { upsert: true }).then(result => {
+        clx.updateOne({ _id: dateTime }, { $set: data }, { upsert: true }).then(result => {
           console.log('inserted', dateTime)
         })
 
