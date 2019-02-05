@@ -6,28 +6,13 @@ const _ = require('underscore')
 const fs = require('fs')
 const path = require('path')
 const uuid = require('uuid/v1')
+const moment = require('moment')
 
 
 const dbConstants = require('../../helpers/dbConstants')
-// const moneyControlManager = require('../MCMessageBoard')
-
-// var url = "mongodb://localhost:27017/"
-
-// MongoClient.connect(url, function (err, db) {
-//   if (err) throw err;
-
-//   // dbConnection = db.db("MoneyControl");
-//   // dbConnection = dbo
-//   console.log("Database created!");
-//   // db.close();
-
-//   run(db)
-//   // db.close()
-// });
-
-
 const JOB_NAME = 'archive_historical_data_zerodha_day'
 const JOB_UUID = uuid()
+const DATE_FORMAT = 'YYYY-MM-DD'
 
 function log(status, message, url, params) {
   this.jobName = JOB_NAME
@@ -42,19 +27,13 @@ let collectionName = ''
 function run(instrumentToken, db, clxName) {
   collectionName = clxName
   const mydb = db.db('mydb')
-  // const messagesCollection = mydb.collection(dbConstants.collections.moneyControlMessages)
-  // const transactionsCollection = mydb.collection(dbConstants.collections.transactions)
   const logsCollection = mydb.collection(dbConstants.collections.logs)
 
   const historicalCollection = mydb.collection(collectionName)
 
   logsCollection.insertOne(new log('info', 'starting job'))
-  let stockName = 'BEPL'
-  let currDate = new Date()
-  let month = currDate.getMonth() < 9 ? '0' + (currDate.getMonth() + 1) : currDate.getMonth() + 1
-  let day = currDate.getDate() < 10 ? ('0' + currDate.getDate()) : currDate.getDate()
-  let to = currDate.getFullYear() + '-' + month + '-' + day
-  let from = currDate.getFullYear() - 4 + '-' + month + '-' + day
+  let to = moment().format(DATE_FORMAT) //currDate.getFullYear() + '-' + month + '-' + day
+  let from = moment().subtract(4, 'y').format(DATE_FORMAT) //currDate.getFullYear() - 4 + '-' + month + '-' + day
   let promise = getHistorical(instrumentToken, from, to, mydb)
 
   promise.then(result => {
@@ -76,7 +55,7 @@ function run(instrumentToken, db, clxName) {
       })
     })
 
-    fs.writeFile("output/bepl_day_" + result.from + '-' + to + ".json", JSON.stringify(result.historicalDate), function (err) {
+    fs.writeFile(`output/${collectionName}_` + result.from + '-' + to + ".json", JSON.stringify(result.historicalDate), function (err) {
       if (err) throw err;
       console.log('complete');
       logsCollection.insertOne(new log('info', 'wrote data to file'))
@@ -104,7 +83,7 @@ function getHistorical(instrumentToken, from, to, mydb) {
   function getData(from, to, resolve, reject) {
     function getHistoricalData() {
       let url = `https://kitecharts-aws.zerodha.com/api/chart/${instrumentToken}/day`
-      console.log(instrumentToken, `fetching from ${from} to ${to}`)
+      console.log(collectionName, `fetching from ${from} to ${to}`)
       logsCollection.insertOne(new log('info', `fetching from ${from} to ${to}`, url, { from, to, instrumentToken }))
 
       // getData(from, to, resolve, reject)
@@ -133,12 +112,8 @@ function getHistorical(instrumentToken, from, to, mydb) {
 
           if (candles && candles.length > 0) {
             historicalData = historicalData.concat(candles)
-            let temp_from = new Date(from)
-            // let temp_to = new Date(to)
-            let month = temp_from.getMonth() < 9 ? '0' + (temp_from.getMonth() + 1) : temp_from.getMonth() + 1
-            let day = temp_from.getDate() < 10 ? ('0' + temp_from.getDate()) : temp_from.getDate()
-            let newFrom = temp_from.getFullYear() - 4 + '-' + month + '-' + day
-            let newTo = from //temp_from.getFullYear() - 4 + '-' + month + '-' + temp_from.getDate()
+            let newFrom = moment(from).subtract(4, 'y').format(DATE_FORMAT)
+            let newTo = from
             getData(newFrom, newTo, resolve, reject)
           } else {
             resolve({ historicalData, from: to })
@@ -160,20 +135,7 @@ function getHistorical(instrumentToken, from, to, mydb) {
         historicalCollection.find().sort({ date: 1 }).limit(1).toArray((err, doc) => {
           if (doc && doc.length > 0) {
             fetchedFrom = doc[0].date
-            console.log(`fetched from ${fetchedFrom} to ${fetchedTo}`)
-
-            // if (to <= fetchedTo) {
-            //   if (from >= fetchedFrom) {
-            //     //do nothing, already fetched records between from and to
-            //   } else {
-            //     to = fetchedFrom.slice(0, 10)
-            //   }
-            // }
-            // else {
-            //   if (from < fetchedTo) {
-            //     from = fetchedTo.slice(0, 10)
-            //   }
-            // }
+            console.log(collectionName, `fetched from ${fetchedFrom} to ${fetchedTo}`)
 
             if (from < to && !(from >= fetchedFrom && to <= fetchedTo)) {
               getHistoricalData()
