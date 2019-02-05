@@ -1,6 +1,7 @@
 const axios = require('axios')
 var MongoClient = require('mongodb').MongoClient;
-const moment = require('moment')
+// const moment = require('moment')
+const momentTz = require('moment-timezone')
 
 // var mongoose = require('mongoose')
 
@@ -42,10 +43,13 @@ MongoClient.connect(url, function (err, db) {
   };
   const mydb = db.db('mydb')
   const clx = mydb.collection('rcom_seconds_log')
-  const todayDate = moment().format('YYYY-MM-DD')
+
+  const moment = momentTz().tz('asia/calcutta')
+  const todayDate = moment.format('YYYY-MM-DD')
   //#endregion})
   let interval = setInterval(() => {
-    if (moment().format('hhmm') < '1530') {
+    let currentTime = momentTz().tz('asia/calcutta').format('hhmm')
+    if (currentTime < '1530') {
       axios.get(`https://priceapi-aws.moneycontrol.com/pricefeed/nse/equitycash/${rCom_COmpiID}`).then(resp => {
         let data = resp.data.data
         // console.log(data.pricecurrent, data.VOL)
