@@ -99,8 +99,8 @@
             <th scope="col" @click="sortData('allocated_quantity')" class="unselectable">Quantity</th>
             <th scope="col" @click="sortData('avgPrice')" class="unselectable">Avg Price</th>
             <th scope="col" class="unselectable">CMP</th>
-            <th scope="col" @click="sortData('overallPercentChange')" class="unselectable">%change</th>
             <th scope="col" @click="sortData('percentChange')" class="unselectable">%change(day)</th>
+            <th scope="col" @click="sortData('overallPercentChange')" class="unselectable">%change</th>
             <th scope="col" @click="sortData('pricechange')" class="unselectable">change</th>
             <th scope="col" @click="sortData('low52wDiff')" class="unselectable">52W Low</th>
             <th scope="col" @click="sortData('high52wDiff')" class="unselectable">52W High</th>
@@ -113,8 +113,8 @@
               <template v-if="cmpObj[holding.symbol]">
                 <td v-text="cmpObj[holding.symbol].pricecurrent"></td>
                 <td v-text="holding.overallPercentChange && holding.overallPercentChange.toFixed(2) + '%'" :style="{color: holding.overallPercentChange >= 0 ? 'greenyellow' : 'red'}"></td>
-                <td v-text="holding.percentChange && holding.percentChange.toFixed(2) + '%'" :style="{color: holding.percentChange >= 0 ? 'greenyellow' : 'red'}"></td>
                 <td v-text="holding.pricechange = Number(cmpObj[holding.symbol].pricechange)" :style="{color: holding.pricechange >= 0 ? 'greenyellow' : 'red'}"></td>
+                <td v-text="holding.percentChange && holding.percentChange.toFixed(2) + '%'" :style="{color: holding.percentChange >= 0 ? 'greenyellow' : 'red'}"></td>
                 <td v-text="cmpObj[holding.symbol]['52L']" class="low52w" style="color:red"></td>
                 <td v-text="cmpObj[holding.symbol]['52H']" class="high52w" style="color:greenyellow"></td>
               </template>

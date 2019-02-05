@@ -48,7 +48,7 @@ MongoClient.connect(url, function (err, db) {
   const todayDate = moment.format('YYYY-MM-DD')
   //#endregion})
   let interval = setInterval(() => {
-    let currentTime = momentTz().tz('asia/calcutta').format('hhmm')
+    let currentTime = momentTz().tz('asia/calcutta').format('HHmm')
     if (currentTime < '1530') {
       axios.get(`https://priceapi-aws.moneycontrol.com/pricefeed/nse/equitycash/${rCom_COmpiID}`).then(resp => {
         let data = resp.data.data
@@ -61,7 +61,9 @@ MongoClient.connect(url, function (err, db) {
 
       })
     } else {
+      console.log('past market time, stoping job')
       clearInterval(interval)
+      db.close()
     }
 
   }, 5000)
