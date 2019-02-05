@@ -52,8 +52,9 @@ function run(instrumentToken, db, clxName) {
   let stockName = 'BEPL'
   let currDate = new Date()
   let month = currDate.getMonth() < 9 ? '0' + (currDate.getMonth() + 1) : currDate.getMonth() + 1
-  let to = currDate.getFullYear() + '-' + month + '-' + currDate.getDate()
-  let from = currDate.getFullYear() - 4 + '-' + month + '-' + currDate.getDate()
+  let day = currDate.getDate() < 10 ? ('0' + currDate.getDate()) : currDate.getDate()
+  let to = currDate.getFullYear() + '-' + month + '-' + day
+  let from = currDate.getFullYear() - 4 + '-' + month + '-' + day
   let promise = getHistorical(instrumentToken, from, to, mydb)
 
   promise.then(result => {
@@ -84,7 +85,7 @@ function run(instrumentToken, db, clxName) {
     )
 
   }).catch(err => {
-    console.log(err.message)
+    console.log(err.msg)
     // db.close()
   })
 }
@@ -93,27 +94,27 @@ function run(instrumentToken, db, clxName) {
 function getHistorical(instrumentToken, from, to, mydb) {
   // const archiveStatusCollection = mydb.collection('zerosha_archive_status')
   const historicalCollection = mydb.collection(collectionName)
-    const logsCollection = mydb.collection(dbConstants.collections.logs)
-    
-    let fetchedFrom = null
-    let fetchedTo = null
+  const logsCollection = mydb.collection(dbConstants.collections.logs)
 
-    let historicalData = []
-    
+  let fetchedFrom = null
+  let fetchedTo = null
+
+  let historicalData = []
+
   function getData(from, to, resolve, reject) {
-      function getHistoricalData() {
+    function getHistoricalData() {
       let url = `https://kitecharts-aws.zerodha.com/api/chart/${instrumentToken}/day`
-    console.log(instrumentToken, `fetching from ${from} to ${to}`)
+      console.log(instrumentToken, `fetching from ${from} to ${to}`)
       logsCollection.insertOne(new log('info', `fetching from ${from} to ${to}`, url, { from, to, instrumentToken }))
 
       // getData(from, to, resolve, reject)
       // console.log(`getting data from ${from} to ${to}`)
       const messageBoardURL = new URL(url)
       const messageBoardQueryParams = new URLSearchParams({
-        public_token: 'YQOnLd4GqdUT548pBaHp9raifn0WGGFv',
+        public_token: 'CB2GHAaesV82yrb4oMmZjZ2RsfT4puCl',
         user_id: 'YE1705',
         api_key: 'kitefront',
-        access_token: 'd6vogWx6c9LR1Fh6Y9sowGBbska7zta1',
+        access_token: 'LXAkCrPfmemvbNkbTOxQeW9v7pNSwZIX',
         from: from,
         to: to,
         ciqrandom: (new Date()).getTime()
@@ -135,7 +136,8 @@ function getHistorical(instrumentToken, from, to, mydb) {
             let temp_from = new Date(from)
             // let temp_to = new Date(to)
             let month = temp_from.getMonth() < 9 ? '0' + (temp_from.getMonth() + 1) : temp_from.getMonth() + 1
-            let newFrom = temp_from.getFullYear() - 4 + '-' + month + '-' + temp_from.getDate()
+            let day = temp_from.getDate() < 10 ? ('0' + temp_from.getDate()) : temp_from.getDate()
+            let newFrom = temp_from.getFullYear() - 4 + '-' + month + '-' + day
             let newTo = from //temp_from.getFullYear() - 4 + '-' + month + '-' + temp_from.getDate()
             getData(newFrom, newTo, resolve, reject)
           } else {
@@ -144,7 +146,7 @@ function getHistorical(instrumentToken, from, to, mydb) {
         }
 
       }).catch(err => {
-        console.log(err.data)
+        console.log(err.response.data)
         logsCollection.insertOne(new log('failed', `failed to fetch from ${from} to ${to}`, url, { from, to, instrumentToken }))
         reject({ msg: 'failed to retrieve historical reccords' })
       })
