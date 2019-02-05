@@ -15,6 +15,7 @@ router.get('/transactionsBySymbol', (req, res) => {
   const url_parts = URL.parse(req.url, true)
   const query = url_parts.query
   const symbol = query.symbol
+  const top = Number(query.top) || 0 // 0 -> no limit
 
   if (symbol) {
     var url = "mongodb://localhost:27017/"
@@ -27,7 +28,7 @@ router.get('/transactionsBySymbol', (req, res) => {
       const mydb = db.db('mydb')
       const txColx = mydb.collection(dbConstants.collections.transactions)
 
-      txColx.find({ symbol: symbol }).sort({ date: -1 }).toArray((err, docs) => {
+      txColx.find({ symbol: symbol }).sort({ date: -1 }).limit(top).toArray((err, docs) => {
         if (err) {
           db.close()
           res.status(500).send(err.message)

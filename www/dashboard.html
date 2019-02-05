@@ -46,6 +46,8 @@
           aria-expanded="false" aria-controls="collapseExample" @click="getTransactions">
           Transactions
         </button>
+        <button class="btn btn-primary btn-sm" type="button" @click="openChart">chart</button>
+
         <div class="collapse" id="collapseExample">
           <table class="table table-dark table-striped table-bordered table-responsive">
             <thead>
@@ -104,10 +106,11 @@
             <th scope="col" @click="sortData('pricechange')" class="unselectable">change</th>
             <th scope="col" @click="sortData('low52wDiff')" class="unselectable">52W Low</th>
             <th scope="col" @click="sortData('high52wDiff')" class="unselectable">52W High</th>
+            <th scope="col" class="unselectable">chart</th>
           </thead>
           <tbody>
-            <tr v-for="holding in holdings" @click="getTopicId(holding.symbol)" style="cursor: pointer">
-              <td v-text="holding.symbol"></td>
+            <tr v-for="holding in holdings" style="cursor: pointer">
+              <td v-text="holding.symbol" @click="getTopicId(holding.symbol)"></td>
               <td v-text="holding.allocated_quantity"></td>
               <td v-text="holding.avgPrice"></td>
               <template v-if="cmpObj[holding.symbol]">
@@ -121,6 +124,7 @@
               <template v-else>
                 <td v-for="x in 6">-</td>
               </template>
+              <td @click="openChart(holding.symbol)" class="chart_logo"></td>
             </tr>
             <tr>
               <td colspan="2" style="text-align: right">Total change</td>

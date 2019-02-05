@@ -17,22 +17,29 @@ const holdingsComponent = {
   created: function () {
     var that = this
     let url = this.showDynamic ? '/holdings/dynamic-holdings' : '/holdings/holdings'
-    axios.get(url)
-      .then((res) => {
-        that.holdings = res.data
-
-        let holdingSymbols = []
-        if (that.holdings && that.holdings.length > 0) {
-          holdingSymbols = that.holdings.map(holding => holding.symbol);
-        }
-        that.symbols = holdingSymbols.join(',')
-        that.getSymbolsData()
-      })
-      .catch(function (err) {
-        console.log(err)
-      })
+    if (window.stockHoldings) {
+      this.setUpHoldigsData(window.stockHoldings)
+    } else {
+      axios.get(url)
+        .then((res) => {
+          window.stockHoldings = res.data
+          that.setUpHoldigsData(res.data)
+        })
+        .catch(function (err) {
+          console.log(err)
+        })
+    }
   },
   methods: {
+    setUpHoldigsData: function (holdings) {
+      this.holdings = holdings
+      let holdingSymbols = []
+      if (this.holdings && this.holdings.length > 0) {
+        holdingSymbols = this.holdings.map(holding => holding.symbol);
+      }
+      this.symbols = holdingSymbols.join(',')
+      this.getSymbolsData()
+    },
     // about to be depricated
     getTopicId: function (symbol) {
       let that = this
@@ -63,7 +70,6 @@ const holdingsComponent = {
     refresh: function () {
       this.getMCCMPData(this.symbolsData)
     },
-
     // Get symber data for use of MoneyControl API query
     getSymbolsData: function () {
       let that = this
@@ -124,7 +130,10 @@ const holdingsComponent = {
 
         that.totalPercentChange = ((todaysValue - yesterdaysValue) * 100 / yesterdaysValue).toFixed(2)
       })
-    }
+    },
+    openChart: function (symbol) {
+      this.$router.push({ path: '/charts', query: { symbol } })
+    },
   }
 }
 

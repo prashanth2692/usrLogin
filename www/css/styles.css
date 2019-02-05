@@ -24,3 +24,8 @@
 #transactionsContainer {
   padding: 10px 0px
 }
+
+.chart_logo {
+  background: url(./images/line-chart.svg) no-repeat 10px;
+  background-color: darkgray;
+}

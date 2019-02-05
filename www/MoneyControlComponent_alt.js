@@ -61,7 +61,10 @@ const MoneyControlComponent = {
         that.cmp = scripData.pricecurrent
         that.priceChange = Number(scripData.pricechange).toFixed(2)
       })
-    }
+    },
+    openChart: function () {
+      this.$router.push({ path: '/charts', query: { symbol: this.symbol } })
+    },
   }
 }
 

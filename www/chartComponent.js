@@ -5,19 +5,24 @@
 // import data from './data';
 // import schema from './schema';
 
-
-
-
 const chartComponent = {
   template: '#chart',
   data: function () {
     return {
-      holdings: null
+      holdings: null,
+      transactions: null,
+      symbol: 'BPL'
     }
   },
   created: function () {
-    var that = this
-    axios.get('/charts/bpl')
+    let that = this
+
+    let query = this.$route.query
+    if (query && query.symbol) {
+      this.symbol = query.symbol
+    }
+
+    axios.get(`/charts/${this.symbol}`)
       .then((res) => {
         // FusionCharts.addDep(TimeSeries);
         let schema = [{
@@ -45,7 +50,7 @@ const chartComponent = {
 
         //attempt 1
 
-        new FusionCharts({
+        let chartConfig = {
           type: 'timeseries',
           renderAt: 'container',
           width: '95%',
@@ -101,7 +106,7 @@ const chartComponent = {
               "trendValueAlpha": "80"
             },
             caption: {
-              text: 'Apple Inc. Stock Price'
+              text: that.symbol
             },
             yAxis: [{
               plot: {
@@ -112,20 +117,74 @@ const chartComponent = {
                 type: 'candlestick'
               },
               title: 'Value',
-              referenceLine: [{
-                label: 'Controlled Temperature',
-                value: '10',
-                style: {
-                  fill: '#142FC8'
-                }
-              }],
+              // referenceLine: [{
+              //   label: 'Controlled Temperature',
+              //   value: '10',
+              //   style: {
+              //     fill: '#142FC8'
+              //   }
+              // }],
             }],
           }
-        }).render('chartcontainer');
+        }
+
+        // fusionChart.render('chartcontainer');
+        let fusionChart = new FusionCharts(chartConfig)
+        fusionChart.render('chartcontainer');
+        chartConfig.dataSource.yAxis[0].referenceLine = []
+        chartConfig.dataSource.dataMarker = []
+        // [{
+        //   seriesName: "Interest Rate",
+        //   time: "Mar-1980",
+        //   identifier: "H",
+        //   timeFormat: "%b-%Y",
+        //   tooltext: "As a part of credit control program, under the leadership of Paul Volcker, the Fed tightened the money supply, allowing the federal fund rates to approach 20 percent."
+        // }]
+        let dataMarkers = chartConfig.dataSource.dataMarker
+        let refLineObj = chartConfig.dataSource.yAxis[0].referenceLine
+        // [{
+        //   label: 'Controlled Temperature',
+        //   value: '10',
+        //   style: {
+        //     fill: '#142FC8'
+        //   }
+        // }]
+
+
+
+        //get transactions
+        axios.get(`/portfolio/transactionsBySymbol?symbol=${that.symbol}&top=5`).then(res => {
+          that.transactions = res.data
+          that.transactions.forEach(tx => {
+            // tx.date_edited = tx.date.slice(0, 10)
+            refLineObj.push({
+              label: tx.date,
+              value: tx.price,
+              style: {
+                fill: tx.type == 'buy' ? '#142FC8' : 'red'
+              }
+            })
+
+            dataMarkers.push({
+              time: tx.date.slice(0, 10),
+              identifier: tx.type == 'buy' ? 'B' : 'S',
+              seriesName: 'Value',
+              timeFormat: 'YYYY-MM-DD'
+            })
+          })
+
+          fusionChart = new FusionCharts(chartConfig)
+          fusionChart.render('chartcontainer');
+        }).catch(err => {
+          console.log(err)
+        })
+
+
       })
       .catch(function (err) {
         console.log(err)
       })
+
   },
   methods: {}
 }
