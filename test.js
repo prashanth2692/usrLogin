@@ -66,6 +66,7 @@ MongoClient.connect(url, function (err, db) {
               // console.log(data.pricecurrent, data.VOL)
 
               let dateTime = todayDate + ' ' + data[0] // data[0] is time of the snapshot
+              data.date = todayDate
               clx.updateOne({ _id: dateTime }, { $set: data }, { upsert: true }).then(result => {
                 console.log(index, 'inserted', doc.symbol, dateTime)
               })
@@ -79,7 +80,7 @@ MongoClient.connect(url, function (err, db) {
             // db.close()
           }
 
-        }, 5000)
+        }, 10000)
       });
     })
   })
