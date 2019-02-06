@@ -76,7 +76,7 @@ MongoClient.connect(url, function (err, db) {
             })
 
           }).catch(err => {
-            logClx.insertOne({ jobName: 'scrip_data_scraping', type: 'error', msg: `failed to fetch for symbol ${doc.symbol}, compid ${doc.compid_imp}` })
+            logClx.insertOne({ jobName: 'scrip_data_scraping', type: 'error', msg: `failed to fetch for symbol ${doc.symbol}, compid ${doc.compid_imp}`, response: err.response })
           })
           // } else {
           //   console.log(index, 'past market time, stoping job')

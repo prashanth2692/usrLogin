@@ -189,49 +189,58 @@ const chartComponent = {
     // line chart for days data
     axios.get(`/charts/day/${this.symbol}`)
       .then((resp) => {
-        var data = resp.data
-        var schema = [{
-          "name": "Time",
-          "type": "date",
-          "format": "%H:%M:%S" //timeformat: 13:02:01 13 hours 2 min 1 sec
-        }, {
-          "name": "Price",
-          "type": "number"
-        }, {
-          name: 'Volume',
-          type: 'number'
-        }];
+        if (resp && resp.data && resp.data.length > 0) {
+          var halfVolume = resp.data[resp.data.length - 1][2] / 2
+          var data = resp.data
+          var schema = [{
+            "name": "Time",
+            "type": "date",
+            "format": "%H:%M:%S" //timeformat: 13:02:01 13 hours 2 min 1 sec
+          }, {
+            "name": "Price",
+            "type": "number"
+          }, {
+            name: 'Volume',
+            type: 'number'
+          }];
 
-        var dataStore = new FusionCharts.DataStore();
+          var dataStore = new FusionCharts.DataStore();
 
-        new FusionCharts({
-          type: 'timeseries',
-          renderAt: 'day-chart-container',
-          width: '100%',
-          height: '500',
-          dataSource: {
-            caption: {
-              text: that.symbol
-            },
-            subcaption: {
-              text: (new Date()).toISOString().slice(0, 10)
-            },
-            yAxis: [{
-              plot: [{
-                value: 'Price',
-                type: 'line'
+          new FusionCharts({
+            type: 'timeseries',
+            renderAt: 'day-chart-container',
+            width: '95%',
+            height: '450',
+            dataSource: {
+              caption: {
+                text: that.symbol
+              },
+              subcaption: {
+                text: (new Date()).toISOString().slice(0, 10)
+              },
+              yAxis: [{
+                plot: [{
+                  value: 'Price',
+                  type: 'line'
+                }],
+                title: 'Price'
+              }, {
+                plot: [{
+                  value: 'Volume',
+                  type: 'line'
+                }],
+                title: 'Volume',
+                referenceLine: [{
+                  value: halfVolume,
+                  style: {
+                    fill: '#142FC8'
+                  }
+                }]
               }],
-              title: 'Price'
-            }, {
-              plot: [{
-                value: 'Volume',
-                type: 'column'
-              }],
-              title: 'Volume'
-            }],
-            data: dataStore.createDataTable(data, schema)
-          }
-        }).render();
+              data: dataStore.createDataTable(data, schema)
+            }
+          }).render();
+        }
       })
 
     // });

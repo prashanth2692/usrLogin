@@ -64,7 +64,7 @@ router.get('/day/:symbol', (req, res) => {
       let todayEnd = today + " 15:45:00"
       // let tomorrow = mTz().tz('asia/calcutta').add(1, 'd').format('YYYY-MM-DD ')
 
-      dayLogClx.find({ _id: { $gt: today, $lt: todayEnd } }).toArray((err, data) => {
+      dayLogClx.find({ _id: { $gt: today, $lt: todayEnd } }).sort({ _id: 1 }).toArray((err, data) => {
         db.close()
         if (data) {
           data = data.map(d => {
