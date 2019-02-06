@@ -22,6 +22,7 @@ const chartComponent = {
       this.symbol = query.symbol
     }
 
+    //candle stick chart from historical data
     axios.get(`/charts/${this.symbol}`)
       .then((res) => {
         // FusionCharts.addDep(TimeSeries);
@@ -184,6 +185,57 @@ const chartComponent = {
       .catch(function (err) {
         console.log(err)
       })
+
+    // line chart for days data
+    axios.get(`/charts/day/${this.symbol}`)
+      .then((resp) => {
+        var data = resp.data
+        var schema = [{
+          "name": "Time",
+          "type": "date",
+          "format": "%H:%M:%S" //timeformat: 13:02:01 13 hours 2 min 1 sec
+        }, {
+          "name": "Price",
+          "type": "number"
+        }, {
+          name: 'Volume',
+          type: 'number'
+        }];
+
+        var dataStore = new FusionCharts.DataStore();
+
+        new FusionCharts({
+          type: 'timeseries',
+          renderAt: 'day-chart-container',
+          width: '100%',
+          height: '500',
+          dataSource: {
+            caption: {
+              text: that.symbol
+            },
+            subcaption: {
+              text: (new Date()).toISOString().slice(0, 10)
+            },
+            yAxis: [{
+              plot: [{
+                value: 'Price',
+                type: 'line'
+              }],
+              title: 'Price'
+            }, {
+              plot: [{
+                value: 'Volume',
+                type: 'column'
+              }],
+              title: 'Volume'
+            }],
+            data: dataStore.createDataTable(data, schema)
+          }
+        }).render();
+      })
+
+    // });
+
 
   },
   methods: {}
