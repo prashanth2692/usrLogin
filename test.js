@@ -44,41 +44,45 @@ MongoClient.connect(url, function (err, db) {
   };
   const mydb = db.db('mydb')
   const mcTopicIdClx = mydb.collection(dbConstants.collections.messageBoardTopicids)
+  const txClx = mydb.collection(dbConstants.collections.transactions)
   const logClx = mydb.collection(dbConstants.collections.logs)
   const moment = momentTz().tz('asia/calcutta')
   const todayDate = moment.format('YYYY-MM-DD')
 
-  mcTopicIdClx.find({}).toArray((err, docs) => {
-    if (err) throw err;
+  txClx.distinct('symbol', (err, symbols) => {
+    // console.log(symbols.length)
+    mcTopicIdClx.find({ symbol: { $in: symbols } }).toArray((err, docs) => {
+      // console.log(docs.length)
+      if (err) throw err;
+      let count = 0
+      docs.forEach(doc => {
+        let index = count++
+        let clx = mydb.collection(doc.symbol + '_seconds_log')
+        let interval = setInterval(() => {
+          let currentTime = momentTz().tz('asia/calcutta').format('HHmm')
+          if (currentTime < '1530') {
+            axios.get(`https://priceapi-aws.moneycontrol.com/pricefeed/nse/equitycash/${doc.compid_imp}`).then(resp => {
+              let data = resp.data.data
+              // console.log(data.pricecurrent, data.VOL)
 
-    docs.forEach(doc => {
-      let clx = mydb.collection(doc.symbol + '_seconds_log')
-      let interval = setInterval(() => {
-        let currentTime = momentTz().tz('asia/calcutta').format('HHmm')
-        if (currentTime < '1530') {
-          axios.get(`https://priceapi-aws.moneycontrol.com/pricefeed/nse/equitycash/${doc.compid_imp}`).then(resp => {
-            let data = resp.data.data
-            // console.log(data.pricecurrent, data.VOL)
+              let dateTime = todayDate + ' ' + data[0] // data[0] is time of the snapshot
+              clx.updateOne({ _id: dateTime }, { $set: data }, { upsert: true }).then(result => {
+                console.log(index, 'inserted', doc.symbol, dateTime)
+              })
 
-            let dateTime = todayDate + ' ' + data[0] // data[0] is time of the snapshot
-            clx.updateOne({ _id: dateTime }, { $set: data }, { upsert: true }).then(result => {
-              console.log('inserted', doc.symbol, dateTime)
+            }).catch(err => {
+              logClx.insertOne({ jobName: 'scrip_data_scraping', type: 'error', msg: `failed to fetch for symbol ${doc.symbol}, compid ${doc.compid_imp}` })
             })
+          } else {
+            console.log(index, 'past market time, stoping job')
+            clearInterval(interval)
+            // db.close()
+          }
 
-          }).catch(err => {
-            logClx.insertOne({ jobName: 'scrip_data_scraping', type: 'error', msg: `failed to fetch for symbol ${doc.symbol}, compid ${doc.compid_imp}` })
-          })
-        } else {
-          console.log('past market time, stoping job')
-          clearInterval(interval)
-          // db.close()
-        }
-
-      }, 5000)
-    });
+        }, 5000)
+      });
+    })
   })
-
-
   //#endregion})
 
 })
