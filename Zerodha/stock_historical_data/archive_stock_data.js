@@ -81,7 +81,7 @@ function getHistorical(instrumentToken, from, to, mydb) {
   let historicalData = []
 
   function getData(from, to, resolve, reject) {
-    function getHistoricalData() {
+    function getHistoricalData(from, to) {
       let url = `https://kitecharts-aws.zerodha.com/api/chart/${instrumentToken}/day`
       console.log(collectionName, `fetching from ${from} to ${to}`)
       logsCollection.insertOne(new log('info', `fetching from ${from} to ${to}`, url, { from, to, instrumentToken }))
@@ -116,7 +116,7 @@ function getHistorical(instrumentToken, from, to, mydb) {
             let newTo = from
             getData(newFrom, newTo, resolve, reject)
           } else {
-            resolve({ historicalData, from: to })
+            resolve({ historicalData, from })
           }
         }
 
@@ -138,15 +138,23 @@ function getHistorical(instrumentToken, from, to, mydb) {
             console.log(collectionName, `fetched from ${fetchedFrom} to ${fetchedTo}`)
 
             if (from < to && !(from >= fetchedFrom && to <= fetchedTo)) {
-              getHistoricalData()
+              if (from < fetchedTo) {
+                // fetch records only from last fetched date
+                from = fetchedTo.slice(0, 10)
+              }
+              getHistoricalData(from, to)
             } else {
-              reject({ msg: 'records already fetched for the given date range' })
+              if (historicalData && historicalData.length > 0) {
+                resolve({ historicalData, from })
+              } else {
+                reject({ msg: 'records already fetched for the given date range' })
+              }
             }
           }
         })
       } else {
         // not processed, continue
-        getHistoricalData()
+        getHistoricalData(from, to)
       }
     })
   }

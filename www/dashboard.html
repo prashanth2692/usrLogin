@@ -115,9 +115,9 @@
               <td v-text="holding.avgPrice"></td>
               <template v-if="cmpObj[holding.symbol]">
                 <td v-text="cmpObj[holding.symbol].pricecurrent"></td>
+                <td v-text="holding.percentChange && holding.percentChange.toFixed(2) + '%'" :style="{color: holding.percentChange >= 0 ? 'greenyellow' : 'red'}"></td>
                 <td v-text="holding.overallPercentChange && holding.overallPercentChange.toFixed(2) + '%'" :style="{color: holding.overallPercentChange >= 0 ? 'greenyellow' : 'red'}"></td>
                 <td v-text="holding.pricechange = Number(cmpObj[holding.symbol].pricechange)" :style="{color: holding.pricechange >= 0 ? 'greenyellow' : 'red'}"></td>
-                <td v-text="holding.percentChange && holding.percentChange.toFixed(2) + '%'" :style="{color: holding.percentChange >= 0 ? 'greenyellow' : 'red'}"></td>
                 <td v-text="cmpObj[holding.symbol]['52L']" class="low52w" style="color:red"></td>
                 <td v-text="cmpObj[holding.symbol]['52H']" class="high52w" style="color:greenyellow"></td>
               </template>
