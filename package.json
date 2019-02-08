@@ -24,6 +24,7 @@
     "mongoose": "^5.0.12",
     "morgan": "^1.9.1",
     "node-html-parser": "^1.1.11",
+    "twilio": "^3.28.0",
     "underscore": "^1.9.1",
     "uuid": "^3.3.2"
   },

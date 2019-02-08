@@ -1,3 +1,5 @@
+// import moment = require("moment");
+
 // import FusionCharts from 'fusioncharts/core';
 // import TimeSeries from 'fusioncharts/viz/timeseries';
 // import DataStore from 'fusioncharts/datastore';
@@ -97,7 +99,7 @@ const chartComponent = {
               }
             ],
             chart: {
-              // showVolumeChart: 0
+              showVolumeChart: 1,
               theme: 'fusion',
               //Attributes to configure Trend Values
               "trendValueFont": "Arial",
@@ -125,13 +127,20 @@ const chartComponent = {
               //     fill: '#142FC8'
               //   }
               // }],
-            }],
+            },
+            // {
+            //   plot: {
+            //     value: 'Volume',
+            //     type: 'column'
+            //   }
+            // }
+            ],
           }
         }
 
+        let fusionChart
+        // let fusionChart = new FusionCharts(chartConfig)
         // fusionChart.render('chartcontainer');
-        let fusionChart = new FusionCharts(chartConfig)
-        fusionChart.render('chartcontainer');
         chartConfig.dataSource.yAxis[0].referenceLine = []
         chartConfig.dataSource.dataMarker = []
         // [{
@@ -189,9 +198,17 @@ const chartComponent = {
     // line chart for days data
     axios.get(`/charts/day/${this.symbol}`)
       .then((resp) => {
+
         if (resp && resp.data && resp.data.length > 0) {
-          var halfVolume = resp.data[resp.data.length - 1][2] / 2
           var data = resp.data
+
+          let prevVol = 0
+          data.forEach(d => {
+            d[2] = d[2] - prevVol
+            prevVol = d[2]
+          })
+
+          var halfVolume = resp.data[resp.data.length - 1][2] / 2
           var schema = [{
             "name": "Time",
             "type": "date",
@@ -209,7 +226,7 @@ const chartComponent = {
           new FusionCharts({
             type: 'timeseries',
             renderAt: 'day-chart-container',
-            width: '95%',
+            width: '100%',
             height: '450',
             dataSource: {
               caption: {
@@ -240,6 +257,11 @@ const chartComponent = {
               data: dataStore.createDataTable(data, schema)
             }
           }).render();
+
+          // timeseries to candle format
+          let candles = that.convertTimeSeriesToCandles(data)
+          that.renderDayCandleChart(candles)
+          // timeseries to candle format - end
         }
       })
 
@@ -247,7 +269,123 @@ const chartComponent = {
 
 
   },
-  methods: {}
+  methods: {
+    convertTimeSeriesToCandles: function (data) {
+      let candles = []
+      let candleInterval = 60 // seconds
+      let currentCandleMoment
+      data.forEach((dataPoint, index) => {
+        // check if dataPoint is within the current candle.
+        let currentMoment = moment(dataPoint[0], 'HH:mm:ss')
+        if (currentCandleMoment && moment.duration(currentMoment.diff(currentCandleMoment)).asSeconds() <= candleInterval) {
+          let latestCandle = candles[candles.length - 1]
+          if (latestCandle[2] < dataPoint[1]) {
+            latestCandle[2] = dataPoint[1] // update candle high
+          } else if (latestCandle[3] > dataPoint[1]) {
+            latestCandle[3] = dataPoint[1]// update candle low
+          }
+          latestCandle[4] = dataPoint[1] // update candle close
+          latestCandle[5] += (dataPoint[2] - latestCandle[5]) // update candle volume, vloume is current + diff with latest
+        } else {
+          // candleFilled = true
+          let tempCandle = []
+          tempCandle.push(dataPoint[0]) // 0:date
+          tempCandle.push(dataPoint[1]) // 1:open price
+          tempCandle.push(dataPoint[1]) // 2:high price
+          tempCandle.push(dataPoint[1]) // 3:low price
+          tempCandle.push(dataPoint[1]) // 4:close price
+
+          if (candles.length > 0) {
+            tempCandle.push(dataPoint[2] - data[index - 1][2])
+          } else {
+            tempCandle.push(dataPoint[2]) // 5:volume price
+          }
+
+          candles.push(tempCandle)
+
+          currentCandleMoment = moment(dataPoint[0], 'HH:mm:ss')
+        }
+      })
+
+      // console.log(candles)
+      return candles
+    },
+    renderDayCandleChart: function (candles) {
+      let data = candles
+      let schema = [{
+        "name": "Time",
+        "type": "date",
+        "format": "%H:%M:%S"
+      }, {
+        "name": "Open",
+        "type": "number"
+      }, {
+        "name": "High",
+        "type": "number"
+      }, {
+        "name": "Low",
+        "type": "number"
+      }, {
+        "name": "Close",
+        "type": "number"
+      }, {
+        "name": "Volume",
+        "type": "number"
+      }]
+      let fusionDataStore = new FusionCharts.DataStore();
+      let dataStore = fusionDataStore.createDataTable(data, schema);
+      let chartConfig = {
+        type: 'timeseries',
+        renderAt: 'container',
+        width: '95%',
+        height: 600,
+        // theme: 'fusion',
+        dataSource: {
+          data: dataStore,
+          chart: {
+            showVolumeChart: '1',
+            theme: 'fusion',
+            transposeAxis: 1
+            //Attributes to configure Trend Values
+            // "trendValueFont": "Arial",
+            // "trendValueFontSize": "12",
+            // "trendValueFontBold": "1",
+            // "trendValueFontItalic": "1",
+            // "trendValueAlpha": "80"
+          },
+          caption: {
+            text: "candle stick chart" //that.symbol
+          },
+          yAxis: [{
+            plot: {
+              open: 'Open',
+              high: 'High',
+              low: 'Low',
+              close: 'Close',
+              type: 'candlestick'
+            },
+            title: 'Value',
+            referenceLine: [{
+              value: candles[candles.length - 1][4],
+              type: 'dotted'
+            }],
+          },
+          {
+            plot: {
+              value: 'Volume',
+              type: 'line'
+            },
+            title: 'Volume'
+          }
+          ],
+        }
+      }
+
+      let fusionChart = new FusionCharts(chartConfig)
+      fusionChart.render('day-candle-chart-container');
+
+    }
+  }
 }
 
 export default chartComponent

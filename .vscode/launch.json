@@ -9,7 +9,8 @@
             // "type": "python",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}\\zerodha\\stock_historical_data\\test.js"
+            // "program": "${workspaceFolder}\\zerodha\\stock_historical_data\\test.js"
+            "program": "${workspaceFolder}\\mongoPlayground.js"
         }
     ]
 }
