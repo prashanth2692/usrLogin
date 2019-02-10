@@ -1,3 +1,4 @@
+//@ts-check
 // This scrpt is used to update 'transactions' collection
 // 'transactions' collections holds transactions from both Zerodha and ICICI
 
@@ -5,6 +6,8 @@ const fs = require('fs')
 var MongoClient = require('mongodb').MongoClient;
 const _ = require("underscore")
 const dbConstants = require('../helpers/dbConstants')
+const ipoTxs = require('./ipo.js')
+const moment = require('moment')
 
 
 var url = "mongodb://localhost:27017/"
@@ -38,27 +41,29 @@ function run(db) {
 
         if (docs) {
             docs.forEach(doc => {
-                let normalizedTx = new convertICICI(doc, db)
-                normalizedTx.created_date = (new Date()).toUTCString()
+                let normalizedTx = new convertICICI(doc)
+                normalizedTx.updated_date = new Date()
 
                 nseMapCollection.findOne({ icici: normalizedTx.symbol }, (err, doc) => {
                     if (err) throw err
 
                     if (doc) {
                         normalizedTx.symbol = doc.nse
+                        transactionsCollection.updateOne({ orderId: normalizedTx.orderId, settlement: normalizedTx.settlement },
+                            { $set: normalizedTx, $setOnInsert: { created_date: new Date() } },
+                            { upsert: true },
+                            (err, iidoc) => {
+                                if (err) throw err
 
-                        transactionsCollection.updateOne({ orderId: normalizedTx.orderId, settlement: normalizedTx.settlement }, { $set: normalizedTx }, { upsert: true }, (err, iidoc) => {
-                            if (err) throw err
+                                txCount++
+                                console.log(txCount, 'icici')
 
-                            txCount++
-                            console.log(txCount, 'icici')
-
-                            logsCollection.insertOne({
-                                jobName: JOB_NAME,
-                                status: 'success',
-                                message: `inserted icici transaction ${normalizedTx.orderId}`
+                                logsCollection.insertOne({
+                                    jobName: JOB_NAME,
+                                    status: 'success',
+                                    message: `inserted icici transaction ${normalizedTx.orderId}`
+                                })
                             })
-                        })
                     } else {
                         logsCollection.insertOne({
                             jobName: JOB_NAME,
@@ -78,26 +83,52 @@ function run(db) {
             if (docs) {
                 docs.forEach(doc => {
                     let normalizedTx = new convertZerodha(doc)
-                    normalizedTx.created_date = (new Date()).toUTCString()
+                    normalizedTx['updated_date'] = (new Date())
 
-                    transactionsCollection.updateOne({ orderId: normalizedTx.orderId, tradeId: normalizedTx.tradeId }, { $set: normalizedTx }, { upsert: true }, (err, iidoc) => {
-                        if (err) throw err
+                    // a given order can be executed in multiple trades
+                    transactionsCollection.updateOne({ orderId: normalizedTx.orderId, tradeId: normalizedTx.tradeId },
+                        { $set: normalizedTx, $setOnInsert: { created_date: new Date() } },
+                        { upsert: true },
+                        (err, iidoc) => {
+                            if (err) throw err
 
-                        txCount++
-                        console.log(txCount, 'zerodha')
+                            txCount++
+                            console.log(txCount, 'zerodha')
 
-                        logsCollection.insertOne({
-                            jobName: JOB_NAME,
-                            status: 'success',
-                            message: `inserted zerodha transaction ${normalizedTx.orderId}`
+                            logsCollection.insertOne({
+                                jobName: JOB_NAME,
+                                status: 'success',
+                                message: `inserted zerodha transaction ${normalizedTx.orderId}`
+                            })
                         })
-                    })
                 })
             }
         })
         .catch(err => {
             console.log(err)
         })
+
+    ipoTxs.forEach(tx => {
+        tx.trade_date = tx.date.slice(0, 10)
+        //@ts-ignore
+        tx.date = new Date(tx.date)
+        tx.updated_date = (new Date())
+        transactionsCollection.updateOne({ broker: 'ipo', symbol: tx.symbol },
+            { $set: tx, $setOnInsert: { created_date: new Date() } },
+            { upsert: true },
+            (err, iidoc) => {
+                if (err) throw err
+
+                txCount++
+                console.log(txCount, 'ipo')
+
+                logsCollection.insertOne({
+                    jobName: JOB_NAME,
+                    status: 'success',
+                    message: `inserted ipo transaction ${tx.symbol}`
+                })
+            })
+    })
 }
 
 
@@ -126,6 +157,7 @@ function convertZerodha(zTx) {
     this.segment = zTx.Segment
     this.dateTime = zTx.Time
     this.date = new Date(zTx.Trade_Date)
+    this.trade_date = zTx.Trade_Date
     // orderId is common ofr both zerodha and icici
     // in zerodha a transaction is uniquely identified by order_id and trade_id combination
     // given given order can be executed in mutiple parts
@@ -139,7 +171,7 @@ function convertZerodha(zTx) {
 }
 
 
-function convertICICI(iTx, db) {
+function convertICICI(iTx) {
     // sample icici transaction record
     // {
     //     "_id": ObjectId("5c4c40e23c81b637ec721976"),
@@ -166,7 +198,7 @@ function convertICICI(iTx, db) {
     // }
 
     // ger nse code from 'nse_icici_symbol_map' collection using icici code
-    let mydb = db.db('mydb')
+    // let mydb = db.db('mydb')
     // let nseMapCollection = mydb.collection('nse_icici_symbol_map')
 
     // nseMapCollection.findOne({ icici: iTx.Stock }, (err, doc) => {
@@ -185,10 +217,12 @@ function convertICICI(iTx, db) {
     this.type = iTx.Action.toLowerCase()
     this.quantity = Number(iTx.Qty)
     this.date = new Date(iTx.Date)
+    this.trade_date = new Date(iTx.Date).toISOString().slice(0, 10)
     this.price = Number(iTx.Price)
     this.order_ref = iTx.Order_Ref
     this.orderId = iTx.Order_Ref
     this.settlement = iTx.Settlement
     this.iref_id = iTx._id
     this.ref_id = iTx._id
+    this.updated_date = new Date()
 }
