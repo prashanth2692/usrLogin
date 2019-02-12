@@ -11,7 +11,8 @@ const MoneyControlComponent = {
       compid: 'BPL',
       priceChange: 0,
       symbol: null,
-      transactions: null
+      transactions: null,
+      userMarkedSpan: {}
     }
   },
   created: function () {
@@ -65,6 +66,15 @@ const MoneyControlComponent = {
     openChart: function () {
       this.$router.push({ path: '/charts', query: { symbol: this.symbol } })
     },
+    repostUser: function (msg) {
+      let that = this
+      axios.post('moneycontrol/reportUser', { nick_name: msg.nick_name, user_id: msg.user_id }).then(resp => {
+        that.userMarkedSpan[msg.nick_name] = true
+        console.log(success)
+      }).catch(err => {
+        console.log(err)
+      })
+    }
   }
 }
 

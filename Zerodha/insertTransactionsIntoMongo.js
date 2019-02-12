@@ -65,7 +65,9 @@ function insertTxs(db) {
           dataToInsert._id = dataToInsert.Trade_ID
           zerodhaTransactionsCollection.insertOne(dataToInsert, (err, idoc) => {
             if (err) {
-              throw err
+              // throw err
+              console.log(err.message)
+              return
             }
             insertCount++
             console.log(insertCount, ' inserted transaction: ', dataToInsert.Trade_ID)

@@ -55,45 +55,55 @@ MongoClient.connect(url, function (err, db) {
       // console.log(docs.length)
       if (err) throw err;
       let count = 0
-      docs.forEach(doc => {
-        let index = count++
-        let clx = mydb.collection(doc.symbol + '_seconds_log')
-        // to get quote just after 1530 for updated closing price
-        let stopInterval = false
-        let interval = setInterval(() => {
-          let currentTime = momentTz().tz('asia/calcutta').format('HHmm')
+      let promises = docs.map(doc => {
+        let promise = new Promise((resolve, reject) => {
+          let index = count++
+          let clx = mydb.collection(doc.symbol + '_seconds_log')
+          // to get quote just after 1530 for updated closing price
+          let stopInterval = false
+          let interval = setInterval(() => {
+            let currentTime = momentTz().tz('asia/calcutta').format('HHmm')
 
 
-          // if (currentTime < '1530') {
-          axios.get(`https://priceapi-aws.moneycontrol.com/pricefeed/nse/equitycash/${doc.compid_imp}`).then(resp => {
-            let data = resp.data.data
-            // console.log(data.pricecurrent, data.VOL)
+            // if (currentTime < '1530') {
+            axios.get(`https://priceapi-aws.moneycontrol.com/pricefeed/nse/equitycash/${doc.compid_imp}`).then(resp => {
+              let data = resp.data.data
+              // console.log(data.pricecurrent, data.VOL)
 
-            let dateTime = todayDate + ' ' + data[0] // data[0] is time of the snapshot
-            data.date = todayDate
-            clx.updateOne({ _id: dateTime }, { $set: data }, { upsert: true }).then(result => {
-              console.log(index, 'inserted', doc.symbol, dateTime)
+              let dateTime = todayDate + ' ' + data[0] // data[0] is time of the snapshot
+              data.date = todayDate
+              clx.updateOne({ _id: dateTime }, { $set: data }, { upsert: true }).then(result => {
+                console.log(index, 'inserted', doc.symbol, dateTime)
+              })
+
+            }).catch(err => {
+              logClx.insertOne({ jobName: 'scrip_data_scraping', type: 'error', msg: `failed to fetch for symbol ${doc.symbol}, compid ${doc.compid_imp}`, response: err.response })
             })
+            // } else {
+            //   console.log(index, 'past market time, stoping job')
+            //   clearInterval(interval)
+            //   // db.close()
+            // }
 
-          }).catch(err => {
-            logClx.insertOne({ jobName: 'scrip_data_scraping', type: 'error', msg: `failed to fetch for symbol ${doc.symbol}, compid ${doc.compid_imp}`, response: err.response })
-          })
-          // } else {
-          //   console.log(index, 'past market time, stoping job')
-          //   clearInterval(interval)
-          //   // db.close()
-          // }
+            if (stopInterval) {
+              console.log(index, 'past market time, stoping job')
+              clearInterval(interval)
+              resolve()
+            }
 
-          if (currentTime > '1530') {
-            stopInterval = true
-          }
-          if (stopInterval) {
-            console.log(index, 'past market time, stoping job')
-            clearInterval(interval)
-          }
+            if (currentTime > '1530') {
+              stopInterval = true
+            }
 
-        }, 10000)
+          }, 10000)
+        })
+
+        return promise
       });
+
+      Promise.all(promises).then(values => {
+        db.close()
+      })
     })
   })
   //#endregion})

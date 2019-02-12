@@ -16,7 +16,7 @@ const holdingsComponent = {
   },
   created: function () {
     var that = this
-    let url = this.showDynamic ? '/holdings/dynamic-holdings' : '/holdings/holdings'
+    let url = this.showDynamic ? '/holdings/dynamic-holdings_v2' : '/holdings/holdings'
     if (window.stockHoldings) {
       this.setUpHoldigsData(window.stockHoldings)
     } else {

@@ -14,6 +14,7 @@ var crypto = require('crypto')
 // var routes = require('./routes').routes
 var path = require('path')
 var logger = require('morgan') // for loggind
+const logResponseTime = require("./helpers/response-time-logger");
 
 var mongoose = require('mongoose')
 
@@ -48,7 +49,7 @@ const staticMidlleware = express.static(path.join(__dirname, 'www'), {
   extensions: ['html'] // is required to serve files which are requested without extension
 })
 
-
+app.use(logResponseTime)
 app.use(staticMidlleware)
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({

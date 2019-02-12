@@ -1,14 +1,17 @@
+//@ts-check
+
 var express = require('express')
 var router = express.Router()
 var dbConnection = require('../dbConnection').dbConnection
 const URL = require('url')
 const nseList = require('../helpers/nseStockList')
-
+const _ = require('underscore')
 const MCManager = require('../MCMessageBoard.js')
 
 
 //constants
 const collectionName = 'MoneyControlMessages'
+let spamUserIds = null
 router.use((req, res, next) => {
   console.log('MoneyControlController')
   next()
@@ -46,15 +49,36 @@ router.get('/messages_alt', (req, res) => {
   const pgno = query.pgno
   const lmid = query.lmid
   const topicid = query.topicid
-  MCManager.getMessagesFromMC(topicid, pgno, lmid).then((result) => {
-    // console.log(result)
-    res.json(result.data)
 
-    // update 
-  }).catch((err) => {
-    console.error(err)
-    res.status(500).json({ msg: 'error' })
-  });
+  // if (!spamUserIds) {
+  //   dbConnection().collection('moneycontrol_spam_users').find().toArray().then(docs => {
+  //     spamUserIds = docs.map(d => d._id)
+  //     getMessages()
+  //   })
+  // } else {
+  //   getMessages()
+  // }
+  // function getMessages() {
+  let spamUserIds = []
+  dbConnection().collection('moneycontrol_spam_users').find().toArray().then(docs => {
+    MCManager.getMessagesFromMC(topicid, pgno, lmid).then((result) => {
+      // console.log(result)
+      if (docs) {
+        spamUserIds = docs.map(d => d._id)
+      }
+      let retData = _.filter(result.data, (msg) => {
+        return spamUserIds.indexOf(msg.user_id) < 0
+      })
+
+      res.status(200).json(retData)
+      // update 
+    }).catch((err) => {
+      console.error(err)
+      res.status(500).json({ msg: 'error' })
+    });
+  })
+
+  // }
 })
 
 router.get('/getTopicIDForSymbol', (request, res) => {
@@ -65,6 +89,7 @@ router.get('/getTopicIDForSymbol', (request, res) => {
 
   let topicIdCollection = dbConnection().collection('message_board_topicids')
   if (symbols) {
+    //@ts-ignore symbols is comma separated string
     let symbolsList = symbols.split(',')
     if (symbolsList.length > 0) {
       topicIdCollection.find({ symbol: { $in: symbolsList } }).toArray((err, arr) => {
@@ -92,6 +117,24 @@ router.get('/getTopicIDForSymbol', (request, res) => {
   }
 
 
+})
+
+router.post('/reportUser', (request, res) => {
+  // var url_parts = URL.parse(request.url, true);
+  // var query = url_parts.query;
+  // var symbol = query.symbol;
+  // var symbols = query.symbols;
+
+  // let nick_name = request.body.nick_name
+  console.log(request.body)
+
+  dbConnection().collection('moneycontrol_spam_users').insertOne({ _id: request.body.user_id, nick_name: request.body.nick_name }).then(() => {
+    dbConnection().collection('logs').insertOne({ jobName: 'moneycontrol_repost_spam_user', status: 'success', message: `${request.body.nick_name} has been reported for spam.` })
+    res.status(200).json()
+  }).catch(err => {
+    dbConnection().collection('logs').insertOne({ jobName: 'moneycontrol_repost_spam_user', status: 'failure', message: `failed to mark ${request.body.nick_name} as spam user.` })
+    res.status(500).json({ msg: 'failed to report user.' })
+  })
 })
 
 
