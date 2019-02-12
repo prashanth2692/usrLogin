@@ -72,7 +72,7 @@
           <li class="list-group-item" v-for="msg in messages" style="list-style:none">
             <div>By: <span v-text="msg.nick_name"></span> &nbsp; <span>time: {{msg.ent_date}}</span> &nbsp;
               <span>topicid:
-                {{msg.topicid}}</span> &nbsp; <span><button class="btn btn-sm" @click="repostUser(msg)" v-if="!userMarkedSpan[msg.nick_name]">Report user</button></span></div>
+                {{msg.topicid}}</span> &nbsp; <span><button class="btn btn-sm" @click="repostUser(msg)" v-if="!userMarkedSpam[msg.nick_name]">Report user</button></span></div>
             <div v-text="msg.full_message"></div>
           </li>
         </ul>

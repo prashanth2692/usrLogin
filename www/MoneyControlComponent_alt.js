@@ -12,7 +12,7 @@ const MoneyControlComponent = {
       priceChange: 0,
       symbol: null,
       transactions: null,
-      userMarkedSpan: {}
+      userMarkedSpam: {}
     }
   },
   created: function () {
@@ -69,7 +69,7 @@ const MoneyControlComponent = {
     repostUser: function (msg) {
       let that = this
       axios.post('moneycontrol/reportUser', { nick_name: msg.nick_name, user_id: msg.user_id }).then(resp => {
-        that.userMarkedSpan[msg.nick_name] = true
+        that.$set(that.userMarkedSpam, msg.nick_name, true)
         console.log(success)
       }).catch(err => {
         console.log(err)
