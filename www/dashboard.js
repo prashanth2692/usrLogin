@@ -48,12 +48,31 @@ const dashboardComponent = {
       axios.post('/addItem', { item: item })
         .then(function (response) {
           console.log(response)
-          vm.items.push(item)
+          vm.items.push({ itemValue: item })
         })
         .catch(function (err) {
           console.log(err)
         })
       return false
+    },
+    removeItem: function (id) {
+      let vm = this
+      axios.delete('/deleteItem/' + id).then(resp => function (params) {
+        vm.getItems()
+      }).catch(err => {
+        console.log(err)
+      })
+    },
+    getItems: function () {
+      var that = this
+      axios.get('/getItems')
+        .then((res) => {
+          that.items = res.data
+          console.log(res)
+        })
+        .catch(function (err) {
+          console.log(err)
+        })
     },
     uploadFile: function () {
       var file = document.getElementById('fileUpload').files[0]
@@ -71,15 +90,7 @@ const dashboardComponent = {
     }
   },
   created: function () {
-    var that = this
-    axios.get('/getItems')
-      .then((res) => {
-        that.items = res.data.response.items
-        console.log(res)
-      })
-      .catch(function (err) {
-        console.log(err)
-      })
+    this.getItems()
   }
 }
 

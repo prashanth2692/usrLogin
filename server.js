@@ -15,6 +15,7 @@ var crypto = require('crypto')
 var path = require('path')
 var logger = require('morgan') // for loggind
 const logResponseTime = require("./helpers/response-time-logger");
+const URL = require('url')
 
 var mongoose = require('mongoose')
 
@@ -116,49 +117,37 @@ router.post('/addItem', function (req, res) {
   // req.on('data', function (chunk) {
   var chunk = req.body.item
   if (chunk) {
-    dbConnection().collection('items').findOne(function (err, doc) {
-      if (err) res.status(500).send(false)
-
-      if (doc) {
-        // doc.items.push(chunk.toString())
-        dbConnection().collection('items').update({}, { $push: { items: chunk } })
-      }
-      else {
-        dbConnection().collection('items').insert({ items: [chunk] })
-      }
-
-      res.status(200).send(true)
+    dbConnection().collection('items').insertOne({ itemValue: chunk }).then(doc => {
+      res.status(200).send()
+    }).catch(err => {
+      res.status(500).send()
     })
+    // })
+  } else {
+    res.status(400).json({ msg: 'no item data.' })
   }
 
-  // })
-
-  //node way of doing it
-  // res.write('true')
-  // res.end()
-
-  // express way
 })
 
 router.get('/getItems', function (req, res) {
-  dbConnection().collection('items').findOne(function (err, doc) {
-    // if (doc) {
-    //   // doc.items.push(chunk.toString())
-    //   dbConnection().collection('items').update({}, {$push: {items: chunk.toString()}})
-    // }
-    // else {
-    //   dbConnection().collection('items').insert({ items: [chunk.toString()] })
-    // }
-    // res.writeHead(200, { 'Content-Type': 'application/json' });
-
-    //node way of doing it
-    // res.write(JSON.stringify({ response: (doc ? doc : { items: [] }) }))
-    // res.end()
-
-    //express way
-    // res.set('Content-Type', 'application/json');
-    res.status(200).json({ response: (doc ? doc : { items: [] }) })
+  dbConnection().collection('items').find({}).toArray().then(function (docs) {
+    res.status(200).json(docs ? docs : [])
+  }).catch(err => {
+    res.status(500).send({ msg: 'failed to fetch items' })
   })
+})
+
+router.delete('/deleteItem/:id', function (req, res) {
+  var url_parts = URL.parse(req.url, true);
+  var query = url_parts.query;
+  var id = query.id;
+  if (id) {
+    dbConnection().collection('items').removeOne({ _id: id }).then(result => {
+      res.status(200).send()
+    }).catch(err => {
+      res.status(500).json({ msg: 'failed to remove item.' })
+    })
+  }
 })
 
 router.post('/fuelRefilling', function (req, res) {

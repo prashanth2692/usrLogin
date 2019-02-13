@@ -34,12 +34,13 @@ const dbConstants = require('./helpers/dbConstants')
 // });
 
 
-let rCom_COmpiID = 'RCV02'
+// let rCom_COmpiID = 'RCV02'
 var url = "mongodb://localhost:27017/"
 
-MongoClient.connect(url, function (err, db) {
+MongoClient.connect(url, { useNewUrlParser: true }, function (err, db) {
   if (err) {
     // res.status(500).send(err.message)
+    console.log(err)
     return
   };
   const mydb = db.db('mydb')
@@ -74,6 +75,12 @@ MongoClient.connect(url, function (err, db) {
               data.date = todayDate
               clx.updateOne({ _id: dateTime }, { $set: data }, { upsert: true }).then(result => {
                 console.log(index, 'inserted', doc.symbol, dateTime)
+
+                if (stopInterval) {
+                  console.log(index, 'past market time, stoping job')
+                  clearInterval(interval)
+                  resolve()
+                }
               })
 
             }).catch(err => {
@@ -85,11 +92,7 @@ MongoClient.connect(url, function (err, db) {
             //   // db.close()
             // }
 
-            if (stopInterval) {
-              console.log(index, 'past market time, stoping job')
-              clearInterval(interval)
-              resolve()
-            }
+
 
             if (currentTime > '1530') {
               stopInterval = true

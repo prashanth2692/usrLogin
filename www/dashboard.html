@@ -72,7 +72,8 @@
           <li class="list-group-item" v-for="msg in messages" style="list-style:none">
             <div>By: <span v-text="msg.nick_name"></span> &nbsp; <span>time: {{msg.ent_date}}</span> &nbsp;
               <span>topicid:
-                {{msg.topicid}}</span> &nbsp; <span><button class="btn btn-sm" @click="repostUser(msg)" v-if="!userMarkedSpam[msg.nick_name]">Report user</button></span></div>
+                {{msg.topicid}}</span> &nbsp; <span><button class="btn btn-sm" @click="repostUser(msg)"
+                  v-if="!userMarkedSpam[msg.nick_name]">Report user</button></span></div>
             <div v-text="msg.full_message"></div>
           </li>
         </ul>
@@ -172,7 +173,12 @@
       </form>
 
       <ul class="list-group">
-        <li class="list-group-item" v-for="item in items">{{item}}</li>
+        <li class="list-group-item" v-for="item in items">
+          <div>
+            <span>{{item.itemValue}}</span>
+            <div style="display: inline"> <button class="btn btn-sm" @click="removeItem(item._id)">Remove</button></div>
+          </div>
+        </li>
       </ul>
     </div>
   </template>
