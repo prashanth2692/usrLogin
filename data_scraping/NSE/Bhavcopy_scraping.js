@@ -27,7 +27,7 @@ MongoClient.connect(url, { useNewUrlParser: true }, function (err, db) {
 async function getStartDate(db) {
   let mydb = db.db('mydb')
   let scrapingStatusColx = mydb.collection('bhavcopy_scraping_status')
-  let docs = await scrapingStatusColx.find({}).sort({ _id: -1 }).toArray()
+  let docs = await scrapingStatusColx.find({}).sort({ _id: 1 }).toArray()
 
   let retValue = null
   if (docs && docs.length > 0) {
@@ -62,7 +62,7 @@ async function run(db) {
   const nseBhavcopyUrl = new URL('https://www.nseindia.com/ArchieveSearch')
 
   logsClx.insertOne({ jobName: JOB_NAME, jobId: JOB_UUID, message: `scraping started from date ${today.format('YYYY-MM-DD')}`, status: 'info', craeted_date: new Date() })
-  setInterval(() => {
+  let interval = setInterval(() => {
     // run infinite loop with 10 sec interval to scrap data
     const nseBhavcopyQueryParams = new URLSearchParams({
       h_filetype: 'eqbhav',
@@ -77,6 +77,10 @@ async function run(db) {
     initiateScraping(nseBhavcopyUrl, moment(today), mydb)
 
     today = today.subtract(1, 'd')
+    if (today.format('YYYY-MM-DD') < '1994-11-03') {
+      clearInterval(interval)
+      logsClx.insertOne({ jobName: JOB_NAME, jobId: JOB_UUID, message: `reacehd the date 1994-11-03 which is the trade start date of NSE`, status: 'info', craeted_date: new Date() })
+    }
   }, 2000)
 }
 
