@@ -11,7 +11,12 @@ const holdingsComponent = {
       symbolsData: [],
       totalChange: 0,
       totalPercentChange: 0,
-      showDynamic: true
+      showDynamic: true,
+      toggleColumns: false,
+      investedValue: 0, //total invesed amount
+      currentValue: 0, //total value at market value
+      investedValueDisp: 0, //total invesed amount for display
+      currentValueDisp: 0 //total value at market value for display
     }
   },
   created: function () {
@@ -22,6 +27,20 @@ const holdingsComponent = {
     } else {
       axios.get(url)
         .then((res) => {
+          if (res && res.data && res.data.length > 0) {
+            res.data.forEach(h => {
+              h.investedValue = (h.allocated_quantity * Number(h.avgPrice))
+              h.investedValueDisp = h.investedValue.toLocaleString('en-IN', {
+                maximumFractionDigits: 2,
+                // style: 'currency',
+                // currency: 'INR'
+              })
+              that.investedValue += h.investedValue
+            })
+            that.investedValueDisp = that.investedValue.toLocaleString('en-IN', {
+              maximumFractionDigits: 2,
+            })
+          }
           window.stockHoldings = res.data
           that.setUpHoldigsData(res.data)
         })
@@ -114,12 +133,18 @@ const holdingsComponent = {
 
             h.low52wDiff = (symbolData.pricechange - l52) * 100 / l52
             h.high52wDiff = (symbolData.pricechange - h52) * 100 / h52
+            h.currentValue = h.allocated_quantity * Number(symbolData.pricecurrent)
+            h.currentValueDisp = h.currentValue.toLocaleString('en-IN', {
+              maximumFractionDigits: 2,
+            })
+            that.currentValue += h.currentValue
 
             that.totalChange += symbolData.pricechange * h.allocated_quantity
             h.percentChange = (symbolData.pricechange * 100) / (symbolData.pricecurrent - symbolData.pricechange)
 
             //convert string to number
             h.avgPrice = Number(h.avgPrice)
+            h.overallChange = Number(((symbolData.pricecurrent - h.avgPrice) * h.allocated_quantity).toFixed(2))
             h.overallPercentChange = (symbolData.pricecurrent - h.avgPrice) * 100 / h.avgPrice
 
             yesterdaysValue += (symbolData.pricecurrent - symbolData.pricechange) * h.allocated_quantity
@@ -128,12 +153,36 @@ const holdingsComponent = {
 
         })
 
+        that.currentValueDisp = that.currentValue.toLocaleString('en-IN', {
+          maximumFractionDigits: 2,
+        })
+
         that.totalPercentChange = ((todaysValue - yesterdaysValue) * 100 / yesterdaysValue).toFixed(2)
       })
     },
     openChart: function (symbol) {
       this.$router.push({ path: '/charts', query: { symbol } })
     },
+  },
+  computed: {
+    overallChange: function () {
+      let retval = this.currentValue - this.investedValue
+      if (retval) {
+        return retval.toLocaleString('en-IN', {
+          maximumFractionDigits: 2,
+        })
+      } else {
+        return 0
+      }
+    },
+    overallPercentchange: function () {
+      let retval = (this.currentValue - this.investedValue) * 100 / this.investedValue
+      if (retval) {
+        return retval.toFixed(2)
+      } else {
+        return 0
+      }
+    }
   }
 }
 

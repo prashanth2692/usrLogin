@@ -2,8 +2,8 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
   <link rel="stylesheet" href="./css/styles.css?v=1">
 </head>
 
@@ -72,8 +72,8 @@
           <li class="list-group-item" v-for="msg in messages" style="list-style:none">
             <div>By: <span v-text="msg.nick_name"></span> &nbsp; <span>time: {{msg.ent_date}}</span> &nbsp;
               <span>topicid:
-                {{msg.topicid}}</span> &nbsp; <span><button class="btn btn-sm" @click="repostUser(msg)"
-                  v-if="!userMarkedSpam[msg.nick_name]">Report user</button></span></div>
+                {{msg.topicid}}</span> &nbsp; <span><button class="btn btn-sm" @click="repostUser(msg)" v-if="!userMarkedSpam[msg.nick_name]">Report
+                  user</button></span></div>
             <div v-text="msg.full_message"></div>
           </li>
         </ul>
@@ -101,49 +101,76 @@
     <div>
       <div>
         <button @click="refresh">Refresh</button>
+        <button @click="toggleColumns = !toggleColumns">Toggle columns</button>
         <table class="table table-dark table-striped table-bordered table-sm table-responsive">
           <thead>
             <th scope="col" @click="sortData('symbol')" class="unselectable">Symbol</th>
             <th scope="col" @click="sortData('allocated_quantity')" class="unselectable">Quantity</th>
             <th scope="col" @click="sortData('avgPrice')" class="unselectable">Avg Price</th>
-            <th scope="col" class="unselectable">CMP</th>
-            <th scope="col" @click="sortData('percentChange')" class="unselectable">%change(day)</th>
-            <th scope="col" @click="sortData('overallPercentChange')" class="unselectable">%change</th>
-            <th scope="col" @click="sortData('pricechange')" class="unselectable">change</th>
-            <th scope="col" @click="sortData('low52wDiff')" class="unselectable">52W Low</th>
-            <th scope="col" @click="sortData('high52wDiff')" class="unselectable">52W High</th>
-            <th scope="col" class="unselectable">chart</th>
+            <template v-if="toggleColumns">
+              <th scope="col" class="unselectable">CMP</th>
+              <th scope="col" @click="sortData('percentChange')" class="unselectable">%change(day)</th>
+              <th scope="col" @click="sortData('overallPercentChange')" class="unselectable">%change</th>
+              <th scope="col" @click="sortData('pricechange')" class="unselectable">change</th>
+              <th scope="col" @click="sortData('low52wDiff')" class="unselectable">52W Low</th>
+              <th scope="col" @click="sortData('high52wDiff')" class="unselectable">52W High</th>
+              <th scope="col" class="unselectable">chart</th>
+            </template>
+            <template v-else>
+              <th scope="col" class="unselectable">CMP</th>
+              <th scope="col" class="unselectable" @click="sortData('investedValue')">Invested Val</th>
+              <th scope="col" class="unselectable" @click="sortData('currentValue')">Current Val</th>
+              <th scope="col" class="unselectable" @click="sortData('overallChange')">Gain/Loss</th>
+              <th scope="col" class="unselectable" @click="sortData('overallPercentChange')">(Gain/Loss)%</th>
+            </template>
           </thead>
           <tbody>
             <tr v-for="holding in holdings" style="cursor: pointer">
               <td v-text="holding.symbol" @click="getTopicId(holding.symbol)"></td>
               <td v-text="holding.allocated_quantity"></td>
               <td v-text="holding.avgPrice"></td>
-              <template v-if="cmpObj[holding.symbol]">
-                <td v-text="cmpObj[holding.symbol].pricecurrent"></td>
-                <td v-text="holding.percentChange && holding.percentChange.toFixed(2) + '%'"
-                  :style="{color: holding.percentChange >= 0 ? 'greenyellow' : 'red'}"></td>
-                <td v-text="holding.overallPercentChange && holding.overallPercentChange.toFixed(2) + '%'"
-                  :style="{color: holding.overallPercentChange >= 0 ? 'greenyellow' : 'red'}"></td>
-                <td v-text="holding.pricechange = Number(cmpObj[holding.symbol].pricechange)"
-                  :style="{color: holding.pricechange >= 0 ? 'greenyellow' : 'red'}"></td>
-                <td v-text="cmpObj[holding.symbol]['52L']" class="low52w" style="color:red"></td>
-                <td v-text="cmpObj[holding.symbol]['52H']" class="high52w" style="color:greenyellow"></td>
+              <template v-if="toggleColumns">
+                <template v-if="cmpObj[holding.symbol]">
+                  <td v-text="cmpObj[holding.symbol].pricecurrent"></td>
+                  <td v-text="holding.percentChange && holding.percentChange.toFixed(2) + '%'" :style="{color: holding.percentChange >= 0 ? 'greenyellow' : 'red'}"></td>
+                  <td v-text="holding.overallPercentChange && holding.overallPercentChange.toFixed(2) + '%'" :style="{color: holding.overallPercentChange >= 0 ? 'greenyellow' : 'red'}"></td>
+                  <td v-text="holding.pricechange = Number(cmpObj[holding.symbol].pricechange)" :style="{color: holding.pricechange >= 0 ? 'greenyellow' : 'red'}"></td>
+                  <td v-text="cmpObj[holding.symbol]['52L']" class="low52w" style="color:red"></td>
+                  <td v-text="cmpObj[holding.symbol]['52H']" class="high52w" style="color:greenyellow"></td>
+                </template>
+                <template v-else>
+                  <td v-for="x in 6">-</td>
+                </template>
+                <td @click="openChart(holding.symbol)" class="chart_logo"></td>
               </template>
               <template v-else>
-                <td v-for="x in 6">-</td>
+                <td v-text="cmpObj[holding.symbol] ? cmpObj[holding.symbol].pricecurrent : '0'"></td>
+                <td v-text="holding.investedValueDisp"></td>
+                <td v-text="holding.currentValueDisp"></td>
+                <td v-text="holding.overallChange" :style="{color: (holding.currentValue -holding.investedValue) >= 0 ? 'greenyellow' : 'red' }"></td>
+                <td v-text="holding.overallPercentChange ? holding.overallPercentChange.toFixed(2) : 0" :style="{color: (holding.currentValue -holding.investedValue) >= 0 ? 'greenyellow' : 'red' }"></td>
               </template>
-              <td @click="openChart(holding.symbol)" class="chart_logo"></td>
             </tr>
-            <tr>
-              <td colspan="2" style="text-align: right">Total change</td>
-              <td v-for="x in 3"></td>
-              <td v-text="totalPercentChange + '%'" :style="{color: totalPercentChange >= 0 ? 'greenyellow' : 'red'}">
-              </td>
-              <td v-text="totalChange && totalChange.toFixed(2)"
-                :style="{color: totalChange >= 0 ? 'greenyellow' : 'red'}"></td>
-              <td v-for="x in 2"></td>
-            </tr>
+            <template v-if="toggleColumns">
+              <tr>
+                <td colspan="2" style="text-align: right">Total change</td>
+                <td v-for="x in 3"></td>
+                <td v-text="totalPercentChange + '%'" :style="{color: totalPercentChange >= 0 ? 'greenyellow' : 'red'}">
+                </td>
+                <td v-text="totalChange && totalChange.toFixed(2)" :style="{color: totalChange >= 0 ? 'greenyellow' : 'red'}"></td>
+                <td v-for="x in 2"></td>
+              </tr>
+            </template>
+            <template v-else>
+              <tr>
+                <td>Gain/Loss</td>
+                <td v-for="x in 3"></td>
+                <td v-text="investedValueDisp"></td>
+                <td v-text="currentValueDisp"></td>
+                <td v-text="overallChange" :style="{color: overallChange >= 0 ? 'greenyellow' : 'red' }"></td>
+                <td v-text="overallPercentchange + '%'" :style="{color: overallPercentchange >= 0 ? 'greenyellow' : 'red' }"></td>
+              </tr>
+            </template>
           </tbody>
         </table>
       </div>
@@ -186,12 +213,12 @@
 
 <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
 <!-- <script src="./3rdParty/hammer.js"></script> -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js?v=2"
-  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js?v=1"
-  integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js?v=1"
-  integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js?v=2" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js?v=1" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+  crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js?v=1" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+  crossorigin="anonymous"></script>
 <script src="./3rdParty/vue.js"></script>
 <!-- <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script> -->
 <script src="./3rdParty/vue-router.js"></script>
