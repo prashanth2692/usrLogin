@@ -2,6 +2,7 @@ var fs = require('fs')
 const express = require('express')
 const bodyParser = require('body-parser')
 var dbConnection = require('./dbConnection').dbConnection
+const mongoObjectId = require('mongodb').ObjectID
 const moneyControlController = require('./controllers/MoneyControlController')
 const holdingsController = require('./controllers/holdingsController')
 const chartsController = require("./controllers/chartsController")
@@ -118,7 +119,7 @@ router.post('/addItem', function (req, res) {
   var chunk = req.body.item
   if (chunk) {
     dbConnection().collection('items').insertOne({ itemValue: chunk }).then(doc => {
-      res.status(200).send()
+      res.status(200).json(doc.ops[0])
     }).catch(err => {
       res.status(500).send()
     })
@@ -130,7 +131,7 @@ router.post('/addItem', function (req, res) {
 })
 
 router.get('/getItems', function (req, res) {
-  dbConnection().collection('items').find({}).toArray().then(function (docs) {
+  dbConnection().collection('items').find({ deleted: { $exists: false } }).toArray().then(function (docs) {
     res.status(200).json(docs ? docs : [])
   }).catch(err => {
     res.status(500).send({ msg: 'failed to fetch items' })
@@ -140,9 +141,10 @@ router.get('/getItems', function (req, res) {
 router.delete('/deleteItem/:id', function (req, res) {
   var url_parts = URL.parse(req.url, true);
   var query = url_parts.query;
-  var id = query.id;
+  var id = req.params.id;
+  console.log(id)
   if (id) {
-    dbConnection().collection('items').removeOne({ _id: id }).then(result => {
+    dbConnection().collection('items').updateOne({ _id: mongoObjectId(id) }, { $set: { deleted: true } }).then(result => {
       res.status(200).send()
     }).catch(err => {
       res.status(500).json({ msg: 'failed to remove item.' })

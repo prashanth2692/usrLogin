@@ -12,7 +12,7 @@ const holdingsComponent = {
       totalChange: 0,
       totalPercentChange: 0,
       showDynamic: true,
-      toggleColumns: false,
+      toggleColumns: true,
       investedValue: 0, //total invesed amount
       currentValue: 0, //total value at market value
       investedValueDisp: 0, //total invesed amount for display

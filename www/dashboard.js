@@ -47,8 +47,8 @@ const dashboardComponent = {
       var vm = this
       axios.post('/addItem', { item: item })
         .then(function (response) {
-          console.log(response)
-          vm.items.push({ itemValue: item })
+          vm.newItem = ''
+          vm.items.push(response.data)
         })
         .catch(function (err) {
           console.log(err)
@@ -57,7 +57,7 @@ const dashboardComponent = {
     },
     removeItem: function (id) {
       let vm = this
-      axios.delete('/deleteItem/' + id).then(resp => function (params) {
+      axios.delete('/deleteItem/' + id).then(resp => {
         vm.getItems()
       }).catch(err => {
         console.log(err)
