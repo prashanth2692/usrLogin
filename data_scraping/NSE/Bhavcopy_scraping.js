@@ -31,7 +31,7 @@ async function getStartDate(db) {
 
   let retValue = null
   if (docs && docs.length > 0) {
-    retValue = docs[0]
+    retValue = docs[docs.length - 1]
   }
 
   return retValue
@@ -48,25 +48,32 @@ async function run(db) {
   let lastFetchedDate = await getStartDate(db)
 
   let today = moment()
+  let startDate = null
   if (lastFetchedDate) {
     // console.log(lastFetchedDate);
-    today = moment(lastFetchedDate._id).subtract(1, 'd')
+    // today = moment(lastFetchedDate._id).add(1, 'd')
+    startDate = moment(lastFetchedDate._id).add(1, 'd')
     // console.log(today.format('YYYY-MM-DD'))
 
     // to short circuit execution
     // db.close()
     // return
+  } else {
+    // Scrapping isn't started yet, need to start from the beginning of NSE trading
+    // set startDate date to day of NSE trading start date
+    startDate = moment('1994-11-03')
   }
 
-  console.log(`fetching from ${today.format('YYYY-MM-DD')}`)
+  console.log(`fetching from ${startDate.format('YYYY-MM-DD')}`)
   const nseBhavcopyUrl = new URL('https://www.nseindia.com/ArchieveSearch')
 
-  logsClx.insertOne({ jobName: JOB_NAME, jobId: JOB_UUID, message: `scraping started from date ${today.format('YYYY-MM-DD')}`, status: 'info', craeted_date: new Date() })
+  let currDate = startDate
+  logsClx.insertOne({ jobName: JOB_NAME, jobId: JOB_UUID, message: `scraping started from date ${startDate.format('YYYY-MM-DD')}`, status: 'info', craeted_date: new Date() })
   let interval = setInterval(() => {
     // run infinite loop with 10 sec interval to scrap data
     const nseBhavcopyQueryParams = new URLSearchParams({
       h_filetype: 'eqbhav',
-      date: today.format('DD-MM-YYYY'), // '01-02-2008', //moment().subtract(1, 'd').format('DD-MM-YYYY'),
+      date: currDate.format('DD-MM-YYYY'), // '01-02-2008', //moment().subtract(1, 'd').format('DD-MM-YYYY'),
       // date: '02-02-2008', //moment().subtract(1, 'd').format('DD-MM-YYYY'),
       section: 'EQ'
     })
@@ -74,12 +81,12 @@ async function run(db) {
     console.log(nseBhavcopyUrl.href)
     // axios.get(messageBoardURL.href)
 
-    initiateScraping(nseBhavcopyUrl, moment(today), mydb)
+    initiateScraping(nseBhavcopyUrl, moment(currDate), mydb)
 
-    today = today.subtract(1, 'd')
-    if (today.format('YYYY-MM-DD') < '1994-11-03') {
+    currDate = currDate.add(1, 'd')
+    if (currDate.format('YYYY-MM-DD') >= today.format('YYYY-MM-DD')) {
       clearInterval(interval)
-      logsClx.insertOne({ jobName: JOB_NAME, jobId: JOB_UUID, message: `reacehd the date 1994-11-03 which is the trade start date of NSE`, status: 'info', craeted_date: new Date() })
+      logsClx.insertOne({ jobName: JOB_NAME, jobId: JOB_UUID, message: `Fetched all docs till date ${today.format('YYYY-MM-DD')}`, status: 'info', craeted_date: new Date() })
     }
   }, 2000)
 }
