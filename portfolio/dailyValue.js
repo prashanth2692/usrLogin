@@ -8,6 +8,8 @@ const JOB_NAME = 'calculate_daily_portfolio_value'
 const logs = logsFactory(JOB_NAME)
 const holdingsHelper = require('./holdingsHelper')
 
+const fs = require('fs')
+
 dbConnection.then(db => {
     console.log('received connection!')
     run(db)
@@ -68,13 +70,20 @@ async function run(db) {
         let curDate = txList[txList.length - 1].trade_date
         console.log(index, curDate)
         let holdings = holdingsHelper.calculateHoldings(holdingsHelper.groupTxByBroker(txList))
-        let invesedAmount =  holdings.reduce((total, current) => {
+        let invesedAmount = holdings.reduce((total, current) => {
             return total + current.allocated_quantity * current.avgPrice
         }, 0)
         investedAmountObj[curDate] = invesedAmount
     })
 
     console.log(investedAmountObj)
+
+    //writing to a file
+    fs.writeFile('./dailyValue.json', JSON.stringify(investedAmountObj), (err) => {
+        if (err) throw err
+
+        console.log('written to file')
+    })
 
     // let transactionsByDate = await transactionClx.aggregate([{ $group: { _id: '$trade_date', txs: { $push: '$$ROOT' } } }]).sort({ _id: 1 }).toArray()
     // console.log(transactionsByDate)

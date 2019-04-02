@@ -9,7 +9,7 @@ var url = "mongodb://localhost:27017/"
 const JOB_NAME = 'zerodha_holdings_report'
 const dbConstants = require('../helpers/dbConstants')
 
-createDBConnection(url)
+// createDBConnection(url)
 
 function createDBConnection(url) {
     MongoClient.connect(url, function (err, db) {

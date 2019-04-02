@@ -7,6 +7,7 @@ const moneyControlController = require('./controllers/MoneyControlController')
 const holdingsController = require('./controllers/holdingsController')
 const chartsController = require("./controllers/chartsController")
 const portfolioController = require("./controllers/portfolioController")
+const investmentrendController = require('./controllers/investmentTrendController')
 // var upload_files = require('./file_upload')
 var formidable = require('formidable');
 // var http = require('http')
@@ -194,6 +195,8 @@ app.use('/moneycontrol', moneyControlController)
 app.use('/holdings', holdingsController)
 app.use('/charts', chartsController)
 app.use('/portfolio', portfolioController)
+app.use('/investment', investmentrendController)
+
 app.use(router)
 app.listen(port, () => {
   console.log('listening on port ', port)
