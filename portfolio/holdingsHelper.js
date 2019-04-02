@@ -2,6 +2,38 @@
 const columnify = require('columnify')
 const _ = require("underscore")
 
+
+const ICICI_DIRECT = 'icici_direct'
+const ZERODHA = 'zerodha'
+
+/**
+ * Returns txs grouped by broker as obj keys 
+ * @param {*} txs 
+ */
+function groupTxByBroker(txs) {
+  if (!txs) {
+    return {}
+  }
+
+  let retObj = {
+    'icici_direct': {
+      allTxs: []
+    },
+    'zerodha': {
+      allTxs: []
+    }
+  }
+  txs.forEach(tx => {
+    if (tx.broker === ICICI_DIRECT) {
+      retObj[ICICI_DIRECT].allTxs.push(tx)
+    } else {
+      retObj[ZERODHA].allTxs.push(tx)
+    }
+  })
+
+  return retObj
+}
+
 function calculateHoldings(txByBroker) {
   let consolidatedHoldingsPerBorker = {
     // 'zerodha': {},
@@ -24,7 +56,11 @@ function calculateHoldings(txByBroker) {
   return holdings
 }
 
-
+/**
+ * groups transactions list by symbol and furthur by date
+ * @param {*} txList 
+ * @returns {*} Object of symbols as object of transactions by date as keys and transactions as value.
+ */
 function groupTxBySymbolAndDate(txList) {
   let retObj = {}
 
@@ -48,7 +84,11 @@ function groupTxBySymbolAndDate(txList) {
   return retObj
 }
 
-
+/**
+ * Reduce the given transactions to a transaction of either buy or sell
+ * This methd should be used on intraday trades of a single symbol, to calcuate avg trade value
+ * @param {*} txs 
+ */
 function reduceToSingleTxType(txs) {
   // holds buy txs
   let buyTxs = []
@@ -73,19 +113,20 @@ function reduceToSingleTxType(txs) {
       if (buyTxs.length > 0) {
         // both buy and sell transactions, accounts for intraday trading
         while (sellTxs.length) {
-          let sellQty = sellTxs[0].quantity
-          while (sellQty > 0) {
-            // repeatedly copare against buy tx to reduce sell qty count
+          // let sellQty = sellTxs[0].quantity
+          let sellTx = sellTxs[0]
+          while (sellTx.quantity > 0) {
+            // repeatedly compare against buy tx to reduce sell qty count
             if (buyTxs.length > 0) {
               let fstBuy = buyTxs[0]
-              if (fstBuy.quantity <= sellQty) {
+              if (fstBuy.quantity <= sellTx.quantity) {
                 // if buy qty <= sell qty, remove buy transaction 
                 // and reduce sell qty buy removed buy tx qty
                 buyTxs.shift()
-                sellQty -= fstBuy.quantity
+                sellTx.quantity -= fstBuy.quantity
               } else {
-                fstBuy.quantity -= sellQty
-                sellQty = 0
+                fstBuy.quantity -= sellTx.quantity
+                sellTx.quantity = 0
               }
             } else {
               // if no buy tx, break
@@ -94,7 +135,7 @@ function reduceToSingleTxType(txs) {
           }
 
 
-          if (sellQty == 0) {
+          if (sellTx.quantity == 0) {
             // if current sell qty matches buy qty
             // remove the sell tx
             sellTxs.shift()
@@ -126,6 +167,10 @@ function reduceToSingleTxType(txs) {
   }
 }
 
+/**
+ * Calulate the Avg value and total Qty holding from the list of transactions for a symbol
+ * @param {*} txsByDate 
+ */
 function calculateAvgPrice(txsByDate) {
   let dates = Object.keys(txsByDate)
   dates.sort() // sorts dates in ascending order
@@ -172,9 +217,9 @@ function calculateAvgPrice(txsByDate) {
     }
   }
 
-  // hopefully, only buy txs should be left
+  // hopefully, only buy txs should be left if any
   let tempTx = txsByDate[dates[0]][0]
-  console.log(tempTx.broker, tempTx.symbol, `buy qty: ${buyTxs.length}, sell qty:${sellTxs.length}`)
+  // console.log(tempTx.broker, tempTx.symbol, `buy qty: ${buyTxs.length}, sell qty:${sellTxs.length}`)
 
   let avgPrice = 0
   let totalQty = 0
@@ -184,7 +229,7 @@ function calculateAvgPrice(txsByDate) {
       totalQty += bt.quantity
     })
   }
-  console.log(tempTx.broker, tempTx.symbol, `total Qty: ${totalQty}, avg price: ${avgPrice}`)
+  // console.log(tempTx.broker, tempTx.symbol, `total Qty: ${totalQty}, avg price: ${avgPrice}`)
 
   return {
     totalQty,
@@ -193,7 +238,11 @@ function calculateAvgPrice(txsByDate) {
 
 }
 
-
+/**
+ * consolidates holdings form multiple accounts
+ * In this case zerodha and ICICI Direct
+ * @param {*} holdingsPerBroker 
+ */
 function CalculateOverallHoldings(holdingsPerBroker) {
   let brokers = Object.keys(holdingsPerBroker)
   let finalHoldings = {}
@@ -221,7 +270,11 @@ function CalculateOverallHoldings(holdingsPerBroker) {
 
 }
 
-
+/**
+ * Pertty print holdings
+ * @param {*} holdings 
+ * @param {*} print 
+ */
 function pretyPrintHoldings(holdings, print) {
   // prety printing
   let columnsToPrint = []
@@ -245,6 +298,7 @@ function pretyPrintHoldings(holdings, print) {
       }
     )
     console.log(columns)
+    // console.log(`\n----------------------------------------`)
   }
 
   return columnsToPrint
@@ -252,6 +306,7 @@ function pretyPrintHoldings(holdings, print) {
 
 
 module.exports = {
+  groupTxByBroker,
   calculateHoldings
   // groupTxBySymbolAndDate,
   // reduceToSingleTxType,

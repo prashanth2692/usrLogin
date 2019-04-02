@@ -6,6 +6,7 @@ const moment = require('moment')
 const _ = require('underscore')
 const JOB_NAME = 'calculate_daily_portfolio_value'
 const logs = logsFactory(JOB_NAME)
+const holdingsHelper = require('./holdingsHelper')
 
 dbConnection.then(db => {
     console.log('received connection!')
@@ -36,12 +37,48 @@ async function run(db) {
     let investmentStartDate = firstTransaction[0].date
     console.log(moment(investmentStartDate).format('YYYY-MM-DD'))
 
-    // 1) get all transactions by date
+    // Get dates of transactions
     let transactionDates = await transactionClx.distinct('trade_date')
     transactionDates = _.sortBy(transactionDates)
+    console.log(transactionDates.length)
 
-    let transactionsByDate = await transactionClx.aggregate([{ $group: { _id: '$trade_date', txs: { $push: '$$ROOT' } } }]).sort({ _id: 1 }).toArray()
-    console.log(transactionsByDate)
+    // forEach loop doens't wait for all async furntion to resolve
+    // Execution will move furthur without waiting for the all async to resolve
+    // transactionDates.forEach(async date => {
+    //     let txs = await transactionClx.find({ 'trade_date': { $lte: date } }).sort({date: 1}).toArray()
+    //     console.log(txs.length)
+    // });
+
+    // below code will execute awaits sequentially
+    // i.e., only after a await is resolved, the loop proceedes with next iteration 
+    // for (const date of transactionDates) {
+    //     let txs = await transactionClx.find({ 'trade_date': { $lte: date } }).sort({date: 1}).toArray()
+    // }
+
+    let promises = transactionDates.map(date => {
+        return transactionClx.find({ 'trade_date': { $lte: date } }).sort({ date: 1 }).toArray()
+    })
+
+    let txsByDate = await Promise.all(promises)
+
+    // let count = 1
+    let investedAmountObj = {}
+    txsByDate.forEach((txList, index) => {
+        // console.log(txByDate.length)
+        let curDate = txList[txList.length - 1].trade_date
+        console.log(index, curDate)
+        let holdings = holdingsHelper.calculateHoldings(holdingsHelper.groupTxByBroker(txList))
+        let invesedAmount =  holdings.reduce((total, current) => {
+            return total + current.allocated_quantity * current.avgPrice
+        }, 0)
+        investedAmountObj[curDate] = invesedAmount
+    })
+
+    console.log(investedAmountObj)
+
+    // let transactionsByDate = await transactionClx.aggregate([{ $group: { _id: '$trade_date', txs: { $push: '$$ROOT' } } }]).sort({ _id: 1 }).toArray()
+    // console.log(transactionsByDate)
+    // 1) get all transactions by date
     // 2) generate holdings, for which daily value will be calculated
     // 3) start walking from the frist investment date
     // 4) when a transaction date is encountered, update holdings
