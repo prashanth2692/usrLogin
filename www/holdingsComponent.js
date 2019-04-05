@@ -101,7 +101,7 @@ const holdingsComponent = {
       })
     },
 
-    // Get live data from MoneyCOntrol API
+    // Get live data from MoneyControl API
     getMCCMPData: function (data) {
       let promises = []
       let that = this
@@ -120,6 +120,7 @@ const holdingsComponent = {
       axios.all(promises).then(resps => {
         that.totalChange = 0
         that.totalPercentChange = 0
+        that.currentValue = 0
         let yesterdaysValue = 0
         let todaysValue = 0
 
