@@ -1,18 +1,19 @@
 var AdmZip = require('adm-zip');
 const path = require('path')
 const fs = require('fs')
-// reading archives
-
 let moment = require('moment')
 const csv = require('csvtojson')
-const MongoClient = require('mongodb').MongoClient
 const uuid = require('uuid/v1')
+const MongoClient = require('mongodb').MongoClient
 
+// App constants
 const JOB_NAME = 'nse_bhavcopy_to_db_trial'
 const JOB_UUID = uuid()
+const uri = 'mongodb://localhost:27017/'
+const BHAVCOPY_FNAME_DATE_FORMAT = 'DDMMMYYYY'
+const SORTABLE_DATE_FORMAT = 'DD-MM-YYYY'
 
 // Initialize the connection as a promise:
-const uri = 'mongodb://localhost:27017/'
 MongoClient.connect(uri, function (err, db) {
   if (err) throw err;
 
@@ -37,41 +38,95 @@ let monthStrToNumMap = {
   'DEC': '12'
 }
 
+let insertCount = {
+  counter: 0,
+  get increment() {
+    this.counter += 1
+    return this.counter
+  },
+  set decrement(db) {
+    this.counter -= 1
+    if (this.counter == 0) {
+      console.log('closed db connection')
+      logsCollection.insertOne(new log('info', `Finished job ${JOB_NAME} ${JOB_UUID}`))
+      db.close()
+    }
+  }
+}
+
 function main(db) {
   let myDb = db.db('mydb')
   let logsClx = myDb.collection('logs')
   const dayQuotesCollection = myDb.collection('dayQuotes_nse')
   dayQuotesCollection.find({}).sort({ TIMESTAMP: -1 }).limit(1).toArray((err, latestRecord) => {
-    console.log(latestRecord && latestRecord[0] && latestRecord[0].TIMESTAMP)
-    let startFrom = latestRecord[0].TIMESTAMP // 01-02-2015
-    let bhavCopyDateFmtStr = moment(startFrom).format('DD-MMM-YYYY').toUpperCase() // 01-FEB-2015
-    db.close()
+    let lastProcessedDate = latestRecord && latestRecord[0] && latestRecord[0].TIMESTAMP
+    let startFrom = '03-11-1994' // 01-02-2015
+    if (lastProcessedDate) {
+      startFrom = moment(lastProcessedDate).add(1, 'd').format('DD-MM-YYYY')
+    }
+    processZipFilesFromDate(startFrom, db)
+    // let bhavCopyDateFmtStr = moment(startFrom).format('DD-MMM-YYYY').toUpperCase() // 01-FEB-2015
+    // db.close()
   })
 }
+/**
+ * returns file name in bhav copy file name format
+ * @param {string} date 
+ */
+function getFileNameFromDate(date/*format: DD-MM-YYYY */) {
+  retrun`cm${moment(date).format(BHAVCOPY_FNAME_DATE_FORMAT).toUpperCase()}bhav.csv.zip`
+}
 
-extractCsvFromZip(false)
-function extractCsvFromZip(writeToFile) {
-  let zipFileName = 'cm03NOV2014bhav.csv.zip'
-  var zip = new AdmZip(path.resolve(__dirname, 'bhavcopy', zipFileName));
-  var zipEntries = zip.getEntries(); // an array of ZipEntry records
-  // All the .csv.zip files contain only one file.
-  let csvFileEntry = zipEntries[0]
-  console.log(csvFileEntry.entryName); // outputs zip entries information
-  let fileName = csvFileEntry.entryName
-  let data = csvFileEntry.getData()
-  let strData = data.toString('utf8')
-  // console.log(data.toString('utf8'));
-  if (writeToFile) {
-    fs.writeFile(path.resolve(__dirname, 'bhavcopy', fileName), data, (err) => {
-      if (err) throw err
-
-      console.log(`written to file: ${fileName}`)
-    })
+function processZipFilesFromDate(startDate/*format: DD-MM-YYYY */, db) {
+  if (!startDate) {
+    return false
   }
+  let currDateObj = moment(startDate)
+  do {
+    let fileName = getFileNameFromDate(currDateObj.format(SORTABLE_DATE_FORMAT))
+    let csvContent = extractCsvFromZip(fileName, false)
 
-  return strData
-  // }
-  // });
+    csvContent = extractCsvFromZip(fileName, false)
+    insertCsvStringToDb(csvContent, db)
+    currDateObj = currDateObj.add(1, 'd')
+  } while (csvContent)
+}
+
+// extractCsvFromZip('cm03NOV2014bhav.csv.zip', false)
+/**
+ * Extracts csv file from zip with given name and returns csv as string
+ * optionally writed the csv file to disk
+ * @param {string} zipFileName name of the zip file to process
+ * @param {boolean} writeToFile flag to decide to write the csv from zip file to disk or not
+ */
+function extractCsvFromZip(zipFileName /*format: cm03NOV2014bhav.csv.zip */, writeToFile) {
+  // let zipFileName = 'cm03NOV2014bhav.csv.zip'
+  // check if file with given name exists
+  let fileExists = fs.existsSync(path.resolve(__dirname, 'bhavcopy', zipFileName))
+
+  if (fileExists) {
+    var zip = new AdmZip(path.resolve(__dirname, 'bhavcopy', zipFileName));
+    var zipEntries = zip.getEntries(); // an array of ZipEntry records
+    // All the .csv.zip files contain only one file.
+    let csvFileEntry = zipEntries[0]
+    console.log(csvFileEntry.entryName); // outputs zip entries information
+    let fileName = csvFileEntry.entryName
+    let data = csvFileEntry.getData()
+    let strData = data.toString('utf8')
+    // console.log(data.toString('utf8'));
+
+    if (writeToFile) {
+      fs.writeFile(path.resolve(__dirname, 'bhavcopy', fileName), data, (err) => {
+        if (err) throw err
+
+        console.log(`written to file: ${fileName}`)
+      })
+    }
+
+    return strData
+  } else {
+    return false
+  }
 }
 
 /**
@@ -130,22 +185,6 @@ function updateDBWithDayData(dayData, db) {
   logsCollection.insertOne(new log('info', `Started job ${JOB_NAME} ${JOB_UUID}`))
   // object structure: {'scrip name':{'day': {quote}}}
 
-  let insertCount = {
-    counter: 0,
-    get increment() {
-      this.counter += 1
-      return this.counter
-    },
-    set decrement(db) {
-      this.counter -= 1
-      if (this.counter == 0) {
-        console.log('closed db connection')
-        logsCollection.insertOne(new log('info', `Finished job ${JOB_NAME} ${JOB_UUID}`))
-        db.close()
-      }
-    }
-  }
-
   dayData.forEach(scripQuote => {
     let insertPromise = insertQuote(scripQuote, dayQuotesCollection)
     insertCount.increment
@@ -189,4 +228,3 @@ function log(status, message, params) {
   this.message = message
   this.params = params
 }
-
