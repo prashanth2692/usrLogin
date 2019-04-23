@@ -1,3 +1,4 @@
+//@ts-check
 var AdmZip = require('adm-zip');
 const path = require('path')
 const fs = require('fs')
@@ -8,10 +9,13 @@ const MongoClient = require('mongodb').MongoClient
 
 // App constants
 const JOB_NAME = 'nse_bhavcopy_to_db_trial'
+const QUOTES_CLX_NAME = 'dayQuotes_nse_trial'
 const JOB_UUID = uuid()
 const uri = 'mongodb://localhost:27017/'
 const BHAVCOPY_FNAME_DATE_FORMAT = 'DDMMMYYYY'
-const SORTABLE_DATE_FORMAT = 'DD-MM-YYYY'
+const SORTABLE_DATE_FORMAT = 'YYYY-MM-DD'
+const STANDARD_DATE_FORMAT = 'DD-MM-YYYY'
+const MAX_CLOSED_DAYS = 10 // it is observed no trading from 02OCT1997 to 08OCT1997
 
 // Initialize the connection as a promise:
 MongoClient.connect(uri, function (err, db) {
@@ -46,10 +50,12 @@ let insertCount = {
   },
   set decrement(db) {
     this.counter -= 1
-    if (this.counter == 0) {
+    if (this.counter == 0 && db) {
       console.log('closed db connection')
-      logsCollection.insertOne(new log('info', `Finished job ${JOB_NAME} ${JOB_UUID}`))
-      db.close()
+      // let mydb = db.db('mydb')
+      // mydb.collection('logs').insertOne(new log('info', `Finished job ${JOB_NAME} ${JOB_UUID}`)).then(() => {
+      //   // db.close()
+      // })
     }
   }
 }
@@ -57,13 +63,15 @@ let insertCount = {
 function main(db) {
   let myDb = db.db('mydb')
   let logsClx = myDb.collection('logs')
-  const dayQuotesCollection = myDb.collection('dayQuotes_nse')
+  const dayQuotesCollection = myDb.collection(QUOTES_CLX_NAME)
   dayQuotesCollection.find({}).sort({ TIMESTAMP: -1 }).limit(1).toArray((err, latestRecord) => {
     let lastProcessedDate = latestRecord && latestRecord[0] && latestRecord[0].TIMESTAMP
     let startFrom = '03-11-1994' // 01-02-2015
     if (lastProcessedDate) {
-      startFrom = moment(lastProcessedDate).add(1, 'd').format('DD-MM-YYYY')
+      startFrom = moment(lastProcessedDate, SORTABLE_DATE_FORMAT).add(1, 'd').format('DD-MM-YYYY')
     }
+    console.log(`Starting processing from date ${startFrom}`)
+    logsClx.insertOne(new log('info', `Started job ${JOB_NAME} ${JOB_UUID}`, { startFrom }))
     processZipFilesFromDate(startFrom, db)
     // let bhavCopyDateFmtStr = moment(startFrom).format('DD-MMM-YYYY').toUpperCase() // 01-FEB-2015
     // db.close()
@@ -74,30 +82,54 @@ function main(db) {
  * @param {string} date 
  */
 function getFileNameFromDate(date/*format: DD-MM-YYYY */) {
-  retrun`cm${moment(date).format(BHAVCOPY_FNAME_DATE_FORMAT).toUpperCase()}bhav.csv.zip`
+  return `cm${moment(date, STANDARD_DATE_FORMAT).format(BHAVCOPY_FNAME_DATE_FORMAT).toUpperCase()}bhav.csv.zip`
 }
 
-function processZipFilesFromDate(startDate/*format: DD-MM-YYYY */, db) {
+/**
+ * Processes files from given start date, 
+ * till current date or till a file found non existent
+ * @param {*} startDate 
+ * @param {*} db 
+ */
+async function processZipFilesFromDate(startDate/*format: DD-MM-YYYY */, db) {
   if (!startDate) {
     return false
   }
-  let currDateObj = moment(startDate)
-  do {
-    let fileName = getFileNameFromDate(currDateObj.format(SORTABLE_DATE_FORMAT))
-    let csvContent = extractCsvFromZip(fileName, false)
+  let logsClx = db.db('mydb').collection('logs')
 
-    csvContent = extractCsvFromZip(fileName, false)
-    insertCsvStringToDb(csvContent, db)
+  let currentClosedDays = 0
+  let currDateObj = moment(startDate, STANDARD_DATE_FORMAT)
+  do {
+    let fileName = getFileNameFromDate(currDateObj.format(STANDARD_DATE_FORMAT))
+    let csvParseStatus = extractCsvFromZip(fileName, false)
+
+    if (csvParseStatus.success) {
+      currentClosedDays = 0
+      insertCsvStringToDb(csvParseStatus.strData, db)
+    } else {
+      if (!csvParseStatus.fileParseError) {
+        // only if not file parsing error
+        console.log(`market closed: ${currentClosedDays} ${fileName}`)
+        currentClosedDays++
+        if (currentClosedDays == MAX_CLOSED_DAYS) {
+          return;
+        }
+      }
+      logsClx.insertOne(new log('error', csvParseStatus.errMsg, { fileName, currentClosedDays }))
+    }
     currDateObj = currDateObj.add(1, 'd')
-  } while (csvContent)
+    await new Promise(r => setTimeout(r, 500)) // syncronously waits for 0.5 ms
+    // csvContent = extractCsvFromZip(fileName, false)
+  } while (currentClosedDays < MAX_CLOSED_DAYS)
 }
 
 // extractCsvFromZip('cm03NOV2014bhav.csv.zip', false)
 /**
  * Extracts csv file from zip with given name and returns csv as string
- * optionally writed the csv file to disk
+ * optionally writes the csv file to disk
  * @param {string} zipFileName name of the zip file to process
  * @param {boolean} writeToFile flag to decide to write the csv from zip file to disk or not
+ * @returns {Object} {success: boolean, strData: string(if success is true), errMsg: string(if success is false)}
  */
 function extractCsvFromZip(zipFileName /*format: cm03NOV2014bhav.csv.zip */, writeToFile) {
   // let zipFileName = 'cm03NOV2014bhav.csv.zip'
@@ -105,27 +137,34 @@ function extractCsvFromZip(zipFileName /*format: cm03NOV2014bhav.csv.zip */, wri
   let fileExists = fs.existsSync(path.resolve(__dirname, 'bhavcopy', zipFileName))
 
   if (fileExists) {
-    var zip = new AdmZip(path.resolve(__dirname, 'bhavcopy', zipFileName));
-    var zipEntries = zip.getEntries(); // an array of ZipEntry records
-    // All the .csv.zip files contain only one file.
-    let csvFileEntry = zipEntries[0]
-    console.log(csvFileEntry.entryName); // outputs zip entries information
-    let fileName = csvFileEntry.entryName
-    let data = csvFileEntry.getData()
-    let strData = data.toString('utf8')
-    // console.log(data.toString('utf8'));
+    try {
+      var zip = new AdmZip(path.resolve(__dirname, 'bhavcopy', zipFileName));
+      var zipEntries = zip.getEntries(); // an array of ZipEntry records
+      // All the .csv.zip files contain only one file.
+      let csvFileEntry = zipEntries[0]
+      console.log(csvFileEntry.entryName); // outputs zip entries information
+      let fileName = csvFileEntry.entryName
+      let data = csvFileEntry.getData()
+      let strData = data.toString('utf8')
+      // console.log(data.toString('utf8'));
 
-    if (writeToFile) {
-      fs.writeFile(path.resolve(__dirname, 'bhavcopy', fileName), data, (err) => {
-        if (err) throw err
+      if (writeToFile) {
+        fs.writeFile(path.resolve(__dirname, 'bhavcopy', fileName), data, (err) => {
+          if (err) throw err
 
-        console.log(`written to file: ${fileName}`)
-      })
+          console.log(`written to file: ${fileName}`)
+        })
+      }
+
+      return { success: true, strData }
+    } catch (ex) {
+      console.error(`failed to parse file: ${zipFileName}`, ex.message)
+      return { success: false, errMsg: ex.message, fileParseError: true }
     }
-
-    return strData
   } else {
-    return false
+    let errMsg = `file doesn't exist: ${zipFileName}`
+    console.warn(errMsg)
+    return { success: false, errMsg }
   }
 }
 
@@ -162,7 +201,10 @@ function insertCsvStringToDb(csvString, db) {
   })
 }
 
-
+/**
+ * incomplete (experimental)
+ * @param {*} db 
+ */
 function insertCsvToDb(db) {
   console.log(`Starting job ${JOB_NAME} ${JOB_UUID}`)
   csv().fromFile(path.resolve(__dirname, 'bhavcopy', 'cm01APR2019bhav.csv')).then(data => {
@@ -179,12 +221,10 @@ function updateDBWithDayData(dayData, db) {
   }
 
   const mydb = db.db('mydb')
-  const dayQuotesCollection = mydb.collection('dayQuotes_nse')
+  const dayQuotesCollection = mydb.collection(QUOTES_CLX_NAME)
   const logsCollection = mydb.collection('logs')
 
-  logsCollection.insertOne(new log('info', `Started job ${JOB_NAME} ${JOB_UUID}`))
   // object structure: {'scrip name':{'day': {quote}}}
-
   dayData.forEach(scripQuote => {
     let insertPromise = insertQuote(scripQuote, dayQuotesCollection)
     insertCount.increment
@@ -204,12 +244,15 @@ function updateDBWithDayData(dayData, db) {
 function insertQuote(scripQuote, clx) {
   // console.log(scripQuote.SYMBOL)
   let convertedDateStr = convertToSortableDateStr(scripQuote.TIMESTAMP)
-  if (moment(convertedDateStr, 'YYYY-MM-DD').isValid()) {
+  if (moment(convertedDateStr, SORTABLE_DATE_FORMAT).isValid()) {
     // moment().isValid(<date string>, <format>) checks if the <date string> is valid as per <format>
     scripQuote.TIMESTAMP = convertedDateStr
+  } else {
+    console.log(`failed date conversion of ${scripQuote.TIMESTAMP}`)
   }
   scripQuote._id = scripQuote.SYMBOL + '_' + scripQuote.SERIES + '_' + scripQuote.TIMESTAMP
   delete scripQuote.field12 // side effect of csvToJson output
+  delete scripQuote.field14
   return clx.updateOne({ _id: scripQuote._id }, { $set: scripQuote }, { upsert: true })
 }
 
