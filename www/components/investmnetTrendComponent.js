@@ -9,39 +9,61 @@ const investmentTrendComponent = {
     function getNextDate(currDate) {
       return moment(currDate).add(1, 'd').format('YYYY-MM-DD')
     }
-    this.getDaiyValue().then(res => {
+
+    Promise.all([this.getDailyMarketValue(),
+    this.getDaiyValue()]).then(res => {
+      let [marketValueResponse, investedValueResponse] = res
+      let investedValueData = investedValueResponse.data
+      let marketValueData = marketValueResponse.data
+
       let data = []
-      for (let date in res.data) {
-        data.push([date, res.data[date]])
+      // for (let date in investedValueData) {
+      //   data.push([date, investedValueData[date]])
+      // }
+
+      for (let date in marketValueData) {
+        data.push([date, 'market', marketValueData[date]])
       }
 
-      let resData = res.data
+      // let resData = investedValueData
 
-      let sortedDates = Object.keys(res.data).sort()
-      let filledData = []
+      let sortedDates = Object.keys(investedValueData).sort()
+      // let filledData = []
       for (let i = 0; i < sortedDates.length; i++) {
         let currDate = sortedDates[i]
-        let currValue = resData[currDate]
+        let currValue = investedValueData[currDate]
 
-        filledData.push([currDate, currValue])
+        data.push([currDate, 'invested', currValue])
 
         if (i < sortedDates.length - 1) {
           let nextDate = getNextDate(currDate)
           while (nextDate < sortedDates[i + 1]) {
-            filledData.push([nextDate, currValue])
+            data.push([nextDate, 'invested', currValue])
             nextDate = getNextDate(nextDate)
           }
         }
       }
 
-      data = filledData
+      // fill invested value data till current date
+      let lastTradeDay = sortedDates[sortedDates.length - 1]
+      let currDate = getNextDate(lastTradeDay)
+      let today = moment().format('YYYY-MM-DD')
+      while (currDate < today) {
+        data.push([currDate, 'invested', investedValueData[lastTradeDay]])
+        currDate = getNextDate(currDate)
+      }
+
+      // data = filledData
 
       let schema = [{
         "name": "Date",
         "type": "date",
         "format": "%Y-%m-%d"
       }, {
-        "name": "invested value",
+        "name": "type",
+        "type": "string",
+      }, {
+        "name": "value",
         "type": "number"
       }
       ]
@@ -50,19 +72,20 @@ const investmentTrendComponent = {
       const dataSource = {
         "chart": {},
         "caption": {
-          "text": "Sales Analysis"
+          "text": "Portfolio value"
         },
         "subcaption": {
-          "text": "Grocery"
+          "text": "Market Vs Invested"
         },
+        series: "type",
         "yaxis": [
           {
             "plot": {
-              "value": "invested value",
+              "value": "value",
               'type': 'line',
               "connectnulldata": true
             },
-            "title": "Sale Value"
+            "title": "Invested Vs Market Value"
           }
         ]
       };
@@ -80,6 +103,9 @@ const investmentTrendComponent = {
   methods: {
     getDaiyValue: function () {
       return axios.get('/investment/dailyValue')
+    },
+    getDailyMarketValue: function () {
+      return axios.get('/investment/dailyMarketValue')
     }
   },
   computed: {

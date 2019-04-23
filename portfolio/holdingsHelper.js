@@ -33,7 +33,12 @@ function groupTxByBroker(txs) {
 
   return retObj
 }
-
+/**
+ * Calculates consolidated portfolio from given transactions per broker
+ * 
+ * @param {*} txByBroker 
+ * @returns {Array} eg:[{"symbol":"YESBANK","allocated_quantity":5,"avgPrice":"326.00"}]
+ */
 function calculateHoldings(txByBroker) {
   let consolidatedHoldingsPerBorker = {
     // 'zerodha': {},

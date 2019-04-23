@@ -14,4 +14,9 @@ router.get('/dailyValue', (req, res) => {
   res.json(dailyValue)
 })
 
+router.get('/dailyMarketValue', (req, res) => {
+  let dailyMarketValue = require('../portfolio/dailyMarketValueOfHoldings.json')
+  res.json(dailyMarketValue)
+})
+
 module.exports = router

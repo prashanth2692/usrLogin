@@ -11,7 +11,8 @@ let dbConstants = {
         moneyControlMessages_test: 'money_control_messages_test',
         messageBoardTopicids: 'message_board_topicids',
         messagesArchiveStatus: 'messages_archive_status',
-        messagesArchiveStatus_test: 'messages_archive_status_test'
+        messagesArchiveStatus_test: 'messages_archive_status_test',
+        dailyQuotesNse_trial: 'dayQuotes_nse_trial'
     }
 }
 
