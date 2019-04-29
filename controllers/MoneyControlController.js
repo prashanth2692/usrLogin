@@ -9,13 +9,15 @@ const _ = require('underscore')
 const MCManager = require('../MCMessageBoard.js')
 const dbConstants = require('../helpers/dbConstants')
 const uuid = require('uuid/v1')
+const moment = require('moment')
+
 //constants
 const JOB_UUID = uuid()
 const JOB_NAME = 'moneycontrol_messages_controller'
 const collectionName = 'MoneyControlMessages'
 let spamUserIds = null
-const moment = require('moment')
-
+let msgsClx = dbConnection().collection(dbConstants.collections.moneyControlMessages)
+let logsClx = dbConnection().collection(dbConstants.collections.logs)
 
 function log(status, message, params) {
   this.jobName = JOB_NAME
@@ -88,8 +90,6 @@ router.get('/messages_alt', (req, res) => {
         })
 
         // below logic needs to be implemented
-        let msgsClx = dbConnection().collection(dbConstants.collections.moneyControlMessages)
-        let logsClx = dbConnection().collection(dbConstants.collections.logs)
         dataWith_id.forEach(msg => {
           msgsClx.updateOne({ _id: msg._id }, { $set: msg }, { upsert: true })
             .then((res) => {
