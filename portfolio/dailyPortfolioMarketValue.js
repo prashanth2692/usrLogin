@@ -92,7 +92,8 @@ async function run(db) {
     let currentHoldings // = holdingsPerTradeDay[currentDay]
     let portfolioValuePerDay = {}
 
-    let transientTransactionDates = [...transactionDates]
+    let transientTransactionDates = [...transactionDates] // way to copy by value a array
+    console.log('started calculating daily market value')
     while (transientTransactionDates.length > 0) {
         // update current day and holdings, as new trading day is reached
         currentDay = transientTransactionDates.shift()

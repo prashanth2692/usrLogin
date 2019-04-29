@@ -7,11 +7,25 @@ const URL = require('url')
 const nseList = require('../helpers/nseStockList')
 const _ = require('underscore')
 const MCManager = require('../MCMessageBoard.js')
-
-
+const dbConstants = require('../helpers/dbConstants')
+const uuid = require('uuid/v1')
 //constants
+const JOB_UUID = uuid()
+const JOB_NAME = 'moneycontrol_messages_controller'
 const collectionName = 'MoneyControlMessages'
 let spamUserIds = null
+const moment = require('moment')
+
+
+function log(status, message, params) {
+  this.jobName = JOB_NAME
+  this.jobId = JOB_UUID
+  this.status = status
+  this.message = message
+  this.params = params
+  this.createDateTime = moment().format('YYYY-MM-DD:HH:mm:ss')
+}
+
 router.use((req, res, next) => {
   console.log('MoneyControlController')
   next()
@@ -60,18 +74,44 @@ router.get('/messages_alt', (req, res) => {
   // }
   // function getMessages() {
   let spamUserIds = []
-  dbConnection().collection('moneycontrol_spam_users').find().toArray().then(docs => {
+  dbConnection().collection(dbConstants.collections.moneycontrolSpamUsers).find().toArray().then(docs => {
     MCManager.getMessagesFromMC(topicid, pgno, lmid).then((result) => {
       // console.log(result)
       if (docs) {
         spamUserIds = docs.map(d => d._id)
       }
+
+      if (result && result.data.length) {
+        let dataWith_id = result.data.map(doc => {
+          doc._id = doc.msg_id
+          return doc
+        })
+
+        // below logic needs to be implemented
+        let msgsClx = dbConnection().collection(dbConstants.collections.moneyControlMessages)
+        let logsClx = dbConnection().collection(dbConstants.collections.logs)
+        dataWith_id.forEach(msg => {
+          msgsClx.updateOne({ _id: msg._id }, { $set: msg }, { upsert: true })
+            .then((res) => {
+              // console.log(`upadted moneycontrol message with id ${msg._id}`)
+              if (res.upsertedCount > 0) {
+                logsClx.insertOne(new log('success', `Inserted msg ${msg._id}`))
+              } else {
+                logsClx.insertOne(new log('success', `Updated msg ${msg._id}`))
+              }
+            }).catch(err => {
+              logsClx.insertOne(new log('error', `update failed: ${msg._id}`, { errMsg: err.message }))
+              console.log(`update failed: ${msg._id}`)
+            })
+        });
+      }
+
       let retData = _.filter(result.data, (msg) => {
         return spamUserIds.indexOf(msg.user_id) < 0
       })
 
       res.status(200).json(retData)
-      // update 
+      // update
     }).catch((err) => {
       console.error(err)
       res.status(500).json({ msg: 'error' })
@@ -115,8 +155,6 @@ router.get('/getTopicIDForSymbol', (request, res) => {
       }
     })
   }
-
-
 })
 
 router.post('/reportUser', (request, res) => {

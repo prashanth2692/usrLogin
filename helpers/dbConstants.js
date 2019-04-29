@@ -12,7 +12,8 @@ let dbConstants = {
         messageBoardTopicids: 'message_board_topicids',
         messagesArchiveStatus: 'messages_archive_status',
         messagesArchiveStatus_test: 'messages_archive_status_test',
-        dailyQuotesNse_trial: 'dayQuotes_nse_trial'
+        dailyQuotesNse_trial: 'dayQuotes_nse_trial',
+        moneycontrolSpamUsers: 'moneycontrol_spam_users'
     }
 }
 
