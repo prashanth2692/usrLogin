@@ -16,8 +16,6 @@ const JOB_UUID = uuid()
 const JOB_NAME = 'moneycontrol_messages_controller'
 const collectionName = 'MoneyControlMessages'
 let spamUserIds = null
-let msgsClx = dbConnection().collection(dbConstants.collections.moneyControlMessages)
-let logsClx = dbConnection().collection(dbConstants.collections.logs)
 
 function log(status, message, params) {
   this.jobName = JOB_NAME
@@ -88,6 +86,8 @@ router.get('/messages_alt', (req, res) => {
           doc._id = doc.msg_id
           return doc
         })
+        let msgsClx = dbConnection().collection(dbConstants.collections.moneyControlMessages)
+        let logsClx = dbConnection().collection(dbConstants.collections.logs)
 
         // below logic needs to be implemented
         dataWith_id.forEach(msg => {

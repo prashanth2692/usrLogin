@@ -1,3 +1,4 @@
+//@ts-check
 var fs = require('fs')
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -18,6 +19,8 @@ var path = require('path')
 var logger = require('morgan') // for loggind
 const logResponseTime = require("./helpers/response-time-logger");
 const URL = require('url')
+const uuid = require('uuid/v1')
+var cookieParser = require('cookie-parser')
 
 var mongoose = require('mongoose')
 
@@ -39,7 +42,7 @@ mongooseDB.on('open', function (err) {
 // })
 
 require('./schema/fuelRefill')
-fuelRefeillingModel = mongoose.model('fuelRefilling')
+let fuelRefeillingModel = mongoose.model('fuelRefilling')
 
 
 // var hash = crypto.createHash('sha256')
@@ -52,6 +55,7 @@ const staticMidlleware = express.static(path.join(__dirname, 'www'), {
   extensions: ['html'] // is required to serve files which are requested without extension
 })
 
+app.use(cookieParser())
 app.use(logResponseTime)
 app.use(staticMidlleware)
 app.use(bodyParser.json());
@@ -70,49 +74,47 @@ function getHasedPassword(pass) {
 }
 
 router.get('/LoginUser', function (req, res) {
-  // if (req.method == 'POST') {
-  console.log("Received body data:");
 
-  req.on('data', function (chunk) {
-    console.log("Received body data:");
-    console.log(chunk.toString());
-    var params = chunk.toString().split('&')
-    var username = params[0].split('=')[1]
-    var hashedPassword = getHasedPassword(params[1].split('=')[1] + passwordSalt)
-    dbConnection().collection('users').findOne({ userName: username, password: hashedPassword }, function (err, doc) {
-      if (doc) {
+  let queryParams = req.query
+  let userName = queryParams.username
+  let password = queryParams.password
+
+  dbConnection().collection('users').findOne({ userName }, function (err, doc) {
+    if (doc) {
+      var hashedPassword = getHasedPassword(password + passwordSalt)
+      if (hashedPassword.toString() === doc.password.toString()) {
+        // Here the user is authenticated, generate seesion id and send in cookie
+        let sessionId = uuid()
+
+        // insert sessionid into db for future refernece
+        dbConnection().collection('user_session').insertOne({ userName, sessionId })
+        res.cookie('session', sessionId)
         res.redirect('/dashboard')
       } else {
-        res.write('wrong credentials!')
-        res.end()
+        res.json({ authenticated: false })
       }
-    })
-
-  });
-  // }
+    } else {
+      res.json({ error: `user with name ${userName} doesn't exist` })
+    }
+  })
 })
 
 router.post('/RegisterUser', function (req, res) {
-  if (req.method == 'POST') {
-    req.on('data', function (chunk) {
-      console.log("Received body data:");
-      console.log(chunk.toString());
-      var params = chunk.toString().split('&')
-      var username = params[0].split('=')[1]
-      dbConnection().collection('users').findOne({ userName: username }, function (err, doc) {
-        if (doc) {
-          res.write('user already exists!')
-          res.end()
-        } else {
-          var hashedPassword = getHasedPassword(params[1].split('=')[1] + passwordSalt)
-          dbConnection().collection('users').insert({ userName: username, password: hashedPassword }, function (err, doc) {
-            res.write('Registered Successfully!')
-            res.end()
-          })
-        }
+  let body = req.body
+  var username = body.username
+  var hashedPassword = getHasedPassword(body.password + passwordSalt)
+
+  dbConnection().collection('users').findOne({ userName: username }, function (err, doc) {
+    if (doc) {
+      res.write('user already exists!')
+      res.end()
+    } else {
+      dbConnection().collection('users').insert({ userName: username, password: hashedPassword }, function (err, doc) {
+        res.write('Registered Successfully!')
+        res.end()
       })
-    });
-  }
+    }
+  })
 })
 
 router.post('/addItem', function (req, res) {
@@ -132,10 +134,28 @@ router.post('/addItem', function (req, res) {
 })
 
 router.get('/getItems', function (req, res) {
-  dbConnection().collection('items').find({ deleted: { $exists: false } }).toArray().then(function (docs) {
-    res.status(200).json(docs ? docs : [])
+  let sessionId = req.cookies.session
+  let mydb = dbConnection()
+  mydb.collection('user_session').findOne({ sessionId }).then(doc => {
+    // user is authenticated
+    if (doc) {
+      dbConnection().collection('items').find({ deleted: { $exists: false } }).toArray().then(function (docs) {
+        res.status(200).json(docs ? docs : [])
+      }).catch(err => {
+        res.status(500).send({ msg: 'failed to fetch items' })
+      })
+    } else {
+      res.status(401).json({
+        error: 'You must login to see this',
+        location: '/login.html'
+      })
+    }
+
   }).catch(err => {
-    res.status(500).send({ msg: 'failed to fetch items' })
+    res.status(403).json({
+      error: 'You must login to see this',
+      location: '/login.html'
+    })
   })
 })
 
@@ -145,7 +165,7 @@ router.delete('/deleteItem/:id', function (req, res) {
   var id = req.params.id;
   console.log(id)
   if (id) {
-    dbConnection().collection('items').updateOne({ _id: mongoObjectId(id) }, { $set: { deleted: true } }).then(result => {
+    dbConnection().collection('items').updateOne({ _id: new mongoObjectId(id) }, { $set: { deleted: true } }).then(result => {
       res.status(200).send()
     }).catch(err => {
       res.status(500).json({ msg: 'failed to remove item.' })
@@ -174,7 +194,7 @@ router.post('/fuelRefilling', function (req, res) {
 })
 
 router.post('/fileUpload', function (req, res) {
-  console.log(req.files)
+  // console.log(req.files)
   // upload_files()
   // res.send('received file!')
 

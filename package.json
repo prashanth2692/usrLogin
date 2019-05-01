@@ -16,6 +16,7 @@
     "body-parser": "^1.18.2",
     "circular-json": "^0.5.9",
     "columnify": "^1.5.4",
+    "cookie-parser": "^1.4.4",
     "csvtojson": "^2.0.8",
     "express": "^4.16.3",
     "fusioncharts": "^3.13.3-sr.1",

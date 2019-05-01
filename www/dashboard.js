@@ -4,6 +4,19 @@ import holdings from './holdingsComponent.js'
 import charts from './chartComponent.js'
 import investmentTrendComponent from './components/investmnetTrendComponent.js';
 
+// Add a response interceptor
+axios.interceptors.response.use(function (response) {
+  // Do something with response data
+  console.log(response.status)
+  return response;
+}, function (error) {
+  // Do something with response error
+  console.log(error.response.status)
+  if (error.response.status == 401) {
+    window.location.href = error.response.data.location || '/login.html'
+  }
+  return error;
+});
 
 const fuelRefillComponent = {
   template: '#fuelRefill',
@@ -141,7 +154,7 @@ Vue.component('app-header', {
         {
           name: 'charts',
           link: '/charts'
-        },{
+        }, {
           name: 'investment trend',
           link: '/investmentTrend'
         }
