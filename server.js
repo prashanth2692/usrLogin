@@ -209,7 +209,7 @@ router.post('/fileUpload', function (req, res) {
   });
 })
 
-var port = 8085
+var port = 80
 
 app.use('/moneycontrol', moneyControlController)
 app.use('/holdings', holdingsController)
