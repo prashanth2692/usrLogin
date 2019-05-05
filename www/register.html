@@ -1,22 +1,55 @@
 <html>
 
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style>
+    body {
+      background-color: lightgrey !important;
+    }
 
+    .centered {
+      position: fixed;
+      /* or absolute */
+      top: 40%;
+      left: 50%;
+      /* bring your own prefixes */
+      transform: translate(-50%, -50%);
+
+      border: solid;
+      border-width: 2px;
+      border-radius: 20px;
+      padding: 50px;
+      background-color: lightsteelblue
+    }
+
+    #logincontainer {
+      -webkit-box-shadow: 10px 10px 25px 0px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 10px 10px 25px 0px rgba(0, 0, 0, 0.75);
+      box-shadow: 10px 10px 25px 0px rgba(0, 0, 0, 0.75);
+    }
+  </style>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
 <body>
-  <div id="logincontainer">
-      <form action="/RegisterUser" method="post">
-        <input type="text" id="username" name="username">
-        <label for="username">user name</label>
-        <br>
-        <input type="password" id="password" name="password">
-        <label for="password">password</label>
-    
-        <button type="submit">Log in</button>
-      </form>
+  <div id="logincontainer" class="centered">
+    <h1>Register</h1>
+    <form action="/RegisterUser" method="post">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" name="username">
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" name="password">
+      </div>
+      <button type="submit">Register</button>
+    </form>
   </div>
-  
+
 
 </body>
 

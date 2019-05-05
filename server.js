@@ -110,8 +110,7 @@ router.post('/RegisterUser', function (req, res) {
       res.end()
     } else {
       dbConnection().collection('users').insert({ userName: username, password: hashedPassword }, function (err, doc) {
-        res.write('Registered Successfully!')
-        res.end()
+        res.redirect('/login.html?status=created')
       })
     }
   })
@@ -209,7 +208,8 @@ router.post('/fileUpload', function (req, res) {
   });
 })
 
-var port = 80
+let givenPort = Number(process.argv[2]) // fist two will be node and file name respectively
+var port = givenPort || 8085
 
 app.use('/moneycontrol', moneyControlController)
 app.use('/holdings', holdingsController)
