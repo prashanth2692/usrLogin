@@ -11,7 +11,7 @@
     .centered {
       position: fixed;
       /* or absolute */
-      top: 40%;
+      top: 50%;
       left: 50%;
       /* bring your own prefixes */
       transform: translate(-50%, -50%);
@@ -20,7 +20,8 @@
       border-width: 2px;
       border-radius: 20px;
       padding: 50px;
-      background-color: lightsteelblue
+      background-color: lightsteelblue;
+      min-width: 250px
     }
 
     #logincontainer {
@@ -28,8 +29,8 @@
       -moz-box-shadow: 10px 10px 25px 0px rgba(0, 0, 0, 0.75);
       box-shadow: 10px 10px 25px 0px rgba(0, 0, 0, 0.75);
     }
-    
-    .statusMessage{
+
+    .statusMessage {
       color: darkgreen;
     }
   </style>
@@ -63,14 +64,15 @@
   </div>
 
   <script>
-  let urlPrams = new URLSearchParams(window.location.search)
-  let status = urlPrams.get('status')
-  if(status){
-    window.onload = () => {
-      document.getElementById('statusContainer').innerText = 'User successfully created!'
+    let urlPrams = new URLSearchParams(window.location.search)
+    let status = urlPrams.get('status')
+    if (status) {
+      window.onload = () => {
+        document.getElementById('statusContainer').innerText = 'User successfully created!'
+      }
     }
-  }
   </script>
 
 </body>
+
 </html>
