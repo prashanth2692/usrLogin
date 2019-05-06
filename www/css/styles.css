@@ -29,3 +29,17 @@
   background: url(./images/line-chart.svg) no-repeat 10px;
   background-color: darkgray;
 }
+
+.loading-quotes {
+  background: url(./images/loading.svg) no-repeat;
+  height: 25px;
+  width: 25px;
+  display: inline-block;
+}
+
+.enable_past_holdings {
+  display: inline;
+  padding: 3px 5px;
+  border: 1px solid;
+  margin: 5px 5px;
+}

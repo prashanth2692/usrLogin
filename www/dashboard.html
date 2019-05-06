@@ -102,6 +102,10 @@
       <div>
         <button @click="refresh">Refresh</button>
         <button @click="toggleColumns = !toggleColumns">Toggle columns</button>
+        <div class="enable_past_holdings">
+          <input type="checkbox" v-model="showPastHoldings" id="enablePastHoldings" v-on:change="holdings = [];setupData()">
+          <label for="enablePastHoldings">Enable past holdings</label>
+        </div>
         <table class="table table-dark table-striped table-bordered table-sm table-responsive">
           <thead>
             <th scope="col" @click="sortData('symbol')" class="unselectable">Symbol</th>
@@ -110,7 +114,7 @@
             <template v-if="toggleColumns">
               <th scope="col" class="unselectable">CMP</th>
               <th scope="col" @click="sortData('percentChange')" class="unselectable">%change(day)</th>
-              <th scope="col" @click="sortData('overallPercentChange')" class="unselectable">%change</th>
+              <th scope="col" @click="sortData('overallPercentChange')" class="unselectable" v-if="!showPastHoldings">%change</th>
               <th scope="col" @click="sortData('pricechange')" class="unselectable">change</th>
               <th scope="col" @click="sortData('low52wDiff')" class="unselectable">52W Low</th>
               <th scope="col" @click="sortData('high52wDiff')" class="unselectable">52W High</th>
@@ -134,7 +138,7 @@
                   <td v-text="cmpObj[holding.symbol].pricecurrent"></td>
                   <td v-text="holding.percentChange && holding.percentChange.toFixed(2) + '%'"
                     :style="{color: holding.percentChange >= 0 ? 'greenyellow' : 'red'}"></td>
-                  <td v-text="holding.overallPercentChange && holding.overallPercentChange.toFixed(2) + '%'"
+                  <td v-if="!showPastHoldings" v-text="holding.overallPercentChange && holding.overallPercentChange.toFixed(2) + '%'"
                     :style="{color: holding.overallPercentChange >= 0 ? 'greenyellow' : 'red'}"></td>
                   <td v-text="holding.pricechange = Number(cmpObj[holding.symbol].pricechange)"
                     :style="{color: holding.pricechange >= 0 ? 'greenyellow' : 'red'}"></td>
@@ -156,7 +160,7 @@
                   :style="{color: (holding.currentValue -holding.investedValue) >= 0 ? 'greenyellow' : 'red' }"></td>
               </template>
             </tr>
-            <template v-if="toggleColumns">
+            <template v-if="toggleColumns && !showPastHoldings">
               <tr>
                 <td colspan="2" style="text-align: right">Total change</td>
                 <td v-for="x in 3"></td>
@@ -167,7 +171,7 @@
                 <td v-for="x in 2"></td>
               </tr>
             </template>
-            <template v-else>
+            <template v-else-if="!showPastHoldings">
               <tr>
                 <td>Gain/Loss</td>
                 <td v-for="x in 3"></td>

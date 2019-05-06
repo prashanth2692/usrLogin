@@ -15,7 +15,7 @@ const holdingsHelper = require('./holdingsHelper')
 //   run(db)
 // })
 
-function run(db) {
+function run(db, returnOnlyPast) {
   let promise = new Promise((resolve, reject) => {
     const mydb = db.db('mydb')
     const txClx = mydb.collection(dbConstants.collections.transactions)
@@ -43,8 +43,13 @@ function run(db) {
           aggregateCursor.hasNext((err, hasNext) => {
             if (!hasNext) {
               // no more elements for the cursor to iterate 
-              let holdings = holdingsHelper.calculateHoldings(txByBroker)
-              resolve(holdings)
+              if (returnOnlyPast) {
+                let holdings = holdingsHelper.calculatePastHoldings(txByBroker)
+                resolve(holdings)
+              } else {
+                let holdings = holdingsHelper.calculateHoldings(txByBroker)
+                resolve(holdings)
+              }
             }
           })
         })

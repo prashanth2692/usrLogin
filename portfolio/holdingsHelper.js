@@ -58,7 +58,35 @@ function calculateHoldings(txByBroker) {
   }
 
   let holdings = CalculateOverallHoldings(consolidatedHoldingsPerBorker)
-  return holdings
+  return filterHoldings(holdings, true, false)
+}
+
+/**
+ * Retuns past holdings, this is not 100% correct always
+ * In case of more selling quantity, which happens in case of bonus and rights issue, sell qty will be more
+ * IMP: This is copy of calculateHoldings method, this file needs refactoring 
+ * @param {*} txByBroker 
+ */
+function calculatePastHoldings(txByBroker) {
+  let consolidatedHoldingsPerBorker = {
+    // 'zerodha': {},
+    // "icici_direct": {}
+  }
+  for (let broker in txByBroker) {
+    consolidatedHoldingsPerBorker[broker] = {}
+    txByBroker[broker].allTxs = groupTxBySymbolAndDate(txByBroker[broker].allTxs)
+
+    for (let symbol in txByBroker[broker].allTxs) {
+      for (let date in txByBroker[broker].allTxs[symbol]) {
+        txByBroker[broker].allTxs[symbol][date] = reduceToSingleTxType(txByBroker[broker].allTxs[symbol][date])
+      }
+
+      consolidatedHoldingsPerBorker[broker][symbol] = calculateAvgPrice(txByBroker[broker].allTxs[symbol])
+    }
+  }
+
+  let holdings = CalculateOverallHoldings(consolidatedHoldingsPerBorker)
+  return filterHoldings(holdings, false, true)
 }
 
 /**
@@ -220,6 +248,14 @@ function calculateAvgPrice(txsByDate) {
         break
       }
     }
+
+    // sell qty will be more than buy qty in case of bonus and rights issue
+    // TO-DO: logic to incorporate the addition of shares from bonus nad rights 
+    //    to transactions collection has to be implemented
+    // Till the above logic is implemented, break from the loop, when the buyTxs is empty
+    if (buyTxs.length == 0) {
+      break
+    }
   }
 
   // hopefully, only buy txs should be left if any
@@ -268,51 +304,65 @@ function CalculateOverallHoldings(holdingsPerBroker) {
     // pretyPrintHoldings(holdingsPerBroker[broker])
   })
 
+  return finalHoldings;
+
   // console.log(`\n---------overall-----------`)
-  let retObj = pretyPrintHoldings(finalHoldings, false)
+  // let retObj = pretyPrintHoldings(finalHoldings, false)
 
-  return retObj
+  // return retObj
 
+}
+
+function filterHoldings(holdings, includeCurrent, includePast) {
+  let retHoldings = []
+  for (let symbol in holdings) {
+    let holdingObj = {
+      symbol,
+      allocated_quantity: holdings[symbol].totalQty,
+      avgPrice: holdings[symbol].avgPrice.toFixed(2)
+    }
+    if (holdings[symbol].totalQty > 0) {
+      if (includeCurrent) {
+        retHoldings.push(holdingObj)
+
+      }
+    } else {
+      if (includePast) {
+        retHoldings.push(holdingObj)
+      }
+    }
+  }
+
+  return retHoldings
 }
 
 /**
  * Pertty print holdings
- * @param {*} holdings 
- * @param {*} print 
+ * @param {*} columnsToPrint [{symbol, allocated_quantity, avgPrice}]
  */
-function pretyPrintHoldings(holdings, print) {
+function pretyPrintHoldings(columnsToPrint) {
   // prety printing
-  let columnsToPrint = []
-  for (let symbol in holdings) {
-    if (holdings[symbol].totalQty > 0) {
-      columnsToPrint.push({
-        symbol,
-        allocated_quantity: holdings[symbol].totalQty,
-        avgPrice: holdings[symbol].avgPrice.toFixed(2)
-      })
+  columnsToPrint = columnsToPrint || []
+
+  // columnsToPrint = _.sortBy(columnsToPrint, 'symbol')
+  // if (print) {
+  let columns = columnify(columnsToPrint,
+    {
+      columnSplitter: ' | '
     }
+  )
+  console.log(columns)
+  // console.log(`\n----------------------------------------`)
+  // }
 
-  }
-
-  columnsToPrint = _.sortBy(columnsToPrint, 'symbol')
-
-  if (print) {
-    let columns = columnify(columnsToPrint,
-      {
-        columnSplitter: ' | '
-      }
-    )
-    console.log(columns)
-    // console.log(`\n----------------------------------------`)
-  }
-
-  return columnsToPrint
+  // return columnsToPrint
 }
 
 
 module.exports = {
   groupTxByBroker,
-  calculateHoldings
+  calculateHoldings,
+  calculatePastHoldings
   // groupTxBySymbolAndDate,
   // reduceToSingleTxType,
   // calculateAvgPrice,

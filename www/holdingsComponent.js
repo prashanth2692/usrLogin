@@ -2,6 +2,7 @@ const holdingsComponent = {
   template: '#holdings',
   data: function () {
     return {
+      showPastHoldings: false,
       holdings: null,
       holdingSymbols: [],
       cmpObj: {},
@@ -20,36 +21,50 @@ const holdingsComponent = {
     }
   },
   created: function () {
-    var that = this
-    let url = this.showDynamic ? '/holdings/dynamic-holdings_v2' : '/holdings/holdings'
-    if (window.stockHoldings) {
-      this.setUpHoldigsData(window.stockHoldings)
-    } else {
-      axios.get(url)
-        .then((res) => {
-          if (res && res.data && res.data.length > 0) {
-            res.data.forEach(h => {
-              h.investedValue = (h.allocated_quantity * Number(h.avgPrice))
-              h.investedValueDisp = h.investedValue.toLocaleString('en-IN', {
-                maximumFractionDigits: 2,
-                // style: 'currency',
-                // currency: 'INR'
-              })
-              that.investedValue += h.investedValue
-            })
-            that.investedValueDisp = that.investedValue.toLocaleString('en-IN', {
-              maximumFractionDigits: 2,
-            })
-          }
-          window.stockHoldings = res.data
-          that.setUpHoldigsData(res.data)
-        })
-        .catch(function (err) {
-          console.log(err)
-        })
+    let query = this.$route.query
+    if (query && query.past) {
+      this.showPastHoldings = true
     }
+    this.setupData()
   },
   methods: {
+    setupData: function () {
+      var that = this
+      let url = ''
+      if (this.showPastHoldings) {
+        url = 'holdings/pastHoldings'
+      } else {
+        url = this.showDynamic ? '/holdings/dynamic-holdings_v2' : '/holdings/holdings'
+      }
+      if (window.stockHoldings && !this.showPastHoldings) {
+        this.setUpHoldigsData(window.stockHoldings)
+      } else {
+        axios.get(url)
+          .then((res) => {
+            if (res && res.data && res.data.length > 0) {
+              res.data.forEach(h => {
+                h.investedValue = (h.allocated_quantity * Number(h.avgPrice))
+                h.investedValueDisp = h.investedValue.toLocaleString('en-IN', {
+                  maximumFractionDigits: 2,
+                  // style: 'currency',
+                  // currency: 'INR'
+                })
+                that.investedValue += h.investedValue
+              })
+              that.investedValueDisp = that.investedValue.toLocaleString('en-IN', {
+                maximumFractionDigits: 2,
+              })
+            }
+            if (!this.showPastHoldings) {
+              window.stockHoldings = res.data
+            }
+            that.setUpHoldigsData(res.data)
+          })
+          .catch(function (err) {
+            console.log(err)
+          })
+      }
+    },
     setUpHoldigsData: function (holdings) {
       this.holdings = holdings
       let holdingSymbols = []

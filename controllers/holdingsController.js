@@ -51,5 +51,21 @@ router.get('/dynamic-holdings_v2', (req, res) => {
   });
 })
 
+router.get('/pastHoldings', (req, res) => {
+  var url = "mongodb://localhost:27017/"
+
+  MongoClient.connect(url, function (err, db) {
+    if (err) throw err;
+
+    console.log("Database connection created!");
+    let promise = getDynamicHoldings_v2(db, true)
+    promise.then((holdings) => {
+      res.status(200).send(holdings)
+    }).catch(err => {
+      res.status(500).send(err)
+    })
+  });
+})
+
 
 module.exports = router
