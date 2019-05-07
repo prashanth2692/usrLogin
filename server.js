@@ -208,6 +208,52 @@ router.post('/fileUpload', function (req, res) {
   });
 })
 
+router.post('/uploadFile', (req, res) => {
+  var form = new formidable.IncomingForm();
+  form.parse(req, function (err, fields, files) {
+    // console.log(fields, files)
+    let fileKeys = Object.keys(files)
+    if (fileKeys.length > 0) {
+      let fileObj = files[fileKeys[0]]
+      let oldpath = fileObj.path
+      if (fileObj.name.indexOf('YE1705_tradebook') > -1) {
+        let newpath = path.join(__dirname, '../../', 'Stocks', 'portfolio', 'Zerodha', fileObj.name)
+        // console.log(newpath)
+        fs.exists(newpath, exists => {
+          if (!exists) {
+            fs.rename(oldpath, newpath, (err) => {
+              if (err) {
+                res.status(500).json(err)
+              } else {
+                res.status(200).end()
+
+                // call python script and then node script to update transactions collection
+                // below code is experimental
+                console.log('Try to update transactions from zerodha')
+                const pythonFromNode = require('./helpers/pythonFromNode.js')
+                const insertToDB = require('./Zerodha/insertTransactionsIntoMongo.js')
+                const consolidateTxs = require('./portfolio/consolidated_transactions.js')
+                pythonFromNode().then((resp) => {
+                  insertToDB(dbConnection()).then((resp1) => {
+                    console.log('Updated zerodha transactions')
+                    consolidateTxs(dbConnection())
+                  })
+                }).catch(err => {
+                  console.error(err)
+                })
+                // end of experimental code
+              }
+            })
+          } else {
+            res.end()
+          }
+        })
+      }
+    }
+  });
+  // res.end()
+})
+
 let givenPort = Number(process.argv[2]) // fist two will be node and file name respectively
 var port = givenPort || 8085
 

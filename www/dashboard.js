@@ -3,6 +3,7 @@ import MoneyControlComponent_alt from './MoneyControlComponent_alt.js'
 import holdings from './holdingsComponent.js'
 import charts from './chartComponent.js'
 import investmentTrendComponent from './components/investmnetTrendComponent.js';
+import uploadConponent from './components/uploadComponent.js'
 
 // Add a response interceptor
 axios.interceptors.response.use(function (response) {
@@ -118,7 +119,8 @@ const routes = [
   { path: '/messages', component: MoneyControlComponent_alt },
   { path: '/holdings', component: holdings },
   { path: '/charts', component: charts },
-  { path: '/investmentTrend', component: investmentTrendComponent }
+  { path: '/investmentTrend', component: investmentTrendComponent },
+  { path: '/upload', component: uploadConponent }
 ]
 
 const router = new VueRouter({
@@ -157,6 +159,9 @@ Vue.component('app-header', {
         }, {
           name: 'investment trend',
           link: '/investmentTrend'
+        }, {
+          name: 'Upload',
+          link: '/upload'
         }
       ]
     }

@@ -1,15 +1,20 @@
 # Reading an excel file using Python
+# this script can be executed on its own or from a node script
+
 import xlrd
 import fnmatch
 import os
 import json
+import sys
 
 relativeFilePaths = []
 
 firstRow = 9
 firstColumn = 1
 
-pathToTransactions = '../../../Stocks/portfolio/Zerodha/'
+currentFilePath = __file__
+currentFileDirectory = os.path.dirname(currentFilePath)
+pathToTransactions = os.path.join(currentFileDirectory, '../../../Stocks/portfolio/Zerodha/')
 for file in os.listdir(pathToTransactions):
     if fnmatch.fnmatch(file, 'YE1705_tradebook*.xlsx'):
         relativeFilePaths.append(pathToTransactions + file)
@@ -60,3 +65,6 @@ with open('./testTransactions.json', 'w') as f:
     # print(sheet.nrows)
     # print(sheet.ncols)
     # while
+
+print('Script executed successfully!')
+sys.stdout.flush()

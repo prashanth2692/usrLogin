@@ -10,7 +10,7 @@ var url = "mongodb://localhost:27017/"
 const JOB_NAME = 'zerodha_transaction_insert_to_db'
 const ZERODHA_TRANANSACTIONS = dbConsts.collections.ZerodhaTransactions
 
-createDBConnection(url)
+// createDBConnection(url)
 
 function createDBConnection(url) {
   MongoClient.connect(url, { useNewUrlParser: true }, function (err, db) {
@@ -37,54 +37,59 @@ function createDBConnection(url) {
 
 }
 
-function insertTxs(db) {
-  let mydb = db.db('mydb')
+function insertTxs(mydb) {
+  return new Promise((resolve, reject) => {
+    // let mydb = db.db('mydb')
 
-  let zerodhaTransactionsCollection = mydb.collection(ZERODHA_TRANANSACTIONS)
-  const logsCollection = mydb.collection('logs')
-  fs.readFile('./testTransactions.json', "utf-8", (err, data) => {
-    let parsedData = JSON.parse(data)
-    // console.log(parsedData)
-    let flattenedData = _.flatten(parsedData)
-    // console.log('total transacitons: ', flattenedData.length)
+    let zerodhaTransactionsCollection = mydb.collection(ZERODHA_TRANANSACTIONS)
+    const logsCollection = mydb.collection('logs')
+    fs.readFile('./testTransactions.json', "utf-8", (err, data) => {
+      let parsedData = JSON.parse(data)
+      // console.log(parsedData)
+      let flattenedData = _.flatten(parsedData)
+      // console.log('total transacitons: ', flattenedData.length)
 
-    logsCollection.insertOne({ jobName: JOB_NAME, status: 'started', created_date: new Date() })
+      logsCollection.insertOne({ jobName: JOB_NAME, status: 'started', created_date: new Date() })
 
-    let insertCount = 0
-    let noChangeCount = 0
-    flattenedData.forEach(dataToInsert => {
-      // zerodhaTransactionsCollection.findOne({ Trade_ID: dataToInsert.Trade_ID, Order_ID: dataToInsert.Order_ID }, (err, doc) => {
-      zerodhaTransactionsCollection.findOne({ _id: dataToInsert.Trade_ID }, (err, doc) => {
-        if (err) {
-          // throw err
-          console.log(err.message)
-          return
-        }
-        if (!doc) {
-          dataToInsert.created_date = new Date() // momentTz().tz('asia/calcutta').format("YY-MM-DD HH:mm:ss")
-          dataToInsert._id = dataToInsert.Trade_ID
-          zerodhaTransactionsCollection.insertOne(dataToInsert, (err, idoc) => {
-            if (err) {
-              // throw err
-              console.log(err.message)
-              return
-            }
-            insertCount++
-            console.log(insertCount, ' inserted transaction: ', dataToInsert.Trade_ID)
-            if (noChangeCount + insertCount == flattenedData.length) {
-              logsCollection.insertOne({ jobName: JOB_NAME, status: 'completed', created_date: new Date() })
-              db.close()
-            }
-          })
-        } else {
-          noChangeCount++
-          console.log(noChangeCount, ' existing transaction: ', dataToInsert.Trade_ID)
-        }
+      let insertCount = 0
+      let noChangeCount = 0
+      flattenedData.forEach(dataToInsert => {
+        // zerodhaTransactionsCollection.findOne({ Trade_ID: dataToInsert.Trade_ID, Order_ID: dataToInsert.Order_ID }, (err, doc) => {
+        zerodhaTransactionsCollection.findOne({ _id: dataToInsert.Trade_ID }, (err, doc) => {
+          if (err) {
+            // throw err
+            console.log(err.message)
+            return
+          }
+          if (!doc) {
+            dataToInsert.created_date = new Date() // momentTz().tz('asia/calcutta').format("YY-MM-DD HH:mm:ss")
+            dataToInsert._id = dataToInsert.Trade_ID
+            zerodhaTransactionsCollection.insertOne(dataToInsert, (err, idoc) => {
+              if (err) {
+                // throw err
+                console.log(err.message)
+                return
+              }
+              insertCount++
+              console.log(insertCount, ' inserted transaction: ', dataToInsert.Trade_ID)
+              if (noChangeCount + insertCount == flattenedData.length) {
+                logsCollection.insertOne({ jobName: JOB_NAME, status: 'completed', created_date: new Date() })
+                // db.close()
+                resolve()
+              }
+            })
+          } else {
+            noChangeCount++
+            console.log(noChangeCount, ' existing transaction: ', dataToInsert.Trade_ID)
+          }
 
-        if (noChangeCount + insertCount == flattenedData.length) {
-          logsCollection.insertOne({ jobName: JOB_NAME, status: 'completed', created_date: new Date() })
-          db.close()
-        }
+          if (noChangeCount + insertCount == flattenedData.length) {
+            logsCollection.insertOne({ jobName: JOB_NAME, status: 'completed', created_date: new Date() })
+            // db.close()
+            resolve()
+          }
+        })
+
       })
 
       // dataToInsert.updated_date = new Date()
@@ -110,3 +115,5 @@ function insertTxs(db) {
 
   })
 }
+
+module.exports = insertTxs
