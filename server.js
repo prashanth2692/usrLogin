@@ -255,7 +255,7 @@ router.post('/uploadFile', (req, res) => {
 })
 
 let givenPort = Number(process.argv[2]) // fist two will be node and file name respectively
-var port = givenPort || 8085
+var port = givenPort || 80
 
 app.use('/moneycontrol', moneyControlController)
 app.use('/holdings', holdingsController)
