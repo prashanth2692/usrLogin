@@ -237,6 +237,8 @@ router.post('/uploadFile', (req, res) => {
                   insertToDB(dbConnection()).then((resp1) => {
                     console.log('Updated zerodha transactions')
                     consolidateTxs(dbConnection())
+                  }).catch(err => {
+                    console.error(err)
                   })
                 }).catch(err => {
                   console.error(err)

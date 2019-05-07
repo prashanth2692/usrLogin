@@ -5,6 +5,7 @@ const _ = require("underscore")
 const momentTz = require('moment-timezone')
 const assert = require('assert')
 const dbConsts = require('../helpers/dbConstants')
+const path = require('path')
 
 var url = "mongodb://localhost:27017/"
 const JOB_NAME = 'zerodha_transaction_insert_to_db'
@@ -43,7 +44,8 @@ function insertTxs(mydb) {
 
     let zerodhaTransactionsCollection = mydb.collection(ZERODHA_TRANANSACTIONS)
     const logsCollection = mydb.collection('logs')
-    fs.readFile('./testTransactions.json', "utf-8", (err, data) => {
+    fs.readFile(path.join(__dirname, 'testTransactions.json'), "utf-8", (err, data) => {
+      if (err) reject(err)
       let parsedData = JSON.parse(data)
       // console.log(parsedData)
       let flattenedData = _.flatten(parsedData)

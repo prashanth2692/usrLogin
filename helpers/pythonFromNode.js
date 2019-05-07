@@ -3,7 +3,10 @@ const path = require('path')
 function callPythonProcessZerodhaTxFiles() {
   return new Promise((resolve, reject) => {
     const { spawn } = require('child_process');
-    const pyprog = spawn('python', [path.join(__dirname, '../Zerodha/transaction_processing.py')]);
+    const pyprog = spawn('python', [path.join(__dirname, '../Zerodha/transaction_processing.py')])
+      .on('error', (err) => {
+        console.log(err)
+      })
 
     let successData = ""
     pyprog.stdout.on('data', function (data) {
