@@ -38,8 +38,12 @@
 }
 
 .enable_past_holdings {
-  display: inline;
+  display: inline-block;
   padding: 3px 5px;
   border: 1px solid;
-  margin: 5px 5px;
+  margin: 5px 5px 5px 0px;
+}
+
+.enable_past_holdings label {
+  margin-bottom: 0px;
 }

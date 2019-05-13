@@ -105,10 +105,11 @@
         <div class="enable_past_holdings">
           <input type="checkbox" v-model="showPastHoldings" id="enablePastHoldings"
             v-on:change="holdings = [];setupData()">
-          <label for="enablePastHoldings">Enable past holdings</label>
+          <label for="enablePastHoldings">Show past holdings</label>
         </div>
         <table class="table table-dark table-striped table-bordered table-sm table-responsive">
           <thead>
+            <th>#</th>
             <th scope="col" @click="sortData('symbol')" class="unselectable">Symbol</th>
             <th scope="col" @click="sortData('allocated_quantity')" class="unselectable">Quantity</th>
             <th scope="col" @click="sortData('avgPrice')" class="unselectable">Avg Price</th>
@@ -131,7 +132,8 @@
             </template>
           </thead>
           <tbody>
-            <tr v-for="holding in holdings" style="cursor: pointer">
+            <tr v-for="(holding, $index) in holdings" style="cursor: pointer">
+              <td v-text="$index + 1"></td>
               <td v-text="holding.symbol" @click="getTopicId(holding.symbol)"></td>
               <td v-text="holding.allocated_quantity"></td>
               <td v-text="holding.avgPrice"></td>
