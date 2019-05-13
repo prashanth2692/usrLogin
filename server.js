@@ -9,6 +9,8 @@ const holdingsController = require('./controllers/holdingsController')
 const chartsController = require("./controllers/chartsController")
 const portfolioController = require("./controllers/portfolioController")
 const investmentrendController = require('./controllers/investmentTrendController')
+const clientIPMiddleWare = require('./middlerware/clientIPMiddleware')
+const authenteMiddleware = require("./middlerware/authenticator.js")
 // var upload_files = require('./file_upload')
 var formidable = require('formidable');
 // var http = require('http')
@@ -57,6 +59,8 @@ const staticMidlleware = express.static(path.join(__dirname, 'www'), {
 
 app.use(cookieParser())
 app.use(logResponseTime)
+app.use(clientIPMiddleWare)
+app.use(authenteMiddleware)
 app.use(staticMidlleware)
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -135,27 +139,27 @@ router.post('/addItem', function (req, res) {
 router.get('/getItems', function (req, res) {
   let sessionId = req.cookies.session
   let mydb = dbConnection()
-  mydb.collection('user_session').findOne({ sessionId }).then(doc => {
-    // user is authenticated
-    if (doc) {
-      dbConnection().collection('items').find({ deleted: { $exists: false } }).toArray().then(function (docs) {
-        res.status(200).json(docs ? docs : [])
-      }).catch(err => {
-        res.status(500).send({ msg: 'failed to fetch items' })
-      })
-    } else {
-      res.status(401).json({
-        error: 'You must login to see this',
-        location: '/login.html'
-      })
-    }
-
+  mydb.collection('items').find({ deleted: { $exists: false } }).toArray().then(function (docs) {
+    res.status(200).json(docs ? docs : [])
   }).catch(err => {
-    res.status(403).json({
-      error: 'You must login to see this',
-      location: '/login.html'
-    })
+    res.status(500).send({ msg: 'failed to fetch items' })
   })
+  // mydb.collection('user_session').findOne({ sessionId }).then(doc => {
+  //   // user is authenticated
+  //   if (doc) {
+  //   } else {
+  //     res.status(401).json({
+  //       error: 'You must login to see this',
+  //       location: '/login.html'
+  //     })
+  //   }
+
+  // }).catch(err => {
+  //   res.status(403).json({
+  //     error: 'You must login to see this',
+  //     location: '/login.html'
+  //   })
+  // })
 })
 
 router.delete('/deleteItem/:id', function (req, res) {

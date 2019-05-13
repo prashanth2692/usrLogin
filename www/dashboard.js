@@ -12,9 +12,11 @@ axios.interceptors.response.use(function (response) {
   return response;
 }, function (error) {
   // Do something with response error
+
+  // This is obsolete as redirect is handled on iniital browser call
   console.log(error.response.status)
-  if (error.response.status == 401) {
-    window.location.href = error.response.data.location || '/login.html'
+  if (error.response.status == 401 || error.response.status == 403) {
+    window.location.href = error.response.data ? error.response.data.location : '/login.html'
   }
   return error;
 });
