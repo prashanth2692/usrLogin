@@ -229,7 +229,7 @@ router.post('/uploadFile', (req, res) => {
               if (err) {
                 res.status(500).json(err)
               } else {
-                res.status(200).end()
+                let resData = []
 
                 // call python script and then node script to update transactions collection
                 // below code is experimental
@@ -238,20 +238,28 @@ router.post('/uploadFile', (req, res) => {
                 const insertToDB = require('./Zerodha/insertTransactionsIntoMongo.js')
                 const consolidateTxs = require('./portfolio/consolidated_transactions.js')
                 pythonFromNode().then((resp) => {
+                  resData.push('generated zerodha transactions JSON')
+                  // console.log(resp)
                   insertToDB(dbConnection()).then((resp1) => {
+                    resData.push('inserted zerodha transactions to mongo')
                     console.log('Updated zerodha transactions')
-                    consolidateTxs(dbConnection())
+                    consolidateTxs(dbConnection()).then(() => {
+                      resData.push('updated consolidated transactions')
+                      res.status(200).json(resData)
+                    })
                   }).catch(err => {
                     console.error(err)
+                    res.status(500).json({ error: 'failed to update zerodha transactions' })
                   })
                 }).catch(err => {
                   console.error(err)
+                  res.status(500).json({ error: 'failed to parse transactions' })
                 })
                 // end of experimental code
               }
             })
           } else {
-            res.end()
+            res.json({ info: 'file already exists!' })
           }
         })
       }

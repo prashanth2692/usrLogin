@@ -57,7 +57,7 @@ for i in range(len(tx)):
     totalTrx += len(tx[i])
 print('Total transactions: ', totalTrx)
 
-with open('./testTransactions.json', 'w') as f:
+with open(os.path.join(currentFileDirectory, 'testTransactions.json'), 'w') as f:
     json.dump(tx, f)
 
     # For row 0 and column 0

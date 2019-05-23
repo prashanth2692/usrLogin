@@ -2,7 +2,7 @@ const investmentTrendComponent = {
   template: '#upload',
   data: function () {
     return {
-      test: 'test'
+      showSuccessMsg: false
     }
   },
   created: function () {
@@ -17,7 +17,7 @@ const investmentTrendComponent = {
         formData.append(file.name, file)
 
         axios.post('/uploadFile', formData).then(resp => {
-          console.log(resp)
+          this.showSuccessMsg = true
         }).catch(err => {
           console.log(err)
         })

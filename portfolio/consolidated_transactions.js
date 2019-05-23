@@ -123,7 +123,7 @@ function run(mydb) {
             })
 
         ipoTxs.forEach(tx => {
-            tx.trade_date = tx.date.slice(0, 10)
+            tx.trade_date = moment(tx.date).format('YYYY-MM-DD')
             //@ts-ignore
             tx.date = new Date(tx.date)
             tx.updated_date = (new Date())
