@@ -13,7 +13,8 @@ const MoneyControlComponent = {
       symbol: null,
       transactions: null,
       userMarkedSpam: {},
-      groupedTransactions: []
+      groupedTransactions: [], // grouped by orderID, a order can be executed through multiple trades, each trade has its own record (mostly applicable for zerodha)
+      txGroupByDate: {}
     }
   },
   created: function () {
@@ -94,6 +95,29 @@ const MoneyControlComponent = {
         let outputOrderArray = [...orderIdsMap.values()]
         console.log(outputOrderArray)
         this.groupedTransactions = outputOrderArray
+      }
+    },
+    groupedTransactions: function () {
+      this.txGroupByDate = []
+      let txGroupByDate = {}
+      let groupedTransactions = this.groupedTransactions
+      if (groupedTransactions && groupedTransactions.length > 0) {
+        groupedTransactions.forEach(tx => {
+          if (txGroupByDate[tx.trade_date]) {
+            txGroupByDate[tx.trade_date].push(tx)
+          } else {
+            txGroupByDate[tx.trade_date] = [tx]
+          }
+        })
+
+        let dates = Object.keys(txGroupByDate)
+        dates = dates.sort((d1, d2) => d1 > d2)
+        dates.forEach(d => {
+          this.txGroupByDate.push({
+            date: d,
+            transactions: txGroupByDate[d]
+          })
+        })
       }
     }
   }
