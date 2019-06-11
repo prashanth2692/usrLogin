@@ -12,7 +12,8 @@ const MoneyControlComponent = {
       priceChange: 0,
       symbol: null,
       transactions: null,
-      userMarkedSpam: {}
+      userMarkedSpam: {},
+      groupedTransactions: []
     }
   },
   created: function () {
@@ -74,6 +75,26 @@ const MoneyControlComponent = {
       }).catch(err => {
         console.log(err)
       })
+    }
+  },
+  watch: {
+    transactions: function () {
+      this.groupedTransactions = []
+      if (this.transactions && this.transactions.length > 0) {
+        let orderIdsMap = new Map() // Map retains the order of insertion so can be converted to array without loosing original ordering
+        this.transactions.forEach(transaction => {
+          if (orderIdsMap.has(transaction.orderId)) {
+            let tx = orderIdsMap.get(transaction.orderId)
+            tx.quantity += transaction.quantity
+          } else {
+            orderIdsMap.set(transaction.orderId, transaction)
+          }
+        })
+
+        let outputOrderArray = [...orderIdsMap.values()]
+        console.log(outputOrderArray)
+        this.groupedTransactions = outputOrderArray
+      }
     }
   }
 }

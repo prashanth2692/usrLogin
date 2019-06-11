@@ -58,7 +58,7 @@
               <th>Price</th>
             </thead>
             <tbody>
-              <tr v-for="tx in transactions">
+              <tr v-for="tx in groupedTransactions">
                 <td v-text="tx.date_edited"></td>
                 <td v-text="tx.type"></td>
                 <td v-text="tx.quantity"></td>
