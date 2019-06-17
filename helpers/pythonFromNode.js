@@ -22,7 +22,11 @@ function callPythonProcessZerodhaTxFiles() {
       errData += data.toString()
     });
     pyprog.stderr.on('end', () => {
-      reject(errData);
+      // in linux this callback is also being called even there are no errors
+      // rejecting only when errData has
+      if (errData.length > 0) {
+        reject(errData);
+      }
     });
   })
 }
