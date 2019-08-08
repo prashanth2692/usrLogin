@@ -4,6 +4,7 @@ import holdings from './holdingsComponent.js'
 import charts from './chartComponent.js'
 import investmentTrendComponent from './components/investmnetTrendComponent.js';
 import uploadConponent from './components/uploadComponent.js'
+import SymbolSearchComponent from './components/SymbolSearchComponent.js'
 
 // Add a response interceptor
 axios.interceptors.response.use(function (response) {
@@ -122,7 +123,8 @@ const routes = [
   { path: '/holdings', component: holdings },
   { path: '/charts', component: charts },
   { path: '/investmentTrend', component: investmentTrendComponent },
-  { path: '/upload', component: uploadConponent }
+  { path: '/upload', component: uploadConponent },
+  { path: '/symbol', component: SymbolSearchComponent }
 ]
 
 const router = new VueRouter({
@@ -147,10 +149,11 @@ Vue.component('app-header', {
         //   name: 'Messages',
         //   link: '/messages_depricated'
         // },
-        {
-          name: 'Direct messages',
-          link: '/messages'
-        },
+        // Hiding direct messages link
+        // {
+        //   name: 'Direct messages',
+        //   link: '/messages'
+        // },
         {
           name: 'Holdings',
           link: '/holdings'
@@ -164,6 +167,9 @@ Vue.component('app-header', {
         }, {
           name: 'Upload',
           link: '/upload'
+        }, {
+          name: 'Symbol',
+          link: '/symbol'
         }
       ]
     }

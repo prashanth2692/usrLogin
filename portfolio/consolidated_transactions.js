@@ -27,7 +27,7 @@ function createDBConnection(url) {
     });
 }
 
-function run(mydb) {
+function run(mydb, uid) {
     return new Promise((resolve, reject) => {
         const transactionsCollection = mydb.collection(dbConstants.collections.transactions)
         //for testing 
@@ -45,6 +45,7 @@ function run(mydb) {
             if (docs) {
                 docs.forEach(doc => {
                     let normalizedTx = new convertICICI(doc)
+                    normalizedTx.uid = uid
                     normalizedTx.updated_date = new Date()
                     txCount++
                     nseMapCollection.findOne({ icici: normalizedTx.symbol }, (err, doc) => {
@@ -64,6 +65,7 @@ function run(mydb) {
 
 
                                     logsCollection.insertOne({
+                                        uid,
                                         jobName: JOB_NAME,
                                         status: 'success',
                                         message: `inserted icici transaction ${normalizedTx.orderId}`
@@ -72,6 +74,7 @@ function run(mydb) {
                         } else {
                             logsCollection.insertOne({
                                 jobName: JOB_NAME,
+                                uid,
                                 status: 'failure',
                                 message: `couldn't inserted icici transaction ${normalizedTx.orderId}`
                             }).then(() => {
@@ -92,6 +95,7 @@ function run(mydb) {
                 if (docs) {
                     docs.forEach(doc => {
                         let normalizedTx = new convertZerodha(doc)
+                        normalizedTx.uid = uid
                         normalizedTx['updated_date'] = (new Date())
 
                         // a given order can be executed in multiple trades
@@ -107,6 +111,7 @@ function run(mydb) {
 
                                 logsCollection.insertOne({
                                     jobName: JOB_NAME,
+                                    uid,
                                     status: 'success',
                                     message: `inserted zerodha transaction ${normalizedTx.orderId}`
                                 }).then(() => {
@@ -124,6 +129,7 @@ function run(mydb) {
 
         ipoTxs.forEach(tx => {
             tx.trade_date = moment(tx.date).format('YYYY-MM-DD')
+            tx.uid = uid
             //@ts-ignore
             tx.date = new Date(tx.date)
             tx.updated_date = (new Date())
@@ -139,6 +145,7 @@ function run(mydb) {
 
                     logsCollection.insertOne({
                         jobName: JOB_NAME,
+                        uid,
                         status: 'success',
                         message: `inserted ipo transaction ${tx.symbol}`
                     }).then(() => {
@@ -189,6 +196,7 @@ function convertZerodha(zTx) {
     this.zref_id = zTx._id
     // ref_id is common for both zerodha and icici
     this.ref_id = zTx._id
+    this.uid = null // will be set from request  context
 }
 
 
@@ -245,6 +253,7 @@ function convertICICI(iTx) {
     this.settlement = iTx.Settlement
     this.iref_id = iTx._id
     this.ref_id = iTx._id
+    this.uid = null // will be set from context
     this.updated_date = new Date()
 }
 

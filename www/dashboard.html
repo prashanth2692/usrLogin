@@ -239,8 +239,36 @@
       <input type="file" ref="fileInput">
       <button @click="uploadFile">Upload</button>
       <div class="alert alert-success margin-20px" v-if="showSuccessMsg">
-          <a href="#" class="close" @click.prevent="showSuccessMsg = false">&times;</a>
+        <a href="#" class="close" @click.prevent="showSuccessMsg = false">&times;</a>
         <strong>Success!</strong> transactions updated successfully!
+      </div>
+    </div>
+  </template>
+
+  <template id="symbolSearch" style="display:none">
+    <div>
+      <input type="text" v-model="searchTerm" @change="getSymbols">
+      <div>
+        <div v-if="loading">Loading...</div>
+        <div v-if="!loading && symbols.length == 0">no results found</div>
+        <table v-if="!loading && symbols.length > 0"
+          class="table table-dark table-striped table-bordered table-sm table-responsive">
+          <thead>
+            <tr>
+              <td>Symbol</td>
+              <td>Actions</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="symbol in symbols">
+              <td v-text="symbol.symbol"></td>
+              <td>
+                <button class="btn btn-sm" @click="navigateToMsgBoard(symbol)">View
+                  messages</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </template>

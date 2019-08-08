@@ -9,6 +9,7 @@ const holdingsController = require('./controllers/holdingsController')
 const chartsController = require("./controllers/chartsController")
 const portfolioController = require("./controllers/portfolioController")
 const investmentrendController = require('./controllers/investmentTrendController')
+const SymbolSearchController = require('./controllers/SymbolSearchController')
 const clientIPMiddleWare = require('./middlerware/clientIPMiddleware')
 const authenteMiddleware = require("./middlerware/authenticator.js")
 // var upload_files = require('./file_upload')
@@ -46,9 +47,6 @@ mongooseDB.on('open', function (err) {
 require('./schema/fuelRefill')
 let fuelRefeillingModel = mongoose.model('fuelRefilling')
 
-
-// var hash = crypto.createHash('sha256')
-
 const app = express()
 const router = express.Router()
 var passwordSalt = 'kjfbgjkhsfbg'
@@ -57,6 +55,7 @@ const staticMidlleware = express.static(path.join(__dirname, 'www'), {
   extensions: ['html'] // is required to serve files which are requested without extension
 })
 
+// middlewares
 app.use(cookieParser())
 app.use(logResponseTime)
 app.use(clientIPMiddleWare)
@@ -85,13 +84,14 @@ router.get('/LoginUser', function (req, res) {
 
   dbConnection().collection('users').findOne({ userName }, function (err, doc) {
     if (doc) {
+      console.log("login:user doc", doc)
       var hashedPassword = getHasedPassword(password + passwordSalt)
       if (hashedPassword.toString() === doc.password.toString()) {
         // Here the user is authenticated, generate seesion id and send in cookie
         let sessionId = uuid()
 
         // insert sessionid into db for future refernece
-        dbConnection().collection('user_session').insertOne({ userName, sessionId })
+        dbConnection().collection('user_session').insertOne({ uid: doc.uid, sessionId })
         res.cookie('session', sessionId)
         res.redirect('/dashboard')
       } else {
@@ -105,15 +105,16 @@ router.get('/LoginUser', function (req, res) {
 
 router.post('/RegisterUser', function (req, res) {
   let body = req.body
-  var username = body.username
-  var hashedPassword = getHasedPassword(body.password + passwordSalt)
+  let username = body.username
+  let hashedPassword = getHasedPassword(body.password + passwordSalt)
+  let userUID = uuid()
 
   dbConnection().collection('users').findOne({ userName: username }, function (err, doc) {
     if (doc) {
       res.write('user already exists!')
       res.end()
     } else {
-      dbConnection().collection('users').insert({ userName: username, password: hashedPassword }, function (err, doc) {
+      dbConnection().collection('users').insert({ userName: username, password: hashedPassword, uid: userUID }, function (err, doc) {
         res.redirect('/login.html?status=created')
       })
     }
@@ -121,10 +122,12 @@ router.post('/RegisterUser', function (req, res) {
 })
 
 router.post('/addItem', function (req, res) {
+  const userUID = req.context ? req.context.uid : null
   // req.on('data', function (chunk) {
   var chunk = req.body.item
   if (chunk) {
-    dbConnection().collection('items').insertOne({ itemValue: chunk }).then(doc => {
+    const item = { itemValue: chunk, uid: userUID }
+    dbConnection().collection('items').insertOne(item).then(doc => {
       res.status(200).json(doc.ops[0])
     }).catch(err => {
       res.status(500).send()
@@ -137,9 +140,10 @@ router.post('/addItem', function (req, res) {
 })
 
 router.get('/getItems', function (req, res) {
+  const uid = req.context ? req.context.uid : null
   let sessionId = req.cookies.session
   let mydb = dbConnection()
-  mydb.collection('items').find({ deleted: { $exists: false } }).toArray().then(function (docs) {
+  mydb.collection('items').find({ deleted: { $exists: false }, uid }).toArray().then(function (docs) {
     res.status(200).json(docs ? docs : [])
   }).catch(err => {
     res.status(500).send({ msg: 'failed to fetch items' })
@@ -243,7 +247,7 @@ router.post('/uploadFile', (req, res) => {
                   insertToDB(dbConnection()).then((resp1) => {
                     resData.push('inserted zerodha transactions to mongo')
                     console.log('Updated zerodha transactions')
-                    consolidateTxs(dbConnection()).then(() => {
+                    consolidateTxs(dbConnection(), req.context ? req.context.uid : null).then(() => {
                       resData.push('updated consolidated transactions')
                       res.status(200).json(resData)
                     })
@@ -271,12 +275,16 @@ router.post('/uploadFile', (req, res) => {
 let givenPort = Number(process.argv[2]) // fist two will be node and file name respectively
 var port = givenPort || 80
 
+
+// routes
 app.use('/moneycontrol', moneyControlController)
 app.use('/holdings', holdingsController)
 app.use('/charts', chartsController)
 app.use('/portfolio', portfolioController)
 app.use('/investment', investmentrendController)
+app.use('/symbol', SymbolSearchController)
 
+// middleware
 app.use(router)
 app.listen(port, () => {
   console.log('listening on port ', port)

@@ -15,7 +15,7 @@ const holdingsHelper = require('./holdingsHelper')
 //   run(db)
 // })
 
-function run(db, returnOnlyPast) {
+function run(db, uid, returnOnlyPast) {
   let promise = new Promise((resolve, reject) => {
     const mydb = db.db('mydb')
     const txClx = mydb.collection(dbConstants.collections.transactions)
@@ -29,15 +29,17 @@ function run(db, returnOnlyPast) {
       }
     }
 
-    txClx.aggregate([{ $group: { _id: '$broker', txs: { $push: '$$ROOT' } } }]
+    txClx.aggregate([{ $match: { uid } }, { $group: { _id: '$broker', txs: { $push: '$$ROOT' } } }]
       , (err, aggregateCursor) => {
 
         aggregateCursor.each((err, result) => {
-          // cursor works even afte db.close() is called
-          if (result._id == 'ipo') {
-            txByBroker.zerodha.allTxs = txByBroker.zerodha.allTxs.concat(result.txs)
-          } else if (result) {
-            txByBroker[result._id].allTxs = txByBroker[result._id].allTxs.concat(result.txs)
+          if (result) {
+            // cursor works even afte db.close() is called
+            if (result._id == 'ipo') {
+              txByBroker.zerodha.allTxs = txByBroker.zerodha.allTxs.concat(result.txs)
+            } else if (result) {
+              txByBroker[result._id].allTxs = txByBroker[result._id].allTxs.concat(result.txs)
+            }
           }
 
           aggregateCursor.hasNext((err, hasNext) => {

@@ -21,12 +21,17 @@ function authenticator(req, res, next) {
         if (!doc) {
           response304(res)
         } else {
+          // set uid in req context
+          req.context = {
+            uid: doc.uid
+          }
           next()
         }
       }).catch(err => {
         response304(res)
       })
     } else {
+      // this shouldn't happen!
       next()
     }
   }
