@@ -13,7 +13,12 @@ let dbConstants = {
         messagesArchiveStatus: 'messages_archive_status',
         messagesArchiveStatus_test: 'messages_archive_status_test',
         dailyQuotesNse_trial: 'dayQuotes_nse_trial',
-        moneycontrolSpamUsers: 'moneycontrol_spam_users'
+        moneycontrolSpamUsers: 'moneycontrol_spam_users',
+        msInUsInCs: "ms_us_cs", // This collection has list of universities with location rank details
+        universityNotes: "university_notes"
+    },
+    dbs: {
+        mydb: 'mydb'
     }
 }
 

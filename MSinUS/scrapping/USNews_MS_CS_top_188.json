@@ -1,0 +1,942 @@
+[
+    [
+        "Carnegie Mellon University",
+        "Pittsburgh, PA",
+        "#1 in Computer Science (tie)"
+    ],
+    [
+        "Massachusetts Institute of Technology",
+        "Cambridge, MA",
+        "#1 in Computer Science (tie)"
+    ],
+    [
+        "Stanford University",
+        "Stanford, CA",
+        "#1 in Computer Science (tie)"
+    ],
+    [
+        "University of California--Berkeley",
+        "Berkeley, CA",
+        "#1 in Computer Science (tie)"
+    ],
+    [
+        "University of Illinois--Urbana-Champaign",
+        "Urbana, IL",
+        "#5 in Computer Science"
+    ],
+    [
+        "Cornell University",
+        "Ithaca, NY",
+        "#6 in Computer Science (tie)"
+    ],
+    [
+        "University of Washington",
+        "Seattle, WA",
+        "#6 in Computer Science (tie)"
+    ],
+    [
+        "Georgia Institute of Technology",
+        "Atlanta, GA",
+        "#8 in Computer Science (tie)"
+    ],
+    [
+        "Princeton University",
+        "Princeton, NJ",
+        "#8 in Computer Science (tie)"
+    ],
+    [
+        "University of Texas--Austin",
+        "Austin, TX",
+        "#10 in Computer Science"
+    ],
+    [
+        "California Institute of Technology",
+        "Pasadena, CA",
+        "#11 in Computer Science (tie)"
+    ],
+    [
+        "University of Michigan--Ann Arbor",
+        "Ann Arbor, MI",
+        "#11 in Computer Science (tie)"
+    ],
+    [
+        "Columbia University",
+        "New York, NY",
+        "#13 in Computer Science (tie)"
+    ],
+    [
+        "University of California--Los Angeles",
+        "Los Angeles, CA",
+        "#13 in Computer Science (tie)"
+    ],
+    [
+        "University of Wisconsin--Madison",
+        "Madison, WI",
+        "#13 in Computer Science (tie)"
+    ],
+    [
+        "Harvard University",
+        "Cambridge, MA",
+        "#16 in Computer Science (tie)"
+    ],
+    [
+        "University of California--San Diego",
+        "La Jolla, CA",
+        "#16 in Computer Science (tie)"
+    ],
+    [
+        "University of Maryland--College Park",
+        "College Park, MD",
+        "#16 in Computer Science (tie)"
+    ],
+    [
+        "University of Pennsylvania",
+        "Philadelphia, PA",
+        "#19 in Computer Science"
+    ],
+    [
+        "Purdue University--West Lafayette",
+        "West Lafayette, IN",
+        "#20 in Computer Science (tie)"
+    ],
+    [
+        "Rice University",
+        "Houston, TX",
+        "#20 in Computer Science (tie)"
+    ],
+    [
+        "University of Massachusetts--Amherst",
+        "Amherst, MA",
+        "#20 in Computer Science (tie)"
+    ],
+    [
+        "University of Southern California",
+        "Los Angeles, CA",
+        "#20 in Computer Science (tie)"
+    ],
+    [
+        "Yale University",
+        "New Haven, CT",
+        "#20 in Computer Science (tie)"
+    ],
+    [
+        "Brown University",
+        "Providence, RI",
+        "#25 in Computer Science (tie)"
+    ],
+    [
+        "Duke University",
+        "Durham, NC",
+        "#25 in Computer Science (tie)"
+    ],
+    [
+        "Johns Hopkins University",
+        "Baltimore, MD",
+        "#25 in Computer Science (tie)"
+    ],
+    [
+        "University of North Carolina--Chapel Hill",
+        "Chapel Hill, NC",
+        "#25 in Computer Science (tie)"
+    ],
+    [
+        "University of Minnesota--Twin Cities",
+        "Minneapolis, MN",
+        "#29 in Computer Science"
+    ],
+    [
+        "New York University",
+        "New York, NY",
+        "#30 in Computer Science (tie)"
+    ],
+    [
+        "Northwestern University",
+        "Evanston, IL",
+        "#30 in Computer Science (tie)"
+    ],
+    [
+        "Ohio State University",
+        "Columbus, OH",
+        "#30 in Computer Science (tie)"
+    ],
+    [
+        "Pennsylvania State University--University Park",
+        "University Park, PA",
+        "#30 in Computer Science (tie)"
+    ],
+    [
+        "University of California--Irvine",
+        "Irvine, CA",
+        "#30 in Computer Science (tie)"
+    ],
+    [
+        "University of Chicago",
+        "Chicago, IL",
+        "#30 in Computer Science (tie)"
+    ],
+    [
+        "University of Virginia",
+        "Charlottesville, VA",
+        "#30 in Computer Science (tie)"
+    ],
+    [
+        "Rutgers, The State University of New Jersey--New Brunswick",
+        "Piscataway, NJ",
+        "#37 in Computer Science (tie)"
+    ],
+    [
+        "University of California--Davis",
+        "Davis, CA",
+        "#37 in Computer Science (tie)"
+    ],
+    [
+        "University of California--Santa Barbara",
+        "Santa Barbara, CA",
+        "#37 in Computer Science (tie)"
+    ],
+    [
+        "Stony Brook University--SUNY",
+        "Stony Brook, NY",
+        "#40 in Computer Science (tie)"
+    ],
+    [
+        "University of Colorado--Boulder",
+        "Boulder, CO",
+        "#40 in Computer Science (tie)"
+    ],
+    [
+        "Virginia Tech",
+        "Blacksburg, VA",
+        "#40 in Computer Science (tie)"
+    ],
+    [
+        "Arizona State University",
+        "Tempe, AZ",
+        "#43 in Computer Science (tie)"
+    ],
+    [
+        "Dartmouth College",
+        "Hanover, NH",
+        "#43 in Computer Science (tie)"
+    ],
+    [
+        "North Carolina State University",
+        "Raleigh, NC",
+        "#43 in Computer Science (tie)"
+    ],
+    [
+        "Texas A&M University--College Station",
+        "College Station, TX",
+        "#43 in Computer Science (tie)"
+    ],
+    [
+        "University of Arizona",
+        "Tucson, AZ",
+        "#43 in Computer Science (tie)"
+    ],
+    [
+        "University of Utah",
+        "Salt Lake City , UT",
+        "#43 in Computer Science (tie)"
+    ],
+    [
+        "Boston University",
+        "Boston, MA",
+        "#49 in Computer Science (tie)"
+    ],
+    [
+        "Northeastern University",
+        "Boston, MA",
+        "#49 in Computer Science (tie)"
+    ],
+    [
+        "University of Florida",
+        "Gainesville, FL",
+        "#49 in Computer Science (tie)"
+    ],
+    [
+        "University of Pittsburgh",
+        "Pittsburgh, PA",
+        "#49 in Computer Science (tie)"
+    ],
+    [
+        "University of Rochester",
+        "Rochester, NY",
+        "#49 in Computer Science (tie)"
+    ],
+    [
+        "Washington University in St. Louis",
+        "St. Louis, MO",
+        "#49 in Computer Science (tie)"
+    ],
+    [
+        "Indiana University--Bloomington",
+        "Bloomington, IN",
+        "#55 in Computer Science (tie)"
+    ],
+    [
+        "Michigan State University",
+        "East Lansing, MI",
+        "#55 in Computer Science (tie)"
+    ],
+    [
+        "Rensselaer Polytechnic Institute",
+        "Troy, NY",
+        "#55 in Computer Science (tie)"
+    ],
+    [
+        "University of California--Santa Cruz",
+        "Santa Cruz, CA",
+        "#58 in Computer Science (tie)"
+    ],
+    [
+        "University of Notre Dame",
+        "Notre Dame, IN",
+        "#58 in Computer Science (tie)"
+    ],
+    [
+        "Vanderbilt University",
+        "Nashville, TN",
+        "#58 in Computer Science (tie)"
+    ],
+    [
+        "Iowa State University",
+        "Ames, IA",
+        "#61 in Computer Science (tie)"
+    ],
+    [
+        "University at Buffalo--SUNY",
+        "Buffalo, NY",
+        "#61 in Computer Science (tie)"
+    ],
+    [
+        "University of California--Riverside",
+        "Riverside, CA",
+        "#61 in Computer Science (tie)"
+    ],
+    [
+        "University of Illinois--Chicago",
+        "Chicago, IL",
+        "#64 in Computer Science (tie)"
+    ],
+    [
+        "University of Iowa",
+        "Iowa City, IA",
+        "#64 in Computer Science (tie)"
+    ],
+    [
+        "University of Oregon",
+        "Eugene, OR",
+        "#64 in Computer Science (tie)"
+    ],
+    [
+        "University of Texas--Dallas",
+        "Richardson, TX",
+        "#64 in Computer Science (tie)"
+    ],
+    [
+        "Case Western Reserve University",
+        "Cleveland, OH",
+        "#68 in Computer Science (tie)"
+    ],
+    [
+        "College of William and Mary",
+        "Williamsburg, VA",
+        "#68 in Computer Science (tie)"
+    ],
+    [
+        "George Mason University",
+        "Fairfax, VA",
+        "#68 in Computer Science (tie)"
+    ],
+    [
+        "Oregon State University",
+        "Corvallis, OR",
+        "#68 in Computer Science (tie)"
+    ],
+    [
+        "Rochester Institute of Technology",
+        "Rochester, NY",
+        "#68 in Computer Science (tie)"
+    ],
+    [
+        "Syracuse University",
+        "Syracuse, NY",
+        "#68 in Computer Science (tie)"
+    ],
+    [
+        "University of Delaware",
+        "Newark, DE",
+        "#68 in Computer Science (tie)"
+    ],
+    [
+        "Colorado State University",
+        "Fort Collins, CO",
+        "#75 in Computer Science (tie)"
+    ],
+    [
+        "George Washington University",
+        "Washington, DC",
+        "#75 in Computer Science (tie)"
+    ],
+    [
+        "Tufts University",
+        "Medford, MA",
+        "#75 in Computer Science (tie)"
+    ],
+    [
+        "University of Nebraska--Lincoln",
+        "Lincoln, NE",
+        "#75 in Computer Science (tie)"
+    ],
+    [
+        "University of New Mexico",
+        "Albuquerque, NM",
+        "#75 in Computer Science (tie)"
+    ],
+    [
+        "University of Tennessee--Knoxville",
+        "Knoxville, TN",
+        "#75 in Computer Science (tie)"
+    ],
+    [
+        "Washington State University",
+        "Pullman, WA",
+        "#75 in Computer Science (tie)"
+    ],
+    [
+        "CUNY Graduate School and University Center",
+        "New York , NY",
+        "#82 in Computer Science (tie)"
+    ],
+    [
+        "Clemson University",
+        "Clemson, SC",
+        "#82 in Computer Science (tie)"
+    ],
+    [
+        "Drexel University",
+        "Philadelphia, PA",
+        "#82 in Computer Science (tie)"
+    ],
+    [
+        "Emory University",
+        "Atlanta, GA",
+        "#82 in Computer Science (tie)"
+    ],
+    [
+        "Florida State University",
+        "Tallahassee, FL",
+        "#82 in Computer Science (tie)"
+    ],
+    [
+        "University of Central Florida",
+        "Orlando, FL",
+        "#82 in Computer Science (tie)"
+    ],
+    [
+        "University of Connecticut",
+        "Storrs, CT",
+        "#82 in Computer Science (tie)"
+    ],
+    [
+        "University of Maryland--Baltimore County",
+        "Baltimore, MD",
+        "#82 in Computer Science (tie)"
+    ],
+    [
+        "Worcester Polytechnic Institute",
+        "Worcester, MA",
+        "#82 in Computer Science (tie)"
+    ],
+    [
+        "Auburn University",
+        "Auburn, AL",
+        "#91 in Computer Science (tie)"
+    ],
+    [
+        "Brandeis University",
+        "Waltham, MA",
+        "#91 in Computer Science (tie)"
+    ],
+    [
+        "Brigham Young University",
+        "Provo, UT",
+        "#91 in Computer Science (tie)"
+    ],
+    [
+        "Colorado School of Mines",
+        "Golden, CO",
+        "#91 in Computer Science (tie)"
+    ],
+    [
+        "Illinois Institute of Technology",
+        "Chicago, IL",
+        "#91 in Computer Science (tie)"
+    ],
+    [
+        "New Jersey Institute of Technology",
+        "Newark, NJ",
+        "#91 in Computer Science (tie)"
+    ],
+    [
+        "Stevens Institute of Technology",
+        "Hoboken, NJ",
+        "#91 in Computer Science (tie)"
+    ],
+    [
+        "University of Kansas",
+        "Lawrence, KS",
+        "#91 in Computer Science (tie)"
+    ],
+    [
+        "University of Kentucky",
+        "Lexington, KY",
+        "#91 in Computer Science (tie)"
+    ],
+    [
+        "University of North Carolina--Charlotte",
+        "Charlotte, NC",
+        "#91 in Computer Science (tie)"
+    ],
+    [
+        "University of Texas--Arlington",
+        "Arlington, TX",
+        "#91 in Computer Science (tie)"
+    ],
+    [
+        "Kansas State University",
+        "Manhattan, KS",
+        "#102 in Computer Science (tie)"
+    ],
+    [
+        "Lehigh University",
+        "Bethlehem, PA",
+        "#102 in Computer Science (tie)"
+    ],
+    [
+        "Louisiana State University--Baton Rouge",
+        "Baton Rouge, LA",
+        "#102 in Computer Science (tie)"
+    ],
+    [
+        "Temple University",
+        "Philadelphia, PA",
+        "#102 in Computer Science (tie)"
+    ],
+    [
+        "University of Georgia",
+        "Athens, GA",
+        "#102 in Computer Science (tie)"
+    ],
+    [
+        "University of Houston",
+        "Houston, TX",
+        "#102 in Computer Science (tie)"
+    ],
+    [
+        "University of Missouri",
+        "Columbia, MO",
+        "#102 in Computer Science (tie)"
+    ],
+    [
+        "University of South Florida",
+        "Tampa, FL",
+        "#102 in Computer Science (tie)"
+    ],
+    [
+        "Wayne State University",
+        "Detroit, MI",
+        "#102 in Computer Science (tie)"
+    ],
+    [
+        "Binghamton University--SUNY",
+        "Binghamton, NY",
+        "#111 in Computer Science (tie)"
+    ],
+    [
+        "Missouri University of Science & Technology",
+        "Rolla, MO",
+        "#111 in Computer Science (tie)"
+    ],
+    [
+        "University at Albany--SUNY",
+        "Albany, NY",
+        "#111 in Computer Science (tie)"
+    ],
+    [
+        "University of Alabama",
+        "Tuscaloosa, AL",
+        "#111 in Computer Science (tie)"
+    ],
+    [
+        "University of New Hampshire",
+        "Durham, NH",
+        "#111 in Computer Science (tie)"
+    ],
+    [
+        "University of Oklahoma",
+        "Norman, OK",
+        "#111 in Computer Science (tie)"
+    ],
+    [
+        "University of South Carolina",
+        "Columbia, SC",
+        "#111 in Computer Science (tie)"
+    ],
+    [
+        "West Virginia University",
+        "Morgantown, WV",
+        "#111 in Computer Science (tie)"
+    ],
+    [
+        "Georgia State University",
+        "Atlanta, GA",
+        "#119 in Computer Science (tie)"
+    ],
+    [
+        "Ohio University",
+        "Athens, OH",
+        "#119 in Computer Science (tie)"
+    ],
+    [
+        "Portland State University",
+        "Portland, OR",
+        "#119 in Computer Science (tie)"
+    ],
+    [
+        "Southern Methodist University",
+        "Dallas, TX",
+        "#119 in Computer Science (tie)"
+    ],
+    [
+        "Texas Tech University",
+        "Lubbock, TX",
+        "#119 in Computer Science (tie)"
+    ],
+    [
+        "University of California--Merced",
+        "Merced, CA",
+        "#119 in Computer Science (tie)"
+    ],
+    [
+        "University of Cincinnati",
+        "Cincinnati, OH",
+        "#119 in Computer Science (tie)"
+    ],
+    [
+        "University of Hawaii--Manoa",
+        "Honolulu, HI",
+        "#119 in Computer Science (tie)"
+    ],
+    [
+        "University of Louisville",
+        "Louisville, KY",
+        "#119 in Computer Science (tie)"
+    ],
+    [
+        "University of Rhode Island",
+        "Kingston, RI",
+        "#119 in Computer Science (tie)"
+    ],
+    [
+        "University of Texas--San Antonio",
+        "San Antonio, TX",
+        "#119 in Computer Science (tie)"
+    ],
+    [
+        "University of Vermont",
+        "Burlington, VT",
+        "#119 in Computer Science (tie)"
+    ],
+    [
+        "University of Wisconsin--Milwaukee",
+        "Milwaukee, WI",
+        "#119 in Computer Science (tie)"
+    ],
+    [
+        "Utah State University",
+        "Logan, UT",
+        "#119 in Computer Science (tie)"
+    ],
+    [
+        "Claremont Graduate University",
+        "Claremont, CA",
+        "#133 in Computer Science (tie)"
+    ],
+    [
+        "Florida International University",
+        "Miami, FL",
+        "#133 in Computer Science (tie)"
+    ],
+    [
+        "Indiana State University",
+        "Terre Haute, IN",
+        "#133 in Computer Science (tie)"
+    ],
+    [
+        "Marquette University",
+        "Milwaukee, WI",
+        "#133 in Computer Science (tie)"
+    ],
+    [
+        "Mississippi State University",
+        "Mississippi State, MS",
+        "#133 in Computer Science (tie)"
+    ],
+    [
+        "New Mexico State University",
+        "Las Cruces, NM",
+        "#133 in Computer Science (tie)"
+    ],
+    [
+        "Oklahoma State University",
+        "Stillwater, OK",
+        "#133 in Computer Science (tie)"
+    ],
+    [
+        "Old Dominion University",
+        "Norfolk, VA",
+        "#133 in Computer Science (tie)"
+    ],
+    [
+        "Oregon Health and Science University",
+        "Portland, OR",
+        "#133 in Computer Science (tie)"
+    ],
+    [
+        "University of Alabama--Birmingham",
+        "Birmingham, AL",
+        "#133 in Computer Science (tie)"
+    ],
+    [
+        "University of Colorado--Colorado Springs",
+        "Colorado Springs, CO",
+        "#133 in Computer Science (tie)"
+    ],
+    [
+        "University of Louisiana--Lafayette",
+        "Lafayette, LA",
+        "#133 in Computer Science (tie)"
+    ],
+    [
+        "University of Massachusetts--Boston",
+        "Boston, MA",
+        "#133 in Computer Science (tie)"
+    ],
+    [
+        "Virginia Commonwealth University",
+        "Richmond, VA",
+        "#133 in Computer Science (tie)"
+    ],
+    [
+        "Clarkson University",
+        "Schnectady, NY",
+        "#147 in Computer Science (tie)"
+    ],
+    [
+        "Dakota State University",
+        "Madison, SD",
+        "#147 in Computer Science (tie)"
+    ],
+    [
+        "DePaul University",
+        "Chicago, IL",
+        "#147 in Computer Science (tie)"
+    ],
+    [
+        "Florida Atlantic University",
+        "Boca Raton, FL",
+        "#147 in Computer Science (tie)"
+    ],
+    [
+        "Michigan Technological University",
+        "Houghton, MI",
+        "#147 in Computer Science (tie)"
+    ],
+    [
+        "San Diego State University",
+        "San Diego, CA",
+        "#147 in Computer Science (tie)"
+    ],
+    [
+        "Southern Illinois University--Carbondale",
+        "Carbondale, IL",
+        "#147 in Computer Science (tie)"
+    ],
+    [
+        "University of Alabama--Huntsville",
+        "Huntsville, AL",
+        "#147 in Computer Science (tie)"
+    ],
+    [
+        "University of Arkansas--Fayetteville",
+        "Fayetteville, AR",
+        "#147 in Computer Science (tie)"
+    ],
+    [
+        "University of Colorado--Denver",
+        "Denver, CO",
+        "#147 in Computer Science (tie)"
+    ],
+    [
+        "University of Idaho",
+        "Moscow, ID",
+        "#147 in Computer Science (tie)"
+    ],
+    [
+        "University of Maine",
+        "Orono, ME",
+        "#147 in Computer Science (tie)"
+    ],
+    [
+        "University of Massachusetts--Lowell",
+        "Lowell, MA",
+        "#147 in Computer Science (tie)"
+    ],
+    [
+        "University of Memphis",
+        "Memphis, TN",
+        "#147 in Computer Science (tie)"
+    ],
+    [
+        "University of Mississippi",
+        "University, MS",
+        "#147 in Computer Science (tie)"
+    ],
+    [
+        "University of Missouri--Kansas City",
+        "Kansas City, MO",
+        "#147 in Computer Science (tie)"
+    ],
+    [
+        "University of Nebraska--Omaha",
+        "Omaha, NE",
+        "#147 in Computer Science (tie)"
+    ],
+    [
+        "University of Nevada--Reno",
+        "Reno, NV",
+        "#147 in Computer Science (tie)"
+    ],
+    [
+        "University of North Texas",
+        "Denton, TX",
+        "#147 in Computer Science (tie)"
+    ],
+    [
+        "University of Tulsa",
+        "Tulsa, OK",
+        "#147 in Computer Science (tie)"
+    ],
+    [
+        "University of Wyoming",
+        "Laramie, WY",
+        "#147 in Computer Science (tie)"
+    ],
+    [
+        "Wright State University",
+        "Dayton, OH",
+        "#147 in Computer Science (tie)"
+    ],
+    [
+        "Air Force Institute of Technology",
+        "WPAFB, OH",
+        "#169 in Computer Science (tie)"
+    ],
+    [
+        "Kent State University",
+        "Kent, OH",
+        "#169 in Computer Science (tie)"
+    ],
+    [
+        "Louisiana Tech University",
+        "Ruston, LA",
+        "#169 in Computer Science (tie)"
+    ],
+    [
+        "Montana State University",
+        "Bozeman, MT",
+        "#169 in Computer Science (tie)"
+    ],
+    [
+        "North Dakota State University",
+        "Fargo, ND",
+        "#169 in Computer Science (tie)"
+    ],
+    [
+        "University of Arkansas--Little Rock",
+        "Little Rock, AR",
+        "#169 in Computer Science (tie)"
+    ],
+    [
+        "University of Puerto Rico--Mayaguez",
+        "Mayaguez, PR",
+        "#169 in Computer Science (tie)"
+    ],
+    [
+        "University of Texas--El Paso",
+        "El Paso, TX",
+        "#169 in Computer Science (tie)"
+    ],
+    [
+        "Florida Institute of Technology",
+        "Melbourne, FL",
+        "#177 in Computer Science (tie)"
+    ],
+    [
+        "New Mexico Institute of Mining and Technology",
+        "Socorro, NM",
+        "#177 in Computer Science (tie)"
+    ],
+    [
+        "Towson University",
+        "Towson, MD",
+        "#177 in Computer Science (tie)"
+    ],
+    [
+        "University of New Orleans",
+        "New Orleans, LA",
+        "#177 in Computer Science (tie)"
+    ],
+    [
+        "Bowie State University",
+        "Bowie, MD",
+        "#181 in Computer Science (tie)"
+    ],
+    [
+        "University of Bridgeport",
+        "Bridgeport, CT",
+        "#181 in Computer Science (tie)"
+    ],
+    [
+        "University of Southern Mississippi",
+        "Hattiesburg, MS",
+        "#181 in Computer Science (tie)"
+    ],
+    [
+        "Western Michigan University",
+        "Kalamazoo, MI",
+        "#181 in Computer Science (tie)"
+    ],
+    [
+        "Oakland University",
+        "Rochester, MI",
+        "#185 in Computer Science"
+    ],
+    [
+        "LIU Post",
+        "Brookville, NY",
+        "#186 in Computer Science (tie)"
+    ],
+    [
+        "Nova Southeastern University",
+        "Fort Lauderdale, FL",
+        "#186 in Computer Science (tie)"
+    ],
+    [
+        "Walden University",
+        "Minneapolis, MN",
+        "#186 in Computer Science (tie)"
+    ]
+]

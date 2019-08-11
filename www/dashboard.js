@@ -1,3 +1,4 @@
+//@ts-check
 import MoneyControlComponent from './MoneyControlComponent.js'
 import MoneyControlComponent_alt from './MoneyControlComponent_alt.js'
 import holdings from './holdingsComponent.js'
@@ -5,6 +6,8 @@ import charts from './chartComponent.js'
 import investmentTrendComponent from './components/investmnetTrendComponent.js';
 import uploadConponent from './components/uploadComponent.js'
 import SymbolSearchComponent from './components/SymbolSearchComponent.js'
+import universitiesListConponent from './components/universitiesListConponent.js'
+import universityNotes from './components/universityNotesComponent.js'
 
 // Add a response interceptor
 axios.interceptors.response.use(function (response) {
@@ -124,7 +127,9 @@ const routes = [
   { path: '/charts', component: charts },
   { path: '/investmentTrend', component: investmentTrendComponent },
   { path: '/upload', component: uploadConponent },
-  { path: '/symbol', component: SymbolSearchComponent }
+  { path: '/symbol', component: SymbolSearchComponent },
+  { path: '/universities', component: universitiesListConponent },
+  { path: '/universityNotes', component: universityNotes }
 ]
 
 const router = new VueRouter({
@@ -141,10 +146,10 @@ Vue.component('app-header', {
           name: 'Dashboard',
           link: '/dashboard'
         },
-        {
-          name: 'Fuel Refill',
-          link: '/fuelRefill'
-        },
+        // {
+        //   name: 'Fuel Refill',
+        //   link: '/fuelRefill'
+        // },
         // {
         //   name: 'Messages',
         //   link: '/messages_depricated'
@@ -158,10 +163,11 @@ Vue.component('app-header', {
           name: 'Holdings',
           link: '/holdings'
         },
+        // {
+        //   name: 'charts',
+        //   link: '/charts'
+        // }, 
         {
-          name: 'charts',
-          link: '/charts'
-        }, {
           name: 'investment trend',
           link: '/investmentTrend'
         }, {
@@ -170,6 +176,9 @@ Vue.component('app-header', {
         }, {
           name: 'Symbol',
           link: '/symbol'
+        }, {
+          name: 'Universities',
+          link: '/universities'
         }
       ]
     }
