@@ -1,5 +1,8 @@
+//@ts-check
+
 const axios = require('axios')
 var MongoClient = require('mongodb').MongoClient;
+var ObjectId = require('mongodb').ObjectID;
 // const moment = require('moment')
 const momentTz = require('moment-timezone')
 const dbConstants = require('./helpers/dbConstants')
@@ -37,78 +40,104 @@ const dbConstants = require('./helpers/dbConstants')
 // let rCom_COmpiID = 'RCV02'
 var url = "mongodb://localhost:27017/"
 
-MongoClient.connect(url, { useNewUrlParser: true }, function (err, db) {
-  if (err) {
-    // res.status(500).send(err.message)
-    console.log(err)
-    return
-  };
-  const mydb = db.db('mydb')
-  const mcTopicIdClx = mydb.collection(dbConstants.collections.messageBoardTopicids)
-  const txClx = mydb.collection(dbConstants.collections.transactions)
-  const logClx = mydb.collection(dbConstants.collections.logs)
-  const moment = momentTz().tz('asia/calcutta')
-  const todayDate = moment.format('YYYY-MM-DD')
+function run() {
+  MongoClient.connect(url, { useNewUrlParser: true }, function (err, db) {
+    if (err) {
+      // res.status(500).send(err.message)
+      console.log(err)
+      return
+    };
+    const mydb = db.db('mydb')
+    const mcTopicIdClx = mydb.collection(dbConstants.collections.messageBoardTopicids)
+    const txClx = mydb.collection(dbConstants.collections.transactions)
+    const logClx = mydb.collection(dbConstants.collections.logs)
+    const moment = momentTz().tz('asia/calcutta')
+    const todayDate = moment.format('YYYY-MM-DD')
 
-  txClx.distinct('symbol', (err, symbols) => {
-    // console.log(symbols.length)
-    mcTopicIdClx.find({ symbol: { $in: symbols } }).toArray((err, docs) => {
-      // console.log(docs.length)
-      if (err) throw err;
-      let count = 0
-      let promises = docs.map(doc => {
-        let promise = new Promise((resolve, reject) => {
-          let index = count++
-          let clx = mydb.collection(doc.symbol + '_seconds_log')
-          // to get quote just after 1530 for updated closing price
-          let stopInterval = false
-          let interval = setInterval(() => {
-            let currentTime = momentTz().tz('asia/calcutta').format('HHmm')
+    txClx.distinct('symbol', (err, symbols) => {
+      // console.log(symbols.length)
+      mcTopicIdClx.find({ symbol: { $in: symbols } }).toArray((err, docs) => {
+        // console.log(docs.length)
+        if (err) throw err;
+        let count = 0
+        let promises = docs.map(doc => {
+          let promise = new Promise((resolve, reject) => {
+            let index = count++
+            let clx = mydb.collection(doc.symbol + '_seconds_log')
+            // to get quote just after 1530 for updated closing price
+            let stopInterval = false
+            let interval = setInterval(() => {
+              let currentTime = momentTz().tz('asia/calcutta').format('HHmm')
 
 
-            // if (currentTime < '1530') {
-            axios.get(`https://priceapi-aws.moneycontrol.com/pricefeed/nse/equitycash/${doc.compid_imp}`).then(resp => {
-              let data = resp.data.data
-              // console.log(data.pricecurrent, data.VOL)
+              // if (currentTime < '1530') {
+                //@ts-ignore
+              axios.get(`https://priceapi-aws.moneycontrol.com/pricefeed/nse/equitycash/${doc.compid_imp}`).then(resp => {
+                let data = resp.data.data
+                // console.log(data.pricecurrent, data.VOL)
 
-              let dateTime = todayDate + ' ' + data[0] // data[0] is time of the snapshot
-              data.date = todayDate
-              clx.updateOne({ _id: dateTime }, { $set: data }, { upsert: true }).then(result => {
-                console.log(index, 'inserted', doc.symbol, dateTime)
+                let dateTime = todayDate + ' ' + data[0] // data[0] is time of the snapshot
+                data.date = todayDate
+                clx.updateOne({ _id: dateTime }, { $set: data }, { upsert: true }).then(result => {
+                  console.log(index, 'inserted', doc.symbol, dateTime)
 
-                if (stopInterval) {
-                  console.log(index, 'past market time, stoping job')
-                  clearInterval(interval)
-                  resolve()
-                }
+                  if (stopInterval) {
+                    console.log(index, 'past market time, stoping job')
+                    clearInterval(interval)
+                    resolve()
+                  }
+                })
+
+              }).catch(err => {
+                logClx.insertOne({ jobName: 'scrip_data_scraping', type: 'error', msg: `failed to fetch for symbol ${doc.symbol}, compid ${doc.compid_imp}`, response: err.response })
               })
-
-            }).catch(err => {
-              logClx.insertOne({ jobName: 'scrip_data_scraping', type: 'error', msg: `failed to fetch for symbol ${doc.symbol}, compid ${doc.compid_imp}`, response: err.response })
-            })
-            // } else {
-            //   console.log(index, 'past market time, stoping job')
-            //   clearInterval(interval)
-            //   // db.close()
-            // }
+              // } else {
+              //   console.log(index, 'past market time, stoping job')
+              //   clearInterval(interval)
+              //   // db.close()
+              // }
 
 
 
-            if (currentTime > '1530') {
-              stopInterval = true
-            }
+              if (currentTime > '1530') {
+                stopInterval = true
+              }
 
-          }, 10000)
+            }, 10000)
+          })
+
+          return promise
+        });
+
+        Promise.all(promises).then(values => {
+          db.close()
         })
-
-        return promise
-      });
-
-      Promise.all(promises).then(values => {
-        db.close()
       })
     })
-  })
-  //#endregion})
+    //#endregion})
 
-})
+  })
+
+}
+
+
+run1()
+function run1() {
+  MongoClient.connect(url, { useNewUrlParser: true }, function (err, db) {
+    if (err) {
+      // res.status(500).send(err.message)
+      console.log(err)
+      return
+    }
+    var mydb = db.db("mydb")
+    const txClx = mydb.collection(dbConstants.collections.transactions)
+
+    // txClx.findOne({ userId: new ObjectId("5cd999e1268a0c18487445a3") }).then(doc => {
+    // console.log(doc._id)
+    txClx.find({userId: new ObjectId("5cd999e1268a0c18487445a3")}).toArray((err, docs) => {
+      console.log(docs.length)
+      db.close()
+    })
+    // })
+  })
+};
