@@ -248,6 +248,7 @@
   <template id="symbolSearch" style="display:none">
     <div>
       <input type="text" v-model="searchTerm" @change="getSymbols">
+      <button @click="getSymbols">Search</button>
       <div>
         <div v-if="loading">Loading...</div>
         <div v-if="!loading && symbols.length == 0">no results found</div>
@@ -276,6 +277,7 @@
   <template id="universitiesList" style="display:none">
     <div>
       <input type="text" v-model="searchTerm" @change="filter">
+      <button @click="filter">Filter</button>
       <table class="table table-dark table-striped table-bordered table-sm table-responsive">
         <thead>
           <tr>
