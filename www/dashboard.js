@@ -133,7 +133,19 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  routes // short for `routes: routes`
+  routes, // short for `routes: routes`
+  // https://router.vuejs.org/guide/advanced/scroll-behavior.html
+  scrollBehavior(to, from, savedPosition) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (savedPosition) {
+          resolve(savedPosition)
+        } else {
+          resolve({ x: 0, y: 0 })
+        }
+      }, 1500);// timeout hack to wait will data load, may not work always
+    })
+  }
 })
 
 Vue.component('app-header', {
