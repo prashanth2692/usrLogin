@@ -37,7 +37,7 @@ const investmentTrendComponent = {
                 path: '/universityNotes', query: { uid: university.uid }
             })
         },
-        sort: function (prop) {
+        sortByDeadline: function (prop) {
             // crude implementation, can be improvised
             this.sortOrder = this.sortOrder * -1
             this.universitiesList.sort((a, b) => {
@@ -52,6 +52,12 @@ const investmentTrendComponent = {
                 } else {
                     return this.deadlines[a.uid][prop] > this.deadlines[b.uid][prop] ? this.sortOrder * 1 : this.sortOrder * -1
                 }
+            })
+        },
+        sort: function (prop) {
+            this.sortOrder = this.sortOrder * -1
+            this.universitiesList.sort((a, b) => {
+                return a[prop] > b[prop] ? this.sortOrder * 1 : this.sortOrder * -1
             })
         }
     }

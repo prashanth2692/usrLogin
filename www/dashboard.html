@@ -281,11 +281,11 @@
       <table class="table table-dark table-striped table-bordered table-sm table-responsive">
         <thead>
           <tr>
-            <td>Rank</td>
-            <td>University</td>
-            <td>Location</td>
-            <td @click="sort('spring_deadline')">Spring deadline</td>
-            <td @click="sort('fall_deadline')">Fall deadline</td>
+            <td @click="sort('rank')">Rank</td>
+            <td @click="sort('universityName')">University</td>
+            <td @click="sort('location')">Location</td>
+            <td @click="sortByDeadline('spring_deadline')">Spring deadline</td>
+            <td @click="sortByDeadline('fall_deadline')">Fall deadline</td>
             <td>Actions</td>
           </tr>
         </thead>
