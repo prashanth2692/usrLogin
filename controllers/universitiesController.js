@@ -140,4 +140,25 @@ router.post('/notes', (req, res) => {
 
 })
 
+router.get('/deadlines', (req, res) => {
+    MongoClient.connect(url, function (err, db) {
+        if (err) {
+            res.status(500).send(err.message)
+            return
+        };
+        const mydb = db.db(dbConstants.dbs.mydb)
+        const universityNotesClx = mydb.collection(dbConstants.collections.universityNotes)
+
+        universityNotesClx.find({}, { projection: { uid: 1, spring_deadline: 1, fall_deadline: 1 } }).toArray((err, docs) => {
+            if (err) {
+                db.close()
+                res.status(500).send(err.message)
+                return
+            }
+            db.close()
+            res.status(200).json(docs)
+        })
+    });
+})
+
 module.exports = router

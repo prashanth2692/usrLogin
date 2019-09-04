@@ -4,7 +4,9 @@ const investmentTrendComponent = {
         return {
             searchTerm: "",
             universitiesList: [],
-            filteredList: []
+            filteredList: [],
+            deadlines: {},
+            sortOrder: 1
         }
     },
     created: function () {
@@ -12,6 +14,17 @@ const investmentTrendComponent = {
         axios.get('/universities/list').then((res) => {
             if (res.data) {
                 that.filteredList = that.universitiesList = res.data.sort((a, b) => a.rank - b.rank)
+            }
+        })
+
+        axios.get('/universities/deadlines').then((res) => {
+            // console.log(res.data)
+            const data = res.data
+            if (data && data.length) {
+                data.forEach(deadline => {
+                    // that.deadlines[deadline.uid] = deadline
+                    Vue.set(that.deadlines, deadline.uid, deadline)
+                })
             }
         })
     },
@@ -23,9 +36,24 @@ const investmentTrendComponent = {
             this.$router.push({
                 path: '/universityNotes', query: { uid: university.uid }
             })
+        },
+        sort: function (prop) {
+            // crude implementation, can be improvised
+            this.sortOrder = this.sortOrder * -1
+            this.universitiesList.sort((a, b) => {
+                const aDeadline = this.deadlines[a.uid]
+                const bDeadline = this.deadlines[b.uid]
+                if (!aDeadline && !bDeadline) {
+                    return 0
+                } else if (aDeadline && !bDeadline) {
+                    return this.sortOrder * 1
+                } else if (!aDeadline && bDeadline) {
+                    return this.sortOrder * -1
+                } else {
+                    return this.deadlines[a.uid][prop] > this.deadlines[b.uid][prop] ? this.sortOrder * 1 : this.sortOrder * -1
+                }
+            })
         }
-    },
-    computed: {
     }
 }
 

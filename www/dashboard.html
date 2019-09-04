@@ -284,6 +284,8 @@
             <td>Rank</td>
             <td>University</td>
             <td>Location</td>
+            <td @click="sort('spring_deadline')">Spring deadline</td>
+            <td @click="sort('fall_deadline')">Fall deadline</td>
             <td>Actions</td>
           </tr>
         </thead>
@@ -292,6 +294,8 @@
             <td v-text="university.rank"></td>
             <td v-text="university.universityName"></td>
             <td v-text="university.location"></td>
+            <td v-text="deadlines[university.uid] && deadlines[university.uid].spring_deadline"></td>
+            <td v-text="deadlines[university.uid] && deadlines[university.uid].fall_deadline"></td>
             <td>
               <button @click="openNotes(university)">View Notes</button>
             </td>
