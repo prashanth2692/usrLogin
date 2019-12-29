@@ -15,7 +15,7 @@ const batteryLogChartComponent = {
         const data = [];
 
         for (const valueObj of this.logs) {
-          if (valueObj._id.indexOf("-") != -1) {
+          if (valueObj._id.indexOf("-") === -1) {
             // if condition is hack to filter out bad data(date not in required format)
             data.push([valueObj._id, Number(valueObj.value) || 0]);
           }
@@ -25,7 +25,7 @@ const batteryLogChartComponent = {
           {
             name: "Date",
             type: "date",
-            format: "%Y-%m-%d_%H-%M-%L", // https://www.fusioncharts.com/dev/fusiontime/fusiontime-attributes#date-time-format
+            format: "%Y%m%d_%H%M%L", // https://www.fusioncharts.com/dev/fusiontime/fusiontime-attributes#date-time-format
           },
           {
             name: "value",
@@ -44,7 +44,7 @@ const batteryLogChartComponent = {
             {
               plot: {
                 value: "value",
-                type: "line",
+                type: "step-line",
                 connectnulldata: true,
               },
               title: "Battery Level",
