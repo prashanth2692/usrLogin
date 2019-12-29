@@ -14,7 +14,7 @@ router.use((req, res, next) => {
 router.get("/logs", (req, res) => {
   const url_parts = URL.parse(req.url, true);
   const query = url_parts.query;
-  const deviceId = Number(query.deviceId) || null;
+  const deviceId = query.deviceId;
   const top = Number(query.top) || 100;
 
   console.log(`getByDeviceId: ${deviceId}`);
