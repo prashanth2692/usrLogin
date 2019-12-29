@@ -360,6 +360,22 @@
       <button @click="saveNotes">save</button>
     </div>
   </template>
+
+  <template id="devicesList" style="display:none">
+    <div>
+      <ul>
+        <li v-for="device in devices">
+          <a v-text="device" @click="openBatteryLogChart(device)"></a>
+        </li>
+      </ul>
+    </div>
+  </template>
+
+  <template id="batteryLogChart" style="display:none">
+      <div>
+          <div id="batteryLogChart"></div>
+      </div>
+  </template>
 </body>
 
 <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
