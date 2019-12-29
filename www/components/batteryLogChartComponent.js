@@ -15,7 +15,10 @@ const batteryLogChartComponent = {
         const data = [];
 
         for (const valueObj of this.logs) {
-          data.push([valueObj._id, valueObj.value]);
+          if (valueObj._id.indexOf("-") != -1) {
+            // if condition is hack to filter out bad data(date not in required format)
+            data.push([valueObj._id, Number(valueObj.value) || 0]);
+          }
         }
 
         let schema = [
@@ -45,6 +48,7 @@ const batteryLogChartComponent = {
                 connectnulldata: true,
               },
               title: "Battery Level",
+              round: false,
             },
           ],
         };
@@ -52,7 +56,7 @@ const batteryLogChartComponent = {
 
         new FusionCharts({
           type: "timeseries",
-          renderAt: "batteryLogChart",
+          renderAt: "batteryLogChartHolder",
           width: "100%",
           height: "500",
           dataSource,

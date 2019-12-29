@@ -1,6 +1,6 @@
 var express = require('express')
 var router = express.Router()
-const bplData = require('../../../Stocks/BPL/BPL_2013-02-09_2018-02-09.json')
+// const bplData = require('../../../Stocks/BPL/BPL_2013-02-09_2018-02-09.json')
 var MongoClient = require('mongodb').MongoClient;
 // var mydb = require('./dbConnection').dbConnection
 // const URL = require('url')
