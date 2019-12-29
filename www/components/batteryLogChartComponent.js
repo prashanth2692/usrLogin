@@ -44,7 +44,7 @@ const batteryLogChartComponent = {
             {
               plot: {
                 value: "value",
-                type: "step-line",
+                type: "line",
                 connectnulldata: true,
               },
               title: "Battery Level",
