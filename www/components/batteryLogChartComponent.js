@@ -61,12 +61,45 @@ const batteryLogChartComponent = {
           height: "500",
           dataSource,
         }).render();
+
+        this.calculateRateOfChange(resp.data);
       })
       .catch(err => {
         console.log(err);
       });
   },
-  methods: {},
+  methods: {
+    calculateRateOfChange(logs) {
+      const rateOfChange = logs.map((log, i) => {
+        if (i === 0) {
+          return {
+            dateTime: log._id,
+            value: 0,
+          };
+        } else {
+          const fromDate = moment(logs[i - 1]._id, "YYYYMMDD_HHmmss");
+          const value1 = Number(logs[i - 1].value);
+          const toDate = moment(logs[i]._id, "YYYYMMDD_HHmmss");
+          const value2 = Number(logs[i].value);
+          const valueDiff = value2 - value1;
+          // calculate diff only if absolute value of diff is 1
+          //   const diffDurationAsMinutes =
+          //     Math.abs(valueDiff) === 1 ? moment.duration(toDate.diff(fromDate)).asMinutes() : 0;
+
+          const diffDurationAsMinutes =
+            Math.abs(valueDiff) === 1 ? valueDiff / moment.duration(toDate.diff(fromDate)).asMinutes() : 0;
+
+          return {
+            dateTime: log._id,
+            value: diffDurationAsMinutes,
+          };
+        }
+      });
+
+      console.log("rate of change of battery:", rateOfChange);
+      return rateOfChange;
+    },
+  },
   computed: {},
 };
 

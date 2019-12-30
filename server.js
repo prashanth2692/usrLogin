@@ -69,6 +69,8 @@ app.use(
     extended: true,
   })
 );
+app.use(bodyParser.json({ limit: "50mb", extended: true }));
+app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 
 // router.use(logger());
 router.use(function(req, res, next) {

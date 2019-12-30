@@ -277,6 +277,7 @@
   <template id="universitiesList" style="display:none">
     <div>
       <input type="text" v-model="searchTerm" @change="filter">
+      <input type="date" v-model="fromDate">
       <button @click="filter">Filter</button>
       <table class="table table-dark table-striped table-bordered table-sm table-responsive">
         <thead>
