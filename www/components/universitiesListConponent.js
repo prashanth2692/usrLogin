@@ -59,7 +59,7 @@ const investmentTrendComponent = {
     sortByDeadline: function(prop) {
       // crude implementation, can be improvised
       this.sortOrder = this.sortOrder * -1;
-      this.universitiesList.sort((a, b) => {
+      this.filteredList.sort((a, b) => {
         const aDeadline = this.deadlines[a.uid];
         const bDeadline = this.deadlines[b.uid];
         if (!aDeadline && !bDeadline) {
@@ -69,7 +69,9 @@ const investmentTrendComponent = {
         } else if (!aDeadline && bDeadline) {
           return this.sortOrder * -1;
         } else {
-          return this.deadlines[a.uid][prop] > this.deadlines[b.uid][prop] ? this.sortOrder * 1 : this.sortOrder * -1;
+          return moment.duration(moment(this.deadlines[a.uid][prop]).diff(moment(this.deadlines[b.uid][prop]))) > 0
+            ? this.sortOrder * 1
+            : this.sortOrder * -1;
         }
       });
     },
