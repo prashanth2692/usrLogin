@@ -3,7 +3,7 @@ function response304(res) {
   res.redirect('/login.html')
 }
 
-const validURLs = "/login.html|/register|/LoginUser|/RegisterUser|/battery/logsExt"
+const validURLs = "/login.html|/register|/LoginUser|/RegisterUser|/battery/logsExt|/btn_google_signin_dark_normal_web@2x.png|/login/google"
 
 let mydb = null
 function authenticator(req, res, next) {

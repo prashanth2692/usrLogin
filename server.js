@@ -12,10 +12,12 @@ const investmentTrendController = require("./controllers/investmentTrendControll
 const SymbolSearchController = require("./controllers/SymbolSearchController");
 const universitiesController = require("./controllers/universitiesController");
 const batteryLogController = require("./controllers/batteryLogController");
+const loginController = require("./controllers/login");
 const clientIPMiddleWare = require("./middlerware/clientIPMiddleware");
 const authenteMiddleware = require("./middlerware/authenticator.js");
 // var upload_files = require('./file_upload')
 var formidable = require("formidable");
+require('dotenv').config()
 // var http = require('http')
 // var fs = require('fs');
 var crypto = require("crypto");
@@ -26,6 +28,12 @@ const logResponseTime = require("./helpers/response-time-logger");
 const URL = require("url");
 const uuid = require("uuid/v1");
 var cookieParser = require("cookie-parser");
+const { argv } = require('yargs')
+const { config } = require('./helpers/appConfig')
+
+// if (argv.host) {
+config.hostName = argv.host || "localhost"
+// }
 
 var mongoose = require("mongoose");
 
@@ -33,7 +41,7 @@ mongoose.connect("mongodb://localhost:27017/mydb");
 
 var mongooseDB = mongoose.connection;
 
-mongooseDB.on("open", function(err) {
+mongooseDB.on("open", function (err) {
   if (err) throw err;
 
   console.log("mongoose connection successfull !");
@@ -54,7 +62,7 @@ const router = express.Router();
 var passwordSalt = "kjfbgjkhsfbg";
 
 const staticMidlleware = express.static(path.join(__dirname, "www"), {
-  extensions: ["html"], // is required to serve files which are requested without extension
+  extensions: ["html", "png"], // is required to serve files which are requested without extension
 });
 
 // middlewares
@@ -63,6 +71,7 @@ app.use(logResponseTime);
 app.use(clientIPMiddleWare);
 app.use(authenteMiddleware);
 app.use(staticMidlleware);
+// app.use("/", express.static(path.join(__dirname, "www")))
 app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
@@ -73,7 +82,7 @@ app.use(bodyParser.json({ limit: "50mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 
 // router.use(logger());
-router.use(function(req, res, next) {
+router.use(function (req, res, next) {
   console.log(req.url);
   next();
 });
@@ -85,14 +94,14 @@ function getHasedPassword(pass) {
     .digest();
 }
 
-router.get("/LoginUser", function(req, res) {
+router.get("/LoginUser", function (req, res) {
   let queryParams = req.query;
   let userName = queryParams.username;
   let password = queryParams.password;
 
   dbConnection()
     .collection("users")
-    .findOne({ userName }, function(err, doc) {
+    .findOne({ userName }, function (err, doc) {
       if (doc) {
         console.log("login:user doc", doc);
         var hashedPassword = getHasedPassword(password + passwordSalt);
@@ -115,7 +124,7 @@ router.get("/LoginUser", function(req, res) {
     });
 });
 
-router.post("/RegisterUser", function(req, res) {
+router.post("/RegisterUser", function (req, res) {
   let body = req.body;
   let username = body.username;
   let hashedPassword = getHasedPassword(body.password + passwordSalt);
@@ -123,21 +132,21 @@ router.post("/RegisterUser", function(req, res) {
 
   dbConnection()
     .collection("users")
-    .findOne({ userName: username }, function(err, doc) {
+    .findOne({ userName: username }, function (err, doc) {
       if (doc) {
         res.write("user already exists!");
         res.end();
       } else {
         dbConnection()
           .collection("users")
-          .insert({ userName: username, password: hashedPassword, uid: userUID }, function(err, doc) {
+          .insert({ userName: username, password: hashedPassword, uid: userUID }, function (err, doc) {
             res.redirect("/login.html?status=created");
           });
       }
     });
 });
 
-router.post("/addItem", function(req, res) {
+router.post("/addItem", function (req, res) {
   const userUID = req.context ? req.context.uid : null;
   // req.on('data', function (chunk) {
   var chunk = req.body.item;
@@ -158,7 +167,7 @@ router.post("/addItem", function(req, res) {
   }
 });
 
-router.get("/getItems", function(req, res) {
+router.get("/getItems", function (req, res) {
   const uid = req.context ? req.context.uid : null;
   let sessionId = req.cookies.session;
   let mydb = dbConnection();
@@ -166,7 +175,7 @@ router.get("/getItems", function(req, res) {
     .collection("items")
     .find({ deleted: { $exists: false }, uid })
     .toArray()
-    .then(function(docs) {
+    .then(function (docs) {
       res.status(200).json(docs ? docs : []);
     })
     .catch(err => {
@@ -190,7 +199,7 @@ router.get("/getItems", function(req, res) {
   // })
 });
 
-router.delete("/deleteItem/:id", function(req, res) {
+router.delete("/deleteItem/:id", function (req, res) {
   var url_parts = URL.parse(req.url, true);
   var query = url_parts.query;
   var id = req.params.id;
@@ -208,19 +217,19 @@ router.delete("/deleteItem/:id", function(req, res) {
   }
 });
 
-router.post("/fuelRefilling", function(req, res) {
+router.post("/fuelRefilling", function (req, res) {
   var form = new formidable.IncomingForm();
-  form.parse(req, function(err, fields, files) {
+  form.parse(req, function (err, fields, files) {
     var oldpath = files.file.path;
     var newpath = path.join(__dirname, "uploads", files.file.name); //'C:/Users/Your Name/' + files.filetoupload.name;
 
     fields.file = files.file.name;
     var newFuelRefill = new fuelRefeillingModel(fields);
 
-    newFuelRefill.save(function(err, fuelRefill) {
+    newFuelRefill.save(function (err, fuelRefill) {
       if (err) return console.error(err);
 
-      fs.rename(oldpath, newpath, function(err) {
+      fs.rename(oldpath, newpath, function (err) {
         if (err) throw err;
         res.send("files uploaded");
       });
@@ -228,16 +237,16 @@ router.post("/fuelRefilling", function(req, res) {
   });
 });
 
-router.post("/fileUpload", function(req, res) {
+router.post("/fileUpload", function (req, res) {
   // console.log(req.files)
   // upload_files()
   // res.send('received file!')
 
   var form = new formidable.IncomingForm();
-  form.parse(req, function(err, fields, files) {
+  form.parse(req, function (err, fields, files) {
     var oldpath = files.file.path;
     var newpath = path.join(__dirname, "uploads", files.file.name); //'C:/Users/Your Name/' + files.filetoupload.name;
-    fs.rename(oldpath, newpath, function(err) {
+    fs.rename(oldpath, newpath, function (err) {
       if (err) throw err;
       res.send("files uploaded");
     });
@@ -246,7 +255,7 @@ router.post("/fileUpload", function(req, res) {
 
 router.post("/uploadFile", (req, res) => {
   var form = new formidable.IncomingForm();
-  form.parse(req, function(err, fields, files) {
+  form.parse(req, function (err, fields, files) {
     // console.log(fields, files)
     let fileKeys = Object.keys(files);
     if (fileKeys.length > 0) {
@@ -316,6 +325,7 @@ app.use("/investment", investmentTrendController);
 app.use("/symbol", SymbolSearchController);
 app.use("/universities", universitiesController);
 app.use("/battery", batteryLogController);
+app.use("/login", loginController);
 
 // middleware
 app.use(router);

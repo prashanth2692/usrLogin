@@ -1,78 +1,101 @@
 <html>
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <style>
-    body {
-      background-color: lightgrey !important;
-    }
-
-    .centered {
-      position: fixed;
-      /* or absolute */
-      top: 50%;
-      left: 50%;
-      /* bring your own prefixes */
-      transform: translate(-50%, -50%);
-
-      border: solid;
-      border-width: 2px;
-      border-radius: 20px;
-      padding: 50px;
-      background-color: lightsteelblue;
-      min-width: 250px
-    }
-
-    #logincontainer {
-      -webkit-box-shadow: 10px 10px 25px 0px rgba(0, 0, 0, 0.75);
-      -moz-box-shadow: 10px 10px 25px 0px rgba(0, 0, 0, 0.75);
-      box-shadow: 10px 10px 25px 0px rgba(0, 0, 0, 0.75);
-    }
-
-    .statusMessage {
-      color: darkgreen;
-    }
-  </style>
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-</head>
-
-<body>
-  <div id="logincontainer" class="centered">
-    <p id="statusContainer" class="statusMessage"></p>
-    <h1>Sign In</h1>
-    <form action="/LoginUser" method="get">
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" class="form-control" id="username" name="username">
-      </div>
-
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" name="password">
-      </div>
-
-
-      <button type="submit">Log in</button>
-      <br>
-      <span>Don't have an account? </span>
-      <a href="/register">Register</a>
-
-    </form>
-  </div>
-
-  <script>
-    let urlPrams = new URLSearchParams(window.location.search)
-    let status = urlPrams.get('status')
-    if (status) {
-      window.onload = () => {
-        document.getElementById('statusContainer').innerText = 'User successfully created!'
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <style>
+      body {
+        background-color: lightgrey !important;
       }
-    }
-  </script>
 
-</body>
+      .centered {
+        position: fixed;
+        /* or absolute */
+        top: 50%;
+        left: 50%;
+        /* bring your own prefixes */
+        transform: translate(-50%, -50%);
 
+        border: solid;
+        border-width: 2px;
+        border-radius: 20px;
+        padding: 50px;
+        background-color: lightsteelblue;
+        min-width: 250px;
+      }
+
+      #logincontainer {
+        -webkit-box-shadow: 10px 10px 25px 0px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 10px 10px 25px 0px rgba(0, 0, 0, 0.75);
+        box-shadow: 10px 10px 25px 0px rgba(0, 0, 0, 0.75);
+      }
+
+      .statusMessage {
+        color: darkgreen;
+      }
+    </style>
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <div id="logincontainer" class="centered">
+      <p id="statusContainer" class="statusMessage"></p>
+      <h1>Sign In</h1>
+      <form action="/LoginUser" method="get">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" id="username" name="username" />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" name="password" />
+        </div>
+
+        <button type="submit">Log in</button>
+
+        <a href="javascript:window.location=googleLogin();" style="display: block">
+          <img src="btn_google_signin_dark_normal_web@2x.png" style="height: 40px"/>
+        </a>
+        <br />
+        <span>Don't have an account? </span>
+        <a href="/register">Register</a>
+      </form>
+    </div>
+
+    <script>
+      let urlPrams = new URLSearchParams(window.location.search);
+      let status = urlPrams.get("status");
+      if (status) {
+        window.onload = () => {
+          document.getElementById("statusContainer").innerText = "User successfully created!";
+        };
+      }
+
+      function googleLogin() {
+        const gooleLoginUrl = new URL("https://accounts.google.com/o/oauth2/v2/auth");
+        gooleLoginUrl.searchParams.set(
+          "client_id",
+          "711074199456-08v3f4s7herscl45fi0eurfce5ajorck.apps.googleusercontent.com"
+        );
+        gooleLoginUrl.searchParams.set("redirect_uri", "http://localhost/login/google");
+        gooleLoginUrl.searchParams.set(
+          "scope",
+          ["https://www.googleapis.com/auth/userinfo.email", "https://www.googleapis.com/auth/userinfo.profile"].join(
+            " "
+          )
+        );
+        gooleLoginUrl.searchParams.set("response_type", "code");
+        gooleLoginUrl.searchParams.set("access_type", "offline");
+        gooleLoginUrl.searchParams.set("prompt", "consent");
+
+        return gooleLoginUrl.toString();
+      }
+    </script>
+  </body>
 </html>

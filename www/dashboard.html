@@ -195,6 +195,8 @@
 
   <template id="appHeader" style="display:none">
     <div id="appHeader">
+      <div v-if="getUserEmail()" v-text="getUserEmail()" style="padding-left: 16px; padding-top: 10px;"></div>
+     
       <ul class="nav">
         <li class="nav-item" v-for="link in links">
           <router-link :to="link.link" class="nav-link" v-text="link.name"></router-link>

@@ -13,12 +13,12 @@ import batteryLogChartComponent from "./components/batteryLogChartComponent.js";
 
 // Add a response interceptor
 axios.interceptors.response.use(
-  function(response) {
+  function (response) {
     // Do something with response data
     console.log(response.status);
     return response;
   },
-  function(error) {
+  function (error) {
     // Do something with response error
 
     // This is obsolete as redirect is handled on iniital browser call
@@ -32,14 +32,14 @@ axios.interceptors.response.use(
 
 const fuelRefillComponent = {
   template: "#fuelRefill",
-  data: function() {
+  data: function () {
     return {
       totalAmount: null,
       odometerReading: null,
     };
   },
   methods: {
-    saveReading: function() {
+    saveReading: function () {
       var form_data = new FormData();
       form_data.append("totalAmount", this.totalAmount);
       form_data.append("odometerReading", this.odometerReading);
@@ -52,10 +52,10 @@ const fuelRefillComponent = {
             "Content-Type": "multipart/form-data",
           },
         })
-        .then(function(resp) {
+        .then(function (resp) {
           console.log(resp);
         })
-        .catch(function(err) {
+        .catch(function (err) {
           console.log(err);
         });
     },
@@ -65,27 +65,27 @@ const fuelRefillComponent = {
 const dashboardComponent = {
   // el: '#app',
   template: "#dashboard",
-  data: function() {
+  data: function () {
     return {
       newItem: "",
       items: [],
     };
   },
   methods: {
-    addItem: function(item) {
+    addItem: function (item) {
       var vm = this;
       axios
         .post("/addItem", { item: item })
-        .then(function(response) {
+        .then(function (response) {
           vm.newItem = "";
           vm.items.push(response.data);
         })
-        .catch(function(err) {
+        .catch(function (err) {
           console.log(err);
         });
       return false;
     },
-    removeItem: function(id) {
+    removeItem: function (id) {
       let vm = this;
       axios
         .delete("/deleteItem/" + id)
@@ -96,7 +96,7 @@ const dashboardComponent = {
           console.log(err);
         });
     },
-    getItems: function() {
+    getItems: function () {
       var that = this;
       axios
         .get("/getItems")
@@ -104,11 +104,11 @@ const dashboardComponent = {
           that.items = res.data;
           console.log(res);
         })
-        .catch(function(err) {
+        .catch(function (err) {
           console.log(err);
         });
     },
-    uploadFile: function() {
+    uploadFile: function () {
       var file = document.getElementById("fileUpload").files[0];
       var form_data = new FormData();
       form_data.append("file", file);
@@ -118,15 +118,15 @@ const dashboardComponent = {
             "Content-Type": "multipart/form-data",
           },
         })
-        .then(function(success) {
+        .then(function (success) {
           console.log(success.data);
         })
-        .catch(function(err) {
+        .catch(function (err) {
           console.log(err);
         });
     },
   },
-  created: function() {
+  created: function () {
     this.getItems();
   },
 };
@@ -168,7 +168,7 @@ const router = new VueRouter({
 
 Vue.component("app-header", {
   template: "#appHeader", //'<div id="app-header">{{header}}</div>',
-  data: function() {
+  data: function () {
     return {
       header: "Header",
       links: [
@@ -217,9 +217,18 @@ Vue.component("app-header", {
           name: "devices",
           link: "/devices",
         },
-      ],
+      ]
     };
   },
+  methods: {
+    getUserEmail: () => {
+      try {
+        return decodeURIComponent(document.cookie.split(";").map(s => s.trim()).map(a => a.split("=")).find(a => a.indexOf("email") > -1)[1])
+      } catch (e) {
+        return ""
+      }
+    }
+  }
 });
 
 const app = new Vue({

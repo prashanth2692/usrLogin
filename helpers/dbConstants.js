@@ -17,6 +17,9 @@ let dbConstants = {
     msInUsInCs: "ms_us_cs", // This collection has list of universities with location rank details
     universityNotes: "university_notes",
     phoneBatteryLogs: "phoneBatteryLogs",
+    users: "users",
+    googleSession: "google_session",
+    userSession: "user_session"
   },
   dbs: {
     mydb: "mydb",
