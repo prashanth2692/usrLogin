@@ -75,7 +75,8 @@
               <span>topicid:
                 {{msg.topicid}}</span> &nbsp; <span><button class="btn btn-sm" @click="repostUser(msg)"
                   v-if="!userMarkedSpam[msg.nick_name]">Report
-                  user</button></span></div>
+                  user</button></span>
+            </div>
             <div v-text="msg.full_message"></div>
           </li>
         </ul>
@@ -196,7 +197,7 @@
   <template id="appHeader" style="display:none">
     <div id="appHeader">
       <div v-if="getUserEmail()" v-text="getUserEmail()" style="padding-left: 16px; padding-top: 10px;"></div>
-     
+
       <ul class="nav">
         <li class="nav-item" v-for="link in links">
           <router-link :to="link.link" class="nav-link" v-text="link.name"></router-link>
@@ -223,7 +224,8 @@
           <div>
             <span>{{item.itemValue}}</span>
             <div style="display: inline">
-              <button class="btn btn-sm" @click="removeItem(item._id)">Remove</button></div>
+              <button class="btn btn-sm" @click="removeItem(item._id)">Remove</button>
+            </div>
           </div>
         </li>
       </ul>
@@ -233,6 +235,53 @@
   <template id="investmentTrend">
     <div>
       <div id="investmentTrendChart"></div>
+    </div>
+  </template>
+
+  <template id="optionStrategiesComponent">
+    <div>
+      <input id="contentFile" type="file" accept="application/json" />
+      <div>
+        <label for="lotSize">Start Strike</label>
+        <input type="number" name="lotSize" id="lotSize" v-model="lotSize">
+        <label for="startStrike">Start Strike</label>
+        <input type="number" name="startStrike" id="startStrike" v-model="startStrike">
+        <label for="endStrike">End Strike</label>
+        <input type="number" name="endStrike" id="endStrike" v-model="endStrike">
+        <label for="strikeStepSize">Strike Step</label>
+        <input type="number" name="strikeStepSize" id="strikeStepSize" v-model="strikeStepSize">
+        <button @click="downloadJSON">Download</button>
+      </div>
+      <div>
+        <button @click="addTrade">Add</button>
+        <div v-for="(trade, index) in strategyTrades">
+          {{index}}
+          <label for="strikePrice">Strike Price</label>
+          <input type="number" name="strikePrice" id="strikePrice" v-model="trade.strikePrice">
+          <label for="price">price</label>
+          <input type="number" name="price" id="price" v-model="trade.price">
+          <label for="lots">no. of lots</label>
+          <input type="number" name="lots" id="lots" v-model="trade.lots">
+          <label for="isCall">Is call?</label>
+          <input type="checkbox" name="isCall" id="isCall" v-model="trade.isCall">
+          <label for="isLong">Is Long?</label>
+          <input type="checkbox" name="isLong" id="isLong" v-model="trade.isLong">
+          <button @click="removeTrade(index)">remove</button>
+        </div>
+      </div>
+      <div>
+        <button @click="addNewStrategy">Add</button>
+        <div v-for="(strategy, index) in strategies">
+          <label v-bind:for="'strikePrice' + index">Strike Price</label>
+          <input type="text" v-bind:name="'strikePrice' + index" v-bind:id="'strikePrice' + index"
+            v-model="strategy.value">
+            <button @click="removeStrategy(index)">remove</button>
+        </div>
+      </div>
+      <div>
+        <button @click="analyzeStrategies">Analyze Strategies</button>
+      </div>
+      <div id="option_strategy_analysis"></div>
     </div>
   </template>
 
@@ -375,9 +424,9 @@
   </template>
 
   <template id="batteryLogChart" style="display:none">
-      <div>
-          <div id="batteryLogChartHolder"></div>
-      </div>
+    <div>
+      <div id="batteryLogChartHolder"></div>
+    </div>
   </template>
 </body>
 

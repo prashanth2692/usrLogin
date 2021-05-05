@@ -8,6 +8,7 @@ import uploadConponent from "./components/uploadComponent.js";
 import SymbolSearchComponent from "./components/SymbolSearchComponent.js";
 import universitiesListConponent from "./components/universitiesListConponent.js";
 import universityNotes from "./components/universityNotesComponent.js";
+import optionStrategiesComponent from "./components/optionStrategiesComponent.js";
 import devicesComponent from "./components/devicesComponent.js";
 import batteryLogChartComponent from "./components/batteryLogChartComponent.js";
 
@@ -147,6 +148,7 @@ const routes = [
   { path: "/universities", component: universitiesListConponent },
   { path: "/universityNotes", component: universityNotes },
   { path: "/devices", component: devicesComponent },
+  { path: "/optionStrategies", component: optionStrategiesComponent },
   { path: "/batteryLogChart", component: batteryLogChartComponent },
 ];
 
@@ -216,6 +218,10 @@ Vue.component("app-header", {
         {
           name: "devices",
           link: "/devices",
+        },
+        {
+          name: "Option Strategies",
+          link: "/optionStrategies",
         },
       ]
     };
